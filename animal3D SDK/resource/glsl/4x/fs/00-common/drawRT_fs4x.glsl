@@ -73,6 +73,8 @@ uniform sampler2D uTex_dm;
 
 bool rayHit = false;
 
+int hitIndexs[3];//at most 3 bounces
+
 layout (location = 0) out vec4 rtFragColor;
 
 //got this function from https://stackoverflow.com/questions/4200224/random-noise-functions-for-glsl
@@ -194,28 +196,46 @@ void main()
 
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
-	const vec3 rayPos = vec3(0.0); //TODO: change this to the camera at some point
-	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //error
 
-	if(RayCastSphere(rayPos, objPos, radius_sphere1)) //boo this sucks
+	const vec3 rayPos = vec3(0.0); //TODO: change this to the camera at some point
+
+	for(int i = 0; i < 3; i++) //first pass check for hits
 	{
-		rtFragColor.rgb = GetColorOfObject(IDX_MODEL_SPHERE1);
-		rtFragColor.a = 1.0;
-		return;
+		//hit first sphere
+		vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
+		if(RayCastSphere(rayPos, objPos, radius_sphere1)) //check if we hit the object
+		{
+			hitIndexs[i] = IDX_MODEL_SPHERE1;
+			//change the ray position becasue we want to bounce now
+
+		
+		}
+
+		//hit second sphere
+		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
+		if(RayCastSphere(rayPos, nextPos, radius_sphere0))
+		{
+			hitIndexs[i] = IDX_MODEL_SPHERE0;
+		}
+
+	}
+
+	
+	
+	vec3 totalColor;
+	for(int i = 2; i > -1; i--) //make second pass for coloring
+	{
+		totalColor += GetColorOfObject(hitIndexs[i]);
 	}
 	
-	vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; //error
-	if(RayCastSphere(rayPos, nextPos, radius_sphere0))
-	{
-		rtFragColor.rgb = GetColorOfObject(IDX_MODEL_SPHERE0);
-		rtFragColor.a = 1.0;
-		return;
-	}
+
+	rtFragColor.rgb = totalColor;
+	rtFragColor.a = 1.0;
 
 
 	//found nothing just use the base texure
-	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-	rtFragColor = sample_dm * uColor;
-	rtFragColor.a = sample_dm.a;
+//	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
+//	rtFragColor = sample_dm * uColor;
+//	rtFragColor.a = sample_dm.a;
 
 }
