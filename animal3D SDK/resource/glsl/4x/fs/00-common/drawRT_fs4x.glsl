@@ -143,26 +143,19 @@ bool RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
 
 	if(d < 0.0)
 	{
-		//gl_FragDepth = depth; //somthing is messed up with the depth
-		//vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-		//color = sample_dm * uColor;
-		//color.a = sample_dm.a;
 		return false;
 	}
 
+	//TODO: we can check if the ray is hitting from the back here so that we can get some fake lighting
 	d = b - sqrt(d);
 
-	vec3 hitPos = rayPos + d * rayDir; //scale hit point in a direction
+	vec3 hitPos = rayPos + d * rayDir; //get a position on the thing to hit
 	posView = vec4(hitPos, 1.0);
 	posBias = viewer_stack[0].projectionBiasMat * posView;
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
 	vec3 nrlHit = normalize(hitPos - objPos);
 
-	//color.rgb = nrlHit * 0.5 + 0.5; 
-	//color.a = 1.0;
-
-	//rayHit = true;
 	return true;
 
 }
@@ -206,7 +199,7 @@ void main()
 		if(RayCastSphere(rayPos, objPos, radius_sphere1)) //check if we hit the object
 		{
 			hitIndexs[i] = IDX_MODEL_SPHERE1;
-			//change the ray position becasue we want to bounce now
+			//TODO change the starting and target position of the vector so we can have a new ray to test against
 
 		
 		}
@@ -220,11 +213,10 @@ void main()
 
 	}
 
-	
-	
 	vec3 totalColor;
 	for(int i = 2; i > -1; i--) //make second pass for coloring
 	{
+	//you can add some influece based off of the bounce depth
 		totalColor += GetColorOfObject(hitIndexs[i]);
 	}
 	
