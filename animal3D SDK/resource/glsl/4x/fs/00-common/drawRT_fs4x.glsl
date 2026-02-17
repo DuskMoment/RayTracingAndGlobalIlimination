@@ -71,7 +71,62 @@ uniform vec4 uColor;
 
 uniform sampler2D uTex_dm;
 
+bool rayHit = false;
+
 layout (location = 0) out vec4 rtFragColor;
+
+vec4 RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
+{
+	vec4 color;
+
+//use geo position
+	vec3 rayTarget = vTangentBasis_view[3].xyz;
+
+	//ray target in screen space coridnates
+	float depth = gl_FragCoord.z;
+	vec4 uAxis = vec4(0.0); viewer_stack[0].viewProjectionBiasMatInverse; //error --> this might need to be its own uniform?
+	vec4 imagePos = vec4(gl_FragCoord.xy * uAxis.zw, depth, 1.0); //uAxsis might be the uniform Axis meaning the orientatino of the camera
+	vec4 posBias = viewer_stack[0].projectionBiasMatInverse * imagePos;
+	vec4 posView = posBias / posBias.w;//persepective divide
+//	vec3 rayTarget = posView.xyz;
+
+
+	//ray direction
+	vec3 rayDir = normalize(rayTarget - rayPos);
+
+	
+	//SPHERE TEST
+	vec3 s = objPos - rayPos;
+	float b = dot(rayDir, s);
+	float c = dot(s, s) - r * r;
+
+	float d = b * b - c;
+
+	if(d < 0.0)
+	{
+		//gl_FragDepth = depth; //somthing is messed up with the depth
+		vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
+		color = sample_dm * uColor;
+		color.a = sample_dm.a;
+		return color;
+	}
+
+	d = b - sqrt(d);
+
+	vec3 hitPos = rayPos + d * rayDir; //scale hit point in a direction
+	posView = vec4(hitPos, 1.0);
+	posBias = viewer_stack[0].projectionBiasMat * posView;
+	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
+
+	vec3 nrlHit = normalize(hitPos - objPos);
+
+	color.rgb = nrlHit * 0.5 + 0.5; 
+	color.a = 1.0;
+
+	rayHit = true;
+	return color;
+
+}
 
 void main()
 {
@@ -89,42 +144,16 @@ void main()
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
 	const vec3 rayPos = vec3(0.0); //TODO: change this to the camera at some point
+	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //error
 
-	//ray target in screen space coridnates
-	float depth = gl_FragCoord.z;
-	vec4 uAxis = vec4(1.0); //viewer_stack[0].viewProjectionBiasMatInverse; //error --> this might need to be its own uniform?
-	vec4 imagePos = vec4(gl_FragCoord.xy * uAxis.zw, depth, 1.0); //uAxsis might be the uniform Axis meaning the orientatino of the camera
-	vec4 posBias = viewer_stack[0].projectionBiasMatInverse * imagePos;
-	vec4 posView = posBias / posBias.w;//persepective divide
-	vec3 rayTarget = posView.xyz;
+	rtFragColor = RayCastSphere(rayPos, objPos, radius_sphere1);
 
-
-	//ray direction
-	vec3 rayDir = normalize(rayTarget - rayPos);
-
-	
-	//SPHERE TEST
-	vec3 objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; //error
-	vec3 s = objPos - rayPos;
-	float b = dot(rayDir, s);
-	float c = dot(s, s) - radius_sphere0 * radius_sphere0;
-
-	float d = b * b - c;
-
-	if(d < 0.0)
+	if(rayHit) //boo this sucks
 	{
-		gl_FragDepth = depth;
 		return;
 	}
+	
+	vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; //error
+	rtFragColor = RayCastSphere(rayPos, nextPos, radius_sphere0);
 
-	d = b - sqrt(d);
-
-	vec3 hitPos = rayPos + d * rayDir; //scale hit point in a direction
-	posView = vec4(hitPos, 1.0);
-	posBias = viewer_stack[0].projectionBiasMat * posView;
-	gl_FragDepth = posBias.z / posBias.w; //also error
-
-	vec3 nrlHit = normalize(hitPos - objPos);
-
-	rtFragColor.rgb = nrlHit * 0.5 + 0.5; 
 }
