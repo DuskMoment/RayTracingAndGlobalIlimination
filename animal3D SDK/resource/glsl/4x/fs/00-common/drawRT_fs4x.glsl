@@ -75,16 +75,53 @@ bool rayHit = false;
 
 layout (location = 0) out vec4 rtFragColor;
 
-vec4 RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
+//got this function from https://stackoverflow.com/questions/4200224/random-noise-functions-for-glsl
+float rand(vec2 co){
+    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+vec3 CreateRayDirection(vec3 target, vec3 start)
+{
+	return normalize(target - start);
+}
+
+vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a unit sphere 
+{
+
+//get a random vector
+	float x = rand(vTexcoord_atlas.xy);
+	float y = rand(vTexcoord_atlas.xy);
+	float z = rand(vTexcoord_atlas.yz);
+
+	vec3 randVec = vec3(x,y,z);
+
+	//normalize it so it is a unit vector
+	randVec = normalize(randVec);
+
+	//dot against the normalize
+
+	vec4 normal = vTangentBasis_view[3];
+	vec3 testNormal = vec3(normal.x, normal.y, normal.z);
+
+	if(dot(randVec, testNormal) > 0.0)
+	{
+		return randVec;
+	}
+
+	return -randVec;
+}
+
+//TODO might need to split this up from a test if hit (bool) and have get color as seperate options)
+bool RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
 {
 	vec4 color;
 
-//use geo position
+	//use geo position
 	vec3 rayTarget = vTangentBasis_view[3].xyz;
 
-	//ray target in screen space coridnates
+	//ray target in screen space coridnates  -->not used
 	float depth = gl_FragCoord.z;
-	vec4 uAxis = vec4(0.0); viewer_stack[0].viewProjectionBiasMatInverse; //error --> this might need to be its own uniform?
+	vec4 uAxis = vec4(0.0); //viewer_stack[0].viewProjectionBiasMatInverse; //error --> this might need to be its own uniform?
 	vec4 imagePos = vec4(gl_FragCoord.xy * uAxis.zw, depth, 1.0); //uAxsis might be the uniform Axis meaning the orientatino of the camera
 	vec4 posBias = viewer_stack[0].projectionBiasMatInverse * imagePos;
 	vec4 posView = posBias / posBias.w;//persepective divide
@@ -92,7 +129,7 @@ vec4 RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
 
 
 	//ray direction
-	vec3 rayDir = normalize(rayTarget - rayPos);
+	vec3 rayDir = CreateRayDirection(rayTarget, rayPos);
 
 	
 	//SPHERE TEST
@@ -105,10 +142,10 @@ vec4 RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
 	if(d < 0.0)
 	{
 		//gl_FragDepth = depth; //somthing is messed up with the depth
-		vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-		color = sample_dm * uColor;
-		color.a = sample_dm.a;
-		return color;
+		//vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
+		//color = sample_dm * uColor;
+		//color.a = sample_dm.a;
+		return false;
 	}
 
 	d = b - sqrt(d);
@@ -120,13 +157,31 @@ vec4 RayCastSphere(const vec3 rayPos, vec3 objPos, float r)
 
 	vec3 nrlHit = normalize(hitPos - objPos);
 
-	color.rgb = nrlHit * 0.5 + 0.5; 
-	color.a = 1.0;
+	//color.rgb = nrlHit * 0.5 + 0.5; 
+	//color.a = 1.0;
 
-	rayHit = true;
-	return color;
+	//rayHit = true;
+	return true;
 
 }
+
+//this function gets the color of a object at a model index
+vec3 GetColorOfObject(int modelIndex)
+{
+	vec3 color = vec3(0.0, 0.0, 0.0);
+
+	switch(modelIndex)
+	{
+	case IDX_MODEL_SPHERE0: 
+		color = vec3(1.0,0.0,0.0);
+		break;
+	case IDX_MODEL_SPHERE1:
+		color = vec3(0.0,1.0,0.0);
+	}
+
+	return color;
+}
+
 
 void main()
 {
@@ -137,23 +192,30 @@ void main()
 //	rtFragColor = sample_dm * uColor;
 //	rtFragColor.a = sample_dm.a;
 
-
-
-
-
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
 	const vec3 rayPos = vec3(0.0); //TODO: change this to the camera at some point
 	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //error
 
-	rtFragColor = RayCastSphere(rayPos, objPos, radius_sphere1);
-
-	if(rayHit) //boo this sucks
+	if(RayCastSphere(rayPos, objPos, radius_sphere1)) //boo this sucks
 	{
+		rtFragColor.rgb = GetColorOfObject(IDX_MODEL_SPHERE1);
+		rtFragColor.a = 1.0;
 		return;
 	}
 	
 	vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; //error
-	rtFragColor = RayCastSphere(rayPos, nextPos, radius_sphere0);
+	if(RayCastSphere(rayPos, nextPos, radius_sphere0))
+	{
+		rtFragColor.rgb = GetColorOfObject(IDX_MODEL_SPHERE0);
+		rtFragColor.a = 1.0;
+		return;
+	}
+
+
+	//found nothing just use the base texure
+	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
+	rtFragColor = sample_dm * uColor;
+	rtFragColor.a = sample_dm.a;
 
 }
