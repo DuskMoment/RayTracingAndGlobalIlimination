@@ -134,10 +134,21 @@ void a3rendering_input(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f64
             a3vec3 const Q0 = scene->obj_room_sphere[0].position;//object center
             a3real const r  = scene->obj_room_sphere[0].scale.x; //sphere radius (stored here as scale)
 
-            (void)P0;
-            (void)p;
-            (void)Q0;
-            (void)r;
+			a3vec3 s;
+			a3real b, c, d;
+			//a3real t;
+
+			a3real3Diff(s.v, Q0.v, P0.v);
+			b = a3real3Dot(s.v, p.v);
+			c = a3real3Dot(s.v, s.v) - r * r;
+			d = b * b - c;
+
+			scene->test_ray_hit = (d >= a3real_zero);
+
+			if (scene->test_ray_hit)
+			{
+				scene->test_ray_param = b - a3sqrt(d);
+			}
         }
 	}
 	

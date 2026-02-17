@@ -58,6 +58,15 @@ uniform ubTransformStack {
 	sModelStack model_stack[MAX_MODELS];
 };
 
+#define IDX_MODEL_SPHERE0 2
+#define IDX_MODEL_SPHERE1 3
+
+const float radius_sphere0 = 2.0;
+const float radius_sphere1 = 1.0;
+
+uniform mat4 uP;
+uniform mat4 uPB;
+
 uniform vec4 uColor;
 
 uniform sampler2D uTex_dm;
