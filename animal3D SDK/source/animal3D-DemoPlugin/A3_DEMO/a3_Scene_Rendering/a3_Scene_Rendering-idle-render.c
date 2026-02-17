@@ -451,7 +451,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                 renderingMaxCount_sceneObject, (a3ui32)(scene->obj_room_enclosure - scene->obj_room),
                 renderingMaxCount_projector, 1);
             a3shaderUniformBufferActivate(demoState->ubo_transformStack, 0);
-			for (currentSceneObject = scene->obj_room_enclosure, endSceneObject = scene->obj_room_enclosure,
+			for (currentSceneObject = scene->obj_room_sphere, endSceneObject = scene->obj_room_enclosure,
 				j = (a3ui32)(currentSceneObject - scene->object_scene);
 				currentSceneObject <= endSceneObject;
 				++j, ++currentSceneObject)
