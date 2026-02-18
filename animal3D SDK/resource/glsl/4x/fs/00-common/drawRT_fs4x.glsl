@@ -27,6 +27,7 @@
 in vbVertexData {
 	mat4 vTangentBasis_view;
 	vec4 vTexcoord_atlas;
+	vec3 vView_pos;
 };
 
 #define MAX_MODELS 24
@@ -87,13 +88,13 @@ vec3 CreateRayDirection(vec3 target, vec3 start) // take two positions and retur
 	return normalize(target - start);
 }
 
-vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a unit sphere 
+vec3 CreateRandomRayDirectionOnHem(int model)//this will get a new randon direction on a unit sphere 
 {
 
 	//get a random vector
 	float x = rand(vTexcoord_atlas.xy);
 	float y = rand(vTexcoord_atlas.xy);
-	float z = rand(vTexcoord_atlas.yz);
+	float z = rand(vTexcoord_atlas.xy);
 
 	vec3 randVec = vec3(x,y,z);
 
@@ -101,10 +102,17 @@ vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a 
 	randVec = normalize(randVec);
 
 	//dot against the normalize
-	vec4 normal =  normalize(vTangentBasis_view[2]);
-	vec3 testNormal = vec3(normal.x, normal.y, normal.z);
+	vec4 normal = normalize(vTangentBasis_view[2]);
+	//vec4 normal =  model_stack[model].modelViewMatInverse * normalize(vTangentBasis_view[2]); //puts normal back into obj space?
 
-	if(dot(randVec, testNormal) > 0.0)
+	//idk if this is needed, is for checking if random vector is in sphere
+	float lensq = dot(randVec, randVec);
+	if (1e-160 < lensq && lensq <= 1)
+	{
+		randVec = randVec / sqrt(lensq);
+	}
+
+	if(dot(randVec, normal.xyz) > 0.0)
 	{
 		return randVec;
 	}
@@ -151,21 +159,16 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 	if(d < 0.0)
 	{
+		gl_FragDepth = depth;
 		return false;
 	}
 
 
 	d = b - sqrt(d);
-
-//	if(d < 0.0)
-//	{
-//		return false;
-//	}
-
 	vec3 hitPos = rayStartPos + d * rayDir; //get a position on the thing to hit
 	posView = vec4(hitPos, 1.0);
 	posBias = viewer_stack[0].projectionBiasMat * posView;
-	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
+	gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
 	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
 
@@ -182,10 +185,10 @@ vec3 GetColorOfObject(int modelIndex)
 	switch(modelIndex)
 	{
 	case IDX_MODEL_SPHERE0: 
-		color = vec3(1.0,0.0,0.0);
+		color = vec3(1.0,0.0,0.0) * .75;
 		break;
 	case IDX_MODEL_SPHERE1:
-		color = vec3(0.0,1.0,0.0);
+		color = vec3(0.0,1.0,0.0) * .75;
 	}
 
 	return color;
@@ -194,12 +197,6 @@ vec3 GetColorOfObject(int modelIndex)
 
 void main()
 {
-	// DUMMY OUTPUT: all fragments are OPAQUE GREEN
-	//rtFragColor = vec4(0.0, 1.0, 0.0, 1.0);
-
-//	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-//	rtFragColor = sample_dm * uColor;
-//	rtFragColor.a = sample_dm.a;
 
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
@@ -220,7 +217,7 @@ void main()
 			hitIndexs[i] = IDX_MODEL_SPHERE1; //add it to the hit list
 
 			//change the starting direction by a unit vector on a hemisphere
-			rayDirection = CreateRandomRayDirectionOnHem();
+			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE1);
 		}
 
 		//hit second sphere
@@ -229,7 +226,7 @@ void main()
 		{
 			rayHit = true;
 			hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
-			rayDirection = CreateRandomRayDirectionOnHem();//calcualte new direction
+			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE0);//calcualte new direction
 		}
 
 		//TODO add a box check here aswell as the last sphere
@@ -244,7 +241,7 @@ void main()
 		totalColor += (GetColorOfObject(hitIndexs[i]));
 	}
 	
-
+	//vec4 test = model_stack[2].modelViewMatInverse * normalize(vTangentBasis_view[2]);
 	rtFragColor.rgb = totalColor; //out put total color
 	rtFragColor.a = 1.0;
 
@@ -253,5 +250,4 @@ void main()
 //	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
 //	rtFragColor = sample_dm * uColor;
 //	rtFragColor.a = sample_dm.a;
-
 }

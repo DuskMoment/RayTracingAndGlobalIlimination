@@ -463,6 +463,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 				a3textureActivate(texture_dm[j], a3tex_unit01);
 				a3real4x4Product(modelViewMat.m, activeCameraObject->modelMatInv.m, currentSceneObject->modelMat.m);
 				a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV, 1, modelViewMat.mm);
+				a3shaderUniformSendFloat(a3unif_vec3, a3shaderUniformGetLocation(currentDemoProgram->program, "uViewPos"), 1, activeCamera->sceneObject->modelMat.v3.v);
 				a3scene_quickInvertTranspose_internal(modelViewMat.m);
 				modelViewMat.v3 = a3vec4_zero;
 				a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV_nrm, 1, modelViewMat.mm);
