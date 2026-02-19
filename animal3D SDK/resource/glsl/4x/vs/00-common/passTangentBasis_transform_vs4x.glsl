@@ -38,7 +38,7 @@ uniform vec3 uViewPos;
 out vbVertexData {
 	mat4 vTangentBasis_view;
 	vec4 vTexcoord_atlas;
-	vec3 vView_pos
+	//vec3 vView_pos
 };
 
 flat out int vVertexID;
@@ -54,7 +54,7 @@ void main()
 	gl_Position = uP * vTangentBasis_view[3];
 	
 	vTexcoord_atlas = uAtlas * aTexcoord;
-	vView_pos = mat3(aTangent, aBitangent, aNormal) * uViewPos;
+	//vView_pos = mat3(aTangent, aBitangent, aNormal) * uViewPos;
 
 	vVertexID = gl_VertexID;
 	vInstanceID = gl_InstanceID;

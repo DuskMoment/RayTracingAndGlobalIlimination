@@ -27,7 +27,7 @@
 in vbVertexData {
 	mat4 vTangentBasis_view;
 	vec4 vTexcoord_atlas;
-	vec3 vView_pos;
+	//vec3 vView_pos;
 };
 
 #define MAX_MODELS 24
@@ -64,6 +64,7 @@ uniform ubTransformStack {
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
+const int samples = 10;
 
 uniform mat4 uP;
 uniform mat4 uPB;
@@ -91,27 +92,30 @@ vec3 CreateRayDirection(vec3 target, vec3 start) // take two positions and retur
 vec3 CreateRandomRayDirectionOnHem(int model)//this will get a new randon direction on a unit sphere 
 {
 
-	//get a random vector
-	float x = rand(vTexcoord_atlas.xy);
-	float y = rand(vTexcoord_atlas.xy);
-	float z = rand(vTexcoord_atlas.xy);
+	bool randSuccess = true;
+	vec3 randVec;
+	
+		//get a random vector
+		float x = rand(vTexcoord_atlas.xy);
+		float y = rand(vTexcoord_atlas.xy);
+		float z = rand(vTexcoord_atlas.xy);
 
-	vec3 randVec = vec3(x,y,z);
+		randVec = vec3(x,y,z);
 
-	//normalize it so it is a unit vector
-	randVec = normalize(randVec);
+		//normalize it so it is a unit vector
+		randVec = normalize(randVec);
 
-	//dot against the normalize
+		//idk if this is needed, is for checking if random vector is in sphere
+		float lensq = dot(randVec, randVec);
+		if (1e-160 < lensq && lensq <= 1)
+		{
+			randVec = randVec / sqrt(lensq);
+			randSuccess = false;
+		}
+	
+	//dot against the normal
 	vec4 normal = normalize(vTangentBasis_view[2]);
 	//vec4 normal =  model_stack[model].modelViewMatInverse * normalize(vTangentBasis_view[2]); //puts normal back into obj space?
-
-	//idk if this is needed, is for checking if random vector is in sphere
-	float lensq = dot(randVec, randVec);
-	if (1e-160 < lensq && lensq <= 1)
-	{
-		randVec = randVec / sqrt(lensq);
-	}
-
 	if(dot(randVec, normal.xyz) > 0.0)
 	{
 		return randVec;
@@ -205,44 +209,78 @@ void main()
 									//TODO: change this to the position of the camera or some point light
 
 	//bootstrap case
+	vec3 totalCol = vec3(0.0);
 	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //set the first object to be tested
-	vec3 rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
-	for(int i = 0; i < 3; i++) //first pass check for hits
+	vec3 rayDirOne =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
+
+	
+	if (RayCastSphere(rayPos, rayDirOne, objPos, radius_sphere1))
 	{
-		rayHit = false;
-		//hit first sphere
-		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1) && !rayHit) //check if we hit the object
+		for (int i = 0; i < samples; i++)
 		{
-			rayHit = true;
-			hitIndexs[i] = IDX_MODEL_SPHERE1; //add it to the hit list
-
-			//change the starting direction by a unit vector on a hemisphere
-			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE1);
+			vec3 rayDirTwo = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE1);
+			if (RayCastSphere(rayPos, rayDirTwo, objPos, radius_sphere1))
+			{
+				for (int j = 0; j < samples; j++)
+				{
+					vec3 rayDirThree = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE1);
+					if (RayCastSphere(rayPos, rayDirThree, objPos, radius_sphere1))
+					{	
+						float a = 0.5 * (rayDirThree.y + 1.0);
+						totalCol += ((1.0-a)*vec3(1.0, 1.0, 1.0) + a*vec3(0.5, 0.7, 1.0)) * (0.5 * 2);
+					}
+				}
+			}
+			else
+			{
+				float a = 0.5 * (rayDirTwo.y + 1.0);
+				totalCol += ((1.0-a)*vec3(1.0, 1.0, 1.0) + a*vec3(0.5, 0.7, 1.0))  * 0.5;
+			}
 		}
-
-		//hit second sphere
-		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
-		if (RayCastSphere(rayPos, rayDirection, nextPos, radius_sphere0) && !rayHit)
-		{
-			rayHit = true;
-			hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
-			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE0);//calcualte new direction
-		}
-
-		//TODO add a box check here aswell as the last sphere
-
+	}
+	else
+	{
+		float a = 0.5 * (rayDirOne.y + 1.0);
+		totalCol += ((1.0-a)*vec3(1.0, 1.0, 1.0) + a*vec3(0.5, 0.7, 1.0));
 	}
 
-	vec3 totalColor;
-	for(int i = 2; i > -1; i--) //make second pass for coloring
-	{
-		//this parese the hit list and colors back ward from the last hit object
-		//you can add some influece based off of the bounce depth
-		totalColor += (GetColorOfObject(hitIndexs[i]));
-	}
+
+//	for(int i = 0; i < 3; i++) //first pass check for hits
+//	{
+//		rayHit = false;
+//		//hit first sphere
+//		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1) && !rayHit) //check if we hit the object
+//		{
+//			rayHit = true;
+//			hitIndexs[i] = IDX_MODEL_SPHERE1; //add it to the hit list
+//
+//			//change the starting direction by a unit vector on a hemisphere
+//			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE1);
+//		}
+//
+//		//hit second sphere
+//		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
+//		if (RayCastSphere(rayPos, rayDirection, nextPos, radius_sphere0) && !rayHit)
+//		{
+//			rayHit = true;
+//			hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
+//			rayDirection = CreateRandomRayDirectionOnHem(IDX_MODEL_SPHERE0);//calcualte new direction
+//		}
+//
+//		//TODO add a box check here aswell as the last sphere
+//
+//	}
+//
+//	vec3 totalColor;
+//	for(int i = 2; i > -1; i--) //make second pass for coloring
+//	{
+//		//this parese the hit list and colors back ward from the last hit object
+//		//you can add some influece based off of the bounce depth
+//		totalColor += (GetColorOfObject(hitIndexs[i]));
+//	}
 	
 	//vec4 test = model_stack[2].modelViewMatInverse * normalize(vTangentBasis_view[2]);
-	rtFragColor.rgb = totalColor; //out put total color
+	rtFragColor.rgb = totalCol; //out put total color
 	rtFragColor.a = 1.0;
 
 
