@@ -93,9 +93,9 @@ vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a 
 {
 
 	//get a random vector
-	float x = rand(vTexcoord_atlas.xy) * 2 - 1.0;
-	float y = rand(vTexcoord_atlas.xy) * 2 - 1.0;
-	float z = rand(vTexcoord_atlas.xy) * 2 - 1.0;
+	float x = rand(gl_FragCoord.xy) * 2 - 1.0;
+	float y = rand(gl_FragCoord.xz) * 2 - 1.0;
+	float z = rand(gl_FragCoord.yz) * 2 - 1.0;
 
 	vec3 randVec = vec3(x,y,z);
 
@@ -250,88 +250,12 @@ void main()
 	}
 
 	rayHit = false;
-	rtFragColor.rgb = color; //out put total color
+	rtFragColor.rgb = CreateRandomRayDirectionOnHem(); //out put total color
 	rtFragColor.a = 1.0;
-	rayDirection = CreateRandomRayDirectionOnHem();
+	rayDirection = CreateRandomRayDirectionOnHem() ;
 	
+	//TODO: do lambersion 
 	
-	//pass two
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
-	{
-		if(t < minT)
-		{
-
-			minT = t;
-			toDraw = IDX_MODEL_SPHERE1;
-			color = vec3(0.0,1.0,0.0);
-			rayHit = true;
-
-			
-		}
-	}
-
-	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
-	{
-		if(t < minT)
-		{
-		    minT = t;
-			toDraw = IDX_MODEL_SPHERE0;
-			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
-			//rtFragColor.a = 1.0;
-			color = vec3(0.0,1.0,0.0);
-			rayHit = true;
-			
-		}
-	}
-
-	if(!rayHit)
-	{
-		return;
-	}
-	rayHit = false;
-	rtFragColor.rgb = color; //out put total color
-	rtFragColor.a = 1.0;
-	rayDirection = CreateRandomRayDirectionOnHem();
-
-
-	//pass three
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
-	{
-		if(t < minT)
-		{
-
-			minT = t;
-			toDraw = IDX_MODEL_SPHERE1;
-			color = vec3(0.0,0.0,1.0);
-			rayHit = true;
-
-			
-		}
-	}
-
-	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
-	{
-		if(t < minT)
-		{
-		    minT = t;
-			toDraw = IDX_MODEL_SPHERE0;
-			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
-			//rtFragColor.a = 1.0;
-			color = vec3(0.0,0.0,1.0);
-			rayHit = true;
-			
-		}
-	}
-
-	if(!rayHit)
-	{
-		return;
-	}
-	rayHit = false;
-	rtFragColor.rgb = color; //out put total color
-	rtFragColor.a = 1.0;
 
 //	for(int i = 0; i < 1; i++) //first pass check for hits
 //	{
