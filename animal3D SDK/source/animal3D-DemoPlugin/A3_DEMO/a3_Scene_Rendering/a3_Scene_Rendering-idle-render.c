@@ -310,6 +310,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 	a3mat4 viewProjectionMat;
 	a3mat4 projectionBiasMat, projectionBiasMat_inv;
 	a3mat4 modelMat, modelViewMat, modelViewProjectionMat;
+    a3vec4 pixelSizeAndInv;
 
 	// init
 	a3real4x4Product(viewProjectionMat.m, projectionMat.m, viewMat.m);
@@ -371,6 +372,13 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
     if (demoState->updateAnimation)
         a3shaderUniformSendDouble(a3unif_single, currentDemoProgram->uTime, 1, &demoState->timer_display->totalTime);
     
+    // send target dimensions
+    pixelSizeAndInv.x = (a3f32)currentWriteFBO->frameWidth;
+    pixelSizeAndInv.y = (a3f32)currentWriteFBO->frameHeight;
+    pixelSizeAndInv.z = 1.0f / pixelSizeAndInv.x;
+    pixelSizeAndInv.w = 1.0f / pixelSizeAndInv.y;
+    a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uAxis, 1, pixelSizeAndInv.v);
+
 	// select pipeline algorithm
 	glDisable(GL_BLEND);
 	switch (pipeline)
