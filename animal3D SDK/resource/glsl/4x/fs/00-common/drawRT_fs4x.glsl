@@ -64,6 +64,7 @@ uniform ubTransformStack {
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
 
+uniform vec3 pos;
 uniform mat4 uP;
 uniform mat4 uPB;
 
@@ -74,6 +75,7 @@ uniform sampler2D uTex_dm;
 bool rayHit = false;
 
 int hitIndexs[3];//at most 3 bounces
+float minT[3];
 
 layout (location = 0) out vec4 rtFragColor;
 
@@ -93,7 +95,7 @@ vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a 
 	//get a random vector
 	float x = rand(vTexcoord_atlas.xy);
 	float y = rand(vTexcoord_atlas.xy);
-	float z = rand(vTexcoord_atlas.yz);
+	float z = rand(vTexcoord_atlas.xy);
 
 	vec3 randVec = vec3(x,y,z);
 
@@ -113,7 +115,7 @@ vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a 
 }
 
 //TODO might need to split this up from a test if hit (bool) and have get color as seperate options)
-bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float r)
+bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float r, out float t)
 {
 	vec4 color;
 
@@ -157,10 +159,7 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 	d = b - sqrt(d);
 
-//	if(d < 0.0)
-//	{
-//		return false;
-//	}
+	t = d; //used for the out value
 
 	vec3 hitPos = rayStartPos + d * rayDir; //get a position on the thing to hit
 	posView = vec4(hitPos, 1.0);
@@ -182,10 +181,10 @@ vec3 GetColorOfObject(int modelIndex)
 	switch(modelIndex)
 	{
 	case IDX_MODEL_SPHERE0: 
-		color = vec3(1.0,0.0,0.0);
+		color = vec3(1.0,0.0,0.0) * 0.7;
 		break;
 	case IDX_MODEL_SPHERE1:
-		color = vec3(0.0,1.0,0.0);
+		color = vec3(0.0,0.0,1.0) * 0.7;
 	}
 
 	return color;
@@ -204,49 +203,100 @@ void main()
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
 
-	const vec3 rayPos = vec3(0,0,0); //starting ray.. in this case the center of the scene
+	const vec3 rayPos = pos; //starting ray.. in this case the center of the scene
 									//TODO: change this to the position of the camera or some point light
 
 	//bootstrap case
 	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //set the first object to be tested
 	vec3 rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
-	for(int i = 0; i < 3; i++) //first pass check for hits
+	float maxT;
+	float minT = 100000f;
+	float t;
+
+	int toDraw;
+
+	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
 	{
-		rayHit = false;
-		//hit first sphere
-		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1) && !rayHit) //check if we hit the object
+		if(t < minT)
 		{
-			rayHit = true;
-			hitIndexs[i] = IDX_MODEL_SPHERE1; //add it to the hit list
 
-			//change the starting direction by a unit vector on a hemisphere
-			rayDirection = CreateRandomRayDirectionOnHem();
+			minT = t;
+			toDraw = IDX_MODEL_SPHERE1;
+//			rtFragColor.rgb = vec3(0.0,0.0,1.0); //out put total color
+//			rtFragColor.a = 1.0;
+			
 		}
-
-		//hit second sphere
-		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
-		if (RayCastSphere(rayPos, rayDirection, nextPos, radius_sphere0) && !rayHit)
-		{
-			rayHit = true;
-			hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
-			rayDirection = CreateRandomRayDirectionOnHem();//calcualte new direction
-		}
-
-		//TODO add a box check here aswell as the last sphere
-
 	}
 
-	vec3 totalColor;
-	for(int i = 2; i > -1; i--) //make second pass for coloring
+	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
 	{
-		//this parese the hit list and colors back ward from the last hit object
-		//you can add some influece based off of the bounce depth
-		totalColor += (GetColorOfObject(hitIndexs[i]));
+		if(t < minT)
+		{
+		    minT = t;
+			toDraw = IDX_MODEL_SPHERE0;
+			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
+			//rtFragColor.a = 1.0;
+			
+		}
 	}
-	
 
-	rtFragColor.rgb = totalColor; //out put total color
+	rtFragColor.rgb = GetColorOfObject(toDraw);
 	rtFragColor.a = 1.0;
+
+//	for(int i = 0; i < 1; i++) //first pass check for hits
+//	{
+//		
+//		int testIndex = -1;
+//
+//		//hit first sphere
+//		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t)) //check if we hit the object
+//		{
+//			
+//			//change the starting direction by a unit vector on a hemisphere
+//			rayDirection = CreateRandomRayDirectionOnHem();
+//
+//			if(t < minT)
+//			{
+//				minT = t;
+//				testIndex = IDX_MODEL_SPHERE1; //add it to the hit list
+//			}
+//		}
+//
+//		
+////		//hit second sphere
+//		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
+//		if (RayCastSphere(rayPos, rayDirection, nextPos, radius_sphere0, t))
+//		{
+//			rayHit = true;
+//			
+//			//hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
+//			rayDirection = CreateRandomRayDirectionOnHem();//calcualte new direction
+//
+//			if(t < minT)
+//			{
+//				minT = t;
+//				testIndex = IDX_MODEL_SPHERE0; //add it to the hit list
+//
+//			}
+//		}
+//
+//	
+//		hitIndexs[i] = testIndex;
+//
+//	}
+//
+//	vec3 totalColor;
+//	for(int i = 2; i > -1; i--) //make second pass for coloring
+//	{
+//		//this parese the hit list and colors back ward from the last hit object
+//		//you can add some influece based off of the bounce depth
+//		totalColor += (GetColorOfObject(hitIndexs[i]));
+//	}
+//	
+//
+//	rtFragColor.rgb = totalColor; //out put total color
+//	rtFragColor.a = 1.0;
 
 
 	//found nothing just use the base texure
