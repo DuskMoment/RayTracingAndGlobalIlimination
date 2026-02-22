@@ -102,9 +102,9 @@ vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon directi
 {
 
 	//get a random vector
-	float x = rand(gl_FragCoord.xy);
-	float y = rand(gl_FragCoord.xz);
-	float z = rand(gl_FragCoord.yz);
+	float x = rand(gl_FragCoord.xy + seed);
+	float y = rand(gl_FragCoord.xz + seed);
+	float z = rand(gl_FragCoord.yz + seed);
 
 //	float x = gold_noise(gl_FragCoord.xy, seed);
 //	float y = gold_noise(gl_FragCoord.xz, seed + 1);
@@ -206,45 +206,79 @@ void main()
 	float minT = 100000f;
 	float t;
 	vec3 color = vec3(0.0);
+	vec3 blueColor = vec3(0.0);
+	vec3 orangeColor = vec3(0.0);
 
 	int toDraw;
 
-	for (int i = 0; i < 1; i++)
-	{
-		rayDirection = CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
+	for (int i = 0; i < 1000; i++)
+	{	
+		rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
 		{
-			rayDirection = CreateRandomRayDirectionOnHem(i);
 			if(t < minT)
 			{
+				rayDirection = CreateRandomRayDirectionOnHem(i);
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE0;
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color = tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
 				rayHit = true;
 			}
 		}
 
-		rayDirection = CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
 		{
-			rayDirection = CreateRandomRayDirectionOnHem(i);
 			if(t < minT)
 			{
+				rayDirection = CreateRandomRayDirectionOnHem(i);
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE1;
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color = tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
 				rayHit = true;
 			
 			}
 		}
 	}
+
+	// seeded random, does different things at different angles, colors add properly, shading on large sphere looks good, colors walls
+//	for (int i = 0; i < 1000; i++)
+//	{
+//		rayDirection = CreateRandomRayDirectionOnHem(i);
+//		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+//		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
+//		{
+//			if(t < minT)
+//			{
+//		
+//			minT = t;
+//				toDraw = IDX_MODEL_SPHERE0;
+//				vec3 tColor = vec3(0.2, 0.4, 0.4);
+//				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+//				rayHit = true;
+//			}
+//		}
+//
+//		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
+//		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
+//		{
+//			if(t < minT)
+//			{
+//				minT = t;
+//				toDraw = IDX_MODEL_SPHERE1;
+//				vec3 tColor = vec3(0.6, 0.2, 0.1);
+//				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+//				rayHit = true;
+//			
+//			}
+//		}
+//	}
 	
 	rayHit = false;
-	rtFragColor.rgb =  color;
+	rtFragColor.rgb = color;
 	//rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
 	rtFragColor.a = 1.0;
 	
