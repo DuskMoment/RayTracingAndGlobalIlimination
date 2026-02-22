@@ -169,6 +169,11 @@ extern "C"
                     obj_room_sphere[2],
                     obj_room_lightbulb[1],
                     obj_room_enclosure[1];
+
+                a3_SceneObject
+                    obj_material_container[1];
+                a3_SceneObject
+                    obj_material_ball[3];
 			};
 		};
 		union {

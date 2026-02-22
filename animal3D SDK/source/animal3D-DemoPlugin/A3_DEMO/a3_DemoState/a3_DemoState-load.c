@@ -550,6 +550,9 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawTexture_fs[1],
 				drawLambert_fs[1],
 				drawPhong_fs[1],
+                drawPhotorealistic0_fs[1],
+                drawPhotorealistic1_fs[1],
+                drawPhotorealistic2_fs[1],
                 drawRT_fs[1];
 		};
 	} shaderList = {
@@ -593,6 +596,9 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 																					A3_DEMO_FS"00-common/utilCommon_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:draw-Phong",				a3shader_fragment,	2,{ A3_DEMO_FS"00-common/drawPhong_fs4x.glsl",
 																					A3_DEMO_FS"00-common/utilCommon_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo0",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic0_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo1",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic1_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
 		}
 	};
@@ -683,7 +689,22 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-Phong-inst");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_instanced_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawPhong_fs->shader);
-    // Phong
+    // Photorealistic
+    currentDemoProg = demoState->prog_drawPhotorealistic0;
+    a3shaderProgramCreate(currentDemoProg->program, "prog:draw-photo0");
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_vs->shader);
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawPhotorealistic0_fs->shader);
+    // Photorealistic
+    currentDemoProg = demoState->prog_drawPhotorealistic1;
+    a3shaderProgramCreate(currentDemoProg->program, "prog:draw-photo1");
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_vs->shader);
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawPhotorealistic1_fs->shader);
+    // Photorealistic
+    currentDemoProg = demoState->prog_drawPhotorealistic2;
+    a3shaderProgramCreate(currentDemoProg->program, "prog:draw-photo2");
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_vs->shader);
+    a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawPhotorealistic2_fs->shader);
+    // Ray-tracing
     currentDemoProg = demoState->prog_drawRT;
     a3shaderProgramCreate(currentDemoProg->program, "prog:draw-RT");
     a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_vs->shader);

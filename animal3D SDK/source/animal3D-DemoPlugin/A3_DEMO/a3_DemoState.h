@@ -266,8 +266,12 @@ typedef struct a3_DemoState
 				prog_drawColorUnif_instanced[1],			// draw uniform color with instancing
 				prog_drawColorAttrib[1],					// draw color attribute
 				prog_drawColorUnif[1];						// draw uniform color
-			a3_SceneShaderProgram
-                prog_drawRT[1],                             // draw ray-tracing surface
+            a3_SceneShaderProgram
+                prog_drawPhotorealistic0[1],                // draw photorealistic surface
+                prog_drawPhotorealistic1[1],                // draw photorealistic surface
+                prog_drawPhotorealistic2[1],                // draw photorealistic surface
+                prog_drawRT[1];                             // draw ray-tracing surface
+            a3_SceneShaderProgram
 				prog_drawPhong_instanced[1],				// draw Phong shading model with instancing
 				prog_drawLambert_instanced[1],				// draw Lambert shading model with instancing
 				prog_drawTexture_instanced[1],				// draw texture with instancing

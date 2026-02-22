@@ -71,6 +71,11 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
         a3hierarchySetNode(scene->sceneGraph,  9,  4, "scene_room_lightbulb");
         a3hierarchySetNode(scene->sceneGraph, 10,  4, "scene_room_enclosure");
 
+        a3hierarchySetNode(scene->sceneGraph, 11,  0, "scene_material_container");
+        a3hierarchySetNode(scene->sceneGraph, 12, 11, "scene_material_ball_0");
+        a3hierarchySetNode(scene->sceneGraph, 13, 11, "scene_material_ball_1");
+        a3hierarchySetNode(scene->sceneGraph, 14, 11, "scene_material_ball_2");
+
         // save scene graph
         a3hierarchySaveBinary(scene->sceneGraph, fileStream);
 
@@ -92,6 +97,11 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->obj_room_sphere[1].sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_room_sphere_1");
     scene->obj_room_lightbulb->sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_room_lightbulb");
     scene->obj_room_enclosure->sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_room_enclosure");
+
+    scene->obj_material_container->sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_material_container");
+    scene->obj_material_ball[0].sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_material_ball_0");
+    scene->obj_material_ball[1].sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_material_ball_1");
+    scene->obj_material_ball[2].sceneGraphIndex = a3hierarchyGetNodeIndex(scene->sceneGraph, "scene_material_ball_2");
 
     // scene graph state
     scene->sceneGraphState->hierarchy = 0;
@@ -119,6 +129,12 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->obj_room_sphere[1].position.x = (a3real)(+4.0);
     scene->obj_room_sphere[1].position.y = (a3real)(-4.0);
     scene->obj_room_sphere[1].position.z = (a3real)(1.0);
+
+    scene->obj_material_container->position.x = (a3real)(-10.0);
+    scene->obj_material_container->position.y = (a3real)(-15.0);
+    scene->obj_material_ball[0].position.x = (a3real)( 0.0);
+    scene->obj_material_ball[1].position.x = (a3real)(10.0);
+    scene->obj_material_ball[2].position.x = (a3real)(20.0);
 
     // updates
     {
@@ -225,6 +241,18 @@ void a3rendering_load(a3_DemoState const* demoState, a3_Scene_Rendering* scene)
     currentSceneObject = &scene->obj_room_sphere[1];
     currentSceneObject->scaleMode = 1;
     currentSceneObject->scale.x = 1.0f;
+
+    currentSceneObject = &scene->obj_material_ball[0];
+    currentSceneObject->scaleMode = 1;
+    currentSceneObject->scale.x = 4.0f;
+
+    currentSceneObject = &scene->obj_material_ball[1];
+    currentSceneObject->scaleMode = 1;
+    currentSceneObject->scale.x = 4.0f;
+
+    currentSceneObject = &scene->obj_material_ball[2];
+    currentSceneObject->scaleMode = 1;
+    currentSceneObject->scale.x = 4.0f;
 
 	// set up cameras
 	projector = scene->proj_camera_main;

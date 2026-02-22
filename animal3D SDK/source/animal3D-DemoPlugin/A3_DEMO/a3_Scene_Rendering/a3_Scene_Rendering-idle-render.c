@@ -211,6 +211,11 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		demoState->draw_unit_sphere,    // 
 		demoState->draw_unit_sphere,    // light
 		demoState->draw_unit_box,       // room
+
+        demoState->draw_node,           // materials root
+        demoState->draw_unit_sphere,    // material balls
+        demoState->draw_unit_sphere,    // 
+        demoState->draw_unit_sphere,    // 
 	};
 
 	// temp texture pointers
@@ -227,7 +232,12 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		demoState->tex_checker,			// 
 		demoState->tex_checker,			// light
 		demoState->tex_checker,			// room
-	};
+
+        0,                              // materials root
+        demoState->tex_checker,			// materia balls
+        demoState->tex_checker,			// 
+        demoState->tex_checker,			// 
+    };
 
     // model inversion
     const a3boolean invert_model[] = {
@@ -243,6 +253,32 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
         0,
         0,
         1,
+
+        0,
+        0,
+        0,
+        0,
+    };
+
+    // program override
+    const a3_SceneShaderProgram* render_program_override[] = {
+        0,
+        0,
+        0,
+        0,
+
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+
+        0,
+        demoState->prog_drawPhotorealistic0,
+        demoState->prog_drawPhotorealistic1,
+        demoState->prog_drawPhotorealistic2,
     };
 
 	// forward pipeline shader programs
@@ -452,30 +488,31 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                 }
 			}
 			break;
-		case rendering_renderRT:
+        case rendering_renderRT:
+        {
             a3demo_uploadTransformStacks(demoState->ubo_transformStack,
                 &scene->modelMatrixStack[scene->obj_room_box - scene->object_scene],
                 &scene->viewerMatrixStack[scene->proj_camera_main - scene->projector],
                 renderingMaxCount_sceneObject, (a3ui32)(scene->obj_room_enclosure - scene->obj_room),
                 renderingMaxCount_projector, 1);
             a3shaderUniformBufferActivate(demoState->ubo_transformStack, 0);
-			for (currentSceneObject = scene->obj_room_enclosure, endSceneObject = scene->obj_room_enclosure,
-				j = (a3ui32)(currentSceneObject - scene->object_scene);
-				currentSceneObject <= endSceneObject;
-				++j, ++currentSceneObject)
-			{
-				// send data and draw
-				i = (j * 2 + 11) % hueCount;
-				currentDrawable = drawable[currentSceneObject - scene->obj_world_root];
-				a3textureActivate(texture_dm[j], a3tex_unit00);
-				a3textureActivate(texture_dm[j], a3tex_unit01);
-				a3real4x4Product(modelViewMat.m, activeCameraObject->modelMatInv.m, currentSceneObject->modelMat.m);
-				a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV, 1, modelViewMat.mm);
-				a3scene_quickInvertTranspose_internal(modelViewMat.m);
-				modelViewMat.v3 = a3vec4_zero;
-				a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV_nrm, 1, modelViewMat.mm);
-				a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, rgba4[i].v);
-				a3shaderUniformSendInt(a3unif_single, currentDemoProgram->uIndex, 1, &j);
+            for (currentSceneObject = scene->obj_room_enclosure, endSceneObject = scene->obj_room_enclosure,
+                j = (a3ui32)(currentSceneObject - scene->object_scene);
+                currentSceneObject <= endSceneObject;
+                ++j, ++currentSceneObject)
+            {
+                // send data and draw
+                i = (j * 2 + 11) % hueCount;
+                currentDrawable = drawable[currentSceneObject - scene->obj_world_root];
+                a3textureActivate(texture_dm[j], a3tex_unit00);
+                a3textureActivate(texture_dm[j], a3tex_unit01);
+                a3real4x4Product(modelViewMat.m, activeCameraObject->modelMatInv.m, currentSceneObject->modelMat.m);
+                a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV, 1, modelViewMat.mm);
+                a3scene_quickInvertTranspose_internal(modelViewMat.m);
+                modelViewMat.v3 = a3vec4_zero;
+                a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV_nrm, 1, modelViewMat.mm);
+                a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, rgba4[i].v);
+                a3shaderUniformSendInt(a3unif_single, currentDemoProgram->uIndex, 1, &j);
                 if (invert_model[j])
                 {
                     glCullFace(GL_FRONT);
@@ -486,8 +523,63 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                 {
                     a3vertexDrawableActivateAndRender(currentDrawable);
                 }
-			}
-			break;
+            }
+
+            // Materials
+            {
+                a3_SceneViewerMatrixStack const* const camera_viewer = &scene->viewerMatrixStack[rendering_cameraSceneViewer];
+                a3_SceneModelMatrixStack  const* const camera_model  = &scene->modelMatrixStack[activeCameraObject - scene->object_scene];
+
+                a3demo_uploadTransformStacks(demoState->ubo_transformStack,
+                    &scene->modelMatrixStack[scene->obj_material_ball - scene->object_scene],
+                    &scene->viewerMatrixStack[scene->proj_camera_main - scene->projector],
+                    renderingMaxCount_sceneObject, (a3ui32)(&scene->obj_material_ball[3] - scene->obj_material_container),
+                    renderingMaxCount_projector, 1);
+                a3shaderUniformBufferActivate(demoState->ubo_transformStack, 0);
+                for (currentSceneObject = &scene->obj_material_ball[0], endSceneObject = &scene->obj_material_ball[2],
+                    j = (a3ui32)(currentSceneObject - scene->object_scene);
+                    currentSceneObject <= endSceneObject;
+                    ++j, ++currentSceneObject)
+                {
+                    a3_SceneModelMatrixStack const* const model = &scene->modelMatrixStack[j];
+                    
+                    // ****TO-DO-RTR-PROJECT-3: 
+                    // SET UP AND UPLOAD ADDITIONAL PERTINENT UNIFORMS
+                    //  -> this may require setting up more textures in the demo state
+                    //  -> use existing uniform handles and uniform buffers if possible
+                    //     to avoid having to set up more of them
+
+                    // override program
+                    currentDemoProgram = render_program_override[j];
+                    a3shaderProgramActivate(currentDemoProgram->program);
+
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uP, 1, camera_viewer->projectionMat.mm);
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uP_inv, 1, camera_viewer->projectionMatInverse.mm);
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uPB, 1, camera_viewer->projectionBiasMat.mm);
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uPB_inv, 1, camera_viewer->projectionBiasMatInverse.mm);
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+                    a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, hueCount, rgba4->v);
+                    if (demoState->updateAnimation)
+                        a3shaderUniformSendDouble(a3unif_single, currentDemoProgram->uTime, 1, &demoState->timer_display->totalTime);
+                    a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uAxis, 1, pixelSizeAndInv.v);
+
+                    // send data and draw
+                    i = (j * 2 + 11) % hueCount;
+                    currentDrawable = drawable[currentSceneObject - scene->obj_world_root];
+                    a3textureActivate(texture_dm[j], a3tex_unit00);
+                    a3textureActivate(texture_dm[j], a3tex_unit01);
+                    a3real4x4Product(modelViewMat.m, camera_model->modelMatInverse.m, model->modelMat.m);
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV, 1, modelViewMat.mm);
+                    a3scene_quickInvertTranspose_internal(modelViewMat.m);//manual inverse here
+                    modelViewMat.v3 = a3vec4_zero;
+                    a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV_nrm, 1, modelViewMat.mm);
+                    a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, rgba4[i].v);
+                    a3shaderUniformSendInt(a3unif_single, currentDemoProgram->uIndex, 1, &j);
+                    a3vertexDrawableActivateAndRender(currentDrawable);
+                }
+            }
+            break;
+        }
 		}
 	}	break;
 		// end forward scene pass

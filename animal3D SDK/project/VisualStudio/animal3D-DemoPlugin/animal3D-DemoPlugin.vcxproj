@@ -251,6 +251,9 @@
   <ItemGroup>
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawLambert_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawPhong_fs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawPhotorealistic0_fs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawPhotorealistic1_fs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawPhotorealistic2_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawRT_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawTexture_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\utilCommon_fs4x.glsl" />
