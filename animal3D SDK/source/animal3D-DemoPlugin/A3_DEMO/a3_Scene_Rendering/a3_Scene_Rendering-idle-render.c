@@ -477,6 +477,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 				a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, rgba4[i].v);
 				a3shaderUniformSendInt(a3unif_single, currentDemoProgram->uIndex, 1, &j);
 				a3shaderUniformSendFloat(a3unif_vec4, a3shaderUniformGetLocation(currentDemoProgram->program, "vPos"), 1, activeCamera->sceneObject->modelMat.v3.v);
+				a3shaderUniformSendFloat(a3unif_single, currentDemoProgram->uTime, 1, (a3f32*) & demoState->timer_display->totalTime);
                 if (invert_model[j])
                 {
                     glCullFace(GL_FRONT);
