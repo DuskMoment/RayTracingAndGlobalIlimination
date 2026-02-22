@@ -300,7 +300,7 @@ void main()
 	
 	rayHit = false;
 	rtFragColor.rgb = color;
-	rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
+	//rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
 	rtFragColor.a = 1.0;
 	
 	//TODO: do lambersion 
