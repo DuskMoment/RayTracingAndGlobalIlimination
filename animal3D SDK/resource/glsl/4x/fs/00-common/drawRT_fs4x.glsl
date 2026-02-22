@@ -102,9 +102,10 @@ vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon directi
 {
 
 	//get a random vector
-	float x = rand(gl_FragCoord.xy + seed);
-	float y = rand(gl_FragCoord.xz + seed);
-	float z = rand(gl_FragCoord.yz + seed);
+	float x = rand(gl_FragCoord.xy + seed) * 2 - 1.0;
+	float y = rand(gl_FragCoord.xz + seed) * 2 - 1.0;
+	float z = rand(gl_FragCoord.yz + seed) * 2 - 1.0;
+
 
 //	float x = gold_noise(gl_FragCoord.xy, seed);
 //	float y = gold_noise(gl_FragCoord.xz, seed + 1);
@@ -203,17 +204,20 @@ void main()
 	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //set the first object to be tested
 	vec3 rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
 	float maxT;
-	float minT = 100000f;
+	
 	float t;
 	vec3 color = vec3(0.0);
 	vec3 blueColor = vec3(0.0);
 	vec3 orangeColor = vec3(0.0);
+	vec3 cameraDirection = CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 
+	int samples = 10;
 	
 
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < samples; i++)
 	{	
-		int toDraw;
+		float minT = 100000.0;
+		int toDraw = -1;
 		rayHit = false;
 		rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
@@ -225,7 +229,6 @@ void main()
 				
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE0;
-				
 				rayHit = true;
 			}
 		}
@@ -235,7 +238,7 @@ void main()
 		{
 			if(t < minT && t > -1)
 			{
-				rayDirection = CreateRandomRayDirectionOnHem(i);
+				//rayDirection = CreateRandomRayDirectionOnHem(i);
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE1;
 				
@@ -244,22 +247,27 @@ void main()
 			}
 		}
 
-
 		if(rayHit)
 		{
 			if(toDraw == IDX_MODEL_SPHERE0)
 			{
 				rayDirection = CreateRandomRayDirectionOnHem(i);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color += tColor * -dot(rayDirection, cameraDirection);
 			}
 			if(toDraw == IDX_MODEL_SPHERE1)
 			{
 				rayDirection = CreateRandomRayDirectionOnHem(i);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color +=  tColor * -dot(cameraDirection, rayDirection);
 			}
+		}
+
+			
 		
+		if(!rayHit)
+		{
+			color += vec3(1.0,1.0,0.0);
 		}
 	}
 
@@ -299,8 +307,8 @@ void main()
 //	}
 	
 	rayHit = false;
-	rtFragColor.rgb = color;
-	//rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
+	rtFragColor.rgb = color / float(samples);
+	//rtFragColor.rgb = CreateRandomRayDirectionOnHem(0);
 	rtFragColor.a = 1.0;
 	
 	//TODO: do lambersion 
