@@ -891,6 +891,13 @@ void a3demo_loadTextures(a3_DemoState* demoState)
 			a3_DemoStateTexture texRampSM[1];
 			a3_DemoStateTexture texTestSprite[1];
 			a3_DemoStateTexture texChecker[1];
+
+            a3_DemoStateTexture texEarthDM[1];
+            a3_DemoStateTexture texEarthSM[1];
+            a3_DemoStateTexture texEarthNM[1];
+            a3_DemoStateTexture texEarthHM[1];
+            a3_DemoStateTexture texEarthCloud[1];
+            a3_DemoStateTexture texEarthLight[1];
 		};
 	} textureList = {
 		{
@@ -900,6 +907,13 @@ void a3demo_loadTextures(a3_DemoState* demoState)
 			{ demoState->tex_ramp_sm,		"tex:ramp-sm",		"../../../../resource/tex/sprite/celRamp_sm.png" },
 			{ demoState->tex_testsprite,	"tex:testsprite",	"../../../../resource/tex/sprite/spriteTest8x8.png" },
 			{ demoState->tex_checker,		"tex:checker",		"../../../../resource/tex/sprite/checker.png" },
+
+            { demoState->tex_earth_dm,	  "tex:earth-dm",	    "../../../../resource/tex/earth/2k/earth_dm_2k.png" },
+            { demoState->tex_earth_sm,	  "tex:earth-sm",	    "../../../../resource/tex/earth/2k/earth_sm_2k.png" },
+            { demoState->tex_earth_nm,    "tex:earth-nm",	    "../../../../resource/tex/earth/2k/earth_nm_2k.png" },
+            { demoState->tex_earth_hm,	  "tex:earth-hm",	    "../../../../resource/tex/earth/2k/earth_hm_2k.png" },
+            { demoState->tex_earth_cloud, "tex:earth-cloud",	"../../../../resource/tex/earth/2k/earth_cm_2k.png" },
+            { demoState->tex_earth_light, "tex:earth-light",	"../../../../resource/tex/earth/2k/earth_lm_2k.png" },
 		}
 	};
 	const a3ui32 numTextures = sizeof(textureList) / sizeof(a3_DemoStateTexture);

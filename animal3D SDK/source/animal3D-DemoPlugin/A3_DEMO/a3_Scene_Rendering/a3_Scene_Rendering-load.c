@@ -194,9 +194,9 @@ void a3rendering_load(a3_DemoState const* demoState, a3_Scene_Rendering* scene)
 	// we want the exact same view in either case
 	const a3real sceneCameraAxisPos = 20.0f;
 	const a3vec3 sceneCameraStartPos = {
-		+sceneCameraAxisPos,
-		-sceneCameraAxisPos,
-		+sceneCameraAxisPos + 5.0f,
+		+sceneCameraAxisPos + 10.0f,
+		-sceneCameraAxisPos - 20.0f,
+		+sceneCameraAxisPos +  5.0f,
 	};
 	const a3vec3 sceneCameraStartEuler = {
 		-35.0f,
@@ -268,7 +268,7 @@ void a3rendering_load(a3_DemoState const* demoState, a3_Scene_Rendering* scene)
 
 
 	// set flags
-	scene->render = rendering_renderTexture;
+	scene->render = rendering_renderRT;
 	scene->display = rendering_displayTexture;
 	scene->activeCamera = rendering_cameraSceneViewer;
 

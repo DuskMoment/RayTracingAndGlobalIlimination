@@ -96,7 +96,7 @@ enum
 	demoStateMaxCount_shaderProgram = 32,
 	demoStateMaxCount_uniformBuffer = 8,
 
-	demoStateMaxCount_texture = 8,
+	demoStateMaxCount_texture = 16,
 
 	demoStateMaxCount_framebuffer = 2,
 };
@@ -319,6 +319,13 @@ typedef struct a3_DemoState
 				tex_ramp_sm[1],
 				tex_testsprite[1],
 				tex_checker[1];
+            a3_Texture
+                tex_earth_dm[1],
+                tex_earth_sm[1],
+                tex_earth_nm[1],
+                tex_earth_hm[1],
+                tex_earth_cloud[1],
+                tex_earth_light[1];
 		};
 	};
 

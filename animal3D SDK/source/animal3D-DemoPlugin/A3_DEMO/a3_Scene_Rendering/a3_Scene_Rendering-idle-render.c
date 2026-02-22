@@ -281,6 +281,28 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
         demoState->prog_drawPhotorealistic2,
     };
 
+    // texture sets
+    const a3_Texture* texture_set[][8] = {
+        { 0 },
+        { 0 },
+        { 0 },
+        { 0 },
+        
+        { 0 },
+        { 0 },
+        { 0 },
+        { 0 },
+        { 0 },
+        { 0 },
+        { 0 },
+        
+        { 0 },
+        { demoState->tex_earth_dm, demoState->tex_earth_sm, demoState->tex_earth_nm, demoState->tex_earth_hm, demoState->tex_earth_cloud, demoState->tex_earth_light, demoState->tex_checker, 0 },
+        { demoState->tex_earth_dm, demoState->tex_earth_sm, demoState->tex_earth_nm, demoState->tex_earth_hm, demoState->tex_earth_cloud, demoState->tex_earth_light, demoState->tex_checker, 0 },
+        { demoState->tex_earth_dm, demoState->tex_earth_sm, demoState->tex_earth_nm, demoState->tex_earth_hm, demoState->tex_earth_cloud, demoState->tex_earth_light, demoState->tex_checker, 0 },
+    };
+    a3ui32 const max_texture_set_size = sizeof(*texture_set) / sizeof(**texture_set);
+
 	// forward pipeline shader programs
 	const a3_SceneShaderProgram* renderProgram[rendering_pipeline_max][rendering_render_max] = {
 		{
@@ -542,6 +564,10 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                     ++j, ++currentSceneObject)
                 {
                     a3_SceneModelMatrixStack const* const model = &scene->modelMatrixStack[j];
+
+                    // override program
+                    currentDemoProgram = render_program_override[j];
+                    a3shaderProgramActivate(currentDemoProgram->program);
                     
                     // ****TO-DO-RTR-PROJECT-3: 
                     // SET UP AND UPLOAD ADDITIONAL PERTINENT UNIFORMS
@@ -549,9 +575,11 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                     //  -> use existing uniform handles and uniform buffers if possible
                     //     to avoid having to set up more of them
 
-                    // override program
-                    currentDemoProgram = render_program_override[j];
-                    a3shaderProgramActivate(currentDemoProgram->program);
+                    // activate textures
+                    for (a3ui32 tid = 0; tid < max_texture_set_size; ++tid)
+                    {
+                        a3textureActivate(texture_set[j][tid], a3tex_unit00 + tid);
+                    }
 
                     a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uP, 1, camera_viewer->projectionMat.mm);
                     a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uP_inv, 1, camera_viewer->projectionMatInverse.mm);
@@ -566,8 +594,6 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
                     // send data and draw
                     i = (j * 2 + 11) % hueCount;
                     currentDrawable = drawable[currentSceneObject - scene->obj_world_root];
-                    a3textureActivate(texture_dm[j], a3tex_unit00);
-                    a3textureActivate(texture_dm[j], a3tex_unit01);
                     a3real4x4Product(modelViewMat.m, camera_model->modelMatInverse.m, model->modelMat.m);
                     a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV, 1, modelViewMat.mm);
                     a3scene_quickInvertTranspose_internal(modelViewMat.m);//manual inverse here

@@ -61,7 +61,14 @@ uniform ubTransformStack {
 uniform vec4 uColor;
 uniform vec4 uAxis;
 
-uniform sampler2D uTex_dm;
+uniform sampler2D uImage00;
+uniform sampler2D uImage01;
+uniform sampler2D uImage02;
+uniform sampler2D uImage03;
+uniform sampler2D uImage04;
+uniform sampler2D uImage05;
+uniform sampler2D uImage06;
+uniform sampler2D uImage07;
 
 layout (location = 0) out vec4 rtFragColor;
 
@@ -70,9 +77,6 @@ void main()
 	// DUMMY OUTPUT: all fragments are OPAQUE GREEN
 //	rtFragColor = vec4(0.0, 1.0, 0.0, 1.0);
 
-	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-	rtFragColor = sample_dm * uColor;
-	rtFragColor.a = sample_dm.a;
-
-	rtFragColor.g += 1.0;
+	vec4 sample_dm = texture(uImage01, vTexcoord_atlas.xy);
+	rtFragColor = sample_dm;
 }

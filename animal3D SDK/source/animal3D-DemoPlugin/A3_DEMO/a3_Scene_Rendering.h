@@ -148,6 +148,9 @@ extern "C"
         a3boolean test_ray_fired;
         a3boolean test_ray_hit;
 
+        // basic animation
+        a3real rotate_time;
+
 
 		// objects
 		union {

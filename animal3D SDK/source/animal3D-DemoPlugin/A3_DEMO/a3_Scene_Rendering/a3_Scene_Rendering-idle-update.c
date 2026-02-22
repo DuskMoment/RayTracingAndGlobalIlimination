@@ -80,15 +80,33 @@ void a3rendering_update_sceneGraph(a3_Scene_Rendering* scene, a3f64 const dt)
 	a3hierarchyStateUpdateObjectInverse(scene->sceneGraphState);
 }
 
+void a3rendering_update_other(
+    a3_Scene_Rendering* scene, a3f64 const dt)
+{
+    a3real const rps = a3real_threesixty * 0.05f;
+    a3real angle;
+
+    scene->rotate_time += (a3real)dt;
+
+    angle = a3trigValid_sind((a3real)scene->rotate_time * rps);
+
+    scene->obj_material_ball[0].euler.z = angle;
+    scene->obj_material_ball[1].euler.z = angle;
+    scene->obj_material_ball[2].euler.z = angle;
+}
+
 void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f64 const dt)
 {
 	a3ui32 i;
-	a3boolean const updateIK = true;
-	a3boolean const updateBlendTreeFK = true;
 
 	// active camera
 	a3_SceneProjector const* activeCamera = scene->projector + scene->activeCamera;
 	a3_SceneObject const* activeCameraObject = activeCamera->sceneObject;
+
+    if (demoState->updateAnimation)
+    {
+        a3rendering_update_other(scene, dt);
+    }
 
     // bias matrix
     const a3mat4 bias = {
