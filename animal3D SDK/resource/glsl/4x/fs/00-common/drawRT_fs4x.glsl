@@ -88,7 +88,7 @@ float rand(vec2 co){
 
 vec3 CreateRayDirection(vec3 target, vec3 start) // take two positions and return a unit vector 
 {
-	return normalize(start - target);
+	return normalize(target - start);
 }
 
 vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a unit sphere 
@@ -136,16 +136,6 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 	//ray direction
 	vec3 rayDir = rayDirection;
 
-	//This section is a attempt at not hitting collision that happen beind the surface normal
-//	vec4 normal =  normalize(vTangentBasis_view[2]); 
-//
-//	//not facing the center
-//	if(dot(rayDir, normal.xyz) > 0)
-//	{
-//		//false;
-//		return false;
-//	}
-
 	//SPHERE TEST
 	vec3 s = objPos - rayStartPos;
 	float b = dot(rayDir, s);
@@ -169,7 +159,7 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
 	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
-	rtFragColor = nrlHit * 0.5 + 0.5;
+	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
 
 	return true;
 
@@ -196,18 +186,7 @@ vec3 GetColorOfObject(int modelIndex)
 
 void main()
 {
-	// DUMMY OUTPUT: all fragments are OPAQUE GREEN
-	//rtFragColor = vec4(0.0, 1.0, 0.0, 1.0);
-
-//	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-//	rtFragColor = sample_dm * uColor;
-//	rtFragColor.a = sample_dm.a;
-
-	//TODO: make a ray from the camera in a direction
-		//camera origin * look direction
-
-	const vec3 rayPos = vPos.xyz; //starting ray.. in this case the center of the scene
-									//TODO: change this to the position of the camera or some point light
+	const vec3 rayPos = vPos.xyz; 
 
 	//bootstrap case
 	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //set the first object to be tested
@@ -219,118 +198,42 @@ void main()
 
 	int toDraw;
 
+	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
+	{
+		if(t < minT)
+		{
+		    minT = t;
+			toDraw = IDX_MODEL_SPHERE0;
+			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
+			//rtFragColor.a = 1.0;
+			color = vec3(0.2, 0.4, 0.4);
+			rayHit = true;
+		}
+	}
+
+
 	//pass one
-//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
-//	{
-//		if(t < minT)
-//		{
-//
-//			minT = t;
-//			toDraw = IDX_MODEL_SPHERE1;
-//			color = vec3(1.0,0.0,0.0);
-//			rayHit = true;
-//			
-//		}
-//	}
-//
-//	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
-//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
-//	{
-//		if(t < minT)
-//		{
-//		    minT = t;
-//			toDraw = IDX_MODEL_SPHERE0;
-//			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
-//			//rtFragColor.a = 1.0;
-//			color = vec3(1.0,0.0,0.0);
-//			rayHit = true;
-//		}
-//	}
-//
-//	if(!rayHit)
-//	{
-//		return;
-//	}
+	objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
+	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
+	{
+		if(t < minT)
+		{
 
-//	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
-//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
-//	{
-//		color = vec3(0.2, 0.4, 0.4);
-//		rtFragColor.rgb = (vTangentBasis_view[2] * model_stack[IDX_MODEL_SPHERE0]).xyz; 
-//	}
-//	objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
-//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
-//	{
-//		color = vec3(0.6, 0.2, 0.1);
-//		rtFragColor.rgb = (vTangentBasis_view[2] * model_stack[IDX_MODEL_SPHERE1]).xyz; 
-//	}
-
+			minT = t;
+			toDraw = IDX_MODEL_SPHERE1;
+			color = vec3(0.6, 0.2, 0.1);
+			rayHit = true;
+			
+		}
+	}
+	
 	rayHit = false;
-	//rtFragColor.rgb = vTangentBasis_view[2].rgb; //out put total color
+	rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, CreateRandomRayDirectionOnHem());
+	//rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection);
 	rtFragColor.a = 1.0;
-	rayDirection = CreateRandomRayDirectionOnHem() ;
 	
 	//TODO: do lambersion 
 	
-
-//	for(int i = 0; i < 1; i++) //first pass check for hits
-//	{
-//		
-//		int testIndex = -1;
-//
-//		//hit first sphere
-//		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t)) //check if we hit the object
-//		{
-//			
-//			//change the starting direction by a unit vector on a hemisphere
-//			rayDirection = CreateRandomRayDirectionOnHem();
-//
-//			if(t < minT)
-//			{
-//				minT = t;
-//				testIndex = IDX_MODEL_SPHERE1; //add it to the hit list
-//			}
-//		}
-//
-//		
-////		//hit second sphere
-//		vec3 nextPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz; 
-//		if (RayCastSphere(rayPos, rayDirection, nextPos, radius_sphere0, t))
-//		{
-//			rayHit = true;
-//			
-//			//hitIndexs[i] = IDX_MODEL_SPHERE0;//add it to the hit list for color
-//			rayDirection = CreateRandomRayDirectionOnHem();//calcualte new direction
-//
-//			if(t < minT)
-//			{
-//				minT = t;
-//				testIndex = IDX_MODEL_SPHERE0; //add it to the hit list
-//
-//			}
-//		}
-//
-//	
-//		hitIndexs[i] = testIndex;
-//
-//	}
-//
-//	vec3 totalColor;
-//	for(int i = 2; i > -1; i--) //make second pass for coloring
-//	{
-//		//this parese the hit list and colors back ward from the last hit object
-//		//you can add some influece based off of the bounce depth
-//		totalColor += (GetColorOfObject(hitIndexs[i]));
-//	}
-//	
-//
-//	rtFragColor.rgb = totalColor; //out put total color
-//	rtFragColor.a = 1.0;
-
-
-	//found nothing just use the base texure
-//	vec4 sample_dm = texture(uTex_dm, vTexcoord_atlas.xy);
-//	rtFragColor = sample_dm * uColor;
-//	rtFragColor.a = sample_dm.a;
 
 }
