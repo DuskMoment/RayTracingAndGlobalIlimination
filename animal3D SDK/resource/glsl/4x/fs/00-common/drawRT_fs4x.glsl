@@ -209,21 +209,23 @@ void main()
 	vec3 blueColor = vec3(0.0);
 	vec3 orangeColor = vec3(0.0);
 
-	int toDraw;
+	
 
 	for (int i = 0; i < 1000; i++)
 	{	
+		int toDraw;
+		rayHit = false;
 		rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+		
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
 		{
-			if(t < minT)
+			if(t < minT && t > -1)
 			{
-				rayDirection = CreateRandomRayDirectionOnHem(i);
+				
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE0;
-				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				
 				rayHit = true;
 			}
 		}
@@ -231,18 +233,37 @@ void main()
 		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
 		{
-			if(t < minT)
+			if(t < minT && t > -1)
 			{
 				rayDirection = CreateRandomRayDirectionOnHem(i);
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE1;
-				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				
 				rayHit = true;
 			
 			}
 		}
+
+
+		if(rayHit)
+		{
+			if(toDraw == IDX_MODEL_SPHERE0)
+			{
+				rayDirection = CreateRandomRayDirectionOnHem(i);
+				vec3 tColor = vec3(0.2, 0.4, 0.4);
+				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+			}
+			if(toDraw == IDX_MODEL_SPHERE1)
+			{
+				rayDirection = CreateRandomRayDirectionOnHem(i);
+				vec3 tColor = vec3(0.6, 0.2, 0.1);
+				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+			}
+		
+		}
 	}
+
+
 
 	// seeded random, does different things at different angles, colors add properly, shading on large sphere looks good, colors walls
 //	for (int i = 0; i < 1000; i++)
@@ -279,7 +300,7 @@ void main()
 	
 	rayHit = false;
 	rtFragColor.rgb = color;
-	//rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
+	rtFragColor.rgb =  color * dot(normalize(vTangentBasis_view[2]).rgb, -rayDirection); //if ray dir is view pos -> obj
 	rtFragColor.a = 1.0;
 	
 	//TODO: do lambersion 
