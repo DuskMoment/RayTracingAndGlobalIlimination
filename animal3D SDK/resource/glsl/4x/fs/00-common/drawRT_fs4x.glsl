@@ -29,6 +29,8 @@ in vbVertexData {
 	vec4 vTexcoord_atlas;
 };
 
+in vec4 vPos;
+
 #define MAX_MODELS 24
 #define MAX_VIEWERS 1
 struct sModelStack
@@ -86,7 +88,7 @@ float rand(vec2 co){
 
 vec3 CreateRayDirection(vec3 target, vec3 start) // take two positions and return a unit vector 
 {
-	return normalize(target - start);
+	return normalize(start - target);
 }
 
 vec3 CreateRandomRayDirectionOnHem()//this will get a new randon direction on a unit sphere 
@@ -167,6 +169,7 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
 	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	rtFragColor = nrlHit * 0.5 + 0.5;
 
 	return true;
 
@@ -203,7 +206,7 @@ void main()
 	//TODO: make a ray from the camera in a direction
 		//camera origin * look direction
 
-	const vec3 rayPos = pos; //starting ray.. in this case the center of the scene
+	const vec3 rayPos = vPos.xyz; //starting ray.. in this case the center of the scene
 									//TODO: change this to the position of the camera or some point light
 
 	//bootstrap case
@@ -217,40 +220,53 @@ void main()
 	int toDraw;
 
 	//pass one
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
-	{
-		if(t < minT)
-		{
+//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
+//	{
+//		if(t < minT)
+//		{
+//
+//			minT = t;
+//			toDraw = IDX_MODEL_SPHERE1;
+//			color = vec3(1.0,0.0,0.0);
+//			rayHit = true;
+//			
+//		}
+//	}
+//
+//	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
+//	{
+//		if(t < minT)
+//		{
+//		    minT = t;
+//			toDraw = IDX_MODEL_SPHERE0;
+//			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
+//			//rtFragColor.a = 1.0;
+//			color = vec3(1.0,0.0,0.0);
+//			rayHit = true;
+//		}
+//	}
+//
+//	if(!rayHit)
+//	{
+//		return;
+//	}
 
-			minT = t;
-			toDraw = IDX_MODEL_SPHERE1;
-			color = vec3(1.0,0.0,0.0);
-			rayHit = true;
-			
-		}
-	}
-
-	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
-	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
-	{
-		if(t < minT)
-		{
-		    minT = t;
-			toDraw = IDX_MODEL_SPHERE0;
-			//rtFragColor.rgb = vec3(0.0,0.0,1.0);; //out put total color
-			//rtFragColor.a = 1.0;
-			color = vec3(1.0,0.0,0.0);
-			rayHit = true;
-		}
-	}
-
-	if(!rayHit)
-	{
-		return;
-	}
+//	objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
+//	{
+//		color = vec3(0.2, 0.4, 0.4);
+//		rtFragColor.rgb = (vTangentBasis_view[2] * model_stack[IDX_MODEL_SPHERE0]).xyz; 
+//	}
+//	objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
+//	if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
+//	{
+//		color = vec3(0.6, 0.2, 0.1);
+//		rtFragColor.rgb = (vTangentBasis_view[2] * model_stack[IDX_MODEL_SPHERE1]).xyz; 
+//	}
 
 	rayHit = false;
-	rtFragColor.rgb = CreateRandomRayDirectionOnHem(); //out put total color
+	//rtFragColor.rgb = vTangentBasis_view[2].rgb; //out put total color
 	rtFragColor.a = 1.0;
 	rayDirection = CreateRandomRayDirectionOnHem() ;
 	
