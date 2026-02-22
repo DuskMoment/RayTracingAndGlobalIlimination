@@ -221,7 +221,7 @@ void main()
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE0;
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color = tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
 				rayHit = true;
 			}
 		}
@@ -236,7 +236,7 @@ void main()
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE1;
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color += tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
+				color = tColor * dot(normalize(vTangentBasis_view[2]).rgb, rayDirection);
 				rayHit = true;
 			
 			}
