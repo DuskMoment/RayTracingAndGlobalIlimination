@@ -33,7 +33,7 @@ layout (location = 11) in vec4 aBitangent;
 uniform mat4 uP;
 uniform mat4 uMV, uMV_nrm;
 uniform mat4 uAtlas;
-uniform vec4 pos;
+uniform vec4 camPos;
 
 out vbVertexData {
 	mat4 vTangentBasis_view;
@@ -52,7 +52,7 @@ void main()
 
 	vTangentBasis_view = uMV_nrm * mat4(aTangent, aBitangent, aNormal, vec4(0.0));
 	vTangentBasis_view[3] = uMV * aPosition;
-	vPos = uMV_nrm * pos;
+	vPos = uMV_nrm * camPos;
 	gl_Position = uP * vTangentBasis_view[3];
 	
 	vTexcoord_atlas = uAtlas * aTexcoord;
