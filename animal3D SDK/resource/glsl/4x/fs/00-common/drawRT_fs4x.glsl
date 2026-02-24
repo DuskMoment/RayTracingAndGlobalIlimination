@@ -184,7 +184,7 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 }
 
 //TODO FIX PLANE
-bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float size, out float t, out vec4 nrlHit)
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec3 size, out float t, out vec4 nrlHit)
 {
 	float d = dot(rayDirection, normalize(vTangentBasis_view[2]));
 
@@ -193,6 +193,7 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float 
 		return false;
 	}
 	
+	objPos += size;
 	t = (dot(normalize(vTangentBasis_view[2]), objPos) - dot(normalize(vTangentBasis_view[2]), rayStartPos)) / d;
 	//i feel like this should be here cuz the ray is pointing towards all visable planes, but only 3/5 visable planes hit with condition
 //	if (t < 0.0)
@@ -266,7 +267,68 @@ void main()
 		vec4 usednrl;
 
 		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
-		if(RayCastPlane(rayPos, rayDirection, objPos, room_size, t, hitnrl))
+		//enclosure
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(0.0, 0.0, -8.0), t, hitnrl))
+		{
+			if(t < minT  /*&& t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(0.0, 0.0, 8.0), t, hitnrl))
+		{
+			if(t < minT  /*&& t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(0.0, -8.0, 0.0), t, hitnrl))
+		{
+			if(t < minT  /*&& t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(0.0, 8.0, 0.0), t, hitnrl))
+		{
+			if(t < minT  /*&& t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(-8.0, 0.0, 0.0), t, hitnrl))
+		{
+			if(t < minT  /*&& t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		if(RayCastPlane(rayPos, rayDirection, objPos, vec3(8.0, 0.0, 0.0), t, hitnrl))
 		{
 			if(t < minT  /*&& t > -1 */)
 			{
@@ -322,14 +384,20 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i,usednrl);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
+				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+				normalize(rayDirection);
+				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
+				//color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
 				//color = usednrl.xyz;
 			}
 			if(toDraw == IDX_ROOM_ENCLOSURE)
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.5, 0.7, 0.5);
-				color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
+				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+				normalize(rayDirection);
+				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
+				//color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
 				//color = usednrl.xyz;
 			}
 		}
