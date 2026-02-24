@@ -34,6 +34,7 @@ uniform mat4 uP;
 uniform mat4 uMV, uMV_nrm;
 uniform mat4 uAtlas;
 uniform vec4 camPos;
+uniform vec3 sphere0_orgin;
 
 out vbVertexData {
 	mat4 vTangentBasis_view;
@@ -41,6 +42,7 @@ out vbVertexData {
 };
 
 out vec4 vPos;
+out vec4 vSphere0_orgin;
 
 flat out int vVertexID;
 flat out int vInstanceID;
@@ -53,6 +55,7 @@ void main()
 	vTangentBasis_view = uMV_nrm * mat4(aTangent, aBitangent, aNormal, vec4(0.0));
 	vTangentBasis_view[3] = uMV * aPosition;
 	vPos = uMV_nrm * camPos;
+	vSphere0_orgin = uMV_nrm * vSphere0_orgin;
 	gl_Position = uP * vTangentBasis_view[3];
 	
 	vTexcoord_atlas = uAtlas * aTexcoord;

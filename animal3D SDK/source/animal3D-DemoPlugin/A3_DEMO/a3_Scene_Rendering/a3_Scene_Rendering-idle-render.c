@@ -475,11 +475,12 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 				modelViewMat.v3 = a3vec4_zero;
 				a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMV_nrm, 1, modelViewMat.mm);
 				a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, rgba4[i].v);
-				a3shaderUniformSendFloat(a3unif_vec3, a3shaderUniformGetLocation(currentDemoProgram->program, "sphere0_orgin"), 1, scene->obj_room_enclosure[0].position.v);
+				a3shaderUniformSendFloat(a3unif_vec4, a3shaderUniformGetLocation(currentDemoProgram->program, "sphere0_orgin"), 1, scene->obj_room_enclosure[0].modelMat.v3.v);
 				a3shaderUniformSendInt(a3unif_single, currentDemoProgram->uIndex, 1, &j);
 
 				a3real4 camPos = { activeCamera->sceneObject->position.x, activeCamera->sceneObject->position.y, activeCamera->sceneObject->position.z, 0 };
 				a3shaderUniformSendFloat(a3unif_vec4, a3shaderUniformGetLocation(currentDemoProgram->program, "camPos"), 1, camPos);
+				//a3shaderUniformSendFloat(a3unif_vec4, a3shaderUniformGetLocation(currentDemoProgram->program, "camPos"), 1, activeCamera->sceneObject->modelMat.v3.v);
 				a3shaderUniformSendFloat(a3unif_single, currentDemoProgram->uTime, 1, (a3f32*          ) & demoState->timer_display->totalTime);
                 if (invert_model[j])
                 {

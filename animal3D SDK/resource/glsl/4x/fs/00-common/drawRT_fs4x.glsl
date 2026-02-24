@@ -30,6 +30,7 @@ in vbVertexData {
 };
 
 in vec4 vPos;
+in vec4 vSphere0_orgin;
 
 #define MAX_MODELS 24
 #define MAX_VIEWERS 1
@@ -68,8 +69,6 @@ const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
 const float room_size = 16.0;
 
-uniform vec3 sphere0_orgin;
-
 uniform vec3 pos;
 uniform mat4 uP;
 uniform mat4 uPB;
@@ -97,7 +96,7 @@ float rand(vec2 co){
     return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
-vec3 CreateRayDirection(vec3 target, vec3 start) // take two positions and return a unit vector 
+vec4 CreateRayDirection(vec4 target, vec4 start) // take two positions and return a unit vector 
 {
 	return normalize(target - start);
 }
@@ -133,7 +132,7 @@ vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon directi
 }
 
 //TODO might need to split this up from a test if hit (bool) and have get color as seperate options)
-bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float r, out float t)
+bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float r, out float t)
 {
 	vec4 color;
 
@@ -150,10 +149,10 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 
 	//ray direction
-	vec3 rayDir = rayDirection;
+	vec4 rayDir = rayDirection;
 
 	//SPHERE TEST
-	vec3 s = objPos - rayStartPos;
+	vec4 s = objPos - rayStartPos;
 	float b = dot(rayDir, s);
 	float c = dot(s, s) - r * r;
 
@@ -169,12 +168,12 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 	t = d; //used for the out value
 
-	vec3 hitPos = rayStartPos + d * rayDir; //get a position on the thing to hit
-	posView = vec4(hitPos, 1.0);
+	vec4 hitPos = rayStartPos + d * rayDir; //get a position on the thing to hit
+	posView = vec4(hitPos.xyz, 1.0);
 	posBias = viewer_stack[0].projectionBiasMat * posView;
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
-	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	vec4 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
 	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
 	//rtFragColor.rgb = normalize(hitPos) * 0.5 + 0.5;
 	//rtFragColor.rgb = normalize(objPos) * 0.5 + 0.5;
@@ -183,24 +182,24 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 }
 
-bool RayCastPlane(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float size, out float t)
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float size, out float t)
 {
-	float d = dot(rayDirection, normalize(vTangentBasis_view[2]).xyz);
+	float d = dot(rayDirection, normalize(vTangentBasis_view[2]));
 
 	if (d < 1e-8)
 	{
 		return false;
 	}
 	
-	t = (dot(normalize(vTangentBasis_view[2]).xyz, objPos) - dot(normalize(vTangentBasis_view[2]).xyz, rayStartPos)) / d;
+	t = (dot(normalize(vTangentBasis_view[2]), objPos) - dot(normalize(vTangentBasis_view[2]), rayStartPos)) / d;
 	//i feel like this should be here cuz the ray is pointing towards all visable planes, but only 3/5 visable planes hit with condition
 //	if (t < 0.0)
 //	{
 //		return false;
 //	}
 
-	vec3 hitPos = rayStartPos + t * rayDirection;
-	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	vec4 hitPos = rayStartPos + t * rayDirection;
+	vec4 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
 	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
 	//rtFragColor.rgb = rayDirection * 0.5 + 0.5;
 //
@@ -238,18 +237,18 @@ vec3 GetColorOfObject(int modelIndex)
 
 void main()
 {
-	const vec3 rayPos = vPos.xyz; 
+	const vec4 rayPos = vPos; 
 
 	//bootstrap case
-	vec3 objPos = vec3(0.0); //set the first object to be tested
-	vec3 rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
+	vec4 objPos = vec4(0.0); //set the first object to be tested
+	vec4 rayDirection =  CreateRayDirection(vTangentBasis_view[3], rayPos); //make a ray that will always hit
 	float maxT;
 	
 	float t;
 	vec3 color = vec3(0.0);
 	vec3 blueColor = vec3(0.0);
 	vec3 orangeColor = vec3(0.0);
-	vec3 cameraDirection = CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
+	vec4 cameraDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 
 	int samples = 16;
 	
@@ -259,9 +258,9 @@ void main()
 		float minT = 100000.0;
 		int toDraw = -1;
 		rayHit = false;
-		rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
+		rayDirection =  CreateRayDirection(vTangentBasis_view[3], rayPos);
 
-		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3].xyz;
+		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
 		if(RayCastPlane(rayPos, rayDirection, objPos, room_size, t))
 		{
 			if(t < minT /* && t > -1 */)
@@ -273,7 +272,7 @@ void main()
 			}
 		}
 		
-		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3];
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
 		{
 			if(t < minT && t > -1)
@@ -285,7 +284,7 @@ void main()
 			}
 		}
 
-		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz;
+		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3];
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
 		{
 			if(t < minT && t > -1)
@@ -303,21 +302,24 @@ void main()
 		{
 			if(toDraw == IDX_MODEL_SPHERE0)
 			{
-				rayDirection = CreateRandomRayDirectionOnHem(i);
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color += tColor * -dot(rayDirection, cameraDirection);
+				color += tColor * dot(-cameraDirection.xyz, rayDirection.xyz);
+				//color = tColor;
 			}
 			if(toDraw == IDX_MODEL_SPHERE1)
 			{
-				rayDirection = CreateRandomRayDirectionOnHem(i);
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color +=  tColor * -dot(cameraDirection, rayDirection);
+				color +=  tColor * dot(-cameraDirection.xyz, rayDirection.xyz);
+				//color = tColor;
 			}
 			if(toDraw == IDX_ROOM_ENCLOSURE)
 			{
-				rayDirection = CreateRandomRayDirectionOnHem(i);
-				vec3 tColor = vec3(0.7, 1.0, 0.6);
-				color +=  tColor * -dot(cameraDirection, rayDirection);
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
+				vec3 tColor = vec3(0.05, 0.3, 0.1);
+				color +=  tColor * dot(cameraDirection.xyz, rayDirection.xyz);
+				//color = tColor;
 			}
 		}
 
@@ -366,7 +368,7 @@ void main()
 	
 	rayHit = false;
 	rtFragColor.rgb = color / float(samples);
-	//rtFragColor.rgb = CreateRandomRayDirectionOnHem(0);
+	//rtFragColor.rgb = color * dot(normalize(vTangentBasis_view[2]).rgb, -cameraDirection);;
 	rtFragColor.a = 1.0;
 	
 	//TODO: do lambersion 
