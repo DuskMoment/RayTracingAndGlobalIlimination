@@ -62,9 +62,13 @@ uniform ubTransformStack {
 
 #define IDX_MODEL_SPHERE0 2
 #define IDX_MODEL_SPHERE1 3
+#define IDX_ROOM_ENCLOSURE 5
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
+const float room_size = 16.0;
+
+uniform vec3 sphere0_orgin;
 
 uniform vec3 pos;
 uniform mat4 uP;
@@ -172,9 +176,45 @@ bool RayCastSphere(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float
 
 	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
 	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
+	//rtFragColor.rgb = normalize(hitPos) * 0.5 + 0.5;
+	//rtFragColor.rgb = normalize(objPos) * 0.5 + 0.5;
 
 	return true;
 
+}
+
+bool RayCastPlane(const vec3 rayStartPos, vec3 rayDirection, vec3 objPos, float size, out float t)
+{
+	float d = dot(rayDirection, normalize(vTangentBasis_view[2]).xyz);
+
+	if (d < 1e-8)
+	{
+		return false;
+	}
+	
+	t = (dot(normalize(vTangentBasis_view[2]).xyz, objPos) - dot(normalize(vTangentBasis_view[2]).xyz, rayStartPos)) / d;
+	//i feel like this should be here cuz the ray is pointing towards all visable planes, but only 3/5 visable planes hit with condition
+//	if (t < 0.0)
+//	{
+//		return false;
+//	}
+
+	vec3 hitPos = rayStartPos + t * rayDirection;
+	vec3 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
+	//rtFragColor.rgb = rayDirection * 0.5 + 0.5;
+//
+//	vec3 u = normalize(hitPos - objPos);
+//	vec3 v = cross(u, normalize(vTangentBasis_view[2]).xyz);
+//	vec3 w = normalize(vTangentBasis_view[2]).xyz / dot(normalize(vTangentBasis_view[2]).xyz, normalize(vTangentBasis_view[2]).xyz);
+//	float x = dot(w, cross(u, v));
+//
+//	if (x <= 0 || x >= 1)
+//	{
+//		return false;
+//	}
+
+	return true;
 }
 
 //this function gets the color of a object at a model index
@@ -201,7 +241,7 @@ void main()
 	const vec3 rayPos = vPos.xyz; 
 
 	//bootstrap case
-	vec3 objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3].xyz; //set the first object to be tested
+	vec3 objPos = vec3(0.0); //set the first object to be tested
 	vec3 rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos); //make a ray that will always hit
 	float maxT;
 	
@@ -211,7 +251,7 @@ void main()
 	vec3 orangeColor = vec3(0.0);
 	vec3 cameraDirection = CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
 
-	int samples = 10;
+	int samples = 16;
 	
 
 	for (int i = 0; i < samples; i++)
@@ -220,8 +260,20 @@ void main()
 		int toDraw = -1;
 		rayHit = false;
 		rayDirection =  CreateRayDirection(vTangentBasis_view[3].xyz, rayPos);
-		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
+
+		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3].xyz;
+		if(RayCastPlane(rayPos, rayDirection, objPos, room_size, t))
+		{
+			if(t < minT /* && t > -1 */)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+			}
+		}
 		
+		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3].xyz;
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
 		{
 			if(t < minT && t > -1)
@@ -259,6 +311,12 @@ void main()
 			{
 				rayDirection = CreateRandomRayDirectionOnHem(i);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
+				color +=  tColor * -dot(cameraDirection, rayDirection);
+			}
+			if(toDraw == IDX_ROOM_ENCLOSURE)
+			{
+				rayDirection = CreateRandomRayDirectionOnHem(i);
+				vec3 tColor = vec3(0.7, 1.0, 0.6);
 				color +=  tColor * -dot(cameraDirection, rayDirection);
 			}
 		}
