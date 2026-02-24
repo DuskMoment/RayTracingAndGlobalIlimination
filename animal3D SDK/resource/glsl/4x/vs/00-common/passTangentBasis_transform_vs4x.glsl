@@ -54,7 +54,7 @@ void main()
 
 	vTangentBasis_view = uMV_nrm * mat4(aTangent, aBitangent, aNormal, vec4(0.0));
 	vTangentBasis_view[3] = uMV * aPosition;
-	vPos = uMV_nrm * camPos;
+	vPos = camPos;
 	vSphere0_orgin = uMV_nrm * vSphere0_orgin;
 	gl_Position = uP * vTangentBasis_view[3];
 	

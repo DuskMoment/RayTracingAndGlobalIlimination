@@ -64,6 +64,10 @@ uniform ubTransformStack {
 #define IDX_MODEL_SPHERE0 2
 #define IDX_MODEL_SPHERE1 3
 #define IDX_ROOM_ENCLOSURE 5
+#define IDX_BOX1 0
+#define IDX_BOX2 1
+#define IDX_LIGHT 4
+
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
@@ -101,7 +105,7 @@ vec4 CreateRayDirection(vec4 target, vec4 start) // take two positions and retur
 	return normalize(target - start);
 }
 
-vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon direction on a unit sphere 
+vec3 CreateRandomRayDirectionOnHem(int seed, vec4 hitNormal)//this will get a new randon direction on a unit sphere 
 {
 
 	//get a random vector
@@ -120,7 +124,7 @@ vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon directi
 	randVec = normalize(randVec);
 
 	//dot against the normalize
-	vec4 normal =  normalize(vTangentBasis_view[2]);
+	vec4 normal =  normalize(hitNormal);
 	vec3 testNormal = vec3(normal.x, normal.y, normal.z);
 
 	if(dot(randVec, testNormal) > 0.0)
@@ -132,7 +136,7 @@ vec3 CreateRandomRayDirectionOnHem(int seed)//this will get a new randon directi
 }
 
 //TODO might need to split this up from a test if hit (bool) and have get color as seperate options)
-bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float r, out float t)
+bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float r, out float t, out vec4 nrlHit)
 {
 	vec4 color;
 
@@ -173,16 +177,14 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 	posBias = viewer_stack[0].projectionBiasMat * posView;
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
-	vec4 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
-	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
-	//rtFragColor.rgb = normalize(hitPos) * 0.5 + 0.5;
-	//rtFragColor.rgb = normalize(objPos) * 0.5 + 0.5;
-
+	nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	
 	return true;
 
 }
 
-bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float size, out float t)
+//TODO FIX PLANE
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float size, out float t, out vec4 nrlHit)
 {
 	float d = dot(rayDirection, normalize(vTangentBasis_view[2]));
 
@@ -199,7 +201,7 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float 
 //	}
 
 	vec4 hitPos = rayStartPos + t * rayDirection;
-	vec4 nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	nrlHit = normalize(hitPos - objPos); //if you need the hit normal
 	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
 	//rtFragColor.rgb = rayDirection * 0.5 + 0.5;
 //
@@ -237,7 +239,8 @@ vec3 GetColorOfObject(int modelIndex)
 
 void main()
 {
-	const vec4 rayPos = vPos; 
+
+	const vec4 rayPos = vec4(0.0,0.0,0.0,1.0); 
 
 	//bootstrap case
 	vec4 objPos = vec4(0.0); //set the first object to be tested
@@ -250,7 +253,7 @@ void main()
 	vec3 orangeColor = vec3(0.0);
 	vec4 cameraDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 
-	int samples = 16;
+	int samples = 1;
 	
 
 	for (int i = 0; i < samples; i++)
@@ -259,21 +262,24 @@ void main()
 		int toDraw = -1;
 		rayHit = false;
 		rayDirection =  CreateRayDirection(vTangentBasis_view[3], rayPos);
+		vec4 hitnrl;
+		vec4 usednrl;
 
 		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
-		if(RayCastPlane(rayPos, rayDirection, objPos, room_size, t))
+		if(RayCastPlane(rayPos, rayDirection, objPos, room_size, t, hitnrl))
 		{
-			if(t < minT /* && t > -1 */)
+			if(t < minT  /*&& t > -1 */)
 			{
 				
 				minT = t;
 				toDraw = IDX_ROOM_ENCLOSURE;
 				rayHit = true;
+				usednrl = hitnrl;
 			}
 		}
 		
-		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3];
-		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t))
+		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3]; 
+		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -281,45 +287,50 @@ void main()
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE0;
 				rayHit = true;
+				usednrl = hitnrl;
 			}
 		}
 
 		objPos = model_stack[IDX_MODEL_SPHERE1].modelViewMat[3];
-		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t))
+		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere1, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
 				//rayDirection = CreateRandomRayDirectionOnHem(i);
 				minT = t;
 				toDraw = IDX_MODEL_SPHERE1;
-				
 				rayHit = true;
+				usednrl = hitnrl;
 			
 			}
 		}
+		
 
+		//REDO LIGHING CALCULATIONS
 		if(rayHit)
 		{
 			if(toDraw == IDX_MODEL_SPHERE0)
 			{
-				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				color += tColor * dot(-cameraDirection.xyz, rayDirection.xyz);
-				//color = tColor;
+				rayDirection += usednrl;
+				normalize(rayDirection);
+				//color += tColor * dot(usednrl.xyz, rayDirection.xyz);
+				color = rayDirection.xyz;
 			}
 			if(toDraw == IDX_MODEL_SPHERE1)
 			{
-				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i,usednrl);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				color +=  tColor * dot(-cameraDirection.xyz, rayDirection.xyz);
-				//color = tColor;
+				color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
+				//color = usednrl.xyz;
 			}
 			if(toDraw == IDX_ROOM_ENCLOSURE)
 			{
-				rayDirection.xyz = CreateRandomRayDirectionOnHem(i);
-				vec3 tColor = vec3(0.05, 0.3, 0.1);
-				color +=  tColor * dot(cameraDirection.xyz, rayDirection.xyz);
-				//color = tColor;
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
+				vec3 tColor = vec3(0.5, 0.7, 0.5);
+				color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
+				//color = usednrl.xyz;
 			}
 		}
 
@@ -367,8 +378,9 @@ void main()
 //	}
 	
 	rayHit = false;
-	rtFragColor.rgb = color / float(samples);
-	//rtFragColor.rgb = color * dot(normalize(vTangentBasis_view[2]).rgb, -cameraDirection);;
+	//rtFragColor.rgb = color / float(samples);
+	rtFragColor.rgb = color * 0.5 + 0.5;
+	//rtFragColor.rgb = color * dot(normalize(vTangentBasis_view[2]).rgb, -cameraDirection);
 	rtFragColor.a = 1.0;
 	
 	//TODO: do lambersion 
