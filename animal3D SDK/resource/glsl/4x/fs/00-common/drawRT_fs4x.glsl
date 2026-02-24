@@ -313,10 +313,10 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				rayDirection += usednrl;
+				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
-				//color += tColor * dot(usednrl.xyz, rayDirection.xyz);
-				color = rayDirection.xyz;
+				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
+				//color = rayDirection.xyz;
 			}
 			if(toDraw == IDX_MODEL_SPHERE1)
 			{
@@ -378,8 +378,8 @@ void main()
 //	}
 	
 	rayHit = false;
-	//rtFragColor.rgb = color / float(samples);
-	rtFragColor.rgb = color * 0.5 + 0.5;
+	rtFragColor.rgb = color / float(samples);
+	//rtFragColor.rgb = color * 0.5 + 0.5;
 	//rtFragColor.rgb = color * dot(normalize(vTangentBasis_view[2]).rgb, -cameraDirection);
 	rtFragColor.a = 1.0;
 	
