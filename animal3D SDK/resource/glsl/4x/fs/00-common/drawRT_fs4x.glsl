@@ -177,19 +177,19 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 	posBias = viewer_stack[0].projectionBiasMat * posView;
 	//gl_FragDepth = posBias.z / posBias.w; //somthing is messed up with the depth
 
-	nrlHit = normalize(hitPos - objPos); //if you need the hit normal
+	nrlHit = normalize(hitPos - objPos); 
+	//nrlHit = normalize(objPos); 
 	
 	return true;
 
 }
 
-//TODO FIX PLANE
 bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 size, out float t, out vec4 nrlHit)
 {
-	vec4 newPos = objPos + size;
-	vec4 n = normalize(vec4(objPos.xyz - newPos.xyz, 1.0));
-	//vec4 rayDir = newPos - rayStartPos;
-	float d = dot(rayDirection, n);
+	mat3 TBN;
+	vec3 newPos = objPos.xyz + normalize(size.xyz) * 8.0; 
+	vec3 n = normalize(size).xyz;
+	float d = dot(rayDirection.xyz, n);
 
 	if (d < 1e-8)
 	{
@@ -197,27 +197,32 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 s
 	}
 	
 	
-	t = (dot(n, newPos) - dot(n, rayStartPos)) / d;
-	//i feel like this should be here cuz the ray is pointing towards all visable planes, but only 3/5 visable planes hit with condition
+	t = (dot(n, newPos) - dot(n, rayStartPos.xyz)) / d;
 	if (t < 0.0)
 	{
 		return false;
 	}
 
 	vec4 hitPos = rayStartPos + t * rayDirection;
-	nrlHit = normalize(n); //if you need the hit normal
-	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
-	//rtFragColor.rgb = rayDirection * 0.5 + 0.5;
-//
-//	vec3 u = normalize(hitPos - newPos);
-//	vec3 v = cross(u, normalize(vTangentBasis_view[2]).xyz);
-//	vec3 w = normalize(vTangentBasis_view[2]).xyz / dot(normalize(vTangentBasis_view[2]).xyz, normalize(vTangentBasis_view[2]).xyz);
-//	float x = dot(w, cross(u, v));
-//
-//	if (x <= 0 || x >= 1)
-//	{
-//		return false;
-//	}
+	
+	//rtFragColor.rgb = nrlHit.xyz * 0.5 + 0.5;
+	//rtFragColor.rgb = rayDirection.xyz * 0.5 + 0.5;
+
+	vec3 w = n / dot(n, n);
+	float a = dot(w, cross(hitPos.xyz, TBN[1]));
+	float b = dot(w, cross(TBN[2], hitPos.xyz));
+
+	if (a < 0 || a > 1)
+	{
+		return false;
+	}
+
+	if (b < 0 || b > 1)
+	{
+		return false;
+	}
+
+	nrlHit = vec4(normalize(hitPos.xyz - objPos.xyz), 0.0);
 
 	return true;
 }
@@ -272,77 +277,83 @@ void main()
 		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
 
 		//enclosure
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(0.0, 0.0, -8.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
-//
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(0.0, 0.0, 8.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
-//
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(0.0, -8.0, 0.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
-//
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(0.0, 8.0, 0.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
-//
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(-8.0, 0.0, 0.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
-//
-//		if(RayCastPlane(rayPos, rayDirection, objPos, vec4(8.0, 0.0, 0.0, 0.0), t, hitnrl))
-//		{
-//			if(t < minT && t > -1)
-//			{
-//				
-//				minT = t;
-//				toDraw = IDX_ROOM_ENCLOSURE;
-//				rayHit = true;
-//				usednrl = hitnrl;
-//			}
-//		}
+		//left
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		//right
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		//backward
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+		
+		//forward
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		//bottom
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
+
+		//top
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				
+				minT = t;
+				toDraw = IDX_ROOM_ENCLOSURE;
+				rayHit = true;
+				usednrl = hitnrl;
+			}
+		}
 		
 		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3]; 
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t, hitnrl))
@@ -379,30 +390,35 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
+				//rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
 				//color = rayDirection.xyz;
+				//color += usednrl.xyz * 0.5 + 0.5;
 			}
 			if(toDraw == IDX_MODEL_SPHERE1)
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i,usednrl);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
+				//rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
 				//color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
-				//color = usednrl.xyz;
+				//color += usednrl.xyz * 0.5 + 0.5;
 			}
 			if(toDraw == IDX_ROOM_ENCLOSURE)
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
-				vec3 tColor = vec3(0.5, 0.7, 0.5);
+				vec3 tColor = vec3(0.6, 0.2, 0.65);
+				//rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
 				//color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
 				//color += usednrl.xyz * 0.5 + 0.5;
+				//color = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2].xyz;
 			}
 		}
 
