@@ -264,15 +264,15 @@ void main()
 	vec3 orangeColor = vec3(0.0);
 	vec4 cameraDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 
-	const int samples = 3;
+	const int samples = 10;
 	const int rayBounces = 6;
 //	int hitIndex[rayBounces];
 //	vec4 hitNormal[rayBounces];
 //	vec4 lastHitPosition;
 //	
 	
-	
 	int rayCollision =  0;
+	int allRayCollisions;
 
 	for(int l = 0; l < samples; l++)
 	{
@@ -370,17 +370,18 @@ void main()
 				if(hitIndex[j] == -2)
 				{
 					//we did not run this layer dont add color
+					cellColor += vec3(1.0,0.0,0.0);
 				}
 					
 				if(hitIndex[j] == -1)
 				{
-					cellColor += vec3(0.0,0.0,0.0);//div by the layer
+					cellColor += vec3(1.0,0.0,0.0);//div by the layer
 				}
 		}
 		
 		if(rayCollision != 0)
 		{
-			cellColor /= float(rayCollision);
+			cellColor /= float(rayBounces);
 		}
 
 		color += cellColor;
