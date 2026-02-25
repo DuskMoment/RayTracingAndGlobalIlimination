@@ -264,8 +264,8 @@ void main()
 	vec3 orangeColor = vec3(0.0);
 	vec4 cameraDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 
-	const int samples = 100;
-	const int rayBounces = 3;
+	const int samples = 3;
+	const int rayBounces = 6;
 //	int hitIndex[rayBounces];
 //	vec4 hitNormal[rayBounces];
 //	vec4 lastHitPosition;
@@ -277,11 +277,11 @@ void main()
 	for(int l = 0; l < samples; l++)
 	{
 		rayCollision = 0;
-		int hitIndex[rayBounces] = {-2, -2, -2};
+		int hitIndex[rayBounces] = {-2,-2,-2,-2,-2,-2};
 		vec4 hitNormal[rayBounces];
 		vec4 lastHitPosition;
 		//reset the camera positions
-		vec4 tempRayDirection = rayDirection;
+		vec4 tempRayDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 		vec4 tempRayPos = rayPos;
 
 		for (int i = 0; i < rayBounces; i++)
@@ -349,7 +349,7 @@ void main()
 			
 				if(hitIndex[j] == IDX_MODEL_SPHERE0)
 				{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j, hitNormal[j]);
+					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
 					vec3 tColor = vec3(0.2, 0.4, 0.4);
 					rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 					normalize(rayDirection);
@@ -358,7 +358,7 @@ void main()
 				}
 				if(hitIndex[j] == IDX_MODEL_SPHERE1)
 				{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j,hitNormal[j]);
+					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
 					vec3 tColor = vec3(0.6, 0.2, 0.1);
 					rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 					normalize(rayDirection);
@@ -374,13 +374,13 @@ void main()
 					
 				if(hitIndex[j] == -1)
 				{
-					cellColor += vec3(0.0,1.0,1.0);//div by the layer
+					cellColor += vec3(0.0,0.0,0.0);//div by the layer
 				}
 		}
 		
 		if(rayCollision != 0)
 		{
-			cellColor /= rayCollision;
+			cellColor /= float(rayCollision);
 		}
 
 		color += cellColor;
