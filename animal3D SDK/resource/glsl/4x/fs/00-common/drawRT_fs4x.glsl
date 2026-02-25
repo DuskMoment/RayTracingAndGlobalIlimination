@@ -71,7 +71,10 @@ uniform ubTransformStack {
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
-const float room_size = 16.0;
+const float radius_light0 = 2.0;
+const float room_size = 8.0;
+const float box_size0 = 2.5;
+const float box_size1 = 2.5;
 
 uniform vec3 pos;
 uniform mat4 uP;
@@ -184,11 +187,10 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 
 }
 
-bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 size, out float t, out vec4 nrlHit)
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 normal, vec4 planeVecOne, vec4 planeVecTwo, float size, out float t, out vec4 nrlHit)
 {
-	mat3 TBN;
-	vec3 newPos = objPos.xyz + normalize(size.xyz) * 8.0; 
-	vec3 n = normalize(size).xyz;
+	vec3 newPos = objPos.xyz + normalize(normal.xyz) * size; 
+	vec3 n = normalize(normal).xyz;
 	float d = dot(rayDirection.xyz, n);
 
 	if (d < 1e-8)
@@ -209,18 +211,18 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 s
 	//rtFragColor.rgb = rayDirection.xyz * 0.5 + 0.5;
 
 	vec3 w = n / dot(n, n);
-	float a = dot(w, cross(hitPos.xyz, TBN[1]));
-	float b = dot(w, cross(TBN[2], hitPos.xyz));
+	float a = dot(w, cross(hitPos.xyz, normalize(planeVecOne.xyz) * size * 2.0));
+	float b = dot(w, cross(normalize(planeVecTwo.xyz) * size * 2.0, hitPos.xyz));
 
-	if (a < 0 || a > 1)
-	{
-		return false;
-	}
-
-	if (b < 0 || b > 1)
-	{
-		return false;
-	}
+//	if (a < 0 || a > 1)
+//	{
+//		return false;
+//	}
+//
+//	if (b < 0 || b > 1)
+//	{
+//		return false;
+//	}
 
 	nrlHit = vec4(normalize(hitPos.xyz - objPos.xyz), 0.0);
 
@@ -274,11 +276,12 @@ void main()
 		vec4 hitnrl;
 		vec4 usednrl;
 
+		//------------------------enclosure-------------------------------
 		objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
 
-		//enclosure
 		//left
-		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+						model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -291,7 +294,8 @@ void main()
 		}
 
 		//right
-		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+						-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -304,7 +308,8 @@ void main()
 		}
 
 		//backward
-		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
+						model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -317,7 +322,8 @@ void main()
 		}
 		
 		//forward
-		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
+						-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -330,7 +336,8 @@ void main()
 		}
 
 		//bottom
-		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+						model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -343,7 +350,8 @@ void main()
 		}
 
 		//top
-		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], t, hitnrl))
+		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+						-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], room_size, t, hitnrl))
 		{
 			if(t < minT && t > -1)
 			{
@@ -354,7 +362,96 @@ void main()
 				usednrl = hitnrl;
 			}
 		}
+
+		//------------------------box 1-------------------------------
+//		objPos = model_stack[IDX_BOX1].modelViewMat[3];
+//
+//		//left
+//		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_BOX1].modelViewMat[0], -model_stack[IDX_BOX1].modelViewMat[1], 
+//						-model_stack[IDX_BOX1].modelViewMat[2], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+//
+//		//right
+//		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_BOX1].modelViewMat[0], model_stack[IDX_BOX1].modelViewMat[1], 
+//						model_stack[IDX_BOX1].modelViewMat[2], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+//
+//		//backward
+//		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_BOX1].modelViewMat[1], -model_stack[IDX_BOX1].modelViewMat[0], 
+//						-model_stack[IDX_BOX1].modelViewMat[2], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+//		
+//		//forward
+//		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_BOX1].modelViewMat[1], model_stack[IDX_BOX1].modelViewMat[0], 
+//						model_stack[IDX_BOX1].modelViewMat[2], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+//
+//		//bottom
+//		if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_BOX1].modelViewMat[2], -model_stack[IDX_BOX1].modelViewMat[1], 
+//						-model_stack[IDX_BOX1].modelViewMat[0], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+//
+//		//top
+//		if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_BOX1].modelViewMat[2], model_stack[IDX_BOX1].modelViewMat[1], 
+//						model_stack[IDX_BOX1].modelViewMat[0], box_size0, t, hitnrl))
+//		{
+//			if(t < minT && t > -1)
+//			{
+//				
+//				minT = t;
+//				toDraw = IDX_BOX1;
+//				rayHit = true;
+//				usednrl = hitnrl;
+//			}
+//		}
+
 		
+		//--------------------------spheres------------------------------
 		objPos = model_stack[IDX_MODEL_SPHERE0].modelViewMat[3]; 
 		if(RayCastSphere(rayPos, rayDirection, objPos, radius_sphere0, t, hitnrl))
 		{
@@ -382,6 +479,20 @@ void main()
 			}
 		}
 		
+		//---------------------------light--------------------------------------
+		objPos = model_stack[IDX_LIGHT].modelViewMat[3];
+		if(RayCastSphere(rayPos, rayDirection, objPos, radius_light0, t, hitnrl))
+		{
+			if(t < minT && t > -1)
+			{
+				//rayDirection = CreateRandomRayDirectionOnHem(i);
+				minT = t;
+				toDraw = IDX_LIGHT;
+				rayHit = true;
+				usednrl = hitnrl;
+			
+			}
+		}
 
 		//REDO LIGHING CALCULATIONS
 		if(rayHit)
@@ -419,6 +530,24 @@ void main()
 				//color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
 				//color += usednrl.xyz * 0.5 + 0.5;
 				//color = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2].xyz;
+			}
+			if(toDraw == IDX_LIGHT)
+			{
+				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
+				vec3 tColor = vec3(0.7, 0.7, 0.7);
+				rayDirection += usednrl;
+				//not having the light point back at the light cuz i dont think that makes sense
+				//rayDirection += (CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+				normalize(rayDirection);
+				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
+				//color +=  tColor * dot(usednrl.xyz,- CreateRayDirection(vTangentBasis_view[3], rayPos).xyz);
+				//color += usednrl.xyz * 0.5 + 0.5;
+				//color = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2].xyz;
+			}
+			if(toDraw == IDX_BOX1)
+			{
+				color += vec3(1.0, 0.0, 0.0);
+				color += usednrl.xyz * 0.5 + 0.5;
 			}
 		}
 
