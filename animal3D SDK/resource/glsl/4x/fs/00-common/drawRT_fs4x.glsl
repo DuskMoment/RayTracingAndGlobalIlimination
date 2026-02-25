@@ -390,7 +390,7 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.2, 0.4, 0.4);
-				//rayDirection += usednrl;
+				rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
@@ -401,7 +401,7 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i,usednrl);
 				vec3 tColor = vec3(0.6, 0.2, 0.1);
-				//rayDirection += usednrl;
+				rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
@@ -412,7 +412,7 @@ void main()
 			{
 				rayDirection.xyz = CreateRandomRayDirectionOnHem(i, usednrl);
 				vec3 tColor = vec3(0.6, 0.2, 0.65);
-				//rayDirection += usednrl;
+				rayDirection += usednrl;
 				rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 				normalize(rayDirection);
 				color += tColor * dot(usednrl.xyz, rayDirection.xyz);
