@@ -77,7 +77,8 @@ struct HitData
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
-const float room_size = 16.0;
+const float radius_light0 = 2.0;
+const float room_size = 8.0;
 
 uniform vec3 pos;
 uniform mat4 uP;
@@ -190,10 +191,10 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 
 }
 
-bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 normal, vec4 planeVecOne, vec4 planeVecTwo, float size, out float t, out vec4 nrlHit)
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 normal, vec4 planeVecOne, vec4 planeVecTwo, float size, out float t, out HitData data)
 {
-	vec3 newPos = objPos.xyz + normalize(normal.xyz) * size; 
 	vec3 n = normalize(normal).xyz;
+	vec3 newPos = objPos.xyz + n * size; 
 	float d = dot(rayDirection.xyz, n);
 
 	if (d < 1e-8)
@@ -227,7 +228,8 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 n
 //		return false;
 //	}
 
-	nrlHit = vec4(normalize(hitPos.xyz - objPos.xyz), 0.0);
+	data.hitNrl = vec4(normalize(hitPos.xyz - objPos.xyz), 0.0);
+	data.hitPosition = hitPos; 
 
 	return true;
 }
@@ -268,11 +270,11 @@ void main()
 	vec3 orangeColor = vec3(0.0);
 	vec4 cameraDirection = CreateRayDirection(vTangentBasis_view[3], rayPos);
 
-	const int samples = 2;
-	const int rayBounces = 10;
+	const int samples = 10;
+	const int rayBounces = 3;
 
 	//Kindof just gets rid of scatter and makes it more grainy the higher the value is
-	const int randomRaySamples = 1;
+	const int randomRaySamples = 2;
 
 //	int hitIndex[rayBounces];
 //	vec4 hitNormal[rayBounces];
@@ -310,8 +312,8 @@ void main()
 			objPos = model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[3];
 
 			//left
-			if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
-							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
+			if(RayCastPlane(tempRayPos, tempRayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -319,13 +321,14 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_ROOM_ENCLOSURE;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 				}
 			}
 
 			//right
-			if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
-							-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
+			if(RayCastPlane(tempRayPos, tempRayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+							-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -333,13 +336,14 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_ROOM_ENCLOSURE;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 				}
 			}
 
 			//backward
-			if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
-							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
+			if(RayCastPlane(tempRayPos, tempRayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
+							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -347,13 +351,14 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_ROOM_ENCLOSURE;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 				}
 			}
 		
 			//forward
-			if(RayCastPlane(rayPos, rayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
-							-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hitnrl))
+			if(RayCastPlane(tempRayPos, tempRayDirection, objPos, -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], -model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], 
+							-model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], room_size, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -361,13 +366,14 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_ROOM_ENCLOSURE;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 				}
 			}
 
 			//bottom
-			if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
-							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], room_size, t, hitnrl))
+			if(RayCastPlane(tempRayPos, tempRayDirection, objPos, model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[2], model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[1], 
+							model_stack[IDX_ROOM_ENCLOSURE].modelViewMat[0], room_size, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -375,14 +381,14 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_ROOM_ENCLOSURE;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 				}
 			}
 
 			//---------------------------light--------------------------------------
 			objPos = model_stack[IDX_LIGHT].modelViewMat[3];
-			if(RayCastPlane(rayPos, rayDirection, objPos, model_stack[IDX_LIGHT].modelViewMat[2], model_stack[IDX_LIGHT].modelViewMat[1], 
-							model_stack[IDX_LIGHT].modelViewMat[0], room_size, t, hitnrl))
+			if(RayCastSphere(tempRayPos, tempRayDirection, objPos, radius_light0, t, hit))
 			{
 				if(t < minT && t > -1)
 				{
@@ -390,7 +396,8 @@ void main()
 					minT = t;
 					hitIndex[i] = IDX_LIGHT;
 					rayHit = true;
-					hitNormal[i] = hitnrl;
+					hitNormal[i] = hit.hitNrl;
+					lastHitPosition = hit.hitPosition;
 			
 				}
 			}
@@ -430,7 +437,7 @@ void main()
 			{
 			//calulate new rayDirection
 				tempRayPos = lastHitPosition;
-				tempRayDirection.xyz = CreateRandomRayDirectionOnHem(i, hitNormal[i]);
+				tempRayDirection.xyz = CreateRandomRayDirectionOnHem(l + i, hitNormal[i]);
 				rayCollision++;
 			}
 
@@ -453,91 +460,110 @@ void main()
 				{
 					vec3 tColor = vec3(0.2, 0.4, 0.4);
 
-					if (j == 0){
-					for (int k = 0; k < randomRaySamples; k++)
+					if (j == 0)
+					{
+						for (int k = 0; k < randomRaySamples; k++)
+						{
+							rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
+							//rayDirection += hitNormal[j];
+							//rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+							normalize(rayDirection);
+							cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * 0.5;
+						}
+					} 
+					else 
 					{
 						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
+						//rayDirection += hitNormal[j];
 						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
-					}
-					} else 
-					{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
-						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
-						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
+						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * (0.5 * (j + 2));
 					}
 
 					cellColor /= randomRaySamples;
 					//color = rayDirection.xyz;
 				}
+
 				if(hitIndex[j] == IDX_MODEL_SPHERE1)
 				{
 					vec3 tColor = vec3(0.6, 0.2, 0.1);
 					
-					if (j == 0){
-					for (int k = 0; k < randomRaySamples; k++)
+					if (j == 0)
 					{
-						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
+						for (int k = 0; k < randomRaySamples; k++)
+						{
+							rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
+							//rayDirection += hitNormal[j];
+							//rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+							normalize(rayDirection);
+							cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * 0.5;
+						}
+					} 
+					else 
+					{
+						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
+						//rayDirection += hitNormal[j];
 						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
-					}
-					} else 
-					{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
-						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
-						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
+						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * (0.5 * (j + 2));
 					}
 
 					cellColor /= randomRaySamples;
 					//color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
 					//color = usednrl.xyz;
 				}
+
 				if(hitIndex[j] == IDX_ROOM_ENCLOSURE)
 				{
-					vec3 tColor = vec3(0.6, 0.2, 0.65);
+					vec3 tColor = vec3(0.3, 0.1, 0.325);
 					
-					if (j == 0){
-					for (int k = 0; k < randomRaySamples; k++)
+					if (j == 0)
 					{
-						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
+						for (int k = 0; k < randomRaySamples; k++)
+						{
+							rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
+							//rayDirection += hitNormal[j];
+							//rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+							normalize(rayDirection);
+							cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * 0.5;
+						}
+					} 
+					else 
+					{
+						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
+						//rayDirection += hitNormal[j];
 						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
-					}
-					} else 
-					{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
-						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
-						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
+						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * (0.5 * (j + 2));
 					}
 
 					cellColor /= randomRaySamples;
 					//color += tColor * dot(usednrl.xyz,  -CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]).xyz);
 					//color = usednrl.xyz;
 				}
+
 				if(hitIndex[j] == IDX_LIGHT)
 				{
-					vec3 tColor = vec3(0.7, 0.7, 0.7);
+					vec3 tColor = vec3(0.9, 0.9, 0.9);
 					
-					if (j == 0){
-					for (int k = 0; k < randomRaySamples; k++)
+					if (j == 0)
 					{
-						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
-						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
-						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
-					}
-					} else 
+						for (int k = 0; k < randomRaySamples; k++)
+						{
+							rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l,hitNormal[j]);
+							//rayDirection += hitNormal[j];
+							//rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+							normalize(rayDirection);
+							cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * 0.5;
+						}
+					} 
+					else 
 					{
-					rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
-						rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
+						rayDirection.xyz = CreateRandomRayDirectionOnHem(j + l, hitNormal[j]);
+						//rayDirection += hitNormal[j];
+						//rayDirection += (-CreateRayDirection(vTangentBasis_view[3], model_stack[IDX_LIGHT].modelViewMat[3]));
 						normalize(rayDirection);
-						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz);
+						cellColor += tColor * dot(hitNormal[j].xyz, rayDirection.xyz) * (0.5 * (j + 2));
 					}
 
 					cellColor /= randomRaySamples;
@@ -569,7 +595,7 @@ void main()
 	
 	
 	rayHit = false;
-	rtFragColor.rgb = color / float(samples);
+	rtFragColor.rgb = color;
 	//rtFragColor.rgb = color * 0.5 + 0.5;
 	//rtFragColor.rgb = color * dot(normalize(vTangentBasis_view[2]).rgb, -cameraDirection);
 	rtFragColor.a = 1.0;
