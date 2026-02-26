@@ -77,10 +77,7 @@ struct HitData
 
 const float radius_sphere0 = 2.0;
 const float radius_sphere1 = 1.0;
-const float radius_light0 = 2.0;
-const float room_size = 8.0;
-const float box_size0 = 2.5;
-const float box_size1 = 2.5;
+const float room_size = 16.0;
 
 uniform vec3 pos;
 uniform mat4 uP;
@@ -189,17 +186,17 @@ bool RayCastSphere(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, float
 	data.hitNrl =  normalize(hitPos - objPos); 
 	data.hitPosition = hitPos;
 
-
 	return true;
 
 }
 
 //TODO FIX PLANE
-bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 normal, vec4 planeVecOne, vec4 planeVecTwo, float size, out float t, out vec4 nrlHit)
+bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 size, out float t, out vec4 nrlHit)
 {
-	vec3 newPos = objPos.xyz + normalize(normal.xyz) * size; 
-	vec3 n = normalize(normal).xyz;
-	float d = dot(rayDirection.xyz, n);
+	vec4 newPos = objPos + size;
+	vec4 n = normalize(vec4(objPos.xyz - newPos.xyz, 1.0));
+	//vec4 rayDir = newPos - rayStartPos;
+	float d = dot(rayDirection, n);
 
 	if (d < 1e-8)
 	{
@@ -207,32 +204,27 @@ bool RayCastPlane(const vec4 rayStartPos, vec4 rayDirection, vec4 objPos, vec4 n
 	}
 	
 	
-	t = (dot(n, newPos) - dot(n, rayStartPos.xyz)) / d;
+	t = (dot(n, newPos) - dot(n, rayStartPos)) / d;
+	//i feel like this should be here cuz the ray is pointing towards all visable planes, but only 3/5 visable planes hit with condition
 	if (t < 0.0)
 	{
 		return false;
 	}
 
 	vec4 hitPos = rayStartPos + t * rayDirection;
-	
-	//rtFragColor.rgb = nrlHit.xyz * 0.5 + 0.5;
-	//rtFragColor.rgb = rayDirection.xyz * 0.5 + 0.5;
-
-	vec3 w = n / dot(n, n);
-	float a = dot(w, cross(hitPos.xyz, normalize(planeVecOne.xyz) * size * 2.0));
-	float b = dot(w, cross(normalize(planeVecTwo.xyz) * size * 2.0, hitPos.xyz));
-
-//	if (a < 0 || a > 1)
-//	{
-//		return false;
-//	}
+	nrlHit = normalize(n); //if you need the hit normal
+	//rtFragColor.rgb = nrlHit * 0.5 + 0.5;
+	//rtFragColor.rgb = rayDirection * 0.5 + 0.5;
 //
-//	if (b < 0 || b > 1)
+//	vec3 u = normalize(hitPos - newPos);
+//	vec3 v = cross(u, normalize(vTangentBasis_view[2]).xyz);
+//	vec3 w = normalize(vTangentBasis_view[2]).xyz / dot(normalize(vTangentBasis_view[2]).xyz, normalize(vTangentBasis_view[2]).xyz);
+//	float x = dot(w, cross(u, v));
+//
+//	if (x <= 0 || x >= 1)
 //	{
 //		return false;
 //	}
-
-	nrlHit = vec4(normalize(hitPos.xyz - objPos.xyz), 0.0);
 
 	return true;
 }
@@ -305,7 +297,6 @@ void main()
 		for (int i = 0; i < rayBounces; i++)
 		{	
 			float minT = 100000.0;
-
 		
 			rayHit = false;
 			vec4 hitnrl;
@@ -341,20 +332,6 @@ void main()
 			
 				}
 			}
-		//---------------------------light--------------------------------------
-		objPos = model_stack[IDX_LIGHT].modelViewMat[3];
-		if(RayCastSphere(rayPos, rayDirection, objPos, radius_light0, t, hitnrl))
-		{
-			if(t < minT && t > -1)
-			{
-				//rayDirection = CreateRandomRayDirectionOnHem(i);
-				minT = t;
-				toDraw = IDX_LIGHT;
-				rayHit = true;
-				usednrl = hitnrl;
-			
-			}
-		}
 
 
 			if(rayHit)
@@ -363,7 +340,6 @@ void main()
 				tempRayPos = lastHitPosition;
 				tempRayDirection.xyz = CreateRandomRayDirectionOnHem(i, hitNormal[i]);
 				rayCollision++;
-				//color += usednrl.xyz * 0.5 + 0.5;
 			}
 
 			if(!rayHit)
