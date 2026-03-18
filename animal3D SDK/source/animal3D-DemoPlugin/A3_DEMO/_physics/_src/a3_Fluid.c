@@ -75,6 +75,7 @@ a3ret FluidCubeAddVelocity(a3_FluidCube* cube, a3vec3 gidPos, a3vec3 vel)
     return 1;
 }
 
+//this what is called a liner back trace?  https://www.reddit.com/r/computergraphics/comments/2s86gi/need_help_understanding_advection_code_in_jos/
 a3ret FluidAdvect(a3i32 b, a3real* d, a3real* d0, a3real* velocX, a3real* velocY, a3real* velocZ, a3real dt, a3i32 N)
 {
     //velocirtyd current/ prev for each axis 
