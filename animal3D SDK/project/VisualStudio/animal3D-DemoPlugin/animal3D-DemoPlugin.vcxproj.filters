@@ -201,6 +201,9 @@
     <ClCompile Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\_physics\_src\a3_Hull.c">
       <Filter>Source Files\common\A3_DEMO\_physics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\_physics\_src\a3_Fluid.c">
+      <Filter>Source Files\common\A3_DEMO\_physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\a3_DemoState.h">
@@ -255,6 +258,9 @@
       <Filter>Header Files\A3_DEMO\_physics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\_physics\a3_Ray.h">
+      <Filter>Header Files\A3_DEMO\_physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\_physics\a3_Fluid.h">
       <Filter>Header Files\A3_DEMO\_physics</Filter>
     </ClInclude>
   </ItemGroup>
