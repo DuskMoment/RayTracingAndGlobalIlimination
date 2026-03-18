@@ -38,6 +38,8 @@
 
 #include "_physics/a3_Ray.h"
 
+#include "_physics/a3_fluid.h"
+
 
 //-----------------------------------------------------------------------------
 
@@ -147,6 +149,11 @@ extern "C"
         a3real    test_ray_param;
         a3boolean test_ray_fired;
         a3boolean test_ray_hit;
+
+
+		//fluid sim
+		
+		a3_FluidCube* fluid;
 
         // basic animation
         a3real rotate_time;

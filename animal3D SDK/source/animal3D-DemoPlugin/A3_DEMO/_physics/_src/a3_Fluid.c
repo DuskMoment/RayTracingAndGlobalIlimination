@@ -8,131 +8,68 @@
 
 //-----------------------------------------------------------------------------
 
-a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 gridSize, a3i32 gridCountX, a3i32 gridCountY, a3i32 gridCountZ)
+a3ret InitFluidCube(a3_FluidCube* cube, a3real diffusion, a3real viscosity, a3i32 size, a3real dt)
 {
-	
-	grid = malloc(sizeof(a3_FluidGrid));
+	cube = malloc(sizeof(a3_FluidCube*));
 
+	a3i32 N = size;
 
-	if (grid != NULL)
-	{
-		grid->gridCountX = gridCountX;
-		grid->gridCountY = gridCountY;
-		grid->gridCountZ = gridCountZ;
+    cube->gridSize = size;
+    cube->dt = dt;
+    cube->diff = diffusion;
+    cube->visc = viscosity;
 
-		grid->gridSize = gridSize;
-		
-		//good data
-		return  1;
-	}
+    //create the desity state arrays
+    cube->s = calloc(N * N * N, sizeof(a3real));
+    cube->density = calloc(N * N * N, sizeof(a3real));
 
-	return -1;
+    //create the velocity state arrays
+    cube->vX = calloc(N * N * N, sizeof(a3real));
+    cube->vY = calloc(N * N * N, sizeof(a3real));
+    cube->vZ = calloc(N * N * N, sizeof(a3real));
+
+    cube->vX0 = calloc(N * N * N, sizeof(a3real));
+    cube->vY0 = calloc(N * N * N, sizeof(a3real));
+    cube->vZ0 = calloc(N * N * N, sizeof(a3real));
+
+	 
+	return 1;
 }
 
-//TODO CHANGE THIS TO THE RIGHT CONSTANT FOR SAFTY -- this method is also extreamly slow...
-a3ret InitVelocity(a3_FluidGrid* fluidGrid)
+a3ret DestroyFluidCube(a3_FluidCube* cube)
 {
-	//failed
-	if (fluidGrid == NULL)
-	{
-		return -1;
-	}
+    free(cube->s);
+    free(cube->density);
 
-	a3i32 x = fluidGrid->gridCountX;
-	a3i32 y = fluidGrid->gridCountY;
-	a3i32 z = fluidGrid->gridCountZ;
+    free(cube->vX);
+    free(cube->vY);
+    free(cube->vZ);
+    free(cube->vX0);
+    free(cube->vY0);
+    free(cube->vZ0);
+   
+    free(cube);
 
+    return 1;
+}
 
-	//ALLOCATE THE X  + 1 GIRD for final
-	a3real*** array = (a3real***)malloc(x + 1 * sizeof(a3real**));
+a3ret FluidCubeAddVelocity(a3_FluidCube* cube, a3vec3 gidPos, a3vec3 vel)
+{
+    if (cube == NULL)
+    {
+        return -1;
+    }
 
-	for (int i = 0; i < x + 1; i++) {
-
-		array[i] = (a3real**)malloc(y * sizeof(a3real*));
-
-		for (int j = 0; j < y; j++) {
-
-			array[i][j] = (a3real*)malloc(z * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityXFinal = array;
-
-	//ALLOCATE FOR THE X + 1 GRIND for temp
-	array = (a3real***)malloc(x + 1 * sizeof(a3real**));
-
-	for (int i = 0; i < x + 1; i++) {
-
-		array[i] = (a3real**)malloc(y * sizeof(a3real*));
-
-		for (int j = 0; j < y; j++) {
-
-			array[i][j] = (a3real*)malloc(z * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityXTemp = array;
-
-	//ALLOCATE FOR THE Y + 1 GRIND for final
-	array = (a3real***)malloc(x * sizeof(a3real**));
-
-	for (int i = 0; i < x; i++) {
-
-		array[i] = (a3real**)malloc(y + 1 * sizeof(a3real*));
-
-		for (int j = 0; j < y + 1; j++) {
-
-			array[i][j] = (a3real*)malloc(z * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityYFinal = array;
-
-	//ALLOCATE FOR THE Y + 1 GRIND for temp
-	array = (a3real***)malloc(x  * sizeof(a3real**));
-
-	for (int i = 0; i < x; i++) {
-
-		array[i] = (a3real**)malloc(y + 1 * sizeof(a3real*));
-
-		for (int j = 0; j < y + 1; j++) {
-
-			array[i][j] = (a3real*)malloc(z * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityYTemp = array;
+    //used for the macro
+    a3i32 N = cube->gridSize;
+    //get the grid index
+    a3i32 index = IX((a3i32)gidPos.x, (a3i32)gidPos.y, (a3i32)gidPos.z);
 
 
-	//ALLOCATE FOR THE Z + 1 GRIND for final
-	array = (a3real***)malloc(x * sizeof(a3real**));
+    //add to the current velocity
+    cube->vX[index] += vel.x;
+    cube->vY[index] += vel.y;
+    cube->vZ[index] += vel.z;
 
-	for (int i = 0; i < x; i++) {
-
-		array[i] = (a3real**)malloc(y  * sizeof(a3real*));
-
-		for (int j = 0; j < y; j++) {
-
-			array[i][j] = (a3real*)malloc(z + 1 * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityZFinal = array;
-
-	//ALLOCATE FOR THE Z + 1 GRIND for temp
-	array = (a3real***)malloc(x * sizeof(a3real**));
-
-	for (int i = 0; i < x; i++) {
-
-		array[i] = (a3real**)malloc(y * sizeof(a3real*));
-
-		for (int j = 0; j < y; j++) {
-
-			array[i][j] = (a3real*)malloc(z + 1 * sizeof(a3real3));
-		}
-
-	}
-	fluidGrid->velocityZTemp = array;
-	
-	return -1;
+    return 1;
 }

@@ -149,6 +149,9 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->test_ray_param = a3real_zero;
     scene->test_ray_fired = a3false;
     scene->test_ray_hit   = a3false;
+
+    //init fluidcube
+    InitFluidCube(scene->fluid,1,1,10,1);
 }
 
 

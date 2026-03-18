@@ -14,40 +14,51 @@
 extern "C"
 {
 #endif	// __cplusplus
-	typedef struct a3_FluidGrid
+#define IX(x, y, z) ((x) + (y) * N + (z) * N * N)
+	typedef struct a3_FluidCube
 	{
-		//the ammout of cells for each portion of the gird x,y,z
-		a3i32 gridCountX;
-		a3i32 gridCountY;
-		a3i32 gridCountZ;
-
+	
+		a3real visc;
+		a3real diff;
+		a3real dt;
 		//the width height and depth of each grid
 		a3i32 gridSize;
-
-		//velocitys of the fluids
 	
+		//desnity states
+		a3real* density;
+		a3real* s; 
+
+
 		//array of veclotiys final
-		a3real*** velocityXFinal;
-		a3real*** velocityYFinal;
-		a3real*** velocityZFinal;
+		a3real* vX;
+		a3real* vY;
+		a3real* vZ;
 
-		//array of velocitys temp 
-		a3real*** velocityXTemp;
-		a3real*** velocityYTemp;
-		a3real*** velocityZTemp;
+		//array of velocitys second frame
+		a3real* vX0;
+		a3real* vY0;
+		a3real* vZ0;
 
-	}a3_FluidGrid;
+	}a3_FluidCube;
 
 	//----------------------
 
 	//init the grid
-	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 gridSize, a3i32 gridCountX, a3i32 gridCountY, a3i32 gridCountZ);
+	a3ret InitFluidCube(a3_FluidCube* cube, a3real diffusion, a3real viscosity, a3i32 size, a3real dt);
 
-	//init the velocitys
-	a3ret InitVelocity(a3_FluidGrid* fluidGrid);
+	//destroy the cube
+	a3ret DestroyFluidCube(a3_FluidCube* cube);
 
-	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
-	
+	//add velocity
+	a3ret FluidCubeAddVelocity(a3_FluidCube* cube, a3vec3 gidPos, a3vec3 vel);
+
+
+	//THRE MAIN STEPS for the equation 
+	//1. diffues --> presuere step
+	//2. project --> ammount of each fluid in a box needs to remain constant
+	//3. advect --> velocity step
+
+
 #ifdef __cplusplus
 }
 #endif	// __cplusplus
