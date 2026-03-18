@@ -54,10 +54,20 @@ extern "C"
 
 
 	//THRE MAIN STEPS for the equation 
-	//1. diffues --> presuere step
+	//1. diffues --> disapation of velocitys( spreading out)
 	//2. project --> ammount of each fluid in a box needs to remain constant
-	//3. advect --> velocity step
+	//3. advect --> velocity step( directed motion)
 
+	//advect --> will accualy move the velocity field
+	a3ret FluidAdvect(a3i32 b, a3real* d, a3real* d0, a3real* velocX, a3real* velocY, a3real* velocZ, a3real dt, a3i32);
+
+	//helpers
+	//creates a boundry for the fluid is it does not leak out of this grid
+	//x is the arry being acted upon 
+	//N  is the size
+	//B is the axis
+	void FluidSetBoundry(a3i32 b, a3real* x, a3i32 N);
+	
 
 #ifdef __cplusplus
 }

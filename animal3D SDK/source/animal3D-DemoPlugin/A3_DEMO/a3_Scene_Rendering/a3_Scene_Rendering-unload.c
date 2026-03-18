@@ -40,6 +40,7 @@ void a3rendering_unload(a3_DemoState const* demoState, a3_Scene_Rendering* scene
 	// scene graph
 	a3hierarchyStateRelease(scene->sceneGraphState);
 	a3hierarchyRelease(scene->sceneGraph);
+	DestroyFluidCube(scene->fluid);
 }
 
 
