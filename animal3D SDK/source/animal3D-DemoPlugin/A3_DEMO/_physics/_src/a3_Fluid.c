@@ -11,8 +11,6 @@
 
 a3ret InitFluidCube(a3_FluidCube* cube, a3real diffusion, a3real viscosity, a3i32 size, a3real dt)
 {
-	cube = malloc(sizeof(a3_FluidCube*));
-
 	a3i32 N = size;
 
     cube->gridSize = size;
@@ -41,6 +39,12 @@ a3ret DestroyFluidCube(a3_FluidCube* cube)
 {
     free(cube->s);
     free(cube->density);
+
+    cube->gridSize = 0;
+    cube->dt = 0;
+    cube->diff = 0;
+    cube->visc = 0;
+
 
     free(cube->vX);
     free(cube->vY);

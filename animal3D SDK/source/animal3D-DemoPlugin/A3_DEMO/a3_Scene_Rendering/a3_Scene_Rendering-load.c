@@ -151,6 +151,7 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->test_ray_hit   = a3false;
 
     //init fluidcube
+    scene->fluid = (a3_FluidCube*)malloc(sizeof(a3_FluidCube));
     InitFluidCube(scene->fluid,1,1,10,1);
 }
 
