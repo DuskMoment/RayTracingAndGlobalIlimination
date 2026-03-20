@@ -221,3 +221,61 @@ void FluidSetBoundry(a3i32 b, a3real* x, a3i32 N)
         + x[IX(N - 1, N - 2, N - 1)]
         + x[IX(N - 1, N - 1, N - 2)]);
 }
+
+
+
+//-----------------------------2D code-------------------------------------------
+
+a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3i32 diffuseConstant)
+{
+
+    if (grid == NULL)
+    {
+        return -1;
+    }
+    grid->size = N * N;
+
+    grid->diff = diffuseConstant;
+
+    a3i32 allocSize = grid->size;
+
+    //check to see if this is correct
+    grid->density = calloc(allocSize, sizeof(a3vec2));
+    grid->prev_density = calloc(allocSize, sizeof(a3vec2));
+
+    grid->velocity = calloc(allocSize, sizeof(a3vec2));
+    grid->prev_velocity = calloc(allocSize, sizeof(a3vec2));
+
+
+    return 1;
+}
+
+a3ret DestroyFluidGrid(a3_FluidGrid* grid)
+{
+
+    free(grid->density);
+    free(grid->prev_density);
+
+    free(grid->velocity);
+    free(grid->prev_velocity);
+
+    grid->size = 0;
+    grid->diff = 0;
+
+    free(grid);
+
+    return 1;
+}
+
+a3vec2 ReadFluidSimulationVel(a3_FluidGrid* grid, a3i32 x, a3i32 y)
+{
+    a3i32 N = grid->size;
+    return grid->velocity[IX2(x, y)];
+}
+
+a3vec2 ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y)
+{
+    a3i32 N = grid->size;
+
+    return grid->density[IX2(x,y)];
+}

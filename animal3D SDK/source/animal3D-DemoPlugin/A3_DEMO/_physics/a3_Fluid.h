@@ -68,6 +68,47 @@ extern "C"
 	//B is the axis
 	void FluidSetBoundry(a3i32 b, a3real* x, a3i32 N);
 	
+#define IX2(i,j) ((i)+(N+2)*(j)) 
+	typedef struct a3_FluidGrid
+	{
+		//x and y compoent for the velocity
+		a3vec2* velocity;
+		a3vec2* prev_velocity;
+
+		//x and y of the desnsity
+		a3vec2* density;
+		a3vec2* prev_density;
+
+		//(N+2)*(N+2)
+		a3i32 size;
+		a3real diff;
+
+	}a3_FluidGrid;
+
+
+	//2D Simulation
+
+	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N);
+
+	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
+
+	//diffuse
+
+	//project
+	
+	//advect
+	
+	//advance simulation
+
+	//read simulation
+
+	a3vec2 ReadFluidSimulationVel(a3_FluidGrid* grid, a3i32 x, a3i32 y);
+	a3vec2 ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y);
+
+	//helper 
+
+	//set_bnd
+
 
 #ifdef __cplusplus
 }
