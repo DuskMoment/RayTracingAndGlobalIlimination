@@ -226,7 +226,7 @@ void FluidSetBoundry(a3i32 b, a3real* x, a3i32 N)
 
 //-----------------------------2D code-------------------------------------------
 
-a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3i32 diffuseConstant)
+a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant)
 {
 
     if (grid == NULL)
@@ -267,12 +267,14 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     return 1;
 }
 
+//returns a copy
 a3vec2 ReadFluidSimulationVel(a3_FluidGrid* grid, a3i32 x, a3i32 y)
 {
     a3i32 N = grid->size;
     return grid->velocity[IX2(x, y)];
 }
 
+//returns a copy
 a3vec2 ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y)
 {
     a3i32 N = grid->size;

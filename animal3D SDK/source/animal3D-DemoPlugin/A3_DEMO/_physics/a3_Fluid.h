@@ -88,7 +88,7 @@ extern "C"
 
 	//2D Simulation
 
-	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N);
+	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant);
 
 	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
 
