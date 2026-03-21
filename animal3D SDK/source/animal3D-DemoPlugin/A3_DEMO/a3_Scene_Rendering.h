@@ -155,6 +155,8 @@ extern "C"
 		
 		a3_FluidCube* fluid;
 
+
+		a3_FluidGrid* fluidGrid;
         // basic animation
         a3real rotate_time;
 

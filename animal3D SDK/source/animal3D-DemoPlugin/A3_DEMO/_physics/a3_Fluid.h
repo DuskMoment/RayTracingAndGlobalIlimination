@@ -15,6 +15,17 @@ extern "C"
 {
 #endif	// __cplusplus
 #define IX(x, y, z) ((x) + (y) * N + (z) * N * N)
+#define SWAP(u0, u) ()
+
+
+	static inline Swap(a3real* x, a3real* y)
+	{
+		a3real* temp;
+		temp = y;
+		y = x;
+		x = temp;
+	}
+
 	typedef struct a3_FluidCube
 	{
 	
@@ -72,16 +83,21 @@ extern "C"
 	typedef struct a3_FluidGrid
 	{
 		//x and y compoent for the velocity
-		a3vec2* velocity;
-		a3vec2* prev_velocity;
+		a3real* velocityU;
+		a3real* velocityV;
+		a3real* prevVelocityU;
+		a3real* prevVelocityV;
 
 		//x and y of the desnsity
-		a3vec2* density;
-		a3vec2* prev_density;
+		a3real* density;
+		a3real* prevDensity;
 
 		//(N+2)*(N+2)
 		a3i32 size;
 		a3real diff;
+
+		//with out boarder
+		a3i32 length;
 
 	}a3_FluidGrid;
 
@@ -92,22 +108,40 @@ extern "C"
 
 	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
 
+	a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt);
+
 	//diffuse
+	a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3real dt);
+	
 
 	//project
+	a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div);
 	
 	//advect
+	a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real* v, a3real dt);
+
+
 	
 	//advance simulation
+	a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0,
+		a3real visc, a3real dt);
+
+	a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v,
+		a3real diff, a3real dt);
+
+	a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real visc, a3real dt);
 
 	//read simulation
-
 	a3vec2 ReadFluidSimulationVel(a3_FluidGrid* grid, a3i32 x, a3i32 y);
-	a3vec2 ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y);
+	a3real ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y);
 
 	//helper 
 
 	//set_bnd
+	a3ret FluidGridSetBnd(a3i32 N, a3i32 b, a3real* x);
+	
+
+	
 
 
 #ifdef __cplusplus

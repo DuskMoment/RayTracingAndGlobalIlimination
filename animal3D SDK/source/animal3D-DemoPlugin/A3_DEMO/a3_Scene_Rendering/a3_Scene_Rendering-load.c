@@ -153,6 +153,18 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     //init fluidcube
     scene->fluid = (a3_FluidCube*)malloc(sizeof(a3_FluidCube));
     InitFluidCube(scene->fluid,1,1,10,1);
+
+    scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
+    InitFluidGrid(scene->fluidGrid, 4, 1);
+
+    a3real test[36];;
+
+    for (int i = 0; i < 36; i++)
+    {
+        test[i] = 1;
+    }
+
+    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, test, 1);
 }
 
 

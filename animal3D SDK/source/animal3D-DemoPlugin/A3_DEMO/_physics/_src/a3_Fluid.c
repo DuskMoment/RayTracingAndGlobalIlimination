@@ -233,18 +233,22 @@ a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant)
     {
         return -1;
     }
-    grid->size = N * N;
+    grid->size = (N + 2) * (N + 2);
+
+    grid->length = N;
 
     grid->diff = diffuseConstant;
 
     a3i32 allocSize = grid->size;
 
     //check to see if this is correct
-    grid->density = calloc(allocSize, sizeof(a3vec2));
-    grid->prev_density = calloc(allocSize, sizeof(a3vec2));
+    grid->density = calloc(allocSize, sizeof(a3real));
+    grid->prevDensity = calloc(allocSize, sizeof(a3real));
 
-    grid->velocity = calloc(allocSize, sizeof(a3vec2));
-    grid->prev_velocity = calloc(allocSize, sizeof(a3vec2));
+    grid->velocityU = calloc(allocSize, sizeof(a3real));
+    grid->velocityV = calloc(allocSize, sizeof(a3real));
+    grid->prevVelocityU = calloc(allocSize, sizeof(a3real));
+    grid->prevVelocityV = calloc(allocSize, sizeof(a3real));
 
 
     return 1;
@@ -254,10 +258,12 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
 {
 
     free(grid->density);
-    free(grid->prev_density);
+    free(grid->prevDensity);
 
-    free(grid->velocity);
-    free(grid->prev_velocity);
+    free(grid->velocityU);
+    free(grid->velocityV);
+    free(grid->prevVelocityU);
+    free(grid->prevVelocityV);
 
     grid->size = 0;
     grid->diff = 0;
@@ -267,17 +273,251 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     return 1;
 }
 
+a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
+{
+    a3i32 i, size = N;
+
+    for (i = 0; i < size; i++)
+    {
+        x[i] += dt * s[i];
+    }
+
+    return 1;
+}
+
+a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3real dt)
+{
+    //indexs
+    int i, j, k;
+
+    //diffuse constant
+    float a = dt * diff * N * N;
+
+    //aprox for Gauss-Seidel relaxation
+    for (k = 0; k < 20; k++)
+    {
+        for (i = 1; i <= N; i++)
+        {
+            for (j = 1; j <= N; j++)
+            {
+                a3real adjDiff = (x[IX2(i - 1, j)] + x[IX2(i + 1, j)] + x[IX2(i, j - 1)] + x[IX2(i, j + 1)]);
+                a3real numerator = x0[IX2(i, j)] + a * adjDiff;
+                a3real denom = (1 + 4 * a);
+
+                x[IX2(i, j)] = numerator / denom;
+            }
+        }
+        FluidGridSetBnd(N, b, x);
+    }
+
+    return 1;
+}
+
+a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
+{
+    {
+        a3i32 i, j, k;
+        a3real h;
+        h = (a3real)1.0 / N;
+
+        a3real half = 0.5;
+        //add third 
+        for (i = 1; i <= N; i++)
+        {
+            for (j = 1; j <= N; j++)
+            {
+
+                div[IX2(i, j)] = -half * h * (u[IX2(i + 1, j)] - u[IX2(i - 1, j)] +
+                    v[IX2(i, j + 1)] - v[IX2(i, j - 1)]);
+                p[IX2(i, j)] = 0;
+            }
+        }
+
+        FluidGridSetBnd(N, 0, div); FluidGridSetBnd(N, 0, p);
+        for (k = 0; k < 20; k++) 
+        {
+            //add third
+            for (i = 1; i <= N; i++) 
+            {
+                for (j = 1; j <= N; j++) 
+                {
+                    p[IX2(i, j)] = (div[IX2(i, j)] + p[IX2(i - 1, j)] + p[IX2(i + 1, j)] +
+                        p[IX2(i, j - 1)] + p[IX2(i, j + 1)]) / (a3real)4;
+                }
+            }
+            FluidGridSetBnd(N, 0, p);
+        }
+
+        //add third
+        for (i = 1; i <= N; i++) 
+        {
+            for (j = 1; j <= N; j++) 
+            {
+                u[IX2(i, j)] -= half * (p[IX2(i + 1, j)] - p[IX2(i - 1, j)]) / h;
+                v[IX2(i, j)] -= half * (p[IX2(i, j + 1)] - p[IX2(i, j - 1)]) / h;
+            }
+        }
+        FluidGridSetBnd(N, 1, u); FluidGridSetBnd(N, 2, v);
+    }
+
+    return 1;
+}
+
+a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real* v, a3real dt)
+{
+    a3i32 i, j, i0, j0, i1, j1;
+    a3real x, y, s0, t0, s1, t1, dt0;
+
+    dt0 = dt * N;
+
+    a3real half = 0.5;
+    for (i = 1; i <= N; i++)
+    {
+        for (j = 1; j <= N; j++)
+        {
+            x = i - dt0 * u[IX2(i, j)]; y = j - dt0 * v[IX2(i, j)];
+
+            if (x < half)
+                x = half;
+
+            if (x > (a3real)N + half)
+                x = (a3real)N + half;
+
+            i0 = (a3i32)x; i1 = i0 + 1;
+
+            if (y < half)
+                y = half;
+
+            if (y > N + half)
+                y = N + half;
+
+            j0 = (a3i32)y;
+            j1 = j0 + 1;
+
+            s1 = x - i0; s0 = 1 - s1;
+            t1 = y - j0; t0 = 1 - t1;
+
+            d[IX2(i, j)] = s0 * (t0 * d0[IX2(i0, j0)] + t1 * d0[IX2(i0, j1)]) +
+                s1 * (t0 * d0[IX2(i1, j0)] + t1 * d0[IX2(i1, j1)]);
+        }
+    }
+    FluidGridSetBnd(N, b, d);
+
+
+    return 1;
+}
+
+a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3real visc, a3real dt)
+{
+    FluidGirdAddSource(N, u, u0, dt); FluidGirdAddSource(N, v, v0, dt);
+    Swap(u0, u); FluidGridDiffuse(N, 1, u, u0, visc, dt);
+    Swap(v0, v); FluidGridDiffuse(N, 2, v, v0, visc, dt);
+    FluidGridProject(N, u, v, u0, v0);
+    Swap(u0, u); Swap(v0, v);
+    FluidGridAdvect(N, 1, u, u0, u0, v0, dt); FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
+    FluidGridProject(N, u, v, u0, v0);
+
+    return 1;
+}
+
+a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3real diff, a3real dt)
+{
+    FluidGirdAddSource(N, x, x0, dt);
+    Swap(x0, x);
+    FluidGridDiffuse(N, 0, x, x0, diff, dt);
+    Swap(x0, x);
+    FluidGridAdvect(N, 0, x, x0, u, v, dt);
+
+    return 1;
+}
+
+a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real visc, a3real dt)
+{
+    a3real* densPrev, * uPrev, * vPrev;
+    //previous frame
+    densPrev = grid->prevDensity;
+    uPrev = grid->prevVelocityU;
+    vPrev = grid->prevVelocityV;
+
+    FluidGridVelStep(N, u, v, uPrev, vPrev, visc, dt);
+    FluidGridDensStep(N, grid->density, densPrev, u, v, grid->diff, dt);
+
+    return 1;
+
+}
+
 //returns a copy
 a3vec2 ReadFluidSimulationVel(a3_FluidGrid* grid, a3i32 x, a3i32 y)
 {
     a3i32 N = grid->size;
-    return grid->velocity[IX2(x, y)];
+
+    a3real tmpX = grid->velocityU[IX2(x, y)];
+    a3real tmpY = grid->velocityV[IX2(x, y)];
+
+    a3vec2 out;
+
+    out.x = tmpX;
+    out.y = tmpY;
+
+    return out;
 }
 
 //returns a copy
-a3vec2 ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y)
+a3real ReadFluidSimulationDensity(a3_FluidGrid* grid, a3i32 x, a3i32 y)
 {
     a3i32 N = grid->size;
 
     return grid->density[IX2(x,y)];
+}
+
+a3ret FluidGridSetBnd(a3i32 N, a3i32 b, a3real* x)
+{
+    a3i32 i;
+
+    /*
+    * loop iterates of the dashes for calculation of bounds
+    * 0----0
+    * |	   |
+    * |	   |
+    * |    |
+    * 0----0
+    */
+    for (i = 1; i <= N; i++) {
+
+        a3real leftVert = x[IX2(1, i)];
+        a3real rightVert = x[IX2(N, i)];
+
+        a3real topHori = x[IX2(i, 1)];
+        a3real bottomHori = x[IX2(i, N)];
+
+
+        x[IX2(0, i)] = b == 1 ? ( -(a3real)1 * leftVert) : leftVert;
+
+        x[IX2(N + 1, i)] = b == 1 ? (-(a3real)1 * rightVert): rightVert;
+
+        x[IX2(i, 0)] = b == 2 ? (-(a3real)1 * topHori) : topHori;
+
+        x[IX2(i, N + 1)] = b == 2 ? (-(a3real)1 * bottomHori) : bottomHori;
+
+        //add third dimention here 
+    }
+
+    //this handles the corners takes the average using adjacecys 
+
+    a3real half = 0.5;
+    //top left
+    x[IX2(0, 0)] = half * (x[IX2(1, 0)] + x[IX2(0, 1)]);
+
+    //bottom left
+    x[IX2(0, N + 1)] = half * (x[IX2(1, N + 1)] + x[IX2(0, N)]);
+
+    //top right
+    x[IX2(N + 1, 0)] = half * (x[IX2(N, 0)] + x[IX2(N + 1, 1)]);
+
+    //bottom right
+    x[IX2(N + 1, N + 1)] = half * (x[IX2(N, N + 1)] + x[IX2(N + 1, N)]);
+
+    //add third dimention here 
+
+    return 1;
 }
