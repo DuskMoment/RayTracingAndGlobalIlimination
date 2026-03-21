@@ -290,6 +290,9 @@ typedef struct a3_DemoState
 				prog_drawTangentBasis_skin[1],				// draw vertex/face tangent bases and wireframe for skinned model
 				prog_drawTangentBasis_morph5[1],			// draw vertex/face tangent bases and wireframe for 5-target morphing model
 				prog_drawTangentBasis[1];					// draw vertex/face tangent bases and wireframe
+
+			a3_SceneShaderProgram
+				prog_drawGrid[1];
 		};
 	};
 

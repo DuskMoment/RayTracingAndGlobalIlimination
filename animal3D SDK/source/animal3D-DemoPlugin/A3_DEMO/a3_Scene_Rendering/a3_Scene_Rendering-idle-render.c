@@ -709,15 +709,9 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3vertexDrawableActivate(currentDrawable);
 
 		// determine if additional passes are required
-		currentDemoProgram = displayProgram[display];
+		currentDemoProgram = demoState->prog_drawGrid;
 		a3shaderProgramActivate(currentDemoProgram->program);
 
-		switch (scene->display)
-		{
-			// most basic option: simply display texture
-		case rendering_displayTexture:
-			break;
-		}
 
 		// done
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);

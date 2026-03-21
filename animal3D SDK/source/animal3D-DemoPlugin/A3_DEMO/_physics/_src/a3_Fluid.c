@@ -333,19 +333,6 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
             }
         }
 
-        a3real totalDiv = 0;
-        for (int i = 0; i < 36; i++)
-        {
-            {
-                totalDiv += div[i];
-            }
-        }
-
-        char buffer[20];
-        printf("Initial Div: ");
-        printf(_gcvt(totalDiv, 6, buffer));
-        printf(" ");
-
         FluidGridSetBnd(N, 0, div); FluidGridSetBnd(N, 0, p);
         for (k = 0; k < 20; k++) 
         {
@@ -372,19 +359,6 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
         }
         FluidGridSetBnd(N, 1, u); FluidGridSetBnd(N, 2, v);
     }
-
-    a3real totalDiv = 0;
-    for (int i = 0; i < 36; i++)
-    {
-        {
-            totalDiv += p[i];
-        }
-    }
-
-    char buffer[20];
-    printf("End Div: ");
-    printf(_gcvt(totalDiv, 6, buffer));
-    printf("\n");
 
     return 1;
 }

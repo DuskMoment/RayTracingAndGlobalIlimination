@@ -260,6 +260,7 @@
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawTexture_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\utilCommon_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\01-pipeline\drawPhong_shadow_fs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\fs\01-pipeline\gridRender_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\01-pipeline\postBlend_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\01-pipeline\postBlur_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\01-pipeline\postBright_fs4x.glsl" />
