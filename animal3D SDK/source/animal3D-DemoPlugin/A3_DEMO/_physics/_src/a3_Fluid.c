@@ -443,7 +443,6 @@ a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real vis
     FluidGridDensStep(N, grid->density, densPrev, u, v, grid->diff, dt);
 
     return 1;
-
 }
 
 //returns a copy

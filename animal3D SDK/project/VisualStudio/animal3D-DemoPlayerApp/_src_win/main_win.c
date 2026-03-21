@@ -56,7 +56,7 @@ int APIENTRY wWinMain(
 	const a3byte *wndName = "animal3D Demo Player";
 
 	// some widescreen resolutions
-	const a3ui32 winWidth = 1600, winHeight = 900;
+	const a3ui32 winWidth = 102, winHeight = 102;
 //	const a3ui32 winWidth = 1280, winHeight = 720;
 //	const a3ui32 winWidth = 1024, winHeight = 576;
 //	const a3ui32 winWidth =  960, winHeight = 540;

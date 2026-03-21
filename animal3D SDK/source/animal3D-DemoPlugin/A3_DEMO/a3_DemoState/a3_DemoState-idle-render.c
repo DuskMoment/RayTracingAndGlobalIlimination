@@ -66,7 +66,7 @@ void a3demo_render_controls_global(a3_DemoState const* demoState,
 	a3_TextRenderer const* text, a3vec4 const col,
 	a3f32 const textAlign, a3f32 const textDepth, a3f32 const textOffsetDelta, a3f32 textOffset)
 {
-	if (a3XboxControlIsConnected(demoState->xcontrol))
+	/*if (a3XboxControlIsConnected(demoState->xcontrol))
 	{
 		a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
 			"Xbox controller target object control: ");
@@ -87,7 +87,7 @@ void a3demo_render_controls_global(a3_DemoState const* demoState,
 			"Toggle text display:        't' (toggle) | 'T' (alloc/dealloc) ");
 		a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
 			"Reload all shader programs: 'P' ****CHECK CONSOLE FOR ERRORS!**** ");
-	}
+	}*/
 }
 
 // display current mode controls
@@ -95,41 +95,41 @@ void a3demo_render_controls(a3_DemoState const* demoState,
 	a3_TextRenderer const* text, a3vec4 const col,
 	a3f32 const textAlign, a3f32 const textDepth, a3f32 const textOffsetDelta, a3f32 textOffset)
 {
-	// display mode info
-	a3byte const* modeText[demoState_mode_max] = {
-		"STARTER SCENE",
-		"ANIMATION SCENE",
-		"RENDERING SCENE",
-	};
+	//// display mode info
+	//a3byte const* modeText[demoState_mode_max] = {
+	//	"STARTER SCENE",
+	//	"ANIMATION SCENE",
+	//	"RENDERING SCENE",
+	//};
 
-	// demo mode
-	a3_DemoState_ModeName const scene = demoState->scene;
+	//// demo mode
+	//a3_DemoState_ModeName const scene = demoState->scene;
 
-	// demo mode
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"Demo mode (%u / %u) ('</,' prev | next '>/.'): %s", scene + 1, demoState_mode_max, modeText[scene]);
+	//// demo mode
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"Demo mode (%u / %u) ('</,' prev | next '>/.'): %s", scene + 1, demoState_mode_max, modeText[scene]);
 
-	// draw controls for specific modes
-	switch (scene)
-	{
-	case demoState_modeStarter:
-		a3starter_render_controls(demoState, demoState->scene_starter, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
-		break;
-	
-	case demoState_modeAnimation:
-		a3animation_render_controls(demoState, demoState->scene_animation, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
-		break;
+	//// draw controls for specific modes
+	//switch (scene)
+	//{
+	//case demoState_modeStarter:
+	//	a3starter_render_controls(demoState, demoState->scene_starter, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
+	//	break;
+	//
+	//case demoState_modeAnimation:
+	//	a3animation_render_controls(demoState, demoState->scene_animation, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
+	//	break;
 
-    case demoState_modeRendering:
-        a3rendering_render_controls(demoState, demoState->scene_rendering, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
-        break;
-	
-	}
+ //   case demoState_modeRendering:
+ //       a3rendering_render_controls(demoState, demoState->scene_rendering, text, col, textAlign, textDepth, textOffsetDelta, textOffset);
+ //       break;
+	//
+	//}
 
-	// global/input-dependent controls
-	textOffset = -0.6f;
-	a3demo_render_controls_global(demoState, text, col,
-		textAlign, textDepth, textOffsetDelta, textOffset);
+	//// global/input-dependent controls
+	//textOffset = -0.6f;
+	//a3demo_render_controls_global(demoState, text, col,
+	//	textAlign, textDepth, textOffsetDelta, textOffset);
 }
 
 
@@ -138,30 +138,30 @@ void a3demo_render_controls_gen(a3_DemoState const* demoState,
 	a3_TextRenderer const* text, a3vec4 const col,
 	a3f32 const textAlign, a3f32 const textDepth, a3f32 const textOffsetDelta, a3f32 textOffset)
 {
-	// boolean text
-	a3byte const boolText[2][4] = {
-		"OFF",
-		"ON ",
-	};
+	//// boolean text
+	//a3byte const boolText[2][4] = {
+	//	"OFF",
+	//	"ON ",
+	//};
 
-	// toggles
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"GRID (toggle 'g') %s | SKYBOX ('b') %s | HIDDEN VOLUMES ('h') %s", boolText[demoState->displayGrid], boolText[demoState->displaySkybox], boolText[demoState->displayHiddenVolumes]);
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"WORLD AXES (toggle 'x') %s | OBJECT AXES ('z') %s", boolText[demoState->displayWorldAxes], boolText[demoState->displayObjectAxes]);
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"TANGENT BASES ('B') %s | WIREFRAME ('F') %s", boolText[demoState->displayTangentBases], boolText[demoState->displayWireframe]);
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"ANIMATION (toggle 'm') %s", boolText[demoState->updateAnimation]);
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"STENCIL TEST (toggle 'i') %s", boolText[demoState->stencilTest]);
-	a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
-		"SKIP INTERMEDIATE PASSES (toggle 'I') %s", boolText[demoState->skipIntermediatePasses]);
+	//// toggles
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"GRID (toggle 'g') %s | SKYBOX ('b') %s | HIDDEN VOLUMES ('h') %s", boolText[demoState->displayGrid], boolText[demoState->displaySkybox], boolText[demoState->displayHiddenVolumes]);
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"WORLD AXES (toggle 'x') %s | OBJECT AXES ('z') %s", boolText[demoState->displayWorldAxes], boolText[demoState->displayObjectAxes]);
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"TANGENT BASES ('B') %s | WIREFRAME ('F') %s", boolText[demoState->displayTangentBases], boolText[demoState->displayWireframe]);
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"ANIMATION (toggle 'm') %s", boolText[demoState->updateAnimation]);
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"STENCIL TEST (toggle 'i') %s", boolText[demoState->stencilTest]);
+	//a3textDraw(text, textAlign, textOffset += textOffsetDelta, textDepth, col.r, col.g, col.b, col.a,
+	//	"SKIP INTERMEDIATE PASSES (toggle 'I') %s", boolText[demoState->skipIntermediatePasses]);
 
-	// global/input-dependent controls
-	textOffset = -0.6f;
-	a3demo_render_controls_global(demoState, text, col,
-		textAlign, textDepth, textOffsetDelta, textOffset);
+	//// global/input-dependent controls
+	//textOffset = -0.6f;
+	//a3demo_render_controls_global(demoState, text, col,
+	//	textAlign, textDepth, textOffsetDelta, textOffset);
 }
 
 

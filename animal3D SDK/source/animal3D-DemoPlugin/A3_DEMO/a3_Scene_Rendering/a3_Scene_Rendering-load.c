@@ -157,13 +157,13 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     InitFluidCube(scene->fluid,1,1,10,1);
 
     scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
-    InitFluidGrid(scene->fluidGrid, 4, 1);
+    InitFluidGrid(scene->fluidGrid, 100, 1);
 
     srand((unsigned int)time(NULL));
 
-    a3real test[36];;
+    a3real test[102*102];
 
-    for (int i = 0; i < 36; i++)
+    for (int i = 0; i < 102*102; i++)
     {
         test[i] = (float)rand() / (float)RAND_MAX;;
     }
