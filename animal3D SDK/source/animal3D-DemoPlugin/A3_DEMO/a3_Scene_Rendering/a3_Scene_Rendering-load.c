@@ -32,6 +32,8 @@
 
 #include "../a3_DemoState.h"
 
+#include <time.h>
+
 
 //-----------------------------------------------------------------------------
 
@@ -157,14 +159,18 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
     InitFluidGrid(scene->fluidGrid, 4, 1);
 
+    srand((unsigned int)time(NULL));
+
     a3real test[36];;
 
     for (int i = 0; i < 36; i++)
     {
-        test[i] = 1;
+        test[i] = (float)rand() / (float)RAND_MAX;;
     }
 
     FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, test, 1);
+    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, test, 1);
+    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, 1);
 }
 
 

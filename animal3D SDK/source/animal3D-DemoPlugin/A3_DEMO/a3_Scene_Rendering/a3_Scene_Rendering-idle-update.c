@@ -34,6 +34,7 @@
 #include "../a3_DemoState.h"
 
 #include "../_a3_scene_utilities/a3_SceneMacros.h"
+#include "../_physics/a3_Fluid.h"
 
 
 //-----------------------------------------------------------------------------
@@ -148,6 +149,17 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
             activeCamera->projectionMatInv.m,
             bias.m, unbias.m);
     }
+
+	a3real p[36];
+	a3real div[36];
+
+	for (int i = 0; i < 36; i++)
+	{
+		p[i] = 0;
+		div[i] = 0;
+	}
+
+	FluidGridProject(scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, p, div);
 }
 
 
