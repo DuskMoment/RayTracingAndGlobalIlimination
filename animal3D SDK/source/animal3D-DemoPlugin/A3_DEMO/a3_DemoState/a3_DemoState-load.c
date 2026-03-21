@@ -603,7 +603,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
             { { { 0 },	"shdr-fs:draw-photo1",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic1_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-fs:draw-GRID",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/gridRender_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
 
 		}
 	};
