@@ -168,7 +168,7 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 
 	for (int i = 0; i < 40 * 40; i++)
 	{
-		test[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
+		test[i] = (((float)rand() / (float)RAND_MAX) * (a3real)200.0) - (a3real)100;
 	}
 
 	srand(5);
@@ -177,7 +177,7 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 
 	for (int i = 0; i < 40 * 40; i++)
 	{
-		utest[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
+		utest[i] = (((float)rand() / (float)RAND_MAX) * (a3real)200.0) - (a3real)100;
 	}
 
 	for (int i = 0; i < 40 * 40; i++)
