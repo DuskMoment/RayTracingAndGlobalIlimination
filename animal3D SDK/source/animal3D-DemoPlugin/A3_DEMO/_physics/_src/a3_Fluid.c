@@ -306,7 +306,7 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     free(grid->prevVelocityV);
 
     grid->size = 0;
-    grid->diff = 1.0;
+    grid->diff = 0;
 
     free(grid);
 

@@ -36,6 +36,8 @@
 #include "../_a3_scene_utilities/a3_SceneMacros.h"
 #include "../_physics/a3_Fluid.h"
 
+#include <time.h>
+
 
 //-----------------------------------------------------------------------------
 // UTILS
@@ -149,8 +151,44 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
             activeCamera->projectionMatInv.m,
             bias.m, unbias.m);
     }
+	a3real dtest[40 * 40];
+	for (int i = 0; i < 40 * 40; i++)
+	{
+		dtest[i] = 0;
+	}
 
-	FluidGridSim(scene->fluidGrid, scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, (a3real) 0.0, (a3real)0.0167);
+	for (int i = 800; i < 805; i++) {
+		dtest[i] = 1;
+	}
+	FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, (a3real)1);
+
+	srand((unsigned int)time(NULL));
+
+	a3real test[40 * 40];
+
+	for (int i = 0; i < 40 * 40; i++)
+	{
+		test[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
+	}
+
+	srand(5);
+
+	a3real utest[40 * 40];
+
+	for (int i = 0; i < 40 * 40; i++)
+	{
+		utest[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
+	}
+
+	for (int i = 0; i < 40 * 40; i++)
+	{
+		dtest[i] = ((float)rand() / (float)RAND_MAX);
+	}
+
+	FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, utest, (a3real)0.016);
+	FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, (a3real)0.016);
+
+	FluidGridSim(scene->fluidGrid, scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, (a3real) 0.0, (a3real)0.001);
 }
 
 

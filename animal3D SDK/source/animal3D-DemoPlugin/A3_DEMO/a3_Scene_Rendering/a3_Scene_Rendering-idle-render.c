@@ -719,6 +719,8 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 		a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
 
+
+
 		//for (int i = 0; i < 40 * 40; i++) 
 		//{
 		//	char* name = "density[";
