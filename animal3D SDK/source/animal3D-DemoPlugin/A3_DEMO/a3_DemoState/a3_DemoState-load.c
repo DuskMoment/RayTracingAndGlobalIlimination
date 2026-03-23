@@ -868,6 +868,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3bufferCreate(demoState->ubo_transformBlend, "ubo:transformBlend", a3buffer_uniform, a3index_countMaxShort, 0);
 	a3bufferCreate(demoState->ubo_transformMVP, "ubo:transformMVP", a3buffer_uniform, a3index_countMaxShort, 0);
 	a3bufferCreate(demoState->ubo_transformMVPB, "ubo:transformMVPB", a3buffer_uniform, a3index_countMaxShort, 0);
+	a3bufferCreate(demoState->densityBuffer, "ubo:densityBuffer", a3buffer_uniform, a3index_countMaxShort, 0);
 	for (i = 0; i < 4; ++i)
 		a3bufferCreate(demoState->ubo_transformSkelMVP + i, "ubo:transformSkelMVP", a3buffer_uniform, a3index_countMaxShort, 0);
 

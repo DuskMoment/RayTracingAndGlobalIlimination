@@ -713,18 +713,20 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3shaderProgramActivate(currentDemoProgram->program);
 
 		// done
+		a3bufferFixedRefill(demoState->densityBuffer, 0, scene->fluidGrid->size * sizeof(a3real), scene->fluidGrid->density);
+		a3i32 test = a3shaderUniformBufferActivate(demoState->densityBuffer, 0);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 		a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
 
-		for (int i = 0; i < 102 * 102; i++) 
-		{
-			char* name = "density[";
-			char buffer[20];
-			strcat(name, _itoa(i, buffer, 10));
-			strcat(name, "]");
-			a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, name), 1, scene->fluidGrid->density + i);
-		}
+		//for (int i = 0; i < 40 * 40; i++) 
+		//{
+		//	char* name = "density[";
+		//	char buffer[20];
+		//	strcat(name, _itoa(i, buffer, 10));
+		//	strcat(name, "]");
+		//	//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, name), 1, scene->fluidGrid->density + i);
+		//}
 
 		a3vertexDrawableRenderActive();
 	}

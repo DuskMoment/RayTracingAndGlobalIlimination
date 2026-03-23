@@ -243,13 +243,53 @@ a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant)
 
     //check to see if this is correct
     grid->density = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->density[i] = 0;
+    }
+
     grid->prevDensity = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->prevDensity[i] = 0;
+    }
 
     grid->velocityU = calloc(allocSize, sizeof(a3real));
-    grid->velocityV = calloc(allocSize, sizeof(a3real));
-    grid->prevVelocityU = calloc(allocSize, sizeof(a3real));
-    grid->prevVelocityV = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->velocityU[i] = 0;
+    }
 
+    grid->velocityV = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->velocityV[i] = 0;
+    }
+
+    grid->prevVelocityU = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->prevVelocityU[i] = 0;
+    }
+
+    grid->prevVelocityV = calloc(allocSize, sizeof(a3real));
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->prevVelocityV[i] = 0;
+    }
+
+
+    return 1;
+}
+
+a3ret CopyCurrToPrevGrids(a3_FluidGrid* grid)
+{
+    for (int i = 0; i < grid->size; i++)
+    {
+        grid->prevDensity[i] = grid->density[i];
+        grid->prevVelocityU[i] = grid->velocityU[i];
+        grid->prevVelocityV[i] = grid->velocityV[i];
+    }
 
     return 1;
 }
@@ -266,7 +306,7 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     free(grid->prevVelocityV);
 
     grid->size = 0;
-    grid->diff = 0;
+    grid->diff = 1.0;
 
     free(grid);
 
@@ -375,7 +415,8 @@ a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real
     {
         for (j = 1; j <= N; j++)
         {
-            x = i - dt0 * u[IX2(i, j)]; y = j - dt0 * v[IX2(i, j)];
+            x = i - dt0 * u[IX2(i, j)];
+            y = j - dt0 * v[IX2(i, j)];
 
             if (x < half)
                 x = half;
@@ -409,12 +450,17 @@ a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real
 
 a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3real visc, a3real dt)
 {
-    FluidGirdAddSource(N, u, u0, dt); FluidGirdAddSource(N, v, v0, dt);
-    Swap(u0, u); FluidGridDiffuse(N, 1, u, u0, visc, dt);
-    Swap(v0, v); FluidGridDiffuse(N, 2, v, v0, visc, dt);
+    FluidGirdAddSource(N, u, u0, dt); 
+    FluidGirdAddSource(N, v, v0, dt);
+    Swap(u0, u, (N + 2)*(N+2)); 
+    FluidGridDiffuse(N, 1, u, u0, visc, dt);
+    Swap(v0, v, (N + 2) * (N + 2));
+    FluidGridDiffuse(N, 2, v, v0, visc, dt);
     FluidGridProject(N, u, v, u0, v0);
-    Swap(u0, u); Swap(v0, v);
-    FluidGridAdvect(N, 1, u, u0, u0, v0, dt); FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
+    Swap(u0, u, (N + 2) * (N + 2));
+    Swap(v0, v, (N + 2) * (N + 2));
+    FluidGridAdvect(N, 1, u, u0, u0, v0, dt); 
+    FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
     FluidGridProject(N, u, v, u0, v0);
 
     return 1;
@@ -423,9 +469,9 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
 a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3real diff, a3real dt)
 {
     FluidGirdAddSource(N, x, x0, dt);
-    Swap(x0, x);
+    Swap(x0, x, (N + 2) * (N + 2));
     FluidGridDiffuse(N, 0, x, x0, diff, dt);
-    Swap(x0, x);
+    Swap(x0, x, (N + 2) * (N + 2));
     FluidGridAdvect(N, 0, x, x0, u, v, dt);
 
     return 1;

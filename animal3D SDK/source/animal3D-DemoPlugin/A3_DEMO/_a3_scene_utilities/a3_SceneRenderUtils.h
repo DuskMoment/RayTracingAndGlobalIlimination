@@ -103,6 +103,12 @@ inline void a3scene_drawStencilTest(a3real4x4p modelViewProjectionMat, a3real4x4
 
 //-----------------------------------------------------------------------------
 
+//inline a3i32 a3SSBOCreate(a3i32 uniformLocation);
+//
+//inline a3ret a3SSBOSet(a3i32 uniformLocation, a3i64 bytes, const void* data);
+
+//-----------------------------------------------------------------------------
+
 
 #ifdef __cplusplus
 }

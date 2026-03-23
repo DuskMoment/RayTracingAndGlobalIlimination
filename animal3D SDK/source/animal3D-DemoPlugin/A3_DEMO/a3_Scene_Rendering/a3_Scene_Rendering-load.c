@@ -157,20 +157,38 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     InitFluidCube(scene->fluid,1,1,10,1);
 
     scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
-    InitFluidGrid(scene->fluidGrid, 100, 1);
+    InitFluidGrid(scene->fluidGrid, 3, 1);
 
     srand((unsigned int)time(NULL));
 
-    a3real test[102*102];
+    a3real test[5*5];
 
-    for (int i = 0; i < 102*102; i++)
+    for (int i = 0; i < 5*5; i++)
     {
-        test[i] = (float)rand() / (float)RAND_MAX;;
+        test[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
     }
 
-    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, test, 1);
-    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, test, 1);
+    srand(5);
+
+    a3real utest[5 * 5];
+
+    for (int i = 0; i < 5 * 5; i++)
+    {
+        utest[i] = ((float)rand() / (float)RAND_MAX) * (a3real)100.0;
+    }
+
+    //cuz density shouldnt be larger than 1 if using for color
+    a3real dtest[5 * 5];
+    for (int i = 0; i < 5 * 5; i++)
+    {
+        dtest[i] = ((float)rand() / (float)RAND_MAX);
+    }
+
+    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, 1);
+    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, utest, 1);
     FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, 1);
+
+    CopyCurrToPrevGrids(scene->fluidGrid);
 }
 
 

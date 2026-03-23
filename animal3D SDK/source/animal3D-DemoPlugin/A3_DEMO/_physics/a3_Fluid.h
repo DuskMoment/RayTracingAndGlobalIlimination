@@ -18,12 +18,19 @@ extern "C"
 #define SWAP(u0, u) ()
 
 
-	static inline Swap(a3real* x, a3real* y)
+	static inline Swap(a3real* x, a3real* y, a3i32 size)
 	{
-		a3real* temp;
+		/*a3real* temp;
 		temp = y;
 		y = x;
-		x = temp;
+		x = temp;*/
+
+		for (int i = 0; i < size; i++)
+		{
+			a3real temp = y[i];
+			y[i] = x[i];
+			x[i] = temp;
+		}
 	}
 
 	typedef struct a3_FluidCube
@@ -105,6 +112,7 @@ extern "C"
 	//2D Simulation
 
 	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant);
+	a3ret CopyCurrToPrevGrids(a3_FluidGrid* grid);
 
 	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
 
