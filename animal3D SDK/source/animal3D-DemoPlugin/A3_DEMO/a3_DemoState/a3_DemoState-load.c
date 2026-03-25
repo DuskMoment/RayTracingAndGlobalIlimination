@@ -897,7 +897,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	//______________________________OUTPUT_______________________________________________
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
@@ -905,7 +905,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
@@ -913,7 +913,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
@@ -921,7 +921,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 5, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
