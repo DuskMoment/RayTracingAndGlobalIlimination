@@ -704,6 +704,27 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 	// final display: activate desired final program and draw FSQ
 	if (currentDisplayFBO)
 	{
+
+		currentDemoProgram = demoState->prog_splitGrid;
+		a3shaderProgramActivate(currentDemoProgram->program);
+
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (40 * 40) * sizeof(a3real), scene->fluidGrid->density);
+
+		glDispatchCompute((currentDisplayFBO->frameWidth + 31) / 32, (currentDisplayFBO->frameHeight + 31) / 32, 1);
+		glMemoryBarrier(GL_TEXTURE_FETCH_BARRIER_BIT | GL_FRAMEBUFFER_BARRIER_BIT | GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+
+
+
+
+
+
+
+
+
+
+
+
+
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
 		a3vertexDrawableActivate(currentDrawable);
@@ -720,6 +741,14 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
 
 
+		a3vertexDrawableRenderActive();
+
+		//bind buffer
+		//bind programm
+
+	
+
+
 
 		//for (int i = 0; i < 40 * 40; i++) 
 		//{
@@ -730,7 +759,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		//	//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, name), 1, scene->fluidGrid->density + i);
 		//}
 
-		a3vertexDrawableRenderActive();
+		
 	}
 }
 

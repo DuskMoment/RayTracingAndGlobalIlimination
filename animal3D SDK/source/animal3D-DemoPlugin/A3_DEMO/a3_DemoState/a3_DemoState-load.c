@@ -77,6 +77,7 @@
 #include "../a3_DemoState.h"
 
 #include <stdio.h>
+#include <gl/glew.h>
 
 
 //-----------------------------------------------------------------------------
@@ -880,6 +881,23 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3bufferCreate(demoState->ubo_transformMVP, "ubo:transformMVP", a3buffer_uniform, a3index_countMaxShort, 0);
 	a3bufferCreate(demoState->ubo_transformMVPB, "ubo:transformMVPB", a3buffer_uniform, a3index_countMaxShort, 0);
 	a3bufferCreate(demoState->densityBuffer, "ubo:densityBuffer", a3buffer_uniform, a3index_countMaxShort, 0);
+
+
+	//generate the buffer
+	a3i32 handle;
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (40 * 40) * sizeof(a3real), NULL, GL_STATIC_READ);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->testBuffer->handle->handle = handle;
+	
+
+
+
+
+
 	for (i = 0; i < 4; ++i)
 		a3bufferCreate(demoState->ubo_transformSkelMVP + i, "ubo:transformSkelMVP", a3buffer_uniform, a3index_countMaxShort, 0);
 

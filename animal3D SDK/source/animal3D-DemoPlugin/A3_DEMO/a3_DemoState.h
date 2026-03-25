@@ -312,6 +312,19 @@ typedef struct a3_DemoState
 				ubo_transformSkelMVP[4];
 			a3_UniformBuffer
 				densityBuffer[1];
+
+			a3_UniformBuffer
+				testBuffer[1];
+
+			//output buffersx
+			a3_UniformBuffer
+				testOutput[1];
+			a3_UniformBuffer
+				test1Output[1];
+			a3_UniformBuffer
+				test2Output[1];
+			a3_UniformBuffer
+				test3Output[1];
 		};
 	};
 
