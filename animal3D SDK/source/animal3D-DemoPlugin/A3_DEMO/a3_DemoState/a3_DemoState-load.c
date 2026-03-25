@@ -887,15 +887,45 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3i32 handle;
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (40 * 40) * sizeof(a3real), NULL, GL_STATIC_READ);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (40 * 40) * sizeof(a3real), NULL, GL_DYNAMIC_DRAW);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	demoState->testBuffer->handle->handle = handle;
 	
 
+	//______________________________OUTPUT_______________________________________________
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
+	demoState->testOutput->handle->handle = handle;
 
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->test1Output->handle->handle = handle;
+
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->test2Output->handle->handle = handle;
+
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3i32), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 5, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->test3Output->handle->handle = handle;
 
 
 	for (i = 0; i < 4; ++i)

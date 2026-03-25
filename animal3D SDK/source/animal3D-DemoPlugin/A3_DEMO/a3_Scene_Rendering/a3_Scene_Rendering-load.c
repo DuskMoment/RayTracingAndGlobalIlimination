@@ -200,12 +200,6 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, (a3real)0.016);
 
     CopyCurrToPrevGrids(scene->fluidGrid);
-
-
-  
-
-
-    //add for more for the read and write
 }
 
 

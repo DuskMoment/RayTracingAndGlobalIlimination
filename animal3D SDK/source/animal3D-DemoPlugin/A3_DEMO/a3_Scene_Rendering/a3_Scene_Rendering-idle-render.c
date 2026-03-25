@@ -705,23 +705,58 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 	if (currentDisplayFBO)
 	{
 
+
+		a3i32 output[20 * 20];
+		a3i32 output1[20 * 20];
+		a3i32 output2[20 * 20];
+		a3i32 output3[20 * 20];
+
+
+
+
+	
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->testBuffer->handle->handle);
+		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->testBuffer->handle->handle);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (40 * 40) * sizeof(a3real), scene->fluidGrid->density);
+		//glBufferData(GL_SHADER_STORAGE_BUFFER, (40 * 40) * sizeof(a3real), scene->fluidGrid->density, GL_DYNAMIC_DRAW);
+
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test1Output->handle->handle);
+		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, demoState->testOutput->handle->handle);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3i32), output);
+		//glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), output, GL_STREAM_COPY);
+
+
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test2Output->handle->handle);
+		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, demoState->test1Output->handle->handle);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3i32), output1);
+		//glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), output1, GL_STREAM_COPY);
+
+
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test2Output->handle->handle);
+		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4,demoState->test2Output->handle->handle);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3i32), output2);
+		//glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), output2, GL_STREAM_COPY);
+
+
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test3Output->handle->handle);
+		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 5, demoState->test3Output->handle->handle);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3i32), output3);
+		//glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), output3, GL_STREAM_COPY);
+
+
 		currentDemoProgram = demoState->prog_splitGrid;
 		a3shaderProgramActivate(currentDemoProgram->program);
 
-		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (40 * 40) * sizeof(a3real), scene->fluidGrid->density);
-
 		glDispatchCompute((currentDisplayFBO->frameWidth + 31) / 32, (currentDisplayFBO->frameHeight + 31) / 32, 1);
-		glMemoryBarrier(GL_TEXTURE_FETCH_BARRIER_BIT | GL_FRAMEBUFFER_BARRIER_BIT | GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+		glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 
 
+		/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->testOutput->handle->handle);
+		glMapBuffer(GL_SHADER_STORAGE_BUFFER, GL_READ_ONLY);*/
 
-
-
-
-
-
-
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->testOutput->handle->handle);
+		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3i32), output);
 
 
 
