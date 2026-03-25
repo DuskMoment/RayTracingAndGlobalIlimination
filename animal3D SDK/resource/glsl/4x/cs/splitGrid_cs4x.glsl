@@ -25,7 +25,7 @@ layout(binding = 5) buffer buf_3out {
 };
 
 
-int main()
+void main()
 {
 	uint this_index = gl_GlobalInvocationID.x;
 
@@ -34,6 +34,6 @@ int main()
 	data_out[this_index] = data_in[this_index];
 	data_out1[this_index] = data_in[this_index + offset];
 	data_out2[this_index] = data_in[this_index + offset * 2];
-	data_out3[this_index] = data_in[this_index] + offset * 3];
+	data_out3[this_index] = data_in[this_index + offset * 3];
 
 }

@@ -550,11 +550,13 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawTexture_fs[1],
 				drawLambert_fs[1],
 				drawPhong_fs[1],
-                drawPhotorealistic0_fs[1],
-                drawPhotorealistic1_fs[1],
-                drawPhotorealistic2_fs[1],
-                drawRT_fs[1],
-				drawGrid_fs[1];
+				drawPhotorealistic0_fs[1],
+				drawPhotorealistic1_fs[1],
+				drawPhotorealistic2_fs[1],
+				drawRT_fs[1],
+				drawGrid_fs[1],
+				splitGrid_cs[1];
+
 
 
 		};
@@ -604,6 +606,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
             { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } }
+
 
 		}
 	};
@@ -777,6 +781,13 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-grid");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
+
+
+	//compute
+	currentDemoProg = demoState->prog_splitGrid;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:split-grid");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.splitGrid_cs->shader);
+	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
 
 
 

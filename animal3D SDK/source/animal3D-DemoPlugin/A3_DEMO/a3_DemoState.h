@@ -293,6 +293,9 @@ typedef struct a3_DemoState
 
 			a3_SceneShaderProgram
 				prog_drawGrid[1];
+
+			a3_SceneShaderProgram
+				prog_splitGrid[1];
 		};
 	};
 
