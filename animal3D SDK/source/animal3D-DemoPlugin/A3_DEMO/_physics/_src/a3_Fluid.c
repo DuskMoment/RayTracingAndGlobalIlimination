@@ -313,6 +313,7 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     return 1;
 }
 
+//adds density to the grid
 a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
 {
     a3i32 i, size = N;
@@ -325,6 +326,7 @@ a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
     return 1;
 }
 
+//density exchange between neighbors 
 a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3real dt)
 {
     //indexs
@@ -333,7 +335,9 @@ a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3r
     //diffuse constant
     float a = dt * diff * N * N;
 
-    //aprox for Gauss-Seidel relaxation
+    //Gauss-Seidel relaxation - iterative matrix inversion to solve system of equations
+    //find densities which when diffused backwards are the previous density
+    //20 is arbirary number to bring us 'close enought' to convergence 
     for (k = 0; k < 20; k++)
     {
         for (i = 1; i <= N; i++)
@@ -347,12 +351,14 @@ a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3r
                 x[IX2(i, j)] = numerator / denom;
             }
         }
+
         FluidGridSetBnd(N, b, x);
     }
 
     return 1;
 }
 
+//forces velocity to be mass conserving, forces the flow to have more swirls
 a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
 {
     {
@@ -361,7 +367,10 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
         h = (a3real)1.0 / N;
 
         a3real half = 0.5;
+
+
         //add third 
+        //solve divergence
         for (i = 1; i <= N; i++)
         {
             for (j = 1; j <= N; j++)
@@ -373,6 +382,7 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
             }
         }
 
+        //use gauss-siedel to solve poisson equation to get height field/gradient
         FluidGridSetBnd(N, 0, div); FluidGridSetBnd(N, 0, p);
         for (k = 0; k < 20; k++) 
         {
@@ -389,6 +399,8 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
         }
 
         //add third
+        //Hodge decomposition = mass conserving field + gradient field
+        //Mass conserving velocity = velocity - gradient field
         for (i = 1; i <= N; i++) 
         {
             for (j = 1; j <= N; j++) 
@@ -403,6 +415,8 @@ a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
     return 1;
 }
 
+//forces density to follow velocity field
+//Semi-Lagrangian, treats the center of each cell as a particle
 a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real* v, a3real dt)
 {
     a3i32 i, j, i0, j0, i1, j1;
@@ -415,29 +429,39 @@ a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real
     {
         for (j = 1; j <= N; j++)
         {
-            x = i - dt0 * u[IX2(i, j)];
-            y = j - dt0 * v[IX2(i, j)];
+            //index before timestep
+            x = i - dt0 * u[IX2(i, j)]; //horizontal
+            y = j - dt0 * v[IX2(i, j)]; //vertical
 
+            //clamps edge cases
             if (x < half)
                 x = half;
 
             if (x > (a3real)N + half)
                 x = (a3real)N + half;
 
-            i0 = (a3i32)x; i1 = i0 + 1;
+            //current i and one over i
+            i0 = (a3i32)x; 
+            i1 = i0 + 1;
 
+            //clamps edge case
             if (y < half)
                 y = half;
 
             if (y > N + half)
                 y = N + half;
 
+            //current and down 1 j
             j0 = (a3i32)y;
             j1 = j0 + 1;
 
-            s1 = x - i0; s0 = 1 - s1;
-            t1 = y - j0; t0 = 1 - t1;
+            //interpolation weights
+            s1 = x - i0; 
+            s0 = 1 - s1;
+            t1 = y - j0; 
+            t0 = 1 - t1;
 
+            //neighbor interpolation for final density
             d[IX2(i, j)] = s0 * (t0 * d0[IX2(i0, j0)] + t1 * d0[IX2(i0, j1)]) +
                 s1 * (t0 * d0[IX2(i1, j0)] + t1 * d0[IX2(i1, j1)]);
         }
