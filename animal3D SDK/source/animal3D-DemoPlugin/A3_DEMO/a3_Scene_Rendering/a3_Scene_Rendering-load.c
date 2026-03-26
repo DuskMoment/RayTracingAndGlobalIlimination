@@ -159,7 +159,7 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     InitFluidCube(scene->fluid,1,1,10,1);
 
     scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
-    InitFluidGrid(scene->fluidGrid, 38, (a3real)0.2);
+    InitFluidGrid(scene->fluidGrid, GRID_LENGTH, (a3real)0.2, (a3real) 0.005);
 
     srand((unsigned int)time(NULL));
 
@@ -189,15 +189,15 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     for (int i = 800; i < 840; i++) {
         dtest[i] = 1;
     }
-    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, (a3real)1);
+    FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, (a3real)1);
 
     for (int i = 0; i < 40 * 40; i++)
     {
         dtest[i] = ((float)rand() / (float)RAND_MAX);
     }
 
-    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, utest, (a3real)0.016);
-    FluidGirdAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, (a3real)0.016);
+    FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, utest, (a3real)0.016);
+    FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, (a3real)0.016);
 
     CopyCurrToPrevGrids(scene->fluidGrid);
 }

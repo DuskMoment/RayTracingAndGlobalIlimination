@@ -28,6 +28,8 @@
 
 #ifndef __ANIMAL3D_SCENE_RENDERING_H
 #define __ANIMAL3D_SCENE_RENDERING_H
+#define GRID_LENGTH 38
+#define GRID_SIZE (GRID_LENGTH + 2) * (GRID_LENGTH + 2)
 
 
 //-----------------------------------------------------------------------------

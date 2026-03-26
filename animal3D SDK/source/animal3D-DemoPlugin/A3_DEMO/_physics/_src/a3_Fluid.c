@@ -226,7 +226,7 @@ void FluidSetBoundry(a3i32 b, a3real* x, a3i32 N)
 
 //-----------------------------2D code-------------------------------------------
 
-a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant)
+a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant, a3real fadeConstant)
 {
 
     if (grid == NULL)
@@ -238,6 +238,8 @@ a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant)
     grid->length = N;
 
     grid->diff = diffuseConstant;
+
+    grid->fade = fadeConstant;
 
     a3i32 allocSize = grid->size;
 
@@ -307,6 +309,7 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
 
     grid->size = 0;
     grid->diff = 0;
+    grid->fade = 0;
 
     free(grid);
 
@@ -314,13 +317,33 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
 }
 
 //adds density to the grid
-a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
+a3ret FluidGridAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
 {
     a3i32 i, size = N;
 
     for (i = 0; i < size; i++)
     {
         x[i] += dt * s[i];
+    }
+
+    return 1;
+}
+
+//fade density over time
+a3ret FluidGridFade(a3i32 N, a3real* x, a3real* s, a3real dt)
+{
+    a3i32 i, size = N;
+
+    for (i = 0; i < size; i++)
+    {
+        if (x[i] <= 0)
+        {
+            x[i] = (a3real)0.0;
+        }
+        else
+        {
+            x[i] -= dt * s[i];
+        }
     }
 
     return 1;
@@ -474,8 +497,8 @@ a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real
 
 a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3real visc, a3real dt)
 {
-    FluidGirdAddSource(N, u, u0, dt); 
-    FluidGirdAddSource(N, v, v0, dt);
+    FluidGridAddSource(N, u, u0, dt); 
+    FluidGridAddSource(N, v, v0, dt);
     Swap(u0, u, (N + 2)*(N+2)); 
     FluidGridDiffuse(N, 1, u, u0, visc, dt);
     Swap(v0, v, (N + 2) * (N + 2));
@@ -492,7 +515,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
 
 a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3real diff, a3real dt)
 {
-    FluidGirdAddSource(N, x, x0, dt);
+    FluidGridAddSource(N, x, x0, dt);
     Swap(x0, x, (N + 2) * (N + 2));
     FluidGridDiffuse(N, 0, x, x0, diff, dt);
     Swap(x0, x, (N + 2) * (N + 2));

@@ -102,6 +102,7 @@ extern "C"
 		//(N+2)*(N+2)
 		a3i32 size;
 		a3real diff;
+		a3real fade;
 
 		//with out boarder
 		a3i32 length;
@@ -111,12 +112,13 @@ extern "C"
 
 	//2D Simulation
 
-	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant);
+	a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant, a3real fadeConstant);
 	a3ret CopyCurrToPrevGrids(a3_FluidGrid* grid);
 
 	a3ret DestroyFluidGrid(a3_FluidGrid* grid);
 
-	a3ret FluidGirdAddSource(a3i32 N, a3real* x, a3real* s, a3real dt);
+	a3ret FluidGridAddSource(a3i32 N, a3real* x, a3real* s, a3real dt);
+	a3ret FluidGridFade(a3i32 N, a3real* x, a3real* s, a3real dt);
 
 	//diffuse
 	a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3real dt);
