@@ -243,38 +243,49 @@ a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant, a3real 
 
     a3i32 allocSize = grid->size;
 
+    a3i32 totalSize = allocSize * sizeof(a3real) * 6;
+    void* chunck = malloc(totalSize);
+
     //check to see if this is correct
-    grid->density = calloc(allocSize, sizeof(a3real));
+    //grid->density = calloc(allocSize, sizeof(a3real));
+
+    grid->density = (a3real*)chunck;
+
     for (int i = 0; i < grid->size; i++)
     {
         grid->density[i] = 0;
     }
 
-    grid->prevDensity = calloc(allocSize, sizeof(a3real));
+    //grid->prevDensity = calloc(allocSize, sizeof(a3real));
+    grid->prevDensity = (a3real*)chunck + (allocSize);
     for (int i = 0; i < grid->size; i++)
     {
         grid->prevDensity[i] = 0;
     }
 
-    grid->velocityU = calloc(allocSize, sizeof(a3real));
+    //grid->velocityU = calloc(allocSize, sizeof(a3real));
+    grid->velocityU = (a3real*)chunck + (allocSize * 2);
     for (int i = 0; i < grid->size; i++)
     {
         grid->velocityU[i] = 0;
     }
 
-    grid->velocityV = calloc(allocSize, sizeof(a3real));
+    //grid->velocityV = calloc(allocSize, sizeof(a3real));
+    grid->velocityV = (a3real*)chunck + (allocSize * 3);
     for (int i = 0; i < grid->size; i++)
     {
         grid->velocityV[i] = 0;
     }
 
-    grid->prevVelocityU = calloc(allocSize, sizeof(a3real));
+    //grid->prevVelocityU = calloc(allocSize, sizeof(a3real));
+    grid->prevVelocityU = (a3real*)chunck + (allocSize * 4);
     for (int i = 0; i < grid->size; i++)
     {
         grid->prevVelocityU[i] = 0;
     }
 
-    grid->prevVelocityV = calloc(allocSize, sizeof(a3real));
+    //grid->prevVelocityV = calloc(allocSize, sizeof(a3real));
+    grid->prevVelocityV = (a3real*)chunck + (allocSize * 5);
     for (int i = 0; i < grid->size; i++)
     {
         grid->prevVelocityV[i] = 0;
