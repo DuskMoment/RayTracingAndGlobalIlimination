@@ -706,10 +706,10 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 	{
 
 
-		a3i32 output[20 * 20];
-		a3i32 output1[20 * 20];
-		a3i32 output2[20 * 20];
-		a3i32 output3[20 * 20];
+		a3real output[20 * 20];
+		a3real output1[20 * 20];
+		a3real output2[20 * 20];
+		a3real output3[20 * 20];
 
 
 
@@ -739,7 +739,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test1Output->handle->handle);
 		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, demoState->testOutput->handle->handle);
-		//glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3real), output);
+		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3real), output);
 		//glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), output, GL_STREAM_COPY);
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
@@ -780,7 +780,8 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->testOutput->handle->handle);
 		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3real), output);
 
-
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->test1Output->handle->handle);
+		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (20 * 20) * sizeof(a3real), output1);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;

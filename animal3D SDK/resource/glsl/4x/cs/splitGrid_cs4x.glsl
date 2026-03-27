@@ -31,15 +31,10 @@ void main()
 
 	int offset = int((40 * 40) * 0.25);
 
-	/*data_out[this_index] = data_in[this_index];
+	data_out[this_index] = data_in[this_index];
 	data_out1[this_index] = data_in[this_index + offset];
 	data_out2[this_index] = data_in[this_index + offset * 2];
-	data_out3[this_index] = data_in[this_index + offset * 3];*/
-
-	data_out[0] = data_in[this_index];
-	data_out1[0] = data_in[this_index];
-	data_out2[0] = data_in[this_index];
-	data_out3[0] = data_in[this_index];
+	data_out3[this_index] = data_in[this_index + offset * 3];
 
 
 }
