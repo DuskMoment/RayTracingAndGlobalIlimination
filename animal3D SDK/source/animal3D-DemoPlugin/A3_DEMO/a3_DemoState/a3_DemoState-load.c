@@ -887,12 +887,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3i32 handle;
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (40 * 40) * sizeof(a3real), NULL, GL_DYNAMIC_DRAW);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_DYNAMIC_DRAW);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	demoState->testBuffer->handle->handle = handle;
-	
 
 	//______________________________OUTPUT_______________________________________________
 	glGenBuffers(1, &handle);

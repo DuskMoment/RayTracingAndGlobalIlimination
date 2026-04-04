@@ -347,6 +347,11 @@ a3ret FluidGridFade(a3i32 N, a3real* x, a3real* s, a3real dt)
 
     for (i = 0; i < size; i++)
     {
+        if (x[i] > 1.0)
+        {
+            x[i] = 1.0;
+        }
+
         if (x[i] <= 0)
         {
             x[i] = (a3real)0.0;

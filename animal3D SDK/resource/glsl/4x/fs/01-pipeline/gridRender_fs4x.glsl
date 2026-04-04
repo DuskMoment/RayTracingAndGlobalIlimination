@@ -8,7 +8,12 @@ uniform vec4 uColor;
 
 layout (location = 0) out vec4 rtFragColor;
 
-int N = 38;
+layout(std430, binding = 1) buffer buf_in {
+
+	float data_in[];
+};
+
+int N = 100;
 
 uniform density {
 	float d[40 * 40];
@@ -24,8 +29,9 @@ void main()
 	// DUMMY OUTPUT: all fragments are OPAQUE YELLOW
 //	rtFragColor = vec4(1.0, 1.0, 0.0, 1.0);
 
-	float col = d[fragCoordToGridIndex(int(vTexcoord_atlas.x * N), int(vTexcoord_atlas.y * N))];
+	float col = data_in[fragCoordToGridIndex(int(vTexcoord_atlas.x * N), int(vTexcoord_atlas.y * N))];
 	//float col = d[fragCoordToGridIndex(int(0), int(0))];
 
-	rtFragColor = vec4(col, col, col, 1.0);
+	//col = min(col, 1);
+	rtFragColor = vec4(col, 0, col, 1.0);
 }

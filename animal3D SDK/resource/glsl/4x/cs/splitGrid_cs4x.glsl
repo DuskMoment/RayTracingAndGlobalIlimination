@@ -29,7 +29,7 @@ void main()
 {
 	uint this_index = gl_GlobalInvocationID.x;
 
-	int offset = int((40 * 40) * 0.25);
+	int offset = int((102 * 102) * 0.25);
 
 	data_out[this_index] = data_in[this_index];
 	data_out1[this_index] = data_in[this_index + offset];
