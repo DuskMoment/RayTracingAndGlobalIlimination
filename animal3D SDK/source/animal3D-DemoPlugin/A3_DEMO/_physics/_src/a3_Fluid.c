@@ -37,6 +37,7 @@ a3ret InitFluidCube(a3_FluidCube* cube, a3real diffusion, a3real viscosity, a3i3
 
 a3ret DestroyFluidCube(a3_FluidCube* cube)
 {
+    if (cube == NULL) { return 0; }
     free(cube->s);
     free(cube->density);
 

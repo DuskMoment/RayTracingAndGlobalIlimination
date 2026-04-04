@@ -556,7 +556,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawPhotorealistic2_fs[1],
 				drawRT_fs[1],
 				drawGrid_fs[1],
-				splitGrid_cs[1];
+				splitGrid_cs[1],
+				runFluidGrid_cs[1];
 
 
 
@@ -607,7 +608,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
             { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } }
+			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
 
 
 		}
@@ -790,6 +792,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.splitGrid_cs->shader);
 	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
 
+	currentDemoProg = demoState->prog_runFluidGrid;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:runFluidGrid");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.runFluidGrid_cs->shader);
+	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
+
 
 
 	// activate a primitive for validation
@@ -887,11 +894,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3i32 handle;
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_DYNAMIC_DRAW);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->testBuffer->handle->handle = handle;
+	demoState->densityBuffer->handle->handle = handle;
 
 	//______________________________OUTPUT_______________________________________________
 	glGenBuffers(1, &handle);

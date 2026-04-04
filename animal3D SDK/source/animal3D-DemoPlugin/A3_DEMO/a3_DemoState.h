@@ -295,7 +295,8 @@ typedef struct a3_DemoState
 				prog_drawGrid[1];
 
 			a3_SceneShaderProgram
-				prog_splitGrid[1];
+				prog_splitGrid[1],
+				prog_runFluidGrid[1];
 		};
 	};
 
@@ -312,9 +313,6 @@ typedef struct a3_DemoState
 				ubo_transformSkelMVP[4];
 			a3_UniformBuffer
 				densityBuffer[1];
-
-			a3_UniformBuffer
-				testBuffer[1];
 
 			//output buffersx
 			a3_UniformBuffer

@@ -152,7 +152,7 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
             bias.m, unbias.m);
     }
 
-	a3real dtest[GRID_SIZE];
+	/*a3real dtest[GRID_SIZE];
 	a3real fade[GRID_SIZE];
 	for (int i = 0; i < GRID_SIZE; i++)
 	{
@@ -166,9 +166,9 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 	for (int i = 0; i < GRID_SIZE; i++)
 	{
 		fade[i] = scene->fluidGrid->fade;
-	}
+	}*/
 
-	FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, (a3real)1);
+	/*FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->density, dtest, (a3real)1);
 	FluidGridFade(scene->fluidGrid->size, scene->fluidGrid->density, fade, (a3real)1);
 
 	srand((unsigned int)time(NULL));
@@ -197,7 +197,7 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 	FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityU, utest, (a3real)0.016);
 	FluidGridAddSource(scene->fluidGrid->size, scene->fluidGrid->velocityV, test, (a3real)0.016);
 
-	FluidGridSim(scene->fluidGrid, scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, (a3real) 0.0, (a3real)0.001);
+	FluidGridSim(scene->fluidGrid, scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, (a3real) 0.0, (a3real)0.001);*/
 }
 
 
