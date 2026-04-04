@@ -706,7 +706,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 	{
 
 
-		a3real output[10 * 10];
+		//a3real output[GRID_SIZE];
 		//a3real output1[20 * 20];
 		//a3real output2[20 * 20];
 		//a3real output3[20 * 20];
@@ -768,16 +768,16 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		//bind
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
 		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->densityBuffer->handle->handle);
-		glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (10 * 10) * sizeof(a3real), output);
+		//glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (GRID_SIZE) * sizeof(a3real), output);
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 		//exe
-		glDispatchCompute((currentDisplayFBO->frameWidth + 31) / 32, (currentDisplayFBO->frameHeight + 31) / 32, 1);
+		glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 		glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 		//read
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
-		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (10 * 10) * sizeof(a3real), output);
+		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
+		//glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (GRID_SIZE) * sizeof(a3real), output);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
@@ -788,7 +788,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3shaderProgramActivate(currentDemoProgram->program);
 
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
-		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->densityBuffer->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->densityBuffer->handle->handle);
 
 		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->testBuffer->handle->handle);
 		//glBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (40 * 40) * sizeof(a3real), scene->fluidGrid->density);

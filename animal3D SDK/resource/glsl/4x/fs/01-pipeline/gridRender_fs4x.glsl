@@ -13,7 +13,7 @@ layout(std430, binding = 1) buffer densityBuf_out {
 	float density_out[];
 };
 
-int N = 8;
+int N = 798;
 
 uniform density {
 	float d[40 * 40];

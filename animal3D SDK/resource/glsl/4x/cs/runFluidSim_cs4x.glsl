@@ -9,7 +9,16 @@ layout(std430, binding = 1) buffer densityBuf_out {
 
 void main()
 {
-	uint index = gl_GlobalInvocationID.x;
+	 vec3 clusterSize = gl_NumWorkGroups * gl_WorkGroupSize;
 
-	density_out[index] = 1;
+	uint index = uint(gl_GlobalInvocationID.x + gl_GlobalInvocationID.y * clusterSize.x);
+
+	if (density_out[index] < 0)
+	{
+		density_out[index] = 1;
+	}
+	else {
+		density_out[index] += 1;
+	}
+
 }
