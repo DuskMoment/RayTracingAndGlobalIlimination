@@ -251,8 +251,14 @@
     <ClInclude Include="..\..\..\source\animal3D-DemoPlugin\_a3_dylib_config_export.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\resource\glsl\4x\cs\AdvectSteps\AdvectStep_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\DifuseSteps\FluidGridDiffuse_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\FluidCommon_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_Div_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_HodgeDe_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_poisson_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\runFluidSim_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\SetBND_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\splitGrid_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawLambert_fs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\fs\00-common\drawPhong_fs4x.glsl" />

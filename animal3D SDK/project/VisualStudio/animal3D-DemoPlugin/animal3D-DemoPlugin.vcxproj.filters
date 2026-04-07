@@ -100,6 +100,15 @@
     <Filter Include="Source Files\common\A3_DEMO\_physics">
       <UniqueIdentifier>{ab612aef-a65f-4354-8ef3-64b79827ff88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\A3_DEMO\glsl\4x\cs\DifuseSteps">
+      <UniqueIdentifier>{b185fec8-f431-4b66-938e-3495133327a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\A3_DEMO\glsl\4x\cs\AdvectSteps">
+      <UniqueIdentifier>{aa121509-5902-4e79-9341-ddd5051befc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\A3_DEMO\glsl\4x\cs\ProjectSteps">
+      <UniqueIdentifier>{7de77682-428d-4c18-b8ed-2a185699cb9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_src_win\main_dll.c">
@@ -399,6 +408,24 @@
     </None>
     <None Include="..\..\..\resource\glsl\4x\cs\FluidCommon_cs4x.glsl">
       <Filter>Resource Files\A3_DEMO\glsl\4x\cs</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\SetBND_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\DifuseSteps\FluidGridDiffuse_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs\DifuseSteps</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_Div_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs\ProjectSteps</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_poisson_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs\ProjectSteps</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_HodgeDe_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs\ProjectSteps</Filter>
+    </None>
+    <None Include="..\..\..\resource\glsl\4x\cs\AdvectSteps\AdvectStep_cs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\cs\AdvectSteps</Filter>
     </None>
   </ItemGroup>
 </Project>

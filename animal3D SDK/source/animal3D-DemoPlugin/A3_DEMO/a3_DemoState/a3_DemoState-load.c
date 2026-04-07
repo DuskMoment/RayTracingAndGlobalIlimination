@@ -559,6 +559,14 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				splitGrid_cs[1],
 				runFluidGrid_cs[1];
 
+			a3_DemoStateShader
+				Step_Difuse[1],
+				Step_Advect[1],
+				Step_Project_Div[1],
+				Step_Project_HodgeDe[1],
+				Step_Project_poisson[1],
+				Step_SetBND[1];
+
 
 
 		};
@@ -610,6 +618,19 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
+
+
+
+
+
+
+			{ { { 0 },	"shdr-cs:step-diffuse",		    	a3shader_compute,	1,{ A3_DEMO_CS"DifuseSteps/FluidGridDiffuse_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-advect",		    	a3shader_compute,	1,{ A3_DEMO_CS"AdvectSteps/AdvectStep_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-div",		    a3shader_compute,	1,{ A3_DEMO_CS"ProjectSteps/ProjectStep_Div_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-HodgeDe",		a3shader_compute,	1,{ A3_DEMO_CS"ProjectSteps/ProjectStep_HodgeDe_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-poisson",		a3shader_compute,	1,{ A3_DEMO_CS"ProjectSteps/ProjectStep_poisson_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-BND",					a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
+
 
 
 		}
@@ -798,6 +819,36 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
 
 
+	//DIFUSE STEPS
+	currentDemoProg = demoState->prog_step_difuse;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-difuse");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Difuse->shader);
+	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
+
+	//ADVECT
+	currentDemoProg = demoState->prog_step_advect;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-advect");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Advect->shader);
+
+	//project
+	currentDemoProg = demoState->prog_step_project_div;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_div");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_Div->shader);
+
+
+	currentDemoProg = demoState->prog_step_project_hodgeDe;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_hodgeDe");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_HodgeDe->shader);
+
+	currentDemoProg = demoState->prog_step_project_poisson;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_poisson");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_poisson->shader);
+
+
+	//SET BND
+	currentDemoProg = demoState->prog_step_setBND;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-BND");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SetBND->shader);
 
 	// activate a primitive for validation
 	// makes sure the specified geometry can draw using programs
