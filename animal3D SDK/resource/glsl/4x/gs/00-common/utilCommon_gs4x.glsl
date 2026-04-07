@@ -66,21 +66,21 @@ void drawTangentBasis(in mat4 tangentBasis, in vec4 clipPos, in float sz)
 	vColor = vec4(1.0, 0.0, 0.0, 1.0);
 	gl_Position = clipPos;
 	EmitVertex();
-	gl_Position = uP * (tangentBasis[3] + normalize(tangentBasis[0]) * sz);
+	gl_Position = uP * (clipPos + normalize(tangentBasis[0]) * sz);
 	EmitVertex();
 	EndPrimitive();
 	
 	vColor = vec4(0.0, 1.0, 0.0, 1.0);
 	gl_Position = clipPos;
 	EmitVertex();
-	gl_Position = uP * (tangentBasis[3] + normalize(tangentBasis[1]) * sz);
+	gl_Position = uP * (clipPos + normalize(tangentBasis[1]) * sz);
 	EmitVertex();
 	EndPrimitive();
 	
 	vColor = vec4(0.0, 0.0, 1.0, 1.0);
 	gl_Position = clipPos;
 	EmitVertex();
-	gl_Position = uP * (tangentBasis[3] + normalize(tangentBasis[2]) * sz);
+	gl_Position = uP * (clipPos + normalize(tangentBasis[2]) * sz);
 	EmitVertex();
 	EndPrimitive();
 }
