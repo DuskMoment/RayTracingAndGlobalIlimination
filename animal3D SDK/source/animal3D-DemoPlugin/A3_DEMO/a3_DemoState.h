@@ -312,7 +312,10 @@ typedef struct a3_DemoState
 			a3_UniformBuffer
 				ubo_transformSkelMVP[4];
 			a3_UniformBuffer
-				densityBuffer[1];
+				densityBuffer[1],
+				prevDensityBuffer[1],
+				velocityBuffer[1],
+				prevVelocityBuffer[1];
 
 			//output buffersx
 			a3_UniformBuffer
@@ -357,6 +360,8 @@ typedef struct a3_DemoState
 				fbo_scene_c16d24s8_mrt[1];					// framebuffer for capturing scene
 			a3_Framebuffer
 				fbo_composite_c16[1];						// framebuffer for compositing
+			a3_Framebuffer
+				fbo_fluid_c16_mrt[1];
 		};
 	};
 

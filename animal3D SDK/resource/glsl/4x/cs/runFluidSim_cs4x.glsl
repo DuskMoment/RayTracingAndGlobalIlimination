@@ -85,29 +85,16 @@ void FluidGridAddSource(int N, float x[GRID_SIZE], float s[GRID_SIZE], float dt)
 
 //TODO:ANNABELLE
 //fade density over time
-//a3ret FluidGridFade(a3i32 N, a3real* x, a3real* s, a3real dt)
-//{
-//    a3i32 i, size = N;
-//
-//    for (i = 0; i < size; i++)
-//    {
-//        if (x[i] > 1.0)
-//        {
-//            x[i] = 1.0;
-//        }
-//
-//        if (x[i] <= 0)
-//        {
-//            x[i] = (a3real)0.0;
-//        }
-//        else
-//        {
-//            x[i] -= dt * s[i];
-//        }
-//    }
-//
-//    return 1;
-//}
+void FluidGridFade(int N, float x[GRID_SIZE], float s[GRID_SIZE], float dt)
+{
+    float v;
+
+    for (int i = 0; i < N; i++)
+    {
+        x[i] = max(0.0, min(1.0, x[i]));
+        x[i] -= dt * s[i];
+    }
+}
 
 //density exchange between neighbors 
 void FluidGridDiffuse(int N, int b, float x[GRID_SIZE], float x0[GRID_SIZE], float diff, float dt)
@@ -211,22 +198,17 @@ void FluidGridAdvect(int N, int b, float d[GRID_SIZE], float d0[GRID_SIZE], floa
             y = j - dt0 * v[IX2(i, j)]; //vertical
 
             //clamps edge cases
+            x = clamp(x, 0.5, float(N) + 0.5);
             if (x < 0.5)
                 x = 0.5;
-
-            if (x > float(N) + 0.5)
-                x = float(N) + 0.5;
 
             //current i and one over i
             i0 = int(x); 
             i1 = i0 + 1;
 
             //clamps edge case
-            if (y < 0.5)
-                y = 0.5;
-
-            if (y > N + 0.5)
-                y = N + 0.5;
+            y = clamp(y, 0.5, float(N) + 0.5);
+        
 
             //current and down 1 j
             j0 = int(y);

@@ -892,6 +892,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	//generate the buffer
 	a3i32 handle;
+
+	//density
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
 	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
@@ -900,39 +902,30 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	demoState->densityBuffer->handle->handle = handle;
 
-	//______________________________OUTPUT_______________________________________________
+	//prev density
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->testOutput->handle->handle = handle;
+	demoState->prevDensityBuffer->handle->handle = handle;
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->test1Output->handle->handle = handle;
+	demoState->velocityBuffer->handle->handle = handle;
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->test2Output->handle->handle = handle;
-
-	glGenBuffers(1, &handle);
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
-	glBufferData(GL_SHADER_STORAGE_BUFFER, (20 * 20) * sizeof(a3real), NULL, GL_STREAM_COPY);
-	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 5, handle);
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
-
-	demoState->test3Output->handle->handle = handle;
-
+	demoState->prevVelocityBuffer->handle->handle = handle;
 
 	for (i = 0; i < 4; ++i)
 		a3bufferCreate(demoState->ubo_transformSkelMVP + i, "ubo:transformSkelMVP", a3buffer_uniform, a3index_countMaxShort, 0);
@@ -1044,6 +1037,9 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 	const a3_FramebufferColorType colorType_composite = a3fbo_colorRGBA16;
 	const a3_FramebufferDepthType depthType_composite = a3fbo_depthDisable;
 	const a3ui32 targets_composite = 1;
+	const a3_FramebufferColorType colorType_fluid = a3fbo_colorRGBA16;
+	const a3_FramebufferDepthType depthType_fluid = a3fbo_depthDisable;
+	const a3ui32 fluid_targets = 4;
 
 
 	// initialize framebuffers: 
@@ -1057,6 +1053,12 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 	fbo = demoState->fbo_composite_c16;
 	a3framebufferCreate(fbo, "fbo:composite",
 		targets_composite, colorType_composite, depthType_composite,
+		frameWidth1, frameHeight1);
+
+	//  -> fluid sim
+	fbo = demoState->fbo_fluid_c16_mrt;
+	a3framebufferCreate(fbo, "fbo:fluid",
+		fluid_targets, colorType_fluid, depthType_fluid,
 		frameWidth1, frameHeight1);
 
 
