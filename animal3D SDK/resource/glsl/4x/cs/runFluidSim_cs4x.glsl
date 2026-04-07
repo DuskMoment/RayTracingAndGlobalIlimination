@@ -7,59 +7,10 @@ layout(std430, binding = 1) buffer densityBuf_out {
 	float density_out[];
 };
 const int GRID_SIZE = 800 * 800;
-#define IX2(i,j) ((i)+(N+2)*(j)) 
+#define IX2(i,j) ((i)+(N+2)*(j));
 
 
-//TODO:WILL
-void FluidGridSetBnd(int N, int b, float x[GRID_SIZE])
-{
-    int i;
 
-    /*
-    * loop iterates of the dashes for calculation of bounds
-    * 0----0
-    * |	   |
-    * |	   |
-    * |    |
-    * 0----0
-    */
-    for (i = 1; i <= N; i++) {
-
-        float leftVert = x[IX2(1, i)];
-        float rightVert = x[IX2(N, i)];
-
-        float topHori = x[IX2(i, 1)];
-        float bottomHori = x[IX2(i, N)];
-
-
-        x[IX2(0, i)] = b == 1 ? ( -1.0 * leftVert) : leftVert;
-
-        x[IX2(N + 1, i)] = b == 1 ? (-1.0 * rightVert): rightVert;
-
-        x[IX2(i, 0)] = b == 2 ? (-1.0 * topHori) : topHori;
-
-        x[IX2(i, N + 1)] = b == 2 ? (-1.0 * bottomHori) : bottomHori;
-
-        //add third dimention here 
-    }
-
-    //this handles the corners takes the average using adjacecys 
-
-    float h = 0.5;
-    //top left
-    x[IX2(0, 0)] = h * (x[IX2(1, 0)] + x[IX2(0, 1)]);
-
-    //bottom left
-    x[IX2(0, N + 1)] = h * (x[IX2(1, N + 1)] + x[IX2(0, N)]);
-
-    //top right
-    x[IX2(N + 1, 0)] = h * (x[IX2(N, 0)] + x[IX2(N + 1, 1)]);
-
-    //bottom right
-    x[IX2(N + 1, N + 1)] = h * (x[IX2(N, N + 1)] + x[IX2(N + 1, N)]);
-
-    //add third dimention here 
-}
 
 void CopyCurrToPrevGrids(float prevDes[GRID_SIZE], float prevVelU[GRID_SIZE], float prevVelV[GRID_SIZE]
 , float des[GRID_SIZE], float velU[GRID_SIZE], float velV[GRID_SIZE])
@@ -96,36 +47,6 @@ void FluidGridFade(int N, float x[GRID_SIZE], float s[GRID_SIZE], float dt)
     }
 }
 
-//density exchange between neighbors 
-void FluidGridDiffuse(int N, int b, float x[GRID_SIZE], float x0[GRID_SIZE], float diff, float dt)
-{
-    //indexs
-    int i, j, k;
-
-    //diffuse constant
-    float a = dt * diff * N * N;
-
-    //Gauss-Seidel relaxation - iterative matrix inversion to solve system of equations
-    //find densities which when diffused backwards are the previous density
-    //20 is arbirary number to bring us 'close enought' to convergence 
-    for (k = 0; k < 20; k++)
-    {
-        for (i = 1; i <= N; i++)
-        {
-            for (j = 1; j <= N; j++)
-            {
-                float adjDiff = (x[IX2(i - 1, j)] + x[IX2(i + 1, j)] + x[IX2(i, j - 1)] + x[IX2(i, j + 1)]);
-                float numerator = x0[IX2(i, j)] + a * adjDiff;
-                float denom = (1 + 4 * a);
-
-                x[IX2(i, j)] = numerator / denom;
-            }
-        }
-
-        FluidGridSetBnd(N, b, x);
-    }
-
-}
 
 //forces velocity to be mass conserving, forces the flow to have more swirls
 void FluidGridProject(int N, float u[GRID_SIZE], float v[GRID_SIZE], float p[GRID_SIZE], float div[GRID_SIZE])
