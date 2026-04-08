@@ -1,4 +1,5 @@
 #version 450
+
 #define IX2(i,j) ((i)+(N+2)*(j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
@@ -15,12 +16,12 @@ layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
 
 layout(std430, binding = 1) buffer bufferInOutCurrent {
 
-	float float_bufferInOutCur[GRID_SIZE];
+	float float_bufferInOutCur[];
 };
 
 layout(std430, binding = 2) buffer bufferInOutPrev {
 
-	float float_bufferInOutPrev[GRID_SIZE];
+	float float_bufferInOutPrev[];
 };
 
 uniform int uDirection;
@@ -31,8 +32,19 @@ uniform float uDt;
 //N = MAX_GRIDSIZE, b = horizontal or vertical
 void FluidGridDiffuse(int N, int b, float x[GRID_SIZE], float x0[GRID_SIZE], float diff, float dt)
 {
+}
+
+void main()
+{
+    //Takes the grid lenght, the direction, current state, previous state, diffuse constant, delta time
+    //FluidGridDiffuse(GRID_LENGHT, uDirection, float_bufferInOutCur, float_bufferInOutPrev, uDiff, uDt);
+
+
+    float dt = uDt;
+    float diff = uDiff;
+    int N = GRID_LENGHT;
     //indexs
-    uint i = gl_GlobalInvocationID.x, j = gl_GlobalInvocationID.y, k;
+    int i = int(gl_GlobalInvocationID.x), j = int(gl_GlobalInvocationID.y), k;
 
     //diffuse constant
     float a = dt * diff * N * N;
@@ -51,17 +63,11 @@ void FluidGridDiffuse(int N, int b, float x[GRID_SIZE], float x0[GRID_SIZE], flo
 //        }
 //    }
 
-     float adjDiff = (x[IX2(i - 1, j)] + x[IX2(i + 1, j)] + x[IX2(i, j - 1)] + x[IX2(i, j + 1)]);
-     float numerator = x0[IX2(i, j)] + a * adjDiff;
+     float adjDiff = (float_bufferInOutCur[IX2(i - 1, j)] + float_bufferInOutCur[IX2(i + 1, j)] + float_bufferInOutCur[IX2(i, j - 1)] + float_bufferInOutCur[IX2(i, j + 1)]);
+     float numerator = float_bufferInOutPrev[IX2(i, j)] + a * adjDiff;
      float denom = (1 + 4 * a);
 
-     x[IX2(i, j)] = numerator / denom;
+     float_bufferInOutCur[IX2(i, j)] = numerator / denom;
 
-}
-
-void main()
-{
-    //Takes the grid lenght, the direction, current state, previous state, diffuse constant, delta time
-    FluidGridDiffuse(GRID_LENGHT, uDirection, float_bufferInOutCur, float_bufferInOutPrev, uDiff, uDt);
     
 }
