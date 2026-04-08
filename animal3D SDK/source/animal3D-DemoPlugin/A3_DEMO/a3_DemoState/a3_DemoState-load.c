@@ -968,7 +968,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->velocityBuffer->handle->handle = handle;
+	demoState->velocityBufferU->handle->handle = handle;
 
 	glGenBuffers(1, &handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
@@ -976,7 +976,26 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	demoState->prevVelocityBuffer->handle->handle = handle;
+	demoState->prevVelocityBufferU->handle->handle = handle;
+
+
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 5, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->prevVelocityBufferV->handle->handle = handle;
+
+
+	glGenBuffers(1, &handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, handle);
+	glBufferData(GL_SHADER_STORAGE_BUFFER, (GRID_SIZE) * sizeof(a3real), NULL, GL_STREAM_COPY);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 6, handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	demoState->prevVelocityBufferV->handle->handle = handle;
+	
 
 	for (i = 0; i < 4; ++i)
 		a3bufferCreate(demoState->ubo_transformSkelMVP + i, "ubo:transformSkelMVP", a3buffer_uniform, a3index_countMaxShort, 0);

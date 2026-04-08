@@ -324,8 +324,11 @@ typedef struct a3_DemoState
 			a3_UniformBuffer
 				densityBuffer[1],
 				prevDensityBuffer[1],
-				velocityBuffer[1],
-				prevVelocityBuffer[1];
+				velocityBufferU[1],
+				prevVelocityBufferU[1],
+				velocityBufferV[1],
+				prevVelocityBufferV[1];
+
 
 			//output buffersx
 			a3_UniformBuffer
