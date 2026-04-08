@@ -13,22 +13,22 @@ const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 layout(std430, binding = 1) buffer bufferInOutU {
 
-	float float_bufferInOutU[GRID_SIZE];
+	float float_bufferInOutU[];
 };
 
 layout(std430, binding = 2) buffer bufferInOutV {
 
-	float float_bufferInOutV[GRID_SIZE];
+	float float_bufferInOutV[];
 };
 
 layout(std430, binding = 3) buffer bufferInOutD {
 
-	float float_bufferInOutD[GRID_SIZE];
+	float float_bufferInOutD[];
 };
 
 layout(std430, binding = 4) buffer bufferInOutD0 {
 
-	float float_bufferInOutD0[GRID_SIZE];
+	float float_bufferInOutD0[];
 };
 
 uniform float uDt;

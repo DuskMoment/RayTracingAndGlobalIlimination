@@ -14,13 +14,13 @@ const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 //presure
 layout(std430, binding = 1) buffer bufferInOutU0 {
 
-	float float_bufferInOutU0[GRID_SIZE];
+	float float_bufferInOutU0[];
 };
 
 //divergance
 layout(std430, binding = 2) buffer bufferInOutV0 {
 
-	float float_bufferInOutV0[GRID_SIZE];
+	float float_bufferInOutV0[];
 };
 
 

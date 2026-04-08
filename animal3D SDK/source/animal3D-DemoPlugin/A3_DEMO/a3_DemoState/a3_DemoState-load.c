@@ -828,12 +828,12 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	//ADVECT
 	currentDemoProg = demoState->prog_step_advect;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-advect");
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Advect->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Advect->shader);
 
 	////project
 	currentDemoProg = demoState->prog_step_project_div;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_div");
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_Div->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_Div->shader);
 
 
 	currentDemoProg = demoState->prog_step_project_hodgeDe;
@@ -842,13 +842,13 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	currentDemoProg = demoState->prog_step_project_poisson;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_poisson");
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_poisson->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_poisson->shader);
 
 
 	//SET BND
-	/*currentDemoProg = demoState->prog_step_setBND;
+	currentDemoProg = demoState->prog_step_setBND;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-BND");
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SetBND->shader);*/
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SetBND->shader);
 
 	// activate a primitive for validation
 	// makes sure the specified geometry can draw using programs
