@@ -40,7 +40,9 @@
 
 #include "_physics/a3_Ray.h"
 
-#include "_physics/a3_fluid.h"
+#include "_physics/a3_Fluid.h"
+
+#include "_physics/a3_Fluid_GPU.h"
 
 
 //-----------------------------------------------------------------------------
@@ -157,8 +159,9 @@ extern "C"
 		
 		a3_FluidCube* fluid;
 
+		//a3_FluidGrid* fluidGrid;
+		a3_FluidGrid_GPU* fluidGrid_GPU;
 
-		a3_FluidGrid* fluidGrid;
         // basic animation
         a3real rotate_time;
 

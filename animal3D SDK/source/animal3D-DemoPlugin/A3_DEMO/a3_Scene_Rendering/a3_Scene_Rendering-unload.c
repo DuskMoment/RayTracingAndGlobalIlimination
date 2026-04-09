@@ -41,6 +41,7 @@ void a3rendering_unload(a3_DemoState const* demoState, a3_Scene_Rendering* scene
 	a3hierarchyStateRelease(scene->sceneGraphState);
 	a3hierarchyRelease(scene->sceneGraph);
 	DestroyFluidCube(scene->fluid);
+	FreeFluidGrid_GPU(scene->fluidGrid_GPU);
 }
 
 

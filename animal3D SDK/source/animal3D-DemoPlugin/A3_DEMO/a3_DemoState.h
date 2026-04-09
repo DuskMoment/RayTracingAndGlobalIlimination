@@ -321,13 +321,6 @@ typedef struct a3_DemoState
 				ubo_transformStack[1];
 			a3_UniformBuffer
 				ubo_transformSkelMVP[4];
-			a3_UniformBuffer
-				densityBuffer[1],
-				prevDensityBuffer[1],
-				velocityBufferU[1],
-				prevVelocityBufferU[1],
-				velocityBufferV[1],
-				prevVelocityBufferV[1];
 
 
 			//output buffersx
