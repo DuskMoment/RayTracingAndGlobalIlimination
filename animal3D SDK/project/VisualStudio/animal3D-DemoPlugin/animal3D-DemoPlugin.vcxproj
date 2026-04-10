@@ -253,6 +253,8 @@
     <ClInclude Include="..\..\..\source\animal3D-DemoPlugin\_a3_dylib_config_export.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\resource\glsl\4x\cs\addSourceFromGrid_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\addSourceFromPoint_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\AdvectSteps\AdvectStep_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\DifuseSteps\FluidGridDiffuse_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\FluidCommon_cs4x.glsl" />

@@ -1,13 +1,10 @@
 #ifndef __ANIMAL3D_A3DX_FLUID_GPU_H
 #define __ANIMAL3D_A3DX_FLUID_GPU_H
 
-#include "animal3D-A3DM/animal3D-A3DM.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "../a3_DemoState.h"
 
-#include "animal3D/animal3D.h"
-#include "animal3D-A3DG/animal3D-A3DG.h"
+#include <stdio.h>
+#include <gl/glew.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -29,15 +26,23 @@ extern "C"
 			*prevVelocityBufferUData,
 			*velocityBufferVData,
 			*prevVelocityBufferVData;
+		a3real 
+			viscocityConstant, 
+			diffuseConstant;
+		a3ui32
+			gridLength;
 	}a3_FluidGrid_GPU;
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 gridSize);
 
-	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3ui32 gridSize);
+	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3_UniformBuffer* source, a3_UniformBuffer* dest);
+	a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3_UniformBuffer* source, a3vec2 point, a3ui32 pixelRadius);
 
-	a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3ui32 gridSize);
+	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt);
 
-	a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3i32 gridSize, a3real dt);
+	a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt);
+
+	a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt);
 
 	a3ret FreeFluidGrid_GPU(a3_FluidGrid_GPU* gridData);
 

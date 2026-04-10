@@ -297,16 +297,15 @@ typedef struct a3_DemoState
 			a3_SceneShaderProgram
 				prog_splitGrid[1],
 				prog_runFluidGrid[1];
-
-
-			a3_SceneShaderProgram 
+			a3_SceneShaderProgram
 				prog_step_difuse[1],
 				prog_step_advect[1],
 				prog_step_project_div[1],
 				prog_step_project_hodgeDe[1],
 				prog_step_project_poisson[1],
-				prog_step_setBND[1];
-
+				prog_step_setBND[1],
+				prog_step_add_source_from_grid[1],
+				prog_step_add_source_from_point[1];
 		};
 	};
 

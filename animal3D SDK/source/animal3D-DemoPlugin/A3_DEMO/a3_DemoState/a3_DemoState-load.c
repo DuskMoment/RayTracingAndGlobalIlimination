@@ -565,7 +565,9 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				Step_Project_Div[1],
 				Step_Project_HodgeDe[1],
 				Step_Project_poisson[1],
-				Step_SetBND[1];
+				Step_SetBND[1],
+				Setp_AddSourceFromGrid[1],
+				Setp_AddSourceFromPoint[1];
 
 
 
@@ -578,58 +580,55 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 			// vs
 			// base
-			{ { { 0 },	"shdr-vs:passthru-trans",			a3shader_vertex  ,	1,{ A3_DEMO_VS"passthru_transform_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-col-trans",			a3shader_vertex  ,	1,{ A3_DEMO_VS"passColor_transform_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:passthru-trans-inst",		a3shader_vertex  ,	1,{ A3_DEMO_VS"passthru_transform_instanced_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-col-trans-inst",		a3shader_vertex  ,	1,{ A3_DEMO_VS"passColor_transform_instanced_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:passthru-trans",			  a3shader_vertex  ,	1,{ A3_DEMO_VS"passthru_transform_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-col-trans",			  a3shader_vertex  ,	1,{ A3_DEMO_VS"passColor_transform_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:passthru-trans-inst",		  a3shader_vertex  ,	1,{ A3_DEMO_VS"passthru_transform_instanced_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-col-trans-inst",		  a3shader_vertex  ,	1,{ A3_DEMO_VS"passColor_transform_instanced_vs4x.glsl" } } },
 			// 00-common
-			{ { { 0 },	"shdr-vs:pass-tex-trans",			a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTexcoord_transform_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-tb-trans",			a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTangentBasis_transform_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-tb-morph5-t",			a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_morph5_transform_vs4x.glsl",
+			{ { { 0 },	"shdr-vs:pass-tex-trans",			  a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTexcoord_transform_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-tb-trans",			  a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTangentBasis_transform_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-tb-morph5-t",			  a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_morph5_transform_vs4x.glsl",
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
-			{ { { 0 },	"shdr-vs:pass-tb-skin-t",			a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_skin_transform_vs4x.glsl",
+			{ { { 0 },	"shdr-vs:pass-tb-skin-t",			  a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_skin_transform_vs4x.glsl",
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
-			{ { { 0 },	"shdr-vs:pass-tex-trans-inst",		a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTexcoord_transform_instanced_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-tb-trans-inst",		a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTangentBasis_transform_instanced_vs4x.glsl" } } },
-			{ { { 0 },	"shdr-vs:pass-tb-morph5-t-inst",	a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_morph5_transform_instanced_vs4x.glsl",
+			{ { { 0 },	"shdr-vs:pass-tex-trans-inst",		  a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTexcoord_transform_instanced_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-tb-trans-inst",		  a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/passTangentBasis_transform_instanced_vs4x.glsl" } } },
+			{ { { 0 },	"shdr-vs:pass-tb-morph5-t-inst",	  a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_morph5_transform_instanced_vs4x.glsl",
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
-			{ { { 0 },	"shdr-vs:pass-tb-skin-t-inst",		a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_skin_transform_instanced_vs4x.glsl",
+			{ { { 0 },	"shdr-vs:pass-tb-skin-t-inst",		  a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_skin_transform_instanced_vs4x.glsl",
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
 
 			// gs
 			// 00-common
-			{ { { 0 },	"shdr-gs:draw-tb",					a3shader_geometry,	2,{ A3_DEMO_GS"00-common/drawTangentBasis_gs4x.glsl",
+			{ { { 0 },	"shdr-gs:draw-tb",					  a3shader_geometry,	2,{ A3_DEMO_GS"00-common/drawTangentBasis_gs4x.glsl",
 																					A3_DEMO_GS"00-common/utilCommon_gs4x.glsl",} } },
 
 			// fs
 			// base
-			{ { { 0 },	"shdr-fs:draw-col-unif",			a3shader_fragment,	1,{ A3_DEMO_FS"drawColorUnif_fs4x.glsl" } } },
-			{ { { 0 },	"shdr-fs:draw-col-attr",			a3shader_fragment,	1,{ A3_DEMO_FS"drawColorAttrib_fs4x.glsl" } } },
+			{ { { 0 },	"shdr-fs:draw-col-unif",			  a3shader_fragment,	1,{ A3_DEMO_FS"drawColorUnif_fs4x.glsl" } } },
+			{ { { 0 },	"shdr-fs:draw-col-attr",			  a3shader_fragment,	1,{ A3_DEMO_FS"drawColorAttrib_fs4x.glsl" } } },
 			// 00-common
-			{ { { 0 },	"shdr-fs:draw-tex",					a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawTexture_fs4x.glsl" } } },
-			{ { { 0 },	"shdr-fs:draw-Lambert",				a3shader_fragment,	2,{ A3_DEMO_FS"00-common/drawLambert_fs4x.glsl",
+			{ { { 0 },	"shdr-fs:draw-tex",					  a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawTexture_fs4x.glsl" } } },
+			{ { { 0 },	"shdr-fs:draw-Lambert",				  a3shader_fragment,	2,{ A3_DEMO_FS"00-common/drawLambert_fs4x.glsl",
 																					A3_DEMO_FS"00-common/utilCommon_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-fs:draw-Phong",				a3shader_fragment,	2,{ A3_DEMO_FS"00-common/drawPhong_fs4x.glsl",
+			{ { { 0 },	"shdr-fs:draw-Phong",				  a3shader_fragment,	2,{ A3_DEMO_FS"00-common/drawPhong_fs4x.glsl",
 																					A3_DEMO_FS"00-common/utilCommon_fs4x.glsl",} } },
-            { { { 0 },	"shdr-fs:draw-photo0",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic0_fs4x.glsl",} } },
-            { { { 0 },	"shdr-fs:draw-photo1",		    	a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic1_fs4x.glsl",} } },
-            { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
-            { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo0",		    	  a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic0_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo1",		    	  a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic1_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-photo2",		          a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
+            { { { 0 },	"shdr-fs:draw-RT",		    		  a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:draw-Grid",		    	  a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:split-Grid",		    	  a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:runFluidGrid",		    	  a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
 
-
-
-
-
-
-			{ { { 0 },	"shdr-cs:step-diffuse",		    	a3shader_compute,	1,{ A3_DEMO_CS"/DifuseSteps/FluidGridDiffuse_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-advect",		    	a3shader_compute,	1,{ A3_DEMO_CS"/AdvectSteps/AdvectStep_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-project-div",		    a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_Div_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-project-HodgeDe",		a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_HodgeDe_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-project-poisson",		a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_poisson_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-BND",					a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-diffuse",		    	  a3shader_compute,	1,{ A3_DEMO_CS"/DifuseSteps/FluidGridDiffuse_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-advect",		    	  a3shader_compute,	1,{ A3_DEMO_CS"/AdvectSteps/AdvectStep_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-div",		      a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_Div_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-HodgeDe",		  a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_HodgeDe_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-project-poisson",		  a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_poisson_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-BND",					  a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",  a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint", a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
 
 
 
@@ -843,6 +842,14 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	currentDemoProg = demoState->prog_step_project_poisson;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_poisson");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_poisson->shader);
+
+	currentDemoProg = demoState->prog_step_add_source_from_grid;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-add_sourceFromGrid");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Setp_AddSourceFromGrid->shader);
+
+	currentDemoProg = demoState->prog_step_add_source_from_point;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-add_sourceFromPoint");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Setp_AddSourceFromPoint->shader);
 
 
 	//SET BND
