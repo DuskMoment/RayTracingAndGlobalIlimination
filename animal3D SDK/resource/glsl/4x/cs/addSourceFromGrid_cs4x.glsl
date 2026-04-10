@@ -6,11 +6,11 @@ const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 
 //THIS SHOULD ONLY HAVE ONE WORK GROUP
-layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
 
 layout(std430, binding = 1) buffer sourceBuff {
 
-	float sourceGrid[GRID_SIZE];
+	float sourceGrid[];
 };
 
 layout(std430, binding = 2) buffer destBuff {

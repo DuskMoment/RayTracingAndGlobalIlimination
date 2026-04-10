@@ -5,12 +5,11 @@ const int GRID_LENGHT = 798;
 const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 
-//THIS SHOULD ONLY HAVE ONE WORK GROUP
-layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
 
 layout(std430, binding = 1) buffer destBuff {
 
-	float destGrid[GRID_SIZE];
+	float destGrid[];
 };
 
 uniform float uDeltaTime;
@@ -26,7 +25,7 @@ void main()
 	vec2 displacementVec = uPoint - gl_GlobalInvocationID.xy;
 
 	float distSquared = dot(displacementVec, displacementVec);
-	destGrid[index] += 5 * step(uPixelRadius, distSquared) * uDeltaTime;
+	destGrid[index] = 5;// * step(uPixelRadius, distSquared) * uDeltaTime;
 }
 
 

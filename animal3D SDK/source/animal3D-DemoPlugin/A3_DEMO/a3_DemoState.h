@@ -93,7 +93,7 @@ enum
 	demoStateMaxCount_vertexArray = 8,
 	demoStateMaxCount_drawable = 32,
 
-	demoStateMaxCount_shaderProgram = 32,
+	demoStateMaxCount_shaderProgram = 37,
 	demoStateMaxCount_uniformBuffer = 16,
 
 	demoStateMaxCount_texture = 16,
@@ -321,7 +321,6 @@ typedef struct a3_DemoState
 				ubo_transformStack[1];
 			a3_UniformBuffer
 				ubo_transformSkelMVP[4];
-
 
 			//output buffersx
 			a3_UniformBuffer

@@ -627,11 +627,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-cs:step-project-HodgeDe",		  a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_HodgeDe_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-project-poisson",		  a3shader_compute,	1,{ A3_DEMO_CS"/ProjectSteps/ProjectStep_poisson_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-BND",					  a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",  a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint", a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
-
-
-
+			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",    a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint",   a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
 		}
 	};
 	a3_DemoStateShader *const shaderListPtr = (a3_DemoStateShader *)(&shaderList), *shaderPtr;
@@ -837,7 +834,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 
 	currentDemoProg = demoState->prog_step_project_hodgeDe;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_hodgeDe");
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_HodgeDe->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_Project_HodgeDe->shader);
 
 	currentDemoProg = demoState->prog_step_project_poisson;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-project_poisson");
@@ -850,7 +847,6 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	currentDemoProg = demoState->prog_step_add_source_from_point;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-add_sourceFromPoint");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Setp_AddSourceFromPoint->shader);
-
 
 	//SET BND
 	currentDemoProg = demoState->prog_step_setBND;
