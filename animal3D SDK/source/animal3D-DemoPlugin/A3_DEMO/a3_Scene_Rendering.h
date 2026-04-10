@@ -107,6 +107,7 @@ extern "C"
 		rendering_prevVelocity,
 		rendering_pressureDiv,
 		rendering_tmpBuffer,
+		rendering_doubleBuffer,
 
 		rendering_pass_max = 32
 	} a3_Scene_Rendering_PassName;

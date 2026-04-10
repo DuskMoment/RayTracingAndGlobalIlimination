@@ -1159,6 +1159,11 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 		fluid_targets, colorType_fluid, depthType_fluid,
 		frameWidth2, frameHeight2);
 
+	fbo = demoState->fbo_double_buffer_c16;
+	a3framebufferCreate(fbo, "fbo:double_buffer",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
 
 
 

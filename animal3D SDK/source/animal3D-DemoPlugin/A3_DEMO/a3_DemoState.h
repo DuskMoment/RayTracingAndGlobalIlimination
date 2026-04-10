@@ -380,7 +380,8 @@ typedef struct a3_DemoState
 				fbo_current_velocity_c16[1],
 				fbo_prev_velocity_c16[1],
 				fbo_pressure_div_c16[1],
-				fbo_tmp_buffer_c16[1];
+				fbo_tmp_buffer_c16[1],
+				fbo_double_buffer_c16[1];
 		};
 	};
 
