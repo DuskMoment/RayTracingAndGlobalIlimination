@@ -567,7 +567,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				Step_Project_poisson[1],
 				Step_SetBND[1],
 				Setp_AddSourceFromGrid[1],
-				Setp_AddSourceFromPoint[1];
+				Setp_AddSourceFromPoint[1],
+				Step_SwapGrid[1];
 
 
 
@@ -629,6 +630,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-cs:step-BND",					  a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",    a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint",   a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-swap=grid",			  a3shader_compute,	1,{ A3_DEMO_CS"FluidGridSwap_cs4x.glsl",} } },
+
 		}
 	};
 	a3_DemoStateShader *const shaderListPtr = (a3_DemoStateShader *)(&shaderList), *shaderPtr;
@@ -852,6 +855,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	currentDemoProg = demoState->prog_step_setBND;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-BND");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SetBND->shader);
+
+	currentDemoProg = demoState->prog_step_SwapGrid;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-swap-grid");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SwapGrid->shader);
+
 
 	// activate a primitive for validation
 	// makes sure the specified geometry can draw using programs

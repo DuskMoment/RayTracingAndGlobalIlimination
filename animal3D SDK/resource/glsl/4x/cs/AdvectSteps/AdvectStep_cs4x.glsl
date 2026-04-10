@@ -78,4 +78,6 @@ void main()
      //neighbor interpolation for final density
      float_bufferInOutD[IX2(i, j)] = s0 * (t0 * float_bufferInOutD0[IX2(i0, j0)] + t1 * float_bufferInOutD0[IX2(i0, j1)]) +
          s1 * (t0 * float_bufferInOutD0[IX2(i1, j0)] + t1 * float_bufferInOutD0[IX2(i1, j1)]);
+
+    //float_bufferInOutD[IX2(i, j)] = 1;
 }

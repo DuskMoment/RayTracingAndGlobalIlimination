@@ -171,6 +171,7 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
         scene->fluidGrid_GPU->prog_step_setBND = demoState->prog_step_setBND->program;
         scene->fluidGrid_GPU->prog_step_add_source_from_grid = demoState->prog_step_add_source_from_grid->program;
         scene->fluidGrid_GPU->prog_step_add_source_from_point = demoState->prog_step_add_source_from_point->program;
+        scene->fluidGrid_GPU->prog_step_swap_buffers = demoState->prog_step_SwapGrid->program;
     }
 
     //scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));

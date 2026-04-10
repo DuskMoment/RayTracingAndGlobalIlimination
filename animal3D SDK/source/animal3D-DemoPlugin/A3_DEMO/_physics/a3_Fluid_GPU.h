@@ -41,7 +41,8 @@ extern "C"
 			*prog_step_project_poisson,
 			*prog_step_setBND,
 			*prog_step_add_source_from_grid,
-			*prog_step_add_source_from_point;
+			*prog_step_add_source_from_point,
+			*prog_step_swap_buffers;
 	}a3_FluidGrid_GPU;
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops);
@@ -54,12 +55,12 @@ extern "C"
 
 	//TODO
 	a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
-	a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+	a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_UniformBuffer* d0, a3_UniformBuffer* v, a3_UniformBuffer* u, a3real dt, a3i32 dir);
 
 	a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction);
 
 	//TODO
-	a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction);
+	a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3_UniformBuffer* sourceBuff2);
 
 	//TODO
 	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt);

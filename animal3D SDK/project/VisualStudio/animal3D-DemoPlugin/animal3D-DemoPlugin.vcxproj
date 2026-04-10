@@ -258,6 +258,7 @@
     <None Include="..\..\..\resource\glsl\4x\cs\AdvectSteps\AdvectStep_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\DifuseSteps\FluidGridDiffuse_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\FluidCommon_cs4x.glsl" />
+    <None Include="..\..\..\resource\glsl\4x\cs\FluidGridSwap_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\InitFluid_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_Div_cs4x.glsl" />
     <None Include="..\..\..\resource\glsl\4x\cs\ProjectSteps\ProjectStep_HodgeDe_cs4x.glsl" />
