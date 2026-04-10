@@ -200,7 +200,7 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 	FluidGridSim(scene->fluidGrid, scene->fluidGrid->length, scene->fluidGrid->velocityU, scene->fluidGrid->velocityV, (a3real) 0.0, (a3real)0.001);*/
 
 
-	RunFluidSim_GPU(scene->fluidGrid_GPU, demoState, (a3real)0.001);
+	RunFluidSim_GPU(scene->fluidGrid_GPU, demoState->prog_step_add_source_from_point->program, (a3real)0.001);
 }
 
 

@@ -1,21 +1,6 @@
 #include "../a3_Fluid_GPU.h"
-#include <math.h>
 
-#include <stdio.h>
-#include <gl/glew.h>
-
-#define A3_DEMO_RES_DIR	"../../../../resource/"
-#define A3_DEMO_GLSL	A3_DEMO_RES_DIR"glsl/"
-#define A3_DEMO_TEX		A3_DEMO_RES_DIR"tex/"
-#define A3_DEMO_OBJ		A3_DEMO_RES_DIR"obj/"
-
-// define resource subdirectories
-#define A3_DEMO_VS		A3_DEMO_GLSL"4x/vs/"
-#define A3_DEMO_TS		A3_DEMO_GLSL"4x/ts/"
-#define A3_DEMO_GS		A3_DEMO_GLSL"4x/gs/"
-#define A3_DEMO_FS		A3_DEMO_GLSL"4x/fs/"
-#define A3_DEMO_CS		A3_DEMO_GLSL"4x/cs/"
-
+#include "./A3_DEMO/a3_Scene_Rendering.h"
 
 //-----------------------------------------------------------------------------
 
@@ -79,7 +64,7 @@ a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 gridSize)
 	return 1;
 }
 
-a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3_UniformBuffer* source, a3_UniformBuffer* dest)
+a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3_UniformBuffer* dest)
 {
 	//bind density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, source->handle->handle);
@@ -94,14 +79,14 @@ a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* d
 	return 1;
 }
 
-a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3_UniformBuffer* source, a3vec2 point, a3ui32 pixelRadius)
+a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3vec2 point, a3ui32 pixelRadius)
 {
 	//bind density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, source->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, source->handle->handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	a3shaderProgramActivate(demoState->prog_step_add_source_from_point->program);
+	a3shaderProgramActivate(shaderProgram);
 
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
@@ -109,7 +94,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* 
 	return 1;
 }
 
-a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt)
+a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3real dt)
 {
 	//bind density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, gridData->densityBuffer->handle->handle);
@@ -152,15 +137,15 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, 
 	return 1;
 }
 
-a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt)
+a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3real dt)
 {
 	return 1;
 }
 
-a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3_DemoState* demoState, a3real dt)
+a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderPrograms, a3real dt)
 {
-	FluidGridVelStep_GPU(gridData, demoState, dt);
-	FluidDensityStep_GPU(gridData, demoState, dt);
+	FluidGridVelStep_GPU(gridData, shaderPrograms, dt);
+	FluidDensityStep_GPU(gridData, shaderPrograms, dt);
 
 	return 1;
 }

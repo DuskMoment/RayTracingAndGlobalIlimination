@@ -297,6 +297,7 @@ typedef struct a3_DemoState
 			a3_SceneShaderProgram
 				prog_splitGrid[1],
 				prog_runFluidGrid[1];
+
 			a3_SceneShaderProgram
 				prog_step_difuse[1],
 				prog_step_advect[1],
