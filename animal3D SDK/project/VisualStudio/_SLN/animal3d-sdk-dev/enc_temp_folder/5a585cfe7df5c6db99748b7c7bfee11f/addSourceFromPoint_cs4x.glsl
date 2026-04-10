@@ -25,7 +25,7 @@ void main()
 	vec2 displacementVec = uPoint - gl_GlobalInvocationID.xy;
 
 	float distSquared = dot(displacementVec, displacementVec);
-	destGrid[index] = 5 * (-1 * (1 - step(uPixelRadius, distSquared))) * uDeltaTime;
+	destGrid[index] = distSquared;
 }
 
 

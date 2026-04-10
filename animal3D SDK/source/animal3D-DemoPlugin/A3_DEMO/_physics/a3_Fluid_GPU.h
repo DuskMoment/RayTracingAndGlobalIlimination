@@ -35,8 +35,8 @@ extern "C"
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData);
 
-	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3_UniformBuffer* dest);
-	a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, const a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3vec2 point, a3ui32 pixelRadius);
+	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3_UniformBuffer* dest, a3real dt);
+	a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, const a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3vec2 point, a3real pixelRadius, a3real dt);
 
 	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderPrograms, a3real dt);
 

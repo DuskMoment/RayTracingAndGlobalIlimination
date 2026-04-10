@@ -89,7 +89,6 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, const a3_Shade
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(shaderProgram, "uDeltaTime"), 1, &dt);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(shaderProgram, "uPixelRadius"), 1, &pixelRadius);
 	a3shaderUniformSendFloat(a3unif_vec2, a3shaderUniformGetLocation(shaderProgram, "uPoint"), 1, point.v);
-
 	//exe
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
