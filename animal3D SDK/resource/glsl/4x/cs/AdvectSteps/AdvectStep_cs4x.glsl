@@ -36,8 +36,6 @@ uniform float uDir;
 
 void main()
 {
-
-    return;
     float b = uDir;
     float dt = uDt;
 
