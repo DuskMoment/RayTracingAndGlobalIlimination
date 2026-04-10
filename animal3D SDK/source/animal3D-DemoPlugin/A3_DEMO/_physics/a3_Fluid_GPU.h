@@ -31,7 +31,8 @@ extern "C"
 			viscocityConstant, 
 			diffuseConstant;
 		a3ui32
-			gridLength;
+			gridLength,
+			diffuse_GS_Loops;
 		const a3_ShaderProgram
 			*prog_step_difuse,
 			*prog_step_advect,
@@ -43,14 +44,26 @@ extern "C"
 			*prog_step_add_source_from_point;
 	}a3_FluidGrid_GPU;
 
-	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData);
+	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops);
 
-	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_ShaderProgram* shaderProgram, a3_UniformBuffer* source, a3_UniformBuffer* dest, a3real dt);
+	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3_UniformBuffer* dest, a3real dt);
 	a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3vec2 point, a3real pixelRadius, a3real dt);
 
-	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+	//Done
+	a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3i32 direction, a3real dt);
 
-	a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+	//TODO
+	a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+	a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+
+	a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction);
+
+	//TODO
+	a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction);
+
+	//TODO
+	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+	a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3real dt);
 
 	a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
 
