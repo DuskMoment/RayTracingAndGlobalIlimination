@@ -1056,7 +1056,7 @@ void a3demo_loadTextures(a3_DemoState* demoState)
             { demoState->tex_earth_light, "tex:earth-light",	"../../../../resource/tex/earth/2k/earth_lm_2k.png" },
 
 			{ demoState->tex_border,	  "tex::border",		"../../../../resource/tex/fluid/border.jpg" },
-			{ demoState->tex_border,	  "tex::add",		"../../../../resource/tex/fluid/addForce.jpg" }
+			{ demoState->tex_border,	  "tex::add",			"../../../../resource/tex/fluid/addForce.jpg" }
 		}
 	};
 	const a3ui32 numTextures = sizeof(textureList) / sizeof(a3_DemoStateTexture);

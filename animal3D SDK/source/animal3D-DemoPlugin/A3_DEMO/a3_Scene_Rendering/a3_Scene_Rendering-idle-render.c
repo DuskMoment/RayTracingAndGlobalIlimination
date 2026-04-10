@@ -333,6 +333,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		demoState->fbo_prev_velocity_c16,
 		demoState->fbo_pressure_div_c16,
 		demoState->fbo_tmp_buffer_c16,
+		demoState->fbo_double_buffer_c16,
 	};
 
 	// framebuffers from which to read based on pipeline mode
@@ -1057,7 +1058,8 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		//read
 		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
 		//glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (GRID_SIZE) * sizeof(a3real), output);
-		a3framebufferBindColorTexture(writeFBO[rendering_currentDensity], a3tex_unit00, 0);
+		//a3framebufferBindColorTexture(writeFBO[rendering_currentDensity], a3tex_unit00, 0);
+		a3textureActivate(texture_dm[16], a3tex_unit00);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
