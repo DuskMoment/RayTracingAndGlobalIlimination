@@ -787,7 +787,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		//bind programm
 
 	
-		RunFluidSim_GPU(scene->fluidGrid_GPU, demoState->prog_step_add_source_from_point->program, (a3real)0.001);
+		RunFluidSim_GPU(scene->fluidGrid_GPU, (a3real)0.001);
 
 
 		//for (int i = 0; i < 40 * 40; i++) 

@@ -161,6 +161,18 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     scene->fluidGrid_GPU = (a3_FluidGrid_GPU*)malloc(sizeof(a3_FluidGrid_GPU));
     InitFluidGrid_GPU(scene->fluidGrid_GPU);
 
+    if (scene->fluidGrid_GPU != NULL) 
+    {
+        scene->fluidGrid_GPU->prog_step_difuse = demoState->prog_step_difuse->program;
+        scene->fluidGrid_GPU->prog_step_advect = demoState->prog_step_advect->program;
+        scene->fluidGrid_GPU->prog_step_project_div = demoState->prog_step_project_div->program;
+        scene->fluidGrid_GPU->prog_step_project_hodgeDe = demoState->prog_step_project_hodgeDe->program;
+        scene->fluidGrid_GPU->prog_step_project_poisson = demoState->prog_step_project_poisson->program;
+        scene->fluidGrid_GPU->prog_step_setBND = demoState->prog_step_setBND->program;
+        scene->fluidGrid_GPU->prog_step_add_source_from_grid = demoState->prog_step_add_source_from_grid->program;
+        scene->fluidGrid_GPU->prog_step_add_source_from_point = demoState->prog_step_add_source_from_point->program;
+    }
+
     //scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
     //InitFluidGrid(scene->fluidGrid, GRID_LENGTH, (a3real)0.2, (a3real) 0.00005);
 
