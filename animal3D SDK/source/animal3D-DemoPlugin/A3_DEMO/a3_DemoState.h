@@ -98,7 +98,7 @@ enum
 
 	demoStateMaxCount_texture = 16,
 
-	demoStateMaxCount_framebuffer = 2,
+	demoStateMaxCount_framebuffer = 32,
 };
 
 	
@@ -297,6 +297,17 @@ typedef struct a3_DemoState
 			a3_SceneShaderProgram
 				prog_splitGrid[1],
 				prog_runFluidGrid[1];
+
+			a3_SceneShaderProgram
+				prog_addForceVelocity[1],
+				prog_addForceDensity[1],
+				prog_advect[1],
+				prog_bounds[1],
+				prog_divergence[1],
+				prog_fade[1],
+				prog_gradient[1],
+				prog_jacobiProject[1],
+				prog_jacobiDiffuse[1];
 		};
 	};
 
@@ -348,6 +359,9 @@ typedef struct a3_DemoState
                 tex_earth_hm[1],
                 tex_earth_cloud[1],
                 tex_earth_light[1];
+			a3_Texture
+				tex_border[1],
+				tex_add[1];
 		};
 	};
 
@@ -361,7 +375,12 @@ typedef struct a3_DemoState
 			a3_Framebuffer
 				fbo_composite_c16[1];						// framebuffer for compositing
 			a3_Framebuffer
-				fbo_fluid_c16_mrt[1];
+				fbo_current_density_c16[1],
+				fbo_prev_density_c16[1],
+				fbo_current_velocity_c16[1],
+				fbo_prev_velocity_c16[1],
+				fbo_pressure_div_c16[1],
+				fbo_tmp_buffer_c16[1];
 		};
 	};
 

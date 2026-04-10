@@ -3,6 +3,7 @@
 in vec4 vTexcoord_atlas;
 
 uniform vec4 uColor;
+uniform sampler2D uImage00;
 
 //uniform float density[];
 
@@ -33,5 +34,5 @@ void main()
 	//float col = d[fragCoordToGridIndex(int(0), int(0))];
 
 	//col = min(col, 1);
-	rtFragColor = vec4(col, 0, col, 1.0);
+	rtFragColor = vec4(texture(uImage00, vTexcoord_atlas.xy).r);
 }

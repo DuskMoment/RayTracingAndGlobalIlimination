@@ -100,6 +100,9 @@
     <Filter Include="Source Files\common\A3_DEMO\_physics">
       <UniqueIdentifier>{ab612aef-a65f-4354-8ef3-64b79827ff88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\A3_DEMO\glsl\4x\fs\02-fluid">
+      <UniqueIdentifier>{9e4d9491-f332-412e-ab6a-de322a47bba8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_src_win\main_dll.c">
@@ -400,5 +403,34 @@
     <None Include="..\..\..\resource\glsl\4x\cs\FluidCommon_cs4x.glsl">
       <Filter>Resource Files\A3_DEMO\glsl\4x\cs</Filter>
     </None>
+    <None Include="..\..\..\resource\glsl\4x\fs\02-fluid\advect_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\addForceVelocity_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\bounds_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\divergence_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\fade_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\gradient_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\jacobiProject_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\addForceDensity_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\jacobiDiffuse_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -556,6 +556,17 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawPhotorealistic2_fs[1],
 				drawRT_fs[1],
 				drawGrid_fs[1],
+
+				drawAddForceVelocity[1],
+				drawAddForceDensity[1],
+				drawAdvect[1],
+				drawBounds[1],
+				drawDivergence[1],
+				drawFade[1],
+				drawGradient[1],
+				drawJacobiProject[1],
+				drawJacobiDiffuse[1],
+
 				splitGrid_cs[1],
 				runFluidGrid_cs[1];
 
@@ -608,10 +619,19 @@ void a3demo_loadShaders(a3_DemoState *demoState)
             { { { 0 },	"shdr-fs:draw-photo2",		        a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawPhotorealistic2_fs4x.glsl",} } },
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
+		
+			{ { { 0 },	"shdr-fs:add-force-velocity",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceVelcity_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:add-force-density",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceDensity_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:advect",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/advect_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:bounds",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/bounds_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:divergence",		    	a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/divergence_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:fade",		    			a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/fade_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:gradient",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/gradient_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:jacobi-project",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiProject_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:jacobi-diffuse",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiDiffuse_fs4x.glsl",} } },
+            
 			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
-
-
 		}
 	};
 	a3_DemoStateShader *const shaderListPtr = (a3_DemoStateShader *)(&shaderList), *shaderPtr;
@@ -784,6 +804,53 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-grid");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGrid_fs->shader);
+
+
+	//fluid programs
+	currentDemoProg = demoState->prog_addForceVelocity;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:add-force-velocity");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceVelocity->shader);
+
+	currentDemoProg = demoState->prog_addForceDensity;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:add-force-density");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceDensity->shader);
+
+	currentDemoProg = demoState->prog_advect;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:advect");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAdvect->shader);
+
+	currentDemoProg = demoState->prog_bounds;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:bounds");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds->shader);
+
+	currentDemoProg = demoState->prog_divergence;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:divergence");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDivergence->shader);
+
+	currentDemoProg = demoState->prog_fade;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:fade");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawFade->shader);
+
+	currentDemoProg = demoState->prog_gradient;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:gradient");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGradient->shader);
+
+	currentDemoProg = demoState->prog_jacobiProject;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:add-jacobiProject");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiProject->shader);
+
+	currentDemoProg = demoState->prog_jacobiDiffuse;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:add-jacobiDiffuse");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiDiffuse->shader);
 
 
 	//compute
@@ -969,6 +1036,8 @@ void a3demo_loadTextures(a3_DemoState* demoState)
             a3_DemoStateTexture texEarthHM[1];
             a3_DemoStateTexture texEarthCloud[1];
             a3_DemoStateTexture texEarthLight[1];
+			a3_DemoStateTexture texBorder[1];
+			a3_DemoStateTexture texAddForce[1];
 		};
 	} textureList = {
 		{
@@ -985,6 +1054,9 @@ void a3demo_loadTextures(a3_DemoState* demoState)
             { demoState->tex_earth_hm,	  "tex:earth-hm",	    "../../../../resource/tex/earth/2k/earth_hm_2k.png" },
             { demoState->tex_earth_cloud, "tex:earth-cloud",	"../../../../resource/tex/earth/2k/earth_cm_2k.png" },
             { demoState->tex_earth_light, "tex:earth-light",	"../../../../resource/tex/earth/2k/earth_lm_2k.png" },
+
+			{ demoState->tex_border,	  "tex::border",		"../../../../resource/tex/fluid/border.jpg" },
+			{ demoState->tex_border,	  "tex::add",		"../../../../resource/tex/fluid/addForce.jpg" }
 		}
 	};
 	const a3ui32 numTextures = sizeof(textureList) / sizeof(a3_DemoStateTexture);
@@ -1029,6 +1101,7 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 
 	// frame sizes
 	const a3ui16 frameWidth1 = demoState->frameWidth, frameHeight1 = demoState->frameHeight;
+	const a3ui16 frameWidth2 = demoState->frameWidth - 2, frameHeight2 = demoState->frameHeight - 2;
 
 	// storage precision and targets
 	const a3_FramebufferColorType colorType_scene = a3fbo_colorRGBA16;
@@ -1039,7 +1112,7 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 	const a3ui32 targets_composite = 1;
 	const a3_FramebufferColorType colorType_fluid = a3fbo_colorRGBA16;
 	const a3_FramebufferDepthType depthType_fluid = a3fbo_depthDisable;
-	const a3ui32 fluid_targets = 4;
+	const a3ui32 fluid_targets = 1;
 
 
 	// initialize framebuffers: 
@@ -1056,10 +1129,37 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 		frameWidth1, frameHeight1);
 
 	//  -> fluid sim
-	fbo = demoState->fbo_fluid_c16_mrt;
-	a3framebufferCreate(fbo, "fbo:fluid",
+	fbo = demoState->fbo_current_density_c16;
+	a3framebufferCreate(fbo, "fbo:current_density",
 		fluid_targets, colorType_fluid, depthType_fluid,
-		frameWidth1, frameHeight1);
+		frameWidth2, frameHeight2);
+
+	fbo = demoState->fbo_prev_density_c16;
+	a3framebufferCreate(fbo, "fbo:prev_density",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
+	fbo = demoState->fbo_current_velocity_c16;
+	a3framebufferCreate(fbo, "fbo:current_velocity",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
+	fbo = demoState->fbo_prev_velocity_c16;
+	a3framebufferCreate(fbo, "fbo:current_density",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
+	fbo = demoState->fbo_pressure_div_c16;
+	a3framebufferCreate(fbo, "fbo:pressure_div",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
+	fbo = demoState->fbo_tmp_buffer_c16;
+	a3framebufferCreate(fbo, "fbo:tmp_buffer",
+		fluid_targets, colorType_fluid, depthType_fluid,
+		frameWidth2, frameHeight2);
+
+
 
 
 	// change texture settings for all framebuffers

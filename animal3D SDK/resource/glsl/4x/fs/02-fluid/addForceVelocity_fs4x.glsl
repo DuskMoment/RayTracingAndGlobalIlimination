@@ -1,16 +1,9 @@
 #version 450
 
 in vec4 vTexcoord_atlas;
-
-const float screenRecip = 0.001253133;
 uniform float dt; 
-uniform float add;
-uniform bool velocity;
 
 uniform sampler2D uImage00; //prev velocity(xyz) & density(a)
-uniform sampler2D uImage01; //current velocity(xyz) & density(a)
-uniform sampler2D uImage02; //current divergence(x) & pressure(y)
-uniform sampler2D uImage03; //prev divergence(x) & pressure(y)
 
 layout (location = 0) out vec4 current;
 
@@ -59,6 +52,7 @@ void srand(uint seed)
 	srand_xorshift(seed);
 	srand_parkmiller(seed);
 }
+
 uint rand()
 {
 	rand_seed = rand_xorshift();
@@ -67,18 +61,11 @@ uint rand()
 	return rand_seed;
 }
 
-float randf_open()
-{
-	return float(rand()) / float(rand_max_open);
-}
 float randf_closed()
 {
 	return float(rand()) / float(rand_max_closed);
 }
-vec3 randv_open()
-{
-	return vec3(randf_open(), randf_open(), randf_open()) * 2.0 - 1.0;
-}
+
 vec3 randv_closed()
 {
 	return vec3(randf_closed(), randf_closed(), randf_closed()) * 2.0 - 1.0;
@@ -86,16 +73,8 @@ vec3 randv_closed()
 
 void main()
 {
-	if (velocity)
-	{
-		current.rgb = randv_closed();
-	}
-	else
-	{
-		if (vTexcoord_atlas.x >= 0.48 && vTexcoord_atlas.x <= 0.48 && vTexcoord_atlas.y >= 0.48 && vTexcoord_atlas.y <= 0.48)
-		{
-			current.a = texture(uImage00, vTexcoord_atlas.xy).a * dt * add; 
-		}
-	}
+	vec4 col = texture(uImage00, vTexcoord_atlas.xy);
+	col += dt * normalize(randv_closed());
+	current = col;
 }
 	

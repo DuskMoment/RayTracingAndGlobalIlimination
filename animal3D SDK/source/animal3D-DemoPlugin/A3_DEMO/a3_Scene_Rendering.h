@@ -101,8 +101,14 @@ extern "C"
 	{
 		rendering_passScene,				// render scene objects
 		rendering_passComposite,			// composite layers
+		rendering_currentDensity,
+		rendering_prevDensity,
+		rendering_currentVelocity,
+		rendering_prevVelocity,
+		rendering_pressureDiv,
+		rendering_tmpBuffer,
 
-		rendering_pass_max
+		rendering_pass_max = 32
 	} a3_Scene_Rendering_PassName;
 
 	// render target names
