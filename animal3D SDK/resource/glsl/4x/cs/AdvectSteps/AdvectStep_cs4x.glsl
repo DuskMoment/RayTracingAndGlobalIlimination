@@ -37,12 +37,13 @@ uniform float uDir;
 void main()
 {
 
+    return;
     float b = uDir;
     float dt = uDt;
 
     int N = GRID_LENGHT;
 
-	int i =  int(gl_GlobalInvocationID.x) , j =  int(gl_GlobalInvocationID.y) 
+	int i =  int(gl_GlobalInvocationID.x) + 1 , j =  int(gl_GlobalInvocationID.y) + 1 
     , i0, j0, i1, j1;
     float x, y, s0, t0, s1, t1, dt0;
 
@@ -53,17 +54,24 @@ void main()
      y = j - dt0 * float_bufferInOutV[IX2(i, j)]; //vertical
 
      //clamps edge cases
-     x = clamp(x, 0.5, float(N) + 0.5);
+     //x = clamp(x, 0.5, float(N) + 0.5);
      if (x < 0.5)
          x = 0.5;
+
+      if (x > float(N) + 0.5)
+        x = float(N)+ 0.5;
+
 
      //current i and one over i
      i0 = int(x); 
      i1 = i0 + 1;
 
      //clamps edge case
-     y = clamp(y, 0.5, float(N) + 0.5);
-    
+      if (y < 0.5)
+        y = 0.5;
+
+       if (y > float(N) + 0.5)
+          y = float(N) + 0.5;
 
      //current and down 1 j
      j0 = int(y);
@@ -77,7 +85,6 @@ void main()
 
      //neighbor interpolation for final density
      float_bufferInOutD[IX2(i, j)] = s0 * (t0 * float_bufferInOutD0[IX2(i0, j0)] + t1 * float_bufferInOutD0[IX2(i0, j1)]) +
-         s1 * (t0 * float_bufferInOutD0[IX2(i1, j0)] + t1 * float_bufferInOutD0[IX2(i1, j1)]);
+         s1 * (t0 * float_bufferInOutD0[IX2(i1, j0)] + t1 * float_bufferInOutD0[IX2(i1, j1)]);    
 
-    //float_bufferInOutD[IX2(i, j)] = 1;
 }

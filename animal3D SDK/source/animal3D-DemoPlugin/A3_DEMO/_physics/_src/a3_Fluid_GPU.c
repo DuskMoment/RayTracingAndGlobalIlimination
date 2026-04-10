@@ -156,6 +156,8 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_Un
 {
 
 	a3real output[1600];
+	a3real output2[1600];
+
 
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_advect;
 	a3shaderProgramActivate(currShaderProgram);
@@ -195,6 +197,9 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_Un
 	//read
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d0->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output2);
 
 	FluidGridSetBND_GPU(gridData, d, dir);
 
