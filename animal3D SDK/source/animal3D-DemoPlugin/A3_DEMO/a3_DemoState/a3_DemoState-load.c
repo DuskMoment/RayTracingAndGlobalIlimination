@@ -630,7 +630,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-cs:step-BND",					  a3shader_compute,	1,{ A3_DEMO_CS"SetBND_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",    a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint",   a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
-			{ { { 0 },	"shdr-cs:step-swap=grid",			  a3shader_compute,	1,{ A3_DEMO_CS"FluidGridSwap_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-swap-grid",			  a3shader_compute,	1,{ A3_DEMO_CS"/FluidGridSwap_cs4x.glsl",} } },
 
 		}
 	};

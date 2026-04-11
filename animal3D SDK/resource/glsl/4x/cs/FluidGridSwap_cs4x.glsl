@@ -13,14 +13,11 @@ layout(std430, binding = 1) buffer sourceBuff {
 };
 
 
-layout(std430, binding = 1) buffer destBuff {
+layout(std430, binding = 2) buffer destBuff {
 
 	float destGrid[];
 };
 
-uniform float uDeltaTime;
-uniform float uPixelRadius;
-uniform vec2 uPoint;
 
 void main()
 {

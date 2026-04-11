@@ -116,7 +116,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuff
 
 a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3i32 direction, a3real dt)
 {
-	a3real output[1600];
+	//a3real output[1600];
 	for (a3ui32 i = 0; i < gridData->diffuse_GS_Loops; i++)
 	{
 		const a3_ShaderProgram* currShaderProgram = gridData->prog_step_difuse;
@@ -138,16 +138,16 @@ a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuf
 		glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 		glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
-		//read
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
-		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+		//read -- debug
+		/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
+		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);*/
 
 		FluidGridSetBND_GPU(gridData, currBuff, direction);
 	}
 
-	//read
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
-	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	//read -- debug
+	/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);*/
 
 	return 1;
 }
@@ -228,6 +228,7 @@ a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBu
 
 a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3_UniformBuffer* sourceBuff2)
 {
+	a3real output[1600];
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_swap_buffers;
 	a3shaderProgramActivate(currShaderProgram);
 
@@ -244,7 +245,9 @@ a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
-
+	//read
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, sourceBuff->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
 
 	return 1;
 }
