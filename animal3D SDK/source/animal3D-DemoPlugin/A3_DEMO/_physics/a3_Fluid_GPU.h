@@ -34,15 +34,15 @@ extern "C"
 			gridLength,
 			diffuse_GS_Loops;
 		const a3_ShaderProgram
-			*prog_step_difuse,
-			*prog_step_advect,
-			*prog_step_project_div,
-			*prog_step_project_hodgeDe,
-			*prog_step_project_poisson,
-			*prog_step_setBND,
-			*prog_step_add_source_from_grid,
-			*prog_step_add_source_from_point,
-			*prog_step_swap_buffers;
+			* prog_step_difuse,
+			* prog_step_advect,
+			* prog_step_project_div,
+			* prog_step_project_hodgeDe,
+			* prog_step_project_poisson,
+			* prog_step_setBND,
+			* prog_step_add_source_from_grid,
+			* prog_step_add_source_from_point,
+			* prog_step_swap_buffers;
 	}a3_FluidGrid_GPU;
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops);

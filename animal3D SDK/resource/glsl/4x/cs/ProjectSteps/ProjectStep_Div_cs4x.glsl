@@ -38,16 +38,17 @@ layout(std430, binding = 4) buffer bufferInOutV0 {
 void main()
 {
 
+	
 	int j = int(gl_GlobalInvocationID.y) , 
 	i  = int(gl_GlobalInvocationID.x),
 	N = GRID_LENGHT;
 
 
 	float h;
-    h = 1.0 / N;
-
-	float_bufferInOutV0[IX2(i, j)] = -0.5 * h * (float_bufferInOutU[IX2(i + 1, j)] - float_bufferInOutU[IX2(i - 1, j)] +
-    float_bufferInOutV[IX2(i, j + 1)] - float_bufferInOutV[IX2(i, j - 1)]);
+    h = 1.0 / float(N);
+	
+	float_bufferInOutV0[IX2(i, j)] = (-0.5) * h * 
+	(float_bufferInOutU[IX2(i + 1, j)] - float_bufferInOutU[IX2(i - 1, j)] + float_bufferInOutV[IX2(i, j + 1)] - float_bufferInOutV[IX2(i, j - 1)]);
     float_bufferInOutU0[IX2(i, j)] = 0;
 
 	//CALL BND ON CPU

@@ -12,6 +12,7 @@ layout(std430, binding = 1) buffer destBuff {
 	float destGrid[];
 };
 
+
 uniform float uDeltaTime;
 uniform float uPixelRadius;
 uniform vec2 uPoint;

@@ -328,7 +328,7 @@ a3ret DestroyFluidGrid(a3_FluidGrid* grid)
     return 1;
 }
 
-//adds density to the grid
+//adds density to the grid N, u, u0, dt
 a3ret FluidGridAddSource(a3i32 N, a3real* x, a3real* s, a3real dt)
 {
     a3i32 i, size = N;
