@@ -165,7 +165,7 @@ a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffe
 	return 1;
 }
 
-a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3vec2 point, a3real pixelRadius, a3real dt)
+a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3vec2 point, a3real vel, a3real pixelRadius, a3real dt)
 {
 	a3real output[1600];
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_add_source_from_point;
@@ -179,6 +179,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuff
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDeltaTime"), 1, &dt);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uPixelRadius"), 1, &pixelRadius);
 	a3shaderUniformSendFloat(a3unif_vec2, a3shaderUniformGetLocation(currShaderProgram, "uPoint"), 1, point.v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uVelocity"), 1, &vel);
 
 	//exe
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
@@ -511,9 +512,9 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	point.x = 400;
 	point.y = 400;
 
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, point, 10000, dt);
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, point, 10000, dt);
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, point, 10000, dt);
+	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, point, 1000, 1, dt);
+	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, point, 10000, dt);
+	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, point, 10000, dt);
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);

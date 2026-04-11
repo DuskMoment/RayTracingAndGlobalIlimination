@@ -16,6 +16,7 @@ layout(std430, binding = 1) buffer destBuff {
 uniform float uDeltaTime;
 uniform float uPixelRadius;
 uniform vec2 uPoint;
+uniform float uVelocity;
 
 void main()
 {
@@ -26,7 +27,7 @@ void main()
 	vec2 displacementVec = uPoint - gl_GlobalInvocationID.xy;
 
 	float distSquared = dot(displacementVec, displacementVec);
-	destGrid[index] += 500 * (1 - step(uPixelRadius, distSquared)) * uDeltaTime;
+	destGrid[index] += min(1, 5 * (1 - step(uPixelRadius, distSquared)) * uDeltaTime) * uVelocity;
 }
 
 
