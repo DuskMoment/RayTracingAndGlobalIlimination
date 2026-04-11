@@ -75,6 +75,7 @@ a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops)
 
 a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3_UniformBuffer* dest, a3real dt)
 {
+	a3real output[1600];
 	//bind density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, source->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, source->handle->handle);
@@ -84,6 +85,10 @@ a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffe
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, dest->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, dest->handle->handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, dest->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
 
 	return 1;
 }
