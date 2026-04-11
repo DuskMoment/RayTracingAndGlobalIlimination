@@ -398,7 +398,7 @@ a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3r
     return 1;
 }
 
-//forces velocity to be mass conserving, forces the flow to have more swirls
+//forces velocity to be mass conserving, forces the flow to have more swirls (N, u, v, u0, v0)
 a3ret FluidGridProject(a3i32 N, a3real* u, a3real* v, a3real* p, a3real* div)
 {
     {

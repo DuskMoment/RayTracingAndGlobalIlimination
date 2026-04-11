@@ -55,19 +55,26 @@ extern "C"
 
 	//TODO
 	a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+
+	//DONE
 	a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_UniformBuffer* d0, a3_UniformBuffer* v, a3_UniformBuffer* u, a3real dt, a3i32 dir);
 
+	//DONE
 	a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction);
 
-	//TODO
+	//DONE
 	a3ret FluidGridSwap_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3_UniformBuffer* sourceBuff2);
 
 	//TODO
 	a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
+
+	//DONE
 	a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3real dt);
 
+	//TODO
 	a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
 
+	//TODO
 	a3ret FreeFluidGrid_GPU(a3_FluidGrid_GPU* gridData);
 
 #ifdef __cplusplus
