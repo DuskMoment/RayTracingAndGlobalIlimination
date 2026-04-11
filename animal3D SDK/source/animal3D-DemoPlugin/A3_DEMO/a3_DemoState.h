@@ -93,7 +93,7 @@ enum
 	demoStateMaxCount_vertexArray = 8,
 	demoStateMaxCount_drawable = 32,
 
-	demoStateMaxCount_shaderProgram = 38,
+	demoStateMaxCount_shaderProgram = 39,
 	demoStateMaxCount_uniformBuffer = 16,
 
 	demoStateMaxCount_texture = 16,
@@ -307,7 +307,8 @@ typedef struct a3_DemoState
 				prog_step_setBND[1],
 				prog_step_add_source_from_grid[1],
 				prog_step_add_source_from_point[1],
-				prog_step_SwapGrid[1];
+				prog_step_SwapGrid[1],
+				prog_step_init_grid[1];
 		};
 	};
 

@@ -42,10 +42,11 @@ extern "C"
 			* prog_step_setBND,
 			* prog_step_add_source_from_grid,
 			* prog_step_add_source_from_point,
-			* prog_step_swap_buffers;
+			* prog_step_swap_buffers,
+			* prog_step_init_grid;
 	}a3_FluidGrid_GPU;
 
-	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops);
+	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real diffuseK, a3ui32 diffuse_GS_Loops);
 
 	a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* dest, a3_UniformBuffer* source, a3real dt);
 	a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3vec2 point, a3real pixelRadius, a3real dt);

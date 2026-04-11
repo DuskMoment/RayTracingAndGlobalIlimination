@@ -568,7 +568,8 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				Step_SetBND[1],
 				Setp_AddSourceFromGrid[1],
 				Setp_AddSourceFromPoint[1],
-				Step_SwapGrid[1];
+				Step_SwapGrid[1],
+				Step_InitGrid[1];
 
 
 
@@ -631,6 +632,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-cs:step-add-sourceFromGrid",    a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-add-sourceFromPoint",   a3shader_compute,	1,{ A3_DEMO_CS"addSourceFromPoint_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:step-swap-grid",			  a3shader_compute,	1,{ A3_DEMO_CS"/FluidGridSwap_cs4x.glsl",} } },
+			{ { { 0 },	"shdr-cs:step-init-grid",			  a3shader_compute,	1,{ A3_DEMO_CS"/InitFluid_cs4x.glsl",} } },
 
 		}
 	};
@@ -859,6 +861,10 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	currentDemoProg = demoState->prog_step_SwapGrid;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:step-swap-grid");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_SwapGrid->shader);
+
+	currentDemoProg = demoState->prog_step_init_grid;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:step-init-grid");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.Step_InitGrid->shader);
 
 
 	// activate a primitive for validation

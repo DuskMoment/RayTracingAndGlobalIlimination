@@ -170,7 +170,6 @@ void a3demo_load(a3_DemoState* demoState)
 	demoState->sceneCallbacksPtr = demoState->sceneCallbacks + demoState->scene;
 	a3starter_load(demoState, demoState->scene_starter);
 	a3animation_load(demoState, demoState->scene_animation);
-	a3rendering_load(demoState, demoState->scene_rendering);
 
 
 	// geometry
@@ -178,6 +177,8 @@ void a3demo_load(a3_DemoState* demoState)
 
 	// shaders
 	a3demo_loadShaders(demoState);
+
+	a3rendering_load(demoState, demoState->scene_rendering);
 
 	// textures
 	a3demo_loadTextures(demoState);

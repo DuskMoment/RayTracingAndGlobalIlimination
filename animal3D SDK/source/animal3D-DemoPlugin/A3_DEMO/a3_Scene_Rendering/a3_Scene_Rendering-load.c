@@ -159,7 +159,6 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     //InitFluidCube(scene->fluid,1,1,10,1);
 
     scene->fluidGrid_GPU = (a3_FluidGrid_GPU*)malloc(sizeof(a3_FluidGrid_GPU));
-    InitFluidGrid_GPU(scene->fluidGrid_GPU, 20);
 
     if (scene->fluidGrid_GPU != NULL) 
     {
@@ -172,7 +171,10 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
         scene->fluidGrid_GPU->prog_step_add_source_from_grid = demoState->prog_step_add_source_from_grid->program;
         scene->fluidGrid_GPU->prog_step_add_source_from_point = demoState->prog_step_add_source_from_point->program;
         scene->fluidGrid_GPU->prog_step_swap_buffers = demoState->prog_step_SwapGrid->program;
+        scene->fluidGrid_GPU->prog_step_init_grid = demoState->prog_step_init_grid->program;
     }
+
+    InitFluidGrid_GPU(scene->fluidGrid_GPU, (a3real)0.1, 20);
 
     //scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
     //InitFluidGrid(scene->fluidGrid, GRID_LENGTH, (a3real)0.2, (a3real) 0.00005);

@@ -1,6 +1,6 @@
 #version 450
 
-#define IX2(i,j) ((i)+(N+2)*(j)) 
+#define IX2(i,j) ((i)+(int(gl_NumWorkGroups * gl_WorkGroupSize))*(j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
 and then also in between each loop use SETBND
@@ -40,6 +40,7 @@ void main()
 
 
     int N = GRID_LENGHT;
+
     //indexs
     int i = int(gl_GlobalInvocationID.x), j = int(gl_GlobalInvocationID.y), k;
 
@@ -49,16 +50,17 @@ void main()
     //Gauss-Seidel relaxation - iterative matrix inversion to solve system of equations
     //find densities which when diffused backwards are the previous density
     //20 is arbirary number to bring us 'close enought' to convergence 
-//    for (k = 0; k < 20; k++)
-//    {
-//        for (i = 1; i <= N; i++)
-//        {
-//            for (j = 1; j <= N; j++)
-//            {
-//               
-//            }
-//        }
-//    }
+//////for (i = 1; i <= N; i++)
+//////        {
+//////            for (j = 1; j <= N; j++)
+//////            {
+//////                a3real adjDiff = (float_bufferInOutCur[IX2(i - 1, j)] + float_bufferInOutCur[IX2(i + 1, j)] + float_bufferInOutCur[IX2(i, j - 1)] + float_bufferInOutCur[IX2(i, j + 1)]);
+//////                a3real numerator = x0[IX2(i, j)] + a * adjDiff;
+//////                a3real denom = (1 + 4 * a);
+//////
+//////                x[IX2(i, j)] = numerator / denom;
+//////            }
+//////        }
 
      float adjDiff = (float_bufferInOutCur[IX2(i - 1, j)] + float_bufferInOutCur[IX2(i + 1, j)] + float_bufferInOutCur[IX2(i, j - 1)] + float_bufferInOutCur[IX2(i, j + 1)]);
      float numerator = float_bufferInOutPrev[IX2(i, j)] + a * adjDiff;

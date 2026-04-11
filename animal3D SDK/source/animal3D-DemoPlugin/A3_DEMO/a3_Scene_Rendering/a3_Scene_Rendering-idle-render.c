@@ -743,7 +743,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		//TODO Render density grid here
 
 
-		RunFluidSim_GPU(scene->fluidGrid_GPU, (a3real)0.001);
+		RunFluidSim_GPU(scene->fluidGrid_GPU, (a3real)0.016);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
