@@ -743,7 +743,7 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		//TODO Render density grid here
 
 
-
+		RunFluidSim_GPU(scene->fluidGrid_GPU, (a3real)0.001);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
@@ -754,9 +754,9 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		a3shaderProgramActivate(currentDemoProgram->program);
 
 		////bind density
-		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
-		//glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, demoState->densityBuffer->handle->handle);
-		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, scene->fluidGrid_GPU->densityBuffer->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, scene->fluidGrid_GPU->densityBuffer->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 		////bind prev density
 		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
@@ -785,10 +785,6 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 
 		//bind buffer
 		//bind programm
-
-	
-		RunFluidSim_GPU(scene->fluidGrid_GPU, (a3real)0.001);
-
 
 		//for (int i = 0; i < 40 * 40; i++) 
 		//{

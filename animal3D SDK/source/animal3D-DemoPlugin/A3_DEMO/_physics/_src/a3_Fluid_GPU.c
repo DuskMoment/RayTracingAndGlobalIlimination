@@ -69,11 +69,17 @@ a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3ui32 diffuse_GS_Loops)
 	gridData->prog_step_add_source_from_grid = NULL;
 	gridData->prog_step_add_source_from_point = NULL;
 
+	/*gridData->densityBufferData = NULL;
+	gridData->prevDensityBufferData = NULL;
+	gridData->velocityBufferUData = NULL;
+	gridData->prevVelocityBufferUData = NULL;
+	gridData->velocityBufferVData = NULL;
+	gridData->prevVelocityBufferVData = NULL;*/
 
 	return 1;
 }
 
-a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* source, a3_UniformBuffer* dest, a3real dt)
+a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* dest, a3_UniformBuffer* source, a3real dt)
 {
 
 	a3real output[1600];
@@ -86,7 +92,7 @@ a3ret FluidGridAddSourceFromGrid_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffe
 
 	//bind prev density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, dest->handle->handle);
-	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, dest->handle->handle);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, dest->handle->handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 
@@ -129,7 +135,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuff
 	return 1;
 }
 
-a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3i32 direction, a3real dt)
+a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff, a3_UniformBuffer* prevBuff, a3i32 direction, a3real dt)
 {
 	a3real output[1600];
 	for (a3ui32 i = 0; i < gridData->diffuse_GS_Loops; i++)
@@ -282,7 +288,7 @@ a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	return 1;
 }
 
-a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_UniformBuffer* d0, a3_UniformBuffer* v, a3_UniformBuffer* u, a3real dt, a3i32 dir)
+a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff, a3_UniformBuffer* prevBuff, a3_UniformBuffer* v, a3_UniformBuffer* u, a3real dt, a3i32 dir)
 {
 
 	a3real output[1600];
@@ -305,14 +311,14 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_Un
 
 	//bind
 //density
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d->handle->handle);
-	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, d->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, currBuff->handle->handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 
 	//prev density
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d0->handle->handle);
-	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, d0->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, prevBuff->handle->handle);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, prevBuff->handle->handle);
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 
@@ -325,13 +331,13 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* d, a3_Un
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 	//read
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
 
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, d0->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, prevBuff->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output2);
 
-	FluidGridSetBND_GPU(gridData, d, dir);
+	FluidGridSetBND_GPU(gridData, currBuff, dir);
 
 
 	return 1;
@@ -389,7 +395,8 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	//glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 	//glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
-	/*FluidGridAddSource(gridSize, u, u0, dt);
+	/*
+	FluidGridAddSource(gridSize, u, u0, dt);
 	FluidGridAddSource(N, v, v0, dt);
 	Swap(u0, u, (N + 2) * (N + 2));
 	FluidGridDiffuse(N, 1, u, u0, visc, dt);
@@ -400,22 +407,24 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	Swap(v0, v, (N + 2) * (N + 2));
 	FluidGridAdvect(N, 1, u, u0, u0, v0, dt);
 	FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
-	FluidGridProject(N, u, v, u0, v0);*/
+	FluidGridProject(N, u, v, u0, v0);
+	*/
 
-	FluidGridAddSourceFromGrid_GPU(gridData, gridData->prevVelocityBufferV, gridData->velocityBufferV, dt);
-	FluidGridAddSourceFromGrid_GPU(gridData, gridData->prevVelocityBufferU, gridData->velocityBufferU, dt);
+	FluidGridAddSourceFromGrid_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, dt);
+	FluidGridAddSourceFromGrid_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, dt);
 
+	FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
 
-	//FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
 	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, 1, dt);
 
-	//FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
+	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
+
 	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, 1, dt);
 
 	FluidGridProject_GPU(gridData, dt); 
 
-	//FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
-	//FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
+	FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
+	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
 
 
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 1);
@@ -426,13 +435,13 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	return 1;
 }
 
-a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuff, a3_UniformBuffer* currBuff, a3real dt)
+a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff, a3_UniformBuffer* prevBuff, a3real dt)
 {
-	FluidGridAddSourceFromGrid_GPU(gridData, prevBuff, currBuff, dt);
+	FluidGridAddSourceFromGrid_GPU(gridData, currBuff, prevBuff, dt);
 	//Swap(x0, x, (N + 2) * (N + 2));
-	FluidGridSwap_GPU(gridData, prevBuff, currBuff);
-	FluidGridDiffuse_GPU(gridData, prevBuff, currBuff, 0, dt);
-	FluidGridSwap_GPU(gridData, prevBuff, currBuff);
+	FluidGridSwap_GPU(gridData, currBuff, prevBuff);
+	FluidGridDiffuse_GPU(gridData, currBuff, prevBuff, 0, dt);
+	FluidGridSwap_GPU(gridData, currBuff, prevBuff);
 	//Swap(x0, x, (N + 2) * (N + 2));
 	FluidGridAdvect_GPU(gridData, currBuff, prevBuff, 
 		gridData->velocityBufferU, gridData->velocityBufferV, dt, 0);
@@ -442,9 +451,9 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* prevBuf
 
 a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 {
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, a3vec2_zero, 10, dt);
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, a3vec2_zero, 10, dt);
-	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, a3vec2_zero, 10, dt);
+	FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, a3vec2_zero, 10000, dt);
+	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, a3vec2_zero, 10000, dt);
+	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, a3vec2_zero, 10000, dt);
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);
@@ -459,12 +468,12 @@ a3ret FreeFluidGrid_GPU(a3_FluidGrid_GPU* gridData)
 {
 	if (gridData == NULL) { return 0; }
 
-	if (gridData->densityBufferData != NULL) { free(gridData->densityBufferData); }
+	/*if (gridData->densityBufferData != NULL) { free(gridData->densityBufferData); }
 	if (gridData->prevDensityBufferData != NULL) { free(gridData->prevDensityBufferData); }
 	if (gridData->velocityBufferU != NULL) { free(gridData->velocityBufferU); }
 	if (gridData->prevVelocityBufferU != NULL) { free(gridData->prevVelocityBufferU); }
 	if (gridData->velocityBufferV != NULL) { free(gridData->velocityBufferV); }
-	if (gridData->prevVelocityBufferV != NULL) { free(gridData->prevVelocityBufferV); }
+	if (gridData->prevVelocityBufferV != NULL) { free(gridData->prevVelocityBufferV); }*/
 
 	free(gridData);;
 
