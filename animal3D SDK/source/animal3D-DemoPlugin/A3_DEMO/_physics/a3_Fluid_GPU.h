@@ -43,7 +43,8 @@ extern "C"
 			* prog_step_add_source_from_grid,
 			* prog_step_add_source_from_point,
 			* prog_step_swap_buffers,
-			* prog_step_init_grid;
+			* prog_step_init_grid,
+			* prog_split_grid;
 	}a3_FluidGrid_GPU;
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real diffuseK, a3ui32 diffuse_GS_Loops);
@@ -77,6 +78,8 @@ extern "C"
 
 	//TODO
 	a3ret FreeFluidGrid_GPU(a3_FluidGrid_GPU* gridData);
+
+	a3ret DecayFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real dt);
 
 #ifdef __cplusplus
 }

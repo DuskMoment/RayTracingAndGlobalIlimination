@@ -7,34 +7,21 @@ layout(std430, binding = 1) buffer buf_in {
 	float data_in[];
 };
 
-layout(binding = 2) buffer buf_out {
-
-	float data_out[];
-};
-layout(binding = 3) buffer buf_1out {
-
-	float data_out1[];
-};
-layout(binding = 4) buffer buf_2out {
-
-	float data_out2[];
-};
-layout(binding = 5) buffer buf_3out {
-
-	float data_out3[];
-};
-
+uniform float uDt;
 
 void main()
 {
-	uint this_index = gl_GlobalInvocationID.x;
+	vec3 clusterSize = gl_NumWorkGroups * gl_WorkGroupSize;
 
-	int offset = int((102 * 102) * 0.25);
+	uint index = uint(gl_GlobalInvocationID.x + gl_GlobalInvocationID.y * clusterSize.x);
+	
 
-	data_out[this_index] = data_in[this_index];
-	data_out1[this_index] = data_in[this_index + offset];
-	data_out2[this_index] = data_in[this_index + offset * 2];
-	data_out3[this_index] = data_in[this_index + offset * 3];
+	float test = data_in[index];
+	test = test - 0.1 * uDt;
 
+
+	test = clamp(test, 0.0, 11.0);
+
+	data_in[index] = test;
 
 }

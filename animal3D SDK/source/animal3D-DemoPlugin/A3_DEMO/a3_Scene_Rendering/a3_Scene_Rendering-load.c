@@ -172,6 +172,8 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
         scene->fluidGrid_GPU->prog_step_add_source_from_point = demoState->prog_step_add_source_from_point->program;
         scene->fluidGrid_GPU->prog_step_swap_buffers = demoState->prog_step_SwapGrid->program;
         scene->fluidGrid_GPU->prog_step_init_grid = demoState->prog_step_init_grid->program;
+        scene->fluidGrid_GPU->prog_split_grid = demoState->prog_splitGrid->program;
+
     }
 
     InitFluidGrid_GPU(scene->fluidGrid_GPU, (a3real)0.1, 20);
