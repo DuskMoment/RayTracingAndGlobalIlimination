@@ -17,10 +17,12 @@ void main()
 	
 
 	float test = data_in[index];
-	test = test - 0.1 * uDt;
+
+	test = test * 0.9;
+	//test = test - 0.1 * uDt;
 
 
-	test = clamp(test, 0.0, 11.0);
+	//test = clamp(test, 0.0, 11.0);
 
 	data_in[index] = test;
 

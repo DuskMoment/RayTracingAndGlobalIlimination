@@ -14,12 +14,12 @@ const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
 
-layout(std430, binding = 1) buffer bufferInOutCurrent {
+layout(std430, binding = 1) buffer bufferInOutPrev {
 
 	float float_bufferInOutPrev[];
 };
 
-layout(std430, binding = 2) buffer bufferInOutPrev {
+layout(std430, binding = 2) buffer bufferInOutCurr {
 
 	float float_bufferInOutCur[];
 };

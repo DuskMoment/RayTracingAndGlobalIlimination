@@ -28,7 +28,6 @@ void main()
 	float temp = sourceGrid[index];
 	sourceGrid[index] = destGrid[index];
 	destGrid[index] = temp;
-	//destGrid[index] = 500 * (1 - step(uPixelRadius, distSquared)) * uDeltaTime;
 }
 
 

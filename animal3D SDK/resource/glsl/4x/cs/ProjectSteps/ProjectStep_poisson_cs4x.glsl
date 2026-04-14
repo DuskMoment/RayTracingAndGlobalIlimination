@@ -1,5 +1,5 @@
 #version 450
-#define IX2(i,j) ((i)+(N+2)*(j)) 
+#define IX2(i,j) (i + ((gl_NumWorkGroups * gl_WorkGroupSize).x * j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
 and then also in between each loop use SETBND
@@ -30,8 +30,7 @@ void main()
 	i  = int(gl_GlobalInvocationID.x),
 	N = GRID_LENGHT;
 
-	float_bufferInOutU0[IX2(i, j)] = (float_bufferInOutV0[IX2(i, j)] + float_bufferInOutU0[IX2(i - 1, j)] + float_bufferInOutU0[IX2(i + 1, j)] +
-    float_bufferInOutU0[IX2(i, j - 1)] + float_bufferInOutU0[IX2(i, j + 1)]) / 4.0;
+	float_bufferInOutU0[IX2(i, j)] = (float_bufferInOutV0[IX2(i, j)] + float_bufferInOutU0[IX2(i - 1, j)] + float_bufferInOutU0[IX2(i + 1, j)] + float_bufferInOutU0[IX2(i, j - 1)] + float_bufferInOutU0[IX2(i, j + 1)]) / 4.0;
 	
 
 	//CALL BND ON CPU

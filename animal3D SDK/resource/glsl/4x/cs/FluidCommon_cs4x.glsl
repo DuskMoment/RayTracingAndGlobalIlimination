@@ -1,7 +1,7 @@
 #version 450
 
 
-#define IX2(i,j) ((i)+(N+2)*(j)) 
+#define IX2(i,j) (i + ((gl_NumWorkGroups * gl_WorkGroupSize).x * j)) 
 const int GRID_SIZE = 800 * 800;
 
 
