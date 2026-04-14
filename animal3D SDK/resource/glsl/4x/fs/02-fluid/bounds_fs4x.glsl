@@ -1,14 +1,16 @@
 #version 450
 
-in vec4 vTexcoord_atlas;
+in vec4 vColor;
+in vec4 gTexcoord_atlas;
 
-uniform sampler2D uImage00; //current velocity
-uniform sampler2D uImage01; //bounds negate texture
+uniform sampler2D uImage00;
+uniform float uNegate;
 
-layout (location = 0) out vec4 current;
+layout (location = 0) out vec4 rtFragColor;
 
 void main()
 {
-	current = texture(uImage01, vTexcoord_atlas.xy) * (texture(uImage01, vTexcoord_atlas.xy) * 2.0 - 1.0);
+	// DUMMY OUTPUT: all fragments are OPAQUE ORANGE
+	//rtFragColor = vec4(1.0, 0.5, 0.0, 1.0);
+	rtFragColor = -1.0 * texture(uImage00, (gl_FragCoord.xy + vColor.xy) / 800);
 }
-	

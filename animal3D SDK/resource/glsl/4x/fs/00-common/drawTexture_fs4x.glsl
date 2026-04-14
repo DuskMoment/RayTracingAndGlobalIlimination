@@ -38,5 +38,5 @@ void main()
 //	rtFragColor = vec4(1.0, 1.0, 0.0, 1.0);
 
 	vec4 col = texture(uImage00, vTexcoord_atlas.xy);
-	rtFragColor = col * uColor;
+	rtFragColor = col;
 }

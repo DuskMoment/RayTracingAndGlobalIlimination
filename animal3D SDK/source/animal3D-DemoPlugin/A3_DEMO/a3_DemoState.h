@@ -93,7 +93,7 @@ enum
 	demoStateMaxCount_vertexArray = 8,
 	demoStateMaxCount_drawable = 32,
 
-	demoStateMaxCount_shaderProgram = 32,
+	demoStateMaxCount_shaderProgram = 64,
 	demoStateMaxCount_uniformBuffer = 16,
 
 	demoStateMaxCount_texture = 16,
@@ -133,6 +133,9 @@ typedef struct a3_DemoState
 
 	// asset streaming between loads enabled (careful!)
 	a3boolean streaming;
+
+	// first iteration (needed for loading velocity and densitys)
+	a3boolean first;
 
 	// window and full-frame dimensions
 	a3ui32 windowWidth, windowHeight;
@@ -302,12 +305,12 @@ typedef struct a3_DemoState
 				prog_addForceVelocity[1],
 				prog_addForceDensity[1],
 				prog_advect[1],
-				prog_bounds[1],
 				prog_divergence[1],
 				prog_fade[1],
 				prog_gradient[1],
 				prog_jacobiProject[1],
-				prog_jacobiDiffuse[1];
+				prog_jacobiDiffuse[1],
+				prog_drawBorder[1];
 		};
 	};
 
@@ -360,7 +363,6 @@ typedef struct a3_DemoState
                 tex_earth_cloud[1],
                 tex_earth_light[1];
 			a3_Texture
-				tex_border[1],
 				tex_add[1];
 		};
 	};

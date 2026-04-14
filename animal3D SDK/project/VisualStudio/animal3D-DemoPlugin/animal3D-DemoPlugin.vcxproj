@@ -307,6 +307,8 @@
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\fade_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\addForceDensity_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\jacobiDiffuse_fs4x.glsl" />
+    <Text Include="..\..\..\resource\glsl\4x\gs\00-common\border_gs4x.glsl" />
+    <Text Include="..\..\..\resource\glsl\4x\vs\00-common\empty_vs4x.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

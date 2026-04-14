@@ -2,7 +2,7 @@
 
 in vec4 vTexcoord_atlas;
 
-const float screenRecip = 0.001253133;
+const float screenRecip = 0.00125;
 
 uniform float a; //dt * diff * N * N
 uniform float diffuseDenom; // = 1.0 / (a * 4 + 1)
@@ -19,9 +19,5 @@ void main()
                  texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)).xy +
                  texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).xy;
 
-  float numeratorX = texture(uImage00, vTexcoord_atlas.xy).a + a * adjDiff.x;
-  float numeratorY = texture(uImage00, vTexcoord_atlas.xy).a + a * adjDiff.y;
-
-  current.x = numeratorX * diffuseDenom;
-  current.y = numeratorY * diffuseDenom;
+  current.xy = texture(uImage00, vTexcoord_atlas.xy).xy + a * adjDiff;
 }

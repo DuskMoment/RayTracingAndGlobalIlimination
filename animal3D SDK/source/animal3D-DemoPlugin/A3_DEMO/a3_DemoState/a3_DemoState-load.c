@@ -107,6 +107,7 @@ inline void a3demo_initDummyDrawable_internal(a3_DemoState *demoState)
 	*demoState->dummyDrawable = *demoState->draw_grid;
 	demoState->dummyDrawable->primitive = 0;
 	demoState->dummyDrawable->count = 1;
+	demoState->first = true;
 }
 
 
@@ -534,12 +535,14 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				passTexcoord_transform_instanced_vs[1],
 				passTangentBasis_transform_instanced_vs[1],
 				passTangentBasis_morph5_transform_instanced_vs[1],
-				passTangentBasis_skin_transform_instanced_vs[1];
+				passTangentBasis_skin_transform_instanced_vs[1],
+				empty_vs[1];
 
 			// geometry shaders
 			// 00-common
 			a3_DemoStateShader
-				drawTangentBasis_gs[1];
+				drawTangentBasis_gs[1],
+				drawBorder_gs[1];
 
 			// fragment shaders
 			// base
@@ -557,15 +560,15 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawRT_fs[1],
 				drawGrid_fs[1],
 
-				drawAddForceVelocity[1],
-				drawAddForceDensity[1],
-				drawAdvect[1],
-				drawBounds[1],
-				drawDivergence[1],
-				drawFade[1],
-				drawGradient[1],
-				drawJacobiProject[1],
-				drawJacobiDiffuse[1],
+				drawAddForceVelocity_fs[1],
+				drawAddForceDensity_fs[1],
+				drawAdvect_fs[1],
+				drawDivergence_fs[1],
+				drawFade_fs[1],
+				drawGradient_fs[1],
+				drawJacobiProject_fs[1],
+				drawJacobiDiffuse_fs[1],
+				drawBounds_fs[1],
 
 				splitGrid_cs[1],
 				runFluidGrid_cs[1];
@@ -598,11 +601,13 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
 			{ { { 0 },	"shdr-vs:pass-tb-skin-t-inst",		a3shader_vertex  ,	2,{ A3_DEMO_VS"00-common/passTangentBasis_skin_transform_instanced_vs4x.glsl",
 																					A3_DEMO_VS"00-common/utilCommon_vs4x.glsl",} } },
+			{ { { 0 },	"shdr-vs:empty",					a3shader_vertex  ,	1,{ A3_DEMO_VS"00-common/empty_vs4x.glsl" } } },
 
 			// gs
 			// 00-common
 			{ { { 0 },	"shdr-gs:draw-tb",					a3shader_geometry,	2,{ A3_DEMO_GS"00-common/drawTangentBasis_gs4x.glsl",
 																					A3_DEMO_GS"00-common/utilCommon_gs4x.glsl",} } },
+			{ { { 0 },	"shdr-gs:border",					a3shader_geometry,	1,{ A3_DEMO_GS"00-common/border_gs4x.glsl" } } },
 
 			// fs
 			// base
@@ -620,15 +625,15 @@ void a3demo_loadShaders(a3_DemoState *demoState)
             { { { 0 },	"shdr-fs:draw-RT",		    		a3shader_fragment,	1,{ A3_DEMO_FS"00-common/drawRT_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:draw-Grid",		    	a3shader_fragment,	1,{ A3_DEMO_FS"01-pipeline/gridRender_fs4x.glsl",} } },
 		
-			{ { { 0 },	"shdr-fs:add-force-velocity",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceVelcity_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:add-force-velocity",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceVelocity_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:add-force-density",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceDensity_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:advect",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/advect_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-fs:bounds",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/bounds_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:divergence",		    	a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/divergence_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:fade",		    			a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/fade_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:gradient",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/gradient_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:jacobi-project",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiProject_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:jacobi-diffuse",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiDiffuse_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:bounds",					a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/bounds_fs4x.glsl",} } },
             
 			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
@@ -768,6 +773,14 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTangentBasis_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawTangentBasis_gs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawColorAttrib_fs->shader);
+
+	//border
+	currentDemoProg = demoState->prog_drawBorder;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-border");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.empty_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBorder_gs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds_fs->shader);
+
 	// tangent basis with instancing
 	currentDemoProg = demoState->prog_drawTangentBasis_instanced;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-tb-inst");
@@ -810,47 +823,47 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	currentDemoProg = demoState->prog_addForceVelocity;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:add-force-velocity");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceVelocity->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceVelocity_fs->shader);
 
 	currentDemoProg = demoState->prog_addForceDensity;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:add-force-density");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceDensity->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAddForceDensity_fs->shader);
 
 	currentDemoProg = demoState->prog_advect;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:advect");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAdvect->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAdvect_fs->shader);
 
-	currentDemoProg = demoState->prog_bounds;
-	a3shaderProgramCreate(currentDemoProg->program, "prog:bounds");
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds->shader);
+	//currentDemoProg = demoState->prog_bounds;
+	//a3shaderProgramCreate(currentDemoProg->program, "prog:bounds");
+	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds_fs->shader);
 
 	currentDemoProg = demoState->prog_divergence;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:divergence");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDivergence->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDivergence_fs->shader);
 
 	currentDemoProg = demoState->prog_fade;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:fade");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawFade->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawFade_fs->shader);
 
 	currentDemoProg = demoState->prog_gradient;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:gradient");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGradient->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawGradient_fs->shader);
 
 	currentDemoProg = demoState->prog_jacobiProject;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:add-jacobiProject");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiProject->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiProject_fs->shader);
 
 	currentDemoProg = demoState->prog_jacobiDiffuse;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:add-jacobiDiffuse");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiDiffuse->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiDiffuse_fs->shader);
 
 
 	//compute
@@ -1036,7 +1049,6 @@ void a3demo_loadTextures(a3_DemoState* demoState)
             a3_DemoStateTexture texEarthHM[1];
             a3_DemoStateTexture texEarthCloud[1];
             a3_DemoStateTexture texEarthLight[1];
-			a3_DemoStateTexture texBorder[1];
 			a3_DemoStateTexture texAddForce[1];
 		};
 	} textureList = {
@@ -1055,8 +1067,7 @@ void a3demo_loadTextures(a3_DemoState* demoState)
             { demoState->tex_earth_cloud, "tex:earth-cloud",	"../../../../resource/tex/earth/2k/earth_cm_2k.png" },
             { demoState->tex_earth_light, "tex:earth-light",	"../../../../resource/tex/earth/2k/earth_lm_2k.png" },
 
-			{ demoState->tex_border,	  "tex::border",		"../../../../resource/tex/fluid/border.jpg" },
-			{ demoState->tex_border,	  "tex::add",			"../../../../resource/tex/fluid/addForce.jpg" }
+			{ demoState->tex_add,			"tex::border",		"../../../../resource/tex/fluid/addForce.jpg" },
 		}
 	};
 	const a3ui32 numTextures = sizeof(textureList) / sizeof(a3_DemoStateTexture);
@@ -1101,7 +1112,7 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 
 	// frame sizes
 	const a3ui16 frameWidth1 = demoState->frameWidth, frameHeight1 = demoState->frameHeight;
-	const a3ui16 frameWidth2 = demoState->frameWidth - 2, frameHeight2 = demoState->frameHeight - 2;
+	const a3ui16 frameWidth2 = demoState->frameWidth, frameHeight2 = demoState->frameHeight;
 
 	// storage precision and targets
 	const a3_FramebufferColorType colorType_scene = a3fbo_colorRGBA16;
