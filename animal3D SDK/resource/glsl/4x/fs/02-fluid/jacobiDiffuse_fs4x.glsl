@@ -19,5 +19,6 @@ void main()
                  texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)).xy +
                  texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).xy;
 
-  current.xy = texture(uImage00, vTexcoord_atlas.xy).xy + a * adjDiff;
+  vec2 numerator = texture(uImage00, vTexcoord_atlas.xy).xy + a * adjDiff;
+  current.xy = numerator * diffuseDenom;
 }

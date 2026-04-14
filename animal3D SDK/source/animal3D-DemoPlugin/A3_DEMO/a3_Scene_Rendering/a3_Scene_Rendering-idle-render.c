@@ -46,7 +46,7 @@
 
 
 //-----------------------------------------------------------------------------
-
+																	//velocity						//doublebuffer
 static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffer const* fsqBuffer, a3_Framebuffer const* drawToBuffer, const a3mat4 fsq)
 {
 	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
@@ -55,9 +55,6 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 	//fsq
 	const a3_SceneShaderProgram* currentDemoProgram = demoState->prog_drawTexture;
 	a3shaderProgramActivate(currentDemoProgram->program);
-	//a3framebufferActivate(writeFBO[rendering_scene_finalcolor]);
-
-	//a3textureActivate(texture_dm[15], a3tex_unit00);
 	a3framebufferBindColorTexture(fsqBuffer, a3tex_unit00, targetIndex);
 
 	// prepare for final draw
@@ -67,7 +64,6 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 
 	//border
 	a3scene_enableCompositeBlending();
-	//a3_Framebuffer* currentWriteFBO = drawToBuffer;
 	a3framebufferActivate(drawToBuffer);
 	glDisable(GL_STENCIL_TEST);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -80,8 +76,10 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 	glDrawArrays(GL_POINTS, 0, 1);
 
 	//composite
-	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
-		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
+	/*a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
+		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);*/
+	glDisable(GL_DEPTH_TEST);
+	a3framebufferActivate(fsqBuffer);
 	currentDrawable = demoState->draw_unit_plane_z;
 	currentDemoProgram = demoState->prog_drawTexture;
 	a3vertexDrawableActivate(currentDrawable);
@@ -569,8 +567,11 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderProgramActivate(currentDemoProgram->program);
 	a3framebufferActivate(writeFBO[rendering_doubleBuffer]);
 
-	a3f32 x = (a3f32)0.5;
-	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &x);
+	a3f32 timeStep = (a3f32)0.016;
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uTimeStep"), 1, &timeStep);
+	a3f32 time = (a3f32)demoState->dt_timer_tot;
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &time);
+	a3framebufferBindColorTexture(writeFBO[rendering_prevVelocity], a3tex_unit00, 0);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
@@ -587,8 +588,8 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3shaderProgramActivate(currentDemoProgram->program);
 		a3framebufferActivate(writeFBO[rendering_doubleBuffer]);
 
-		a3f32 x = (a3f32)0.5;
-		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &x);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uTimeStep"), 1, &timeStep);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &time);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
@@ -609,32 +610,32 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	//		-set bounds
 	for (int i = 0; i < 20; i++)
 	{
-		//currentDemoProgram = demoState->prog_jacobiDiffuse;
-		//a3shaderProgramActivate(currentDemoProgram->program);
-		//a3framebufferActivate(writeFBO[rendering_doubleBuffer]);
+		currentDemoProgram = demoState->prog_jacobiDiffuse;
+		a3shaderProgramActivate(currentDemoProgram->program);
+		a3framebufferActivate(writeFBO[rendering_doubleBuffer]);
 
-		//a3framebufferBindColorTexture(writeFBO[rendering_prevVelocity], a3tex_unit00, 0);
-		//a3framebufferBindColorTexture(writeFBO[rendering_currentVelocity], a3tex_unit01, 0);
+		a3framebufferBindColorTexture(writeFBO[rendering_prevVelocity], a3tex_unit00, 0);
+		a3framebufferBindColorTexture(writeFBO[rendering_currentVelocity], a3tex_unit01, 0);
 
-		//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		//a3f32 a = (a3f32)(x * 0.2 * 800 * 800);
-		//a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
-		//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
-		//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
+		a3f32 a = (a3f32)(timeStep * 0.2 * 800 * 800);
+		a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
 
-		//a3vertexDrawableRenderActive();
-		//writeFBO[rendering_tmpBuffer] = writeFBO[rendering_currentVelocity];
-		//writeFBO[rendering_currentVelocity] = writeFBO[rendering_doubleBuffer];
-		//writeFBO[rendering_doubleBuffer] = writeFBO[rendering_tmpBuffer];
+		a3vertexDrawableRenderActive();
+		writeFBO[rendering_tmpBuffer] = writeFBO[rendering_currentVelocity];
+		writeFBO[rendering_currentVelocity] = writeFBO[rendering_doubleBuffer];
+		writeFBO[rendering_doubleBuffer] = writeFBO[rendering_tmpBuffer];
 
-		////swap prev and current
-		//writeFBO[rendering_tmpBuffer] = writeFBO[rendering_prevVelocity];
-		//writeFBO[rendering_prevVelocity] = writeFBO[rendering_currentVelocity];
-		//writeFBO[rendering_currentVelocity] = writeFBO[rendering_tmpBuffer];
+		bounds(demoState, targetIndex, writeFBO[rendering_currentVelocity], writeFBO[rendering_doubleBuffer], fsq);
 
-		//bounds(demoState, targetIndex, writeFBO[rendering_currentVelocity], writeFBO[rendering_doubleBuffer], fsq);
+		//swap prev and current
+		writeFBO[rendering_tmpBuffer] = writeFBO[rendering_prevVelocity];
+		writeFBO[rendering_prevVelocity] = writeFBO[rendering_currentVelocity];
+		writeFBO[rendering_currentVelocity] = writeFBO[rendering_tmpBuffer];
 	}
 
 	////3. project
@@ -940,14 +941,36 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	// final display: activate desired final program and draw FSQ
 	if (currentDisplayFBO)
 	{
+		//testing
+		//bounds(demoState, targetIndex, writeFBO[rendering_doubleBuffer], writeFBO[rendering_currentVelocity], fsq);
+		
+		//copy buffer to demostate framebuffer
+		currentDemoProgram = demoState->prog_drawTexture;
+		a3shaderProgramActivate(currentDemoProgram->program);
+		a3framebufferActivate(demoState->fbo_prev_velocity_c16);
+
+		//read
+		a3framebufferBindColorTexture(writeFBO[rendering_prevVelocity], a3tex_unit00, 0);
+
+		currentDrawable = demoState->draw_unit_plane_z;
+		a3vertexDrawableActivate(currentDrawable);
+
+		// done
+		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+		a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
+
+
+		a3vertexDrawableRenderActive();
+
+		//---------------------------FINAL DRAW---------------------------
+		a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
+			-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
 		currentDemoProgram = demoState->prog_drawTexture;
 		a3shaderProgramActivate(currentDemoProgram->program);
 
 		//read
-		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
-		//glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (GRID_SIZE) * sizeof(a3real), output);
-		a3framebufferBindColorTexture(writeFBO[rendering_currentVelocity], a3tex_unit00, 0);
-		//a3textureActivate(texture_dm[15], a3tex_unit00);
+		a3framebufferBindColorTexture(writeFBO[rendering_prevVelocity], a3tex_unit00, 0);
 
 		// prepare for final draw
 		currentDrawable = demoState->draw_unit_plane_z;
