@@ -15,7 +15,7 @@ layout(std430, binding = 1) buffer sourceBuff {
 
 layout(std430, binding = 2) buffer destBuff {
 
-	float destGrid[GRID_SIZE];
+	float destGrid[];
 };
 
 uniform float uDeltaTime;
