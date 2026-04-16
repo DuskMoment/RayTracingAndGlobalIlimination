@@ -192,7 +192,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuff
 a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff, a3_UniformBuffer* prevBuff, a3real diff, a3i32 direction, a3real dt)
 {
 	a3real output[1600];
-	for (a3ui32 i = 0; i < gridData->diffuse_GS_Loops; i++)
+	for (a3ui32 i = 0; i < 1; i++)
 	{
 		const a3_ShaderProgram* currShaderProgram = gridData->prog_step_difuse;
 		a3shaderProgramActivate(currShaderProgram);
@@ -200,10 +200,12 @@ a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 		//bind
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, prevBuff->handle->handle);
 		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, prevBuff->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, currBuff->handle->handle);
-		
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDiffuseConstant"), 1, &diff);
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDeltaTime"), 1, &dt);
@@ -215,6 +217,7 @@ a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 		//read -- debug
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 		FluidGridSetBND_GPU(gridData, currBuff, direction);
 	}
@@ -223,10 +226,14 @@ a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);*/
 
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+
 	return 1;
 }
 
-//this one is going to suck :/
+//this one is going to suck :/ (gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt
 a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* u, a3_UniformBuffer* v, a3_UniformBuffer* p, a3_UniformBuffer* div, a3real dt)
 {
 
@@ -239,73 +246,92 @@ a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* u, a3_U
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_project_div;
 	a3shaderProgramActivate(currShaderProgram);
 
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, v->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, u->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, p->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, p->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, div->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, div->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	//exe
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 	//read -- debug
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, p->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, div->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 
 	FluidGridSetBND_GPU(gridData, p, 0);
 	FluidGridSetBND_GPU(gridData, div, 0);
-	
-	//loop for a GL
-	//posson
-	//bnd
+	//
+	////loop for a GL
+	////posson
+	////bnd
 
 	for (a3ui32 i = 0; i < gridData->diffuse_GS_Loops; i++)
 	{
 		const a3_ShaderProgram* currShaderProgram = gridData->prog_step_project_poisson;
 		a3shaderProgramActivate(currShaderProgram);
 
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
-		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, u->handle->handle);
+		/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, u->handle->handle);*/
 
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
-		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, v->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, div->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, div->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, p->handle->handle);
-		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, p->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, p->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 		//exe
 		glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
 		glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 		//read -- debug
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, p->handle->handle);
 		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
 
 		FluidGridSetBND_GPU(gridData, u, 1);
 		FluidGridSetBND_GPU(gridData, v, 2);
 
 	}
-	
-	//hodge decomposition
-	//bnd twice
+	//
+	////hodge decomposition
+	////bnd twice
 	currShaderProgram = gridData->prog_step_project_hodgeDe;
 	a3shaderProgramActivate(currShaderProgram);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, u->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, v->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, p->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, p->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	//exe
 	glDispatchCompute((GRID_LENGTH + 31) / 32, (GRID_LENGTH + 31) / 32, 1);
@@ -314,6 +340,8 @@ a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* u, a3_U
 	//read -- debug
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	FluidGridSetBND_GPU(gridData, u, 1);
 	FluidGridSetBND_GPU(gridData, v, 2);
@@ -334,19 +362,23 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff
 	//velocity u
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, u->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	//velocity v
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, v->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	//bind
 //density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 3, currBuff->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	//prev density
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, prevBuff->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 4, prevBuff->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDt"), 1, &dt);
 	a3shaderUniformSendInt(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDir"), 1, &dir);
@@ -359,9 +391,11 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff
 	//read
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, currBuff->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, prevBuff->handle->handle);
 	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output2);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
 	FluidGridSetBND_GPU(gridData, currBuff, dir);
 
@@ -377,12 +411,15 @@ a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBu
 	//bind
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, sourceBuff->handle->handle);
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, sourceBuff->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	a3shaderUniformSendInt(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDirection"), 1, &direction);
 
 	//exe
 	glDispatchCompute(1,1,1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
+
 
 	return 1;
 }
@@ -449,7 +486,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 1);
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
 
-	FluidGridProject_GPU(gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt);
+	//FluidGridProject_GPU(gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt);
 
 	return 1;
 }
@@ -485,8 +522,8 @@ a3ret DecayFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 
 	//bind
-	glBindBuffer(GL_SHADER_STORAGE_BUFFER, gridData->velocityBufferU->handle->handle);
-	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, gridData->velocityBufferU->handle->handle);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, gridData->velocityBufferV->handle->handle);
+	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, gridData->velocityBufferV->handle->handle);
 
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currShaderProgram, "uDt"), 1, &dt);
 
@@ -509,7 +546,7 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);
-	DecayFluidGrid_GPU(gridData, dt);
+	//DecayFluidGrid_GPU(gridData, dt);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 

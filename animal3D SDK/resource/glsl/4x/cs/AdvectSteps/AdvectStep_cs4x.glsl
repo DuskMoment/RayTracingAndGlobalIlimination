@@ -1,5 +1,5 @@
 #version 450
-#define IX2(i,j) (i + ((gl_NumWorkGroups * gl_WorkGroupSize).x * j)) 
+#define IX2(i,j) ((i)+(N+2)*(j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
 and then also in between each loop use SETBND

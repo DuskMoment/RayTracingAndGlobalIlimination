@@ -1,6 +1,6 @@
 #version 450
 
-#define IX2(i,j) ((i)+(int(gl_NumWorkGroups * gl_WorkGroupSize))*(j)) 
+#define IX2(i,j) ((i)+(N+2)*(j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
 and then also in between each loop use SETBND
@@ -27,17 +27,10 @@ layout(std430, binding = 2) buffer bufferInOutCurr {
 uniform float uDiffuseConstant;
 uniform float uDeltaTime;
 
-//density exchange between neighbors 
-//N = MAX_GRIDSIZE, b = horizontal or vertical
-void FluidGridDiffuse(int N, int b, float x[GRID_SIZE], float x0[GRID_SIZE], float diff, float dt)
-{
-}
 
 void main()
 {
-    //Takes the grid lenght, the direction, current state, previous state, diffuse constant, delta time
-    //FluidGridDiffuse(GRID_LENGHT, uDirection, float_bufferInOutCur, float_bufferInOutPrev, uDiff, uDt);
-
+   
 
     int N = GRID_LENGHT;
 

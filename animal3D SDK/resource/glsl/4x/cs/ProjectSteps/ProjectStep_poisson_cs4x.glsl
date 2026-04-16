@@ -1,11 +1,11 @@
 #version 450
-#define IX2(i,j) (i + ((gl_NumWorkGroups * gl_WorkGroupSize).x * j)) 
+//#define IX2(i,j) (i + ((gl_NumWorkGroups * gl_WorkGroupSize).x * j)) 
 /*
 THIS RUNS PER PIXEL --> run this 20 times the gpu
 and then also in between each loop use SETBND
 */
 
-
+#define IX2(i,j) ((i)+(N+2)*(j)) 
 layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
 //CHANGE THE GRIDSIZE HERE 
 const int GRID_LENGHT = 798;
