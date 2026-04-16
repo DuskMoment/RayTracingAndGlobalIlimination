@@ -13,25 +13,25 @@ const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 layout(std430, binding = 1) buffer bufferInOutU {
 
-	float float_bufferInOutU[];
+	float u[];
 };
 
 layout(std430, binding = 2) buffer bufferInOutV {
 
-	float float_bufferInOutV[];
+	float v[];
 };
 
 
 //presure
 layout(std430, binding = 3) buffer bufferInOutU0 {
 
-	float float_bufferInOutU0[];
+	float p[];
 };
 
 //divergance
 layout(std430, binding = 4) buffer bufferInOutV0 {
 
-	float float_bufferInOutV0[];
+	float div[];
 };
 
 
@@ -47,8 +47,8 @@ void main()
 	float h;
     h = 1.0 / float(N);
 	
-	float_bufferInOutV0[IX2(i, j)] = (-0.5) * h * (float_bufferInOutU[IX2(i + 1, j)] - float_bufferInOutU[IX2(i - 1, j)] + float_bufferInOutV[IX2(i, j + 1)] - float_bufferInOutV[IX2(i, j - 1)]);
-    float_bufferInOutU0[IX2(i, j)] = 0;
+	div[IX2(i, j)] = (-0.5) * h * (u[IX2(i + 1, j)] - u[IX2(i - 1, j)] + v[IX2(i, j + 1)] - v[IX2(i, j - 1)]);
+    p[IX2(i, j)] = 0;
 
 	//CALL BND ON CPU
 

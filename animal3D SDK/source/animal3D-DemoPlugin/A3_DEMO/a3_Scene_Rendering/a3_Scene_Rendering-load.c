@@ -176,7 +176,7 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
 
     }
 
-    InitFluidGrid_GPU(scene->fluidGrid_GPU, (a3real)0.1, 20);
+    InitFluidGrid_GPU(scene->fluidGrid_GPU, (a3real)0.02, (a3real)0.1, 20);
 
     //scene->fluidGrid = (a3_FluidGrid*)malloc(sizeof(a3_FluidGrid));
     //InitFluidGrid(scene->fluidGrid, GRID_LENGTH, (a3real)0.2, (a3real) 0.00005);

@@ -15,10 +15,6 @@ layout(std430, binding = 1) buffer densityBuf_out {
 
 int N = 798;
 
-uniform density {
-	float d[40 * 40];
-};
-
 int fragCoordToGridIndex(int i, int j)
 {
 	return i + (j * (N+2));

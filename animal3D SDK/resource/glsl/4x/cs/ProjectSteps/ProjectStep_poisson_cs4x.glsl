@@ -12,15 +12,15 @@ const int GRID_LENGHT = 798;
 const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 //presure
-layout(std430, binding = 1) buffer bufferInOutU0 {
+layout(std430, binding = 1) buffer bufferInOutX {
 
-	float float_bufferInOutU0[];
+	float x[];
 };
 
 //divergance
-layout(std430, binding = 2) buffer bufferInOutV0 {
+layout(std430, binding = 2) buffer bufferInOutX0 {
 
-	float float_bufferInOutV0[];
+	float x0[];
 };
 
 
@@ -30,7 +30,7 @@ void main()
 	i  = int(gl_GlobalInvocationID.x),
 	N = GRID_LENGHT;
 
-	float_bufferInOutU0[IX2(i, j)] = (float_bufferInOutV0[IX2(i, j)] + float_bufferInOutU0[IX2(i - 1, j)] + float_bufferInOutU0[IX2(i + 1, j)] + float_bufferInOutU0[IX2(i, j - 1)] + float_bufferInOutU0[IX2(i, j + 1)]) / 4.0;
+	x[IX2(i, j)] = (x0[IX2(i, j)] + x[IX2(i - 1, j)] + x[IX2(i + 1, j)] + x[IX2(i, j - 1)] + x[IX2(i, j + 1)]) / 4.0;
 	
 
 	//CALL BND ON CPU
