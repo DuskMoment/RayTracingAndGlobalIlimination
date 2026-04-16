@@ -233,7 +233,7 @@ a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	return 1;
 }
 
-//this one is going to suck :/ (gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt
+//this one is going to suck :/ gridData, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, gridData->velocityBufferU, gridData->velocityBufferV, dt
 a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* u, a3_UniformBuffer* v, a3_UniformBuffer* p, a3_UniformBuffer* div, a3real dt)
 {
 
@@ -241,7 +241,20 @@ a3ret FluidGridProject_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* u, a3_U
 
 	//solve divergance
 	//bnd twice
+
 	//bind
+	// 
+	//read -- debug
+
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_project_div;
 	a3shaderProgramActivate(currShaderProgram);
@@ -356,8 +369,18 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff
 	a3real output2[1600];
 
 
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, v->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
+	glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output2);
+	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_advect;
 	a3shaderProgramActivate(currShaderProgram);
+
+
 
 	//velocity u
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, u->handle->handle);
@@ -473,7 +496,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	//FluidGridAddSourceFromGrid_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, dt);
 
 	//FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
-	FluidGridDiffuse_GPU(gridData, gridData->prevVelocityBufferU, gridData->velocityBufferU, gridData->viscocityConstant, 1, dt);
+	FluidGridDiffuse_GPU(gridData, gridData->prevVelocityBufferU, gridData->velocityBufferU, gridData->viscocityConstant, 1,dt);
 
 	//FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
 	FluidGridDiffuse_GPU(gridData, gridData->prevVelocityBufferV, gridData->velocityBufferV, gridData->viscocityConstant, 2, dt);
@@ -486,7 +509,12 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 1);
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
 
-	//FluidGridProject_GPU(gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt);
+
+
+	//FluidGridProject_GPU(gridData, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, gridData->velocityBufferU, gridData->velocityBufferV, (a3real)0.0001);
+
+	/*FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
+	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);*/
 
 	return 1;
 }
@@ -500,7 +528,7 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	//FluidGridSwap_GPU(gridData, currBuff, prevBuff);
 	//Swap(x0, x, (N + 2) * (N + 2));
 	FluidGridAdvect_GPU(gridData, currBuff, prevBuff, 
-		gridData->velocityBufferU, gridData->velocityBufferV, dt, 0);
+		gridData->velocityBufferV, gridData->velocityBufferU, dt, 0);
 
 	return 1;
 }
@@ -546,7 +574,7 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);
-	//DecayFluidGrid_GPU(gridData, dt);
+	DecayFluidGrid_GPU(gridData, dt);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 

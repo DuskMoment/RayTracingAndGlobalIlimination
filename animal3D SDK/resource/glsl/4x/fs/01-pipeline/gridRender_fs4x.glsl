@@ -29,5 +29,16 @@ void main()
 	//float col = d[fragCoordToGridIndex(int(0), int(0))];
 
 	//col = min(col, 1);
-	rtFragColor = vec4(col*100, 0, col*100, 1.0);
+
+	if(col < 0)
+	{
+		rtFragColor = vec4(-col, 0,0, 1.0);
+
+	}
+	else
+	{
+		rtFragColor = vec4(col, 0, col, 1.0);
+	}
+
+	
 }

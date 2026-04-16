@@ -41,7 +41,7 @@ void main()
 
     int N = GRID_LENGHT;
 
-	int i =  int(gl_GlobalInvocationID.x) + 1 , j =  int(gl_GlobalInvocationID.y) + 1 
+	int i =  int(gl_GlobalInvocationID.x), j =  int(gl_GlobalInvocationID.y)
     , i0, j0, i1, j1;
     float x, y, s0, t0, s1, t1, dt0;
 
