@@ -21,6 +21,7 @@ void main()
 	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, uDt + 0.1), gold_noise(gl_FragCoord.xy, uDt + 0.2), gold_noise(gl_FragCoord.xy, uDt + 0.3)), 1.0); //store velocity in 0-1 range
 	rand = max(vec4(0.0), min(vec4(1.0), rand));
 	col += uTimeStep * rand;
+	col = max(vec4(0.0), min(vec4(1.0), col));
 	current = vec4(col.rg, 0.0, 1.0);
 }
 	

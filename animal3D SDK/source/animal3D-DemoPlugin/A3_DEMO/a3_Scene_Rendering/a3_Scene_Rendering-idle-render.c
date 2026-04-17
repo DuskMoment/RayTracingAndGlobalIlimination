@@ -49,6 +49,12 @@
 																	//velocity						//doublebuffer
 static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffer const* fsqBuffer, a3_Framebuffer const* drawToBuffer, const a3mat4 fsq)
 {
+	a3vec4 axis;
+	axis.x = (a3real)fsqBuffer->frameWidth;
+	axis.y = (a3real)fsqBuffer->frameHeight;
+	axis.z = 1.0F / axis.x;
+	axis.w = 1.0F / axis.y;
+
 	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
 			-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
 	const a3_SceneShaderProgram* currentDemoProgram = demoState->prog_drawTexture;
@@ -77,28 +83,30 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 
 	currentDemoProgram = demoState->prog_drawBorder;
 	a3shaderProgramActivate(currentDemoProgram->program);
-	//a3textureActivate(demoState->tex_earth_dm, a3tex_unit00);
 	a3f32 n = (a3f32)-1.0;
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uNegate"), 1, &n);
-	a3framebufferBindColorTexture(fsqBuffer, a3tex_unit00, 0);
+	//a3framebufferBindColorTexture(fsqBuffer, a3tex_unit00, 0);
+	//a3textureActivate(demoState->tex_earth_dm, a3tex_unit00);
+
+	a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uAxis, 1, axis.v);
 
 	a3vertexDrawableDeactivate();
 	glDrawArrays(GL_POINTS, 0, 1);
 
-	//composite
-	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
-		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
-	/*glDisable(GL_DEPTH_TEST);
-	a3framebufferActivate(fsqBuffer);*/
-	currentDrawable = demoState->draw_unit_plane_z;
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3vertexDrawableActivate(currentDrawable);
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
-	a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
-	a3framebufferBindColorTexture(drawToBuffer, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	////composite
+	//a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
+	//	-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
+	///*glDisable(GL_DEPTH_TEST);
+	//a3framebufferActivate(fsqBuffer);*/
+	//currentDrawable = demoState->draw_unit_plane_z;
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3vertexDrawableActivate(currentDrawable);
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
+	//a3framebufferBindColorTexture(drawToBuffer, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 }
 
 // controls for pipelines mode
