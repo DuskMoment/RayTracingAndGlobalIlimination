@@ -10,6 +10,7 @@ layout (location = 0) out vec4 current;
 
 float PHI = 1.61803398874989484820459;  //Golden Ratio   
 
+//https://stackoverflow.com/questions/4200224/random-noise-functions-for-glsl
 float gold_noise(in vec2 xy, in float seed){
        return fract(tan(distance(xy*PHI, xy)*seed)*xy.x);
 }
@@ -17,7 +18,8 @@ float gold_noise(in vec2 xy, in float seed){
 void main()
 {
 	vec4 col = texture(uImage00, vTexcoord_atlas.xy);
-	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, 1.0)) * 0.5 + 0.5, 1.0);
+	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, uDt + 0.1), gold_noise(gl_FragCoord.xy, uDt + 0.2), gold_noise(gl_FragCoord.xy, uDt + 0.3)), 1.0); //store velocity in 0-1 range
+	rand = max(vec4(0.0), min(vec4(1.0), rand));
 	col += uTimeStep * rand;
 	current = vec4(col.rg, 0.0, 1.0);
 }

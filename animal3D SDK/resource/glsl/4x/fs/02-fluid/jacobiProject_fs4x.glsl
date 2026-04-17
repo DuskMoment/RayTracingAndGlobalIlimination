@@ -2,7 +2,7 @@
 
 in vec4 vTexcoord_atlas;
 
-const float screenRecip = 0.001253133;
+const float screenRecip = 0.00125;
 
 uniform sampler2D uImage00; //divergence and pressure
 

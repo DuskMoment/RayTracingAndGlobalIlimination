@@ -2,50 +2,58 @@
 layout (points) in;
 layout (line_strip, max_vertices = 8) out;
 
-uniform mat4 uAtlas;
-uniform sampler2D uImage00;
-
-out vec4 vTexcoord_atlas;
-out vec4 vColor;
+out GS_OUT
+{
+    vec4 gTexcoord_atlas;
+    vec2 vColor;
+} gs_out;
   
 void main() {   
     
     //top
-    vColor = vec4(0.0, -1.0, 0.0, 1.0);
+    gs_out.vColor = vec2(0.0, -1.0);
     gl_Position = gl_in[0].gl_Position + vec4(-1.0, 1.0, 0.0, 0.0); 
+    gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0); 
     EmitVertex();
 
     gl_Position = gl_in[0].gl_Position + vec4( 1.0, 1.0, 0.0, 0.0);
+    gs_out.gTexcoord_atlas = vec4( 1.0, 1.0, 0.0, 1.0);
     EmitVertex();
     
     EndPrimitive();
 
     //bottom
-    vColor = vec4(0.0, 1.0, 0.0, 1.0);
+    gs_out.vColor = vec2(0.0, 1.0);
     gl_Position = gl_in[0].gl_Position + vec4(-1.0, -1.0, 0.0, 0.0); 
+    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0); 
     EmitVertex();
 
     gl_Position = gl_in[0].gl_Position + vec4( 1.0, -1.0, 0.0, 0.0);
+    gs_out.gTexcoord_atlas = vec4( 1.0, -1.0, 0.0, 1.0);
     EmitVertex();
     
     EndPrimitive();
 
     //right
-    vColor = vec4(-1.0, 0.0, 0.0, 1.0);
+    gs_out.vColor = vec2(-1.0, 0.0);
     gl_Position = gl_in[0].gl_Position + vec4(1.0, -1.0, 0.0, 0.0); 
+    gs_out.gTexcoord_atlas = vec4(1.0, -1.0, 0.0, 1.0); 
     EmitVertex();
 
     gl_Position = gl_in[0].gl_Position + vec4(1.0, 1.0, 0.0, 0.0);
+    gs_out.gTexcoord_atlas = vec4(1.0, 1.0, 0.0, 1.0);
     EmitVertex();
     
     EndPrimitive();
 
     //left
-    vColor = vec4(1.0, 0.0, 0.0, 1.0);
-    gl_Position = gl_in[0].gl_Position + vec4(-1.0, -1.0, 0.0, 0.0); 
+    gs_out.vColor = vec2(1.0, 0.0);
+    gl_Position = gl_in[0].gl_Position + vec4(-1.0, -1.0, 0.0, 0.0);
+    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0);
     EmitVertex();
 
     gl_Position = gl_in[0].gl_Position + vec4(-1.0, 1.0, 0.0, 0.0);
+    gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0);
     EmitVertex();
     
     EndPrimitive();
