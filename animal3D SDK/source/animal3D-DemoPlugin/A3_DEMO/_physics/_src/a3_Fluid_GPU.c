@@ -192,7 +192,7 @@ a3ret FluidGridAddSourceFromPoint_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuff
 a3ret FluidGridDiffuse_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff, a3_UniformBuffer* prevBuff, a3real diff, a3i32 direction, a3real dt)
 {
 	a3real output[1600];
-	for (a3ui32 i = 0; i < 1; i++)
+	for (a3ui32 i = 0; i < gridData->diffuse_GS_Loops; i++)
 	{
 		const a3_ShaderProgram* currShaderProgram = gridData->prog_step_difuse;
 		a3shaderProgramActivate(currShaderProgram);
@@ -423,7 +423,7 @@ a3ret FluidGridAdvect_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuff
 
 a3ret FluidGridSetBND_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* sourceBuff, a3i32 direction)
 {
-	return 1;
+	//return 1;
 	const a3_ShaderProgram* currShaderProgram = gridData->prog_step_setBND;
 	a3shaderProgramActivate(currShaderProgram);
 

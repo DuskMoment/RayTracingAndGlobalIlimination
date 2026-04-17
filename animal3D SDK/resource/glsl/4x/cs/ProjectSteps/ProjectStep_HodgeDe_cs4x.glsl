@@ -42,8 +42,8 @@ void main()
      h = 1.0 / float(N);
 
 	 //p[IX2(i + 1, j)] =  p[IX2(i + 1, j)];
-	 u[IX2(i, j)] -= 0.5 * (p[IX2(i + 1, j)] - p[IX2(i - 1, j)]) / h;
-     v[IX2(i, j)] -= 0.5 * (p[IX2(i, j + 1)] - p[IX2(i, j - 1)]) / h;
+	 u[IX2(i, j)] -= 0.5 * (p[IX2(i + 1, j)] - p[IX2(i - 1, j)]) * N;
+     v[IX2(i, j)] -= 0.5 * (p[IX2(i, j + 1)] - p[IX2(i, j - 1)]) * N;
 	
 	//CALL BND ON CPU
 }

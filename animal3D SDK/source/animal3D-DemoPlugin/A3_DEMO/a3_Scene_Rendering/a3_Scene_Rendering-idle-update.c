@@ -210,8 +210,8 @@ void a3rendering_update(a3_DemoState* demoState, a3_Scene_Rendering* scene, a3f6
 
 	FluidGridAddSourceFromPoint_GPU(scene->fluidGrid_GPU, scene->fluidGrid_GPU->densityBuffer, point, (a3real)0.2, 1000, (a3real)0.1);
 
-	FluidGridAddSourceFromPoint_GPU(scene->fluidGrid_GPU, scene->fluidGrid_GPU->prevVelocityBufferU, point, mouseVel.x * (a3real)10000, 1000, (a3real)1);
-	FluidGridAddSourceFromPoint_GPU(scene->fluidGrid_GPU, scene->fluidGrid_GPU->prevVelocityBufferV, point, mouseVel.y * (a3real)10000, 1000, (a3real)1);
+	FluidGridAddSourceFromPoint_GPU(scene->fluidGrid_GPU, scene->fluidGrid_GPU->prevVelocityBufferV, point, mouseVel.x * (a3real)10000, 1000, (a3real)0.1);
+	FluidGridAddSourceFromPoint_GPU(scene->fluidGrid_GPU, scene->fluidGrid_GPU->prevVelocityBufferU, point, mouseVel.y * (a3real)10000, 1000, (a3real)0.1);
 }
 
 

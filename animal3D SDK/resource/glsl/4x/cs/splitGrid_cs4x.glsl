@@ -18,7 +18,7 @@ void main()
 
 	float test = data_in[index];
 
-	test = test * 0.9;
+	test = test * 0.99;
 	//test = test - 0.1 * uDt;
 
 
