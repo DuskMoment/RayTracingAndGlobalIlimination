@@ -366,7 +366,7 @@ a3ret FluidGridFade(a3i32 N, a3real* x, a3real* s, a3real dt)
     return 1;
 }
 
-//density exchange between neighbors 
+//density exchange between neighbors N, 1, u, u0, visc, dt
 a3ret FluidGridDiffuse(a3i32 N, a3i32 b, a3real* x, a3real* x0, a3real diff, a3real dt)
 {
     //indexs

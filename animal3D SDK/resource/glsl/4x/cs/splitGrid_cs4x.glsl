@@ -22,7 +22,7 @@ void main()
 	//test = test - 0.1 * uDt;
 
 
-	//test = clamp(test, 0.0, 11.0);
+	//test = max(test, 0.0);
 
 	data_in[index] = test;
 

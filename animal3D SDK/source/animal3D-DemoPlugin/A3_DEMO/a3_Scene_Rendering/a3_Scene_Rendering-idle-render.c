@@ -756,14 +756,11 @@ void a3rendering_render(a3_DemoState const* demoState, a3_Scene_Rendering const*
 		////bind density
 		/*glBindBuffer(GL_SHADER_STORAGE_BUFFER, scene->fluidGrid_GPU->prevVelocityBufferU->handle->handle);
 		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, scene->fluidGrid_GPU->prevVelocityBufferU->handle->handle);*/
-		a3real output[1600];
+	
 
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, scene->fluidGrid_GPU->velocityBufferV->handle->handle);
-		glGetBufferSubData(GL_SHADER_STORAGE_BUFFER, 0, (1600) * sizeof(a3real), output);
+		glBindBuffer(GL_SHADER_STORAGE_BUFFER, scene->fluidGrid_GPU->densityBuffer->handle->handle);
+		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, scene->fluidGrid_GPU->densityBuffer->handle->handle);
 		glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
-
-		glBindBuffer(GL_SHADER_STORAGE_BUFFER, scene->fluidGrid_GPU->velocityBufferU->handle->handle);
-		glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, scene->fluidGrid_GPU->velocityBufferU->handle->handle);
 
 		////bind prev density
 		//glBindBuffer(GL_SHADER_STORAGE_BUFFER, demoState->densityBuffer->handle->handle);
