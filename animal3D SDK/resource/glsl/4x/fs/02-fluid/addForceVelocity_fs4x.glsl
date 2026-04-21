@@ -30,7 +30,7 @@ vec2 addSq()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy);
-	prevVel -= uTimeStep * addForce;
+	prevVel += 100.0 * uTimeStep * addForce;
 	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
 	return prevVel.rg;
 }

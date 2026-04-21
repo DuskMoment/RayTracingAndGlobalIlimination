@@ -17,9 +17,9 @@ layout (location = 0) out vec4 rtFragColor;
 
 void drawTest()
 {
-	//rtFragColor = vec4(1.0);
+	rtFragColor = vec4(1.0);
 	//rtFragColor = vec4(fs_in.vColor * 0.5 + 0.5, 0.0, 1.0);
-	rtFragColor = vec4(1.0 - texture(uImage00, fs_in.gTexcoord_atlas.xy * 0.5 + 0.5).rg, 0.0, 1.0);
+	//rtFragColor = vec4(1.0 - texture(uImage00, fs_in.gTexcoord_atlas.xy * 0.5 + 0.5).rg, 0.0, 1.0);
 	//rtFragColor = fs_in.gTexcoord_atlas * 0.5 + 0.5;
 	//rtFragColor = texture(uImage00, fs_in.gTexcoord_atlas.xy * 0.5 + 0.5);
 	//rtFragColor = vec4(uAxis.y == 980.0);
@@ -38,6 +38,6 @@ void drawBorder()
 
 void main()
 {
-	drawTest();
+	//drawTest();
 	drawBorder();
 }
