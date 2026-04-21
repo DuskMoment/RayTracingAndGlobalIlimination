@@ -19,8 +19,8 @@ void drawTest()
 {
 	//rtFragColor = vec4(1.0);
 	//rtFragColor = vec4(fs_in.vColor * 0.5 + 0.5, 0.0, 1.0);
-	rtFragColor = vec4(1.0 - texture(uImage00, fs_in.gTexcoord_atlas.xy).rg, 0.0, 1.0);
-	//rtFragColor = fs_in.gTexcoord_atlas;
+	//rtFragColor = vec4(1.0 - texture(uImage00, fs_in.gTexcoord_atlas.xy).rg, 0.0, 1.0);
+	rtFragColor = fs_in.gTexcoord_atlas;
 	//rtFragColor = vec4(uAxis.y == 980.0);
 }
 
