@@ -16,6 +16,7 @@ void main()
 {
 	vec4 col = texture(uImage00, vTexcoord_atlas.xy);
 	col += texture(uImage01, vTexcoord_atlas.xy) * dt;
+	col = max(vec4(0.0), min(vec4(1.0), col));
 	current =  col;
 }
 	

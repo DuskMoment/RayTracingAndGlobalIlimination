@@ -8,6 +8,7 @@ out GS_OUT
 } gs_out;
 
 uniform vec4 uAxis;
+uniform float uSize = 4;
 
 
 //layout (triangle_strip, max_vertices = 4) out;
@@ -76,101 +77,103 @@ uniform vec4 uAxis;
 layout (triangle_strip, max_vertices = 20) out;
 void drawBorder() 
 {
-    //top
-    gs_out.vColor = vec2(0.0, -1.0);
-    gl_Position = vec4(-1.0, 1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0); 
-    EmitVertex();
 
-    gl_Position = vec4(-0.9, 0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-0.9, 0.9, 0.0, 1.0); 
-    EmitVertex();
+ //top
+ gs_out.vColor = vec2(0.0, -1.0);
+ gl_Position = vec4(-1.0, 1.0, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(0.9, 0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(0.9, 0.9, 0.0, 1.0); 
-    EmitVertex();
+ gl_Position = vec4(-1.0 + uAxis.z * uSize, 1.0 - uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0 + uAxis.z * uSize, 1.0 - uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4( 1.0, 1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4( 1.0, 1.0, 0.0, 1.0);
-    EmitVertex();
+ gl_Position = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(-1.0, 1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0); 
-    EmitVertex();
-    
-    EndPrimitive();
+ gl_Position = vec4(1.0, 1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4( 1.0, 1.0, 0.0, 1.0);
+ EmitVertex();
 
-    //bottom
-    gs_out.vColor = vec2(0.0, 1.0);
-    gl_Position = vec4(-1.0, -1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0); 
-    EmitVertex();
+ gl_Position = vec4(-1.0, 1.0, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0); 
+ EmitVertex();
+ 
+ EndPrimitive();
 
-    gl_Position = vec4(-0.9, -0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-0.9, -0.9, 0.0, 1.0); 
-    EmitVertex();
+ //bottom
+ gs_out.vColor = vec2(0.0, 1.0);
+ gl_Position = vec4(-1.0 + uAxis.z * uSize, -1.0 + uAxis.w  * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0 + uAxis.z  * uSize, -1.0 + uAxis.w  * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(0.9, -0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(0.9, -0.9, 0.0, 1.0); 
-    EmitVertex();
+ gs_out.vColor = vec2(0.0, 1.0);
+ gl_Position = vec4(-1.0, -1.0, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4( 1.0, -1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4( 1.0, -1.0, 0.0, 1.0);
-    EmitVertex();
+ gl_Position = vec4( 1.0, -1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4( 1.0, -1.0, 0.0, 1.0);
+ EmitVertex();
 
-    gl_Position = vec4(-1.0, -1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0); 
-    EmitVertex();
-    
-    EndPrimitive();
+ gl_Position = vec4(1.0 - uAxis.z * uSize, -1.0 + uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0 - uAxis.z * uSize, -1.0 + uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    //right
-    gs_out.vColor = vec2(-1.0, 0.0);
-    gl_Position = vec4(1.0, -1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(1.0, -1.0, 0.0, 1.0); 
-    EmitVertex();
+  gl_Position = vec4(-1.0 + uAxis.z * uSize, -1.0 + uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0 + uAxis.z * uSize, -1.0 + uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
+ 
+ EndPrimitive();
 
-    gl_Position = vec4(0.9, -0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(0.9, -0.9, 0.0, 1.0); 
-    EmitVertex();
+ //right
+ gs_out.vColor = vec2(-1.0, 0.0);
+ gl_Position = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(0.9, 0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(0.9, 0.9, 0.0, 1.0); 
-    EmitVertex();
+ gl_Position = vec4(1.0 - uAxis.z * uSize, -1.0 + uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0 - uAxis.z * uSize, -1.0 + uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(1.0, 1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4(1.0, 1.0, 0.0, 1.0);
-    EmitVertex();
+ gl_Position = vec4(1.0, -1.0, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0, -1.0, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(1.0, -1.0, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(1.0, -1.0, 0.0, 1.0); 
-    EmitVertex();
-    
-    EndPrimitive();
+ gl_Position = vec4(1.0, 1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4(1.0, 1.0, 0.0, 1.0);
+ EmitVertex();
 
-    //left
-    gs_out.vColor = vec2(1.0, 0.0);
-    gl_Position = vec4(-1.0, -1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0);
-    EmitVertex();
+ gl_Position = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(1.0 - uAxis.z * uSize, 1.0 - uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
+ 
+ EndPrimitive();
 
-     gl_Position = vec4(-0.9, -0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-0.9, -0.9, 0.0, 1.0); 
-    EmitVertex();
+ //left
+ gs_out.vColor = vec2(1.0, 0.0);
+ gl_Position = vec4(-1.0, -1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0);
+ EmitVertex();
 
-    gl_Position = vec4(-0.9, 0.9, -1.0, 1.0); 
-    gs_out.gTexcoord_atlas = vec4(-0.9, 0.9, 0.0, 1.0); 
-    EmitVertex();
+  gl_Position = vec4(-1.0 + uAxis.z * uSize, -1.0 + uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0 + uAxis.z * uSize, -1.0 + uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(-1.0, 1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0);
-    EmitVertex();
+ gl_Position = vec4(-1.0 + uAxis.z * uSize, 1.0 - uAxis.w * uSize, -1.0, 1.0); 
+ gs_out.gTexcoord_atlas = vec4(-1.0 + uAxis.z * uSize, 1.0 - uAxis.w * uSize, 0.0, 1.0); 
+ EmitVertex();
 
-    gl_Position = vec4(-1.0, -1.0, -1.0, 1.0);
-    gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0);
-    EmitVertex();
-    
-    EndPrimitive();
+ gl_Position = vec4(-1.0, 1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4(-1.0, 1.0, 0.0, 1.0);
+ EmitVertex();
+
+ gl_Position = vec4(-1.0, -1.0, -1.0, 1.0);
+ gs_out.gTexcoord_atlas = vec4(-1.0, -1.0, 0.0, 1.0);
+ EmitVertex();
+ 
+ EndPrimitive();
 }
 
 void main()
