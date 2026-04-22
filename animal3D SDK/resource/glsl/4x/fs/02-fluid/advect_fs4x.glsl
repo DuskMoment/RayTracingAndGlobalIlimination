@@ -8,7 +8,7 @@ uniform float dt;
 uniform float N;
 
 uniform sampler2D uImage00; //if velocity step prev velocity, if density step prev density
-uniform sampler2D uImage01; //current velocity(xyz) & density(a)
+uniform sampler2D uImage01; //current velocity
 
 uniform bool velocity;
 
@@ -45,8 +45,8 @@ void main ()
     t1 = y - j0; 
     t0 = 1 - t1;
 
-     vec2 col = s0 * (t0 * texture(uImage00, vec2(i0, j0) * screenRecip).xy + t1 * texture(uImage00, vec2(i0, j1) * screenRecip).xy) +
-                   s1 * (t0 * texture(uImage00, vec2(i1, j0) * screenRecip).xy + t1 * texture(uImage00, vec2(i1, j1) * screenRecip).xy);
+     vec2 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xy * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xy  * 2.0 - 1.0)) +
+                   s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xy * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xy * 2.0 - 1.0));
 
-    current.rg = col;
+    current = vec4(col * 0.5 + 0.5, 0.0, 1.0);
 }

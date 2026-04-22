@@ -8,7 +8,7 @@ out GS_OUT
 } gs_out;
 
 uniform vec4 uAxis;
-uniform float uSize = 4;
+uniform float uSize = 2;
 
 
 //layout (triangle_strip, max_vertices = 4) out;

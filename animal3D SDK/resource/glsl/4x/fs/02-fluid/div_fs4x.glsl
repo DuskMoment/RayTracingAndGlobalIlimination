@@ -10,7 +10,7 @@ layout (location = 0) out vec4 current;
 
 void main()
 {
-    float div = 
+    float div = -0.5 * screenRecip * 
                     ((texture(uImage00, vec2(vTexcoord_atlas.x + screenRecip, vTexcoord_atlas.y)).x * 2.0 - 1.0) - 
                     (texture(uImage00, vec2(vTexcoord_atlas.x - screenRecip, vTexcoord_atlas.y)).x * 2.0 - 1.0) +
                     (texture(uImage00, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).y * 2.0 - 1.0) - 

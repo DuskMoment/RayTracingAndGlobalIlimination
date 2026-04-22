@@ -21,7 +21,7 @@ vec2 randomVel()
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, uDt + 0.1), gold_noise(gl_FragCoord.xy, uDt + 0.2), gold_noise(gl_FragCoord.xy, uDt + 0.3)), 1.0); //store velocity in 0-1 range
 	rand = max(vec4(0.0), min(vec4(1.0), rand));
-	prevVel += uTimeStep * rand;
+	prevVel += uTimeStep * rand * 100;
 	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
 	return prevVel.rg;
 }
@@ -30,7 +30,7 @@ vec2 addSq()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy);
-	prevVel += addForce * uTimeStep;
+	prevVel += addForce * uTimeStep * 100;
 	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
 	return prevVel.rg;
 }
