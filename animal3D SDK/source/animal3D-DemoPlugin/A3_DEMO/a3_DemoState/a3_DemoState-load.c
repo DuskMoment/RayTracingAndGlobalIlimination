@@ -563,11 +563,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawAddForceVelocity_fs[1],
 				drawAddForceDensity_fs[1],
 				drawAdvect_fs[1],
-				drawDivergence_fs[1],
 				drawFade_fs[1],
 				drawGradient_fs[1],
 				drawJacobiProject_fs[1],
 				drawJacobiDiffuse_fs[1],
+				drawDiv_fs[1],
 				drawBounds_fs[1],
 
 				splitGrid_cs[1],
@@ -628,11 +628,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-fs:add-force-velocity",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceVelocity_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:add-force-density",		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/addForceDensity_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:advect",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/advect_fs4x.glsl",} } },
-			{ { { 0 },	"shdr-fs:divergence",		    	a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/divergence_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:fade",		    			a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/fade_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:gradient",		    		a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/gradient_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:jacobi-project",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiProject_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:jacobi-diffuse",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiDiffuse_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:div",						a3shader_fragment,  1,{	A3_DEMO_FS"02-fluid/div_fs4x.glsl"} } },
 			{ { { 0 },	"shdr-fs:bounds",					a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/bounds_fs4x.glsl",} } },
             
 			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
@@ -774,13 +774,6 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawTangentBasis_gs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawColorAttrib_fs->shader);
 
-	//border
-	currentDemoProg = demoState->prog_drawBorder;
-	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-border");
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.empty_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBorder_gs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds_fs->shader);
-
 	// tangent basis with instancing
 	currentDemoProg = demoState->prog_drawTangentBasis_instanced;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-tb-inst");
@@ -835,16 +828,6 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawAdvect_fs->shader);
 
-	//currentDemoProg = demoState->prog_bounds;
-	//a3shaderProgramCreate(currentDemoProg->program, "prog:bounds");
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	//a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds_fs->shader);
-
-	currentDemoProg = demoState->prog_divergence;
-	a3shaderProgramCreate(currentDemoProg->program, "prog:divergence");
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
-	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDivergence_fs->shader);
-
 	currentDemoProg = demoState->prog_fade;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:fade");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
@@ -864,6 +847,17 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramCreate(currentDemoProg->program, "prog:add-jacobiDiffuse");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawJacobiDiffuse_fs->shader);
+
+	currentDemoProg = demoState->prog_div;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:div");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDiv_fs->shader);
+
+	currentDemoProg = demoState->prog_drawBorder;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-border");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.empty_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBorder_gs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawBounds_fs->shader);
 
 
 	//compute

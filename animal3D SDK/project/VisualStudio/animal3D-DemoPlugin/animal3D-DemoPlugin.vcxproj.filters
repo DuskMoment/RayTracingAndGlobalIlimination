@@ -414,9 +414,6 @@
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\bounds_fs4x.glsl">
       <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
     </Text>
-    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\divergence_fs4x.glsl">
-      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
-    </Text>
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\fade_fs4x.glsl">
       <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
     </Text>
@@ -437,6 +434,9 @@
     </Text>
     <Text Include="..\..\..\resource\glsl\4x\vs\00-common\empty_vs4x.glsl">
       <Filter>Resource Files\A3_DEMO\glsl\4x\vs\00-common</Filter>
+    </Text>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\div_fs4x.glsl">
+      <Filter>Resource Files\A3_DEMO\glsl\4x\fs\02-fluid</Filter>
     </Text>
   </ItemGroup>
 </Project>

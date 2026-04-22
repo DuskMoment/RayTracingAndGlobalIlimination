@@ -305,11 +305,11 @@ typedef struct a3_DemoState
 				prog_addForceVelocity[1],
 				prog_addForceDensity[1],
 				prog_advect[1],
-				prog_divergence[1],
 				prog_fade[1],
 				prog_gradient[1],
 				prog_jacobiProject[1],
 				prog_jacobiDiffuse[1],
+				prog_div[1],
 				prog_drawBorder[1];
 		};
 	};

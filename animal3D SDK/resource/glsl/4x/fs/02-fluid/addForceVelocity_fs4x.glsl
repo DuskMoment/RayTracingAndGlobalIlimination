@@ -18,26 +18,25 @@ float gold_noise(in vec2 xy, in float seed){
 
 vec2 randomVel()
 {
-	vec4 col = texture(uImage00, vTexcoord_atlas.xy);
+	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, uDt + 0.1), gold_noise(gl_FragCoord.xy, uDt + 0.2), gold_noise(gl_FragCoord.xy, uDt + 0.3)), 1.0); //store velocity in 0-1 range
 	rand = max(vec4(0.0), min(vec4(1.0), rand));
-	col += uTimeStep * rand;
-	col = max(vec4(0.0), min(vec4(1.0), col));
-	return col.rg;
+	prevVel += uTimeStep * rand;
+	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
+	return prevVel.rg;
 }
 
 vec2 addSq()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy);
-	prevVel += 100.0 * uTimeStep * addForce;
+	prevVel += addForce * uTimeStep;
 	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
 	return prevVel.rg;
 }
 
 void main()
 {
-	
 	current = vec4(addSq(), 0.0, 1.0);
 }
 	

@@ -299,9 +299,9 @@
     <None Include="..\..\..\source\animal3D-DemoPlugin\A3_DEMO\_animation\_inl\a3_SpatialPose.inl" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\div_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\jacobiProject_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\addForceVelocity_fs4x.glsl" />
-    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\divergence_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\gradient_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\bounds_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\fade_fs4x.glsl" />
