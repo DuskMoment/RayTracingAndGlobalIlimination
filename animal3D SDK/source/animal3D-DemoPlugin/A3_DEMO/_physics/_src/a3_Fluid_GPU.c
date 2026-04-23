@@ -580,7 +580,8 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	point.y = 400;
 
 
-	clock_t start = clock();
+	struct timespec start, end;
+	timespec_get(&start, TIME_UTC);
 
 	/*FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, point, 1000, 1, dt);
 	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, point, 10000, dt);
@@ -592,10 +593,10 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	clock_t end = clock();
-	double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+	timespec_get(&end, TIME_UTC);
+	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 
-	printf("\nTime to run in milliseconds: %f", (float)time_spent * 1000);
+	printf("\nTime to run in milliseconds: %f", (float)time_spent);
 	printf("\n");
 
 	////FluidGridVelStep_GPU(gridData, shaderPrograms, dt);
