@@ -9,7 +9,7 @@ and then also in between each loop use SETBND
 
 
 //CHANGE THE GRIDSIZE HERE 
-const int GRID_LENGHT = 798;
+const int GRID_LENGHT = 38;
 const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
