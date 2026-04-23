@@ -2,6 +2,8 @@
 #include "../a3_Fluid.h"
 #include <math.h>
 
+#include <stdio.h>
+#include <time.h>
 
 //-----------------------------------------------------------------------------
 
@@ -532,8 +534,17 @@ a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real vis
     uPrev = grid->prevVelocityU;
     vPrev = grid->prevVelocityV;
 
+    struct timespec start, end;
+    timespec_get(&start, TIME_UTC);
+
     FluidGridVelStep(N, u, v, uPrev, vPrev, visc, dt);
     FluidGridDensStep(N, grid->density, densPrev, u, v, grid->diff, dt);
+
+    timespec_get(&end, TIME_UTC);
+    float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+
+	printf("\nTime to run in milliseconds: %f", time_spent);
+	printf("\n");
 
     return 1;
 }
