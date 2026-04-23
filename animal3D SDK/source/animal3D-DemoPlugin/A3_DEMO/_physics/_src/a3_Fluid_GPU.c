@@ -496,19 +496,46 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridAddSourceFromGrid_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, 1);
 
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
+
+	struct timespec start, end;
+	timespec_get(&start, TIME_UTC);
 	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->viscocityConstant, 1,dt);
+	timespec_get(&end, TIME_UTC);
+	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nDiffuse U: %f", (float)time_spent);
 
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
-	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->viscocityConstant, 2, dt);
 
+	
+	timespec_get(&start, TIME_UTC);
+	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->viscocityConstant, 2, dt);
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nDiffuse V: %f", (float)time_spent);
+
+
+	timespec_get(&start, TIME_UTC);
 	FluidGridProject_GPU(gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt);
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nProject: %f", (float)time_spent);
+
 
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU);
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
 
+	timespec_get(&start, TIME_UTC);
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 1);
-	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nAdvect U: %f", (float)time_spent);
 
+	timespec_get(&start, TIME_UTC);
+	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nAdvect V: %f", (float)time_spent);
+	printf("\n--------------------------");
 
 
 	FluidGridProject_GPU(gridData, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, gridData->velocityBufferU, gridData->velocityBufferV, (a3real)dt);
@@ -524,11 +551,23 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	FluidGridAddSourceFromGrid_GPU(gridData, currBuff, prevBuff, dt);
 	//Swap(x0, x, (N + 2) * (N + 2));
 	//FluidGridSwap_GPU(gridData, currBuff, prevBuff);
+	struct timespec start, end;
+	timespec_get(&start, TIME_UTC);
 	FluidGridDiffuse_GPU(gridData, prevBuff, currBuff, gridData->diffuseConstant, 0, dt);
+	timespec_get(&end, TIME_UTC);
+	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nD Diffuse: %f", (float)time_spent);
 	//FluidGridSwap_GPU(gridData, currBuff, prevBuff);
 	//Swap(x0, x, (N + 2) * (N + 2));
+
+	timespec_get(&start, TIME_UTC);
 	FluidGridAdvect_GPU(gridData, currBuff, prevBuff, 
 		gridData->velocityBufferV, gridData->velocityBufferU, (a3real)0.001, 0);
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	printf("\nD Advect: %f", (float)time_spent);
+	printf("\n_______________");
+
 
 	return 1;
 }
@@ -589,15 +628,27 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);
+	
+	timespec_get(&end, TIME_UTC);
+
+	long nsec_diff = end.tv_nsec - start.tv_nsec;
+	time_t sec_diff = end.tv_sec - start.tv_sec;
+
+	//https://stackoverflow.com/questions/17705786/getting-negative-values-using-clock-gettime
+	if (nsec_diff < 0) {
+		nsec_diff += 1000000000; 
+		sec_diff--;
+	}
+
+	float time_spent = (float)sec_diff * (float)1000.0 + (float)nsec_diff / (float)1000000.0;
+
+	printf("\nTime to run in milliseconds: %f", (float)time_spent);
+	printf("\n");
+
 	DecayFluidGrid_GPU(gridData, dt);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
-	timespec_get(&end, TIME_UTC);
-	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-
-	printf("\nTime to run in milliseconds: %f", (float)time_spent);
-	printf("\n");
 
 	////FluidGridVelStep_GPU(gridData, shaderPrograms, dt);
 	////FluidDensityStep_GPU(gridData, shaderPrograms, dt);
