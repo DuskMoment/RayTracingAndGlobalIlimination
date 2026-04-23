@@ -1,6 +1,10 @@
 #include "../a3_Fluid_GPU.h"
 
 #include "./A3_DEMO/a3_Scene_Rendering.h"
+#include <stdio.h>
+#include <time.h>
+
+#define _POSIX_C_SOURCE 199309L
 
 //-----------------------------------------------------------------------------
 
@@ -575,15 +579,24 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	point.x = 400;
 	point.y = 400;
 
-	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, point, 1000, 1, dt);
-	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, point, 10000, dt);
-	//FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, point, 10000, dt);
+
+	clock_t start = clock();
+
+	/*FluidGridAddSourceFromPoint_GPU(gridData, gridData->densityBuffer, point, 1000, 1, dt);
+	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferV, point, 10000, dt);
+	FluidGridAddSourceFromPoint_GPU(gridData, gridData->velocityBufferU, point, 10000, dt);*/
 
 	FluidGridVelStep_GPU(gridData, dt);
 	FluidDensityStep_GPU(gridData, gridData->prevDensityBuffer, gridData->densityBuffer, dt);
 	DecayFluidGrid_GPU(gridData, dt);
 
 	glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+
+	clock_t end = clock();
+	double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+
+	printf("\nTime to run in milliseconds: %f", (float)time_spent * 1000);
+	printf("\n");
 
 	////FluidGridVelStep_GPU(gridData, shaderPrograms, dt);
 	////FluidDensityStep_GPU(gridData, shaderPrograms, dt);
