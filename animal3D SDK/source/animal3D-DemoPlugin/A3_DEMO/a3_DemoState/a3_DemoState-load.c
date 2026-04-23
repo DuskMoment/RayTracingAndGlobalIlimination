@@ -569,6 +569,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 				drawJacobiDiffuse_fs[1],
 				drawDiv_fs[1],
 				drawBounds_fs[1],
+				drawDensity_fs[1],
 
 				splitGrid_cs[1],
 				runFluidGrid_cs[1];
@@ -634,6 +635,7 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 			{ { { 0 },	"shdr-fs:jacobi-diffuse",		    a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/jacobiDiffuse_fs4x.glsl",} } },
 			{ { { 0 },	"shdr-fs:div",						a3shader_fragment,  1,{	A3_DEMO_FS"02-fluid/div_fs4x.glsl"} } },
 			{ { { 0 },	"shdr-fs:bounds",					a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/bounds_fs4x.glsl",} } },
+			{ { { 0 },	"shdr-fs:draw-density",				a3shader_fragment,	1,{ A3_DEMO_FS"02-fluid/drawDensity_fs4x.glsl",} } },
             
 			{ { { 0 },	"shdr-cs:split-Grid",		    	a3shader_compute,	1,{ A3_DEMO_CS"splitGrid_cs4x.glsl",} } },
 			{ { { 0 },	"shdr-cs:runFluidGrid",		    	a3shader_compute,	1,{ A3_DEMO_CS"runFluidSim_cs4x.glsl",} } },
@@ -852,6 +854,11 @@ void a3demo_loadShaders(a3_DemoState *demoState)
 	a3shaderProgramCreate(currentDemoProg->program, "prog:div");
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
 	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDiv_fs->shader);
+
+	currentDemoProg = demoState->prog_drawDensity;
+	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-density");
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.passTexcoord_transform_vs->shader);
+	a3shaderProgramAttachShader(currentDemoProg->program, shaderList.drawDensity_fs->shader);
 
 	currentDemoProg = demoState->prog_drawBorder;
 	a3shaderProgramCreate(currentDemoProg->program, "prog:draw-border");

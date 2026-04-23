@@ -14,11 +14,12 @@ layout (location = 0) out vec4 current;
 
 void main()
 {
- vec2 adjDiff = texture(uImage01, vec2(vTexcoord_atlas.x - screenRecip, vTexcoord_atlas.y)).xy +
-                 texture(uImage01, vec2(vTexcoord_atlas.x + screenRecip, vTexcoord_atlas.y)).xy +
-                 texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)).xy +
-                 texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).xy;
+ vec4 adjDiff = (texture(uImage01, vec2(vTexcoord_atlas.x - screenRecip, vTexcoord_atlas.y)) * 2.0 - 1.0) +
+                (texture(uImage01, vec2(vTexcoord_atlas.x + screenRecip, vTexcoord_atlas.y)) * 2.0 - 1.0) +
+                (texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)) * 2.0 - 1.0) +
+                (texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)) * 2.0 - 1.0);
 
-  vec2 numerator = texture(uImage00, vTexcoord_atlas.xy).xy + a * adjDiff;
-  current.xy = numerator * diffuseDenom;
+  vec4 numerator = (texture(uImage00, vTexcoord_atlas.xy) * 2.0 - 1.0) + a * adjDiff;
+  vec4 col = numerator * diffuseDenom;
+  current = vec4(col.xyz * 0.5 + 0.5, 1.0);
 }

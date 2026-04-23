@@ -45,8 +45,8 @@ void main ()
     t1 = y - j0; 
     t0 = 1 - t1;
 
-     vec2 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xy * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xy  * 2.0 - 1.0)) +
-                   s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xy * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xy * 2.0 - 1.0));
+     vec3 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xyz * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xyz  * 2.0 - 1.0)) +
+                   s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xyz * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xyz * 2.0 - 1.0));
 
-    current = vec4(col * 0.5 + 0.5, 0.0, 1.0);
+    current = vec4(col * 0.5 + 0.5, 1.0);
 }

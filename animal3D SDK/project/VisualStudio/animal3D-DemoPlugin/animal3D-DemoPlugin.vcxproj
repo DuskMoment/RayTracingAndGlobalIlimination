@@ -300,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\div_fs4x.glsl" />
+    <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\drawDensity_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\jacobiProject_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\addForceVelocity_fs4x.glsl" />
     <Text Include="..\..\..\resource\glsl\4x\fs\02-fluid\gradient_fs4x.glsl" />

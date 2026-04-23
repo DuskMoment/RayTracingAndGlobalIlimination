@@ -310,6 +310,7 @@ typedef struct a3_DemoState
 				prog_jacobiProject[1],
 				prog_jacobiDiffuse[1],
 				prog_div[1],
+				prog_drawDensity[1],
 				prog_drawBorder[1];
 		};
 	};
