@@ -24,7 +24,7 @@ void main()
                 (texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)) * uToRangeM - uToRangeS) +
                 (texture(uImage01, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)) * uToRangeM - uToRangeS);
 
-  vec4 numerator = (texture(uImage00, vTexcoord_atlas.xy) * 2.0 - 1.0) + a * adjDiff;
+  vec4 numerator = (texture(uImage00, vTexcoord_atlas.xy) * uToRangeM - uToRangeS) + a * adjDiff;
   vec4 col = numerator * diffuseDenom;
   current = vec4(col.xyz * uToColorM + uToColorA, 1.0);
 }

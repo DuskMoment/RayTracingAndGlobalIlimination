@@ -31,18 +31,18 @@ vec4 randomVel()
 //not being used rn
 vec2 addSq()
 {
-	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
-	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy);
+	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy) * uToRangeM - uToRangeS;
+	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy) * uToRangeM - uToRangeS;
 	prevVel += addForce * uTimeStep * 100;
 	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
-	return prevVel.rg;
+	return prevVel.rg  * uToColorM + uToColorA;
 }
 
 void main()
 {
 	vec2 prevVel = texture(uImage00, vTexcoord_atlas.xy).xy * uToRangeM - uToRangeS;
-	vec2 addForce = (texture(uImage01, vTexcoord_atlas.xy).xy * uToRangeM - uToRangeS) * min(vec2(0.0), randomVel().xy);
-	vec2 vel = prevVel + addForce * uTimeStep * 100;
+	vec2 addForce = (texture(uImage01, vTexcoord_atlas.xy).xy * uToRangeM - uToRangeS) * max(vec2(0.0), randomVel().xy);
+	vec2 vel = prevVel + addForce * uTimeStep;
 	vel = vel * uToColorM + uToColorA;
 	vel = max(vec2(0.0), min(vec2(1.0), vel));
 	current = vec4(vel, 0.0, 1.0);
