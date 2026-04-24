@@ -4,10 +4,13 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <stdio.h>
+
+#define A3_DEMO_RES_DIR	"../../../../resource/"
+
 
 //-----------------------------------------------------------------------------
-
-
+FILE* fptr;
 
 //-----------------------------------------------------------------------------
 
@@ -282,7 +285,7 @@ a3ret InitFluidGrid(a3_FluidGrid* grid, a3i32 N, a3real diffuseConstant, a3real 
         grid->prevVelocityV[i] = 0;
     }
 
-
+    fptr = fopen(A3_DEMO_RES_DIR"/DATA.txt", "w");
     return 1;
 }
 
@@ -500,47 +503,36 @@ a3ret FluidGridAdvect(a3i32 N, a3i32 b, a3real* d, a3real* d0, a3real* u, a3real
 a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3real visc, a3real dt)
 {
     struct timespec start, end;
-    timespec_get(&start, TIME_UTC);
+  
     FluidGridAddSource(N, u, u0, dt); 
-    timespec_get(&end, TIME_UTC);
-    float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel U add source milliseconds: %f", time_spent);
-
-    timespec_get(&start, TIME_UTC);
     FluidGridAddSource(N, v, v0, dt);
-    timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel V add source milliseconds: %f", time_spent);
+ 
 
-    timespec_get(&start, TIME_UTC);
     Swap(u0, u, (N + 2)*(N+2)); 
-    timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel U swap: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
     FluidGridDiffuse(N, 1, u, u0, visc, dt);
     timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+    float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nVel U Diffuse: %f", time_spent);
+    fprintf(fptr, "\nVEL U Diffuse: %f", time_spent);
 
-    timespec_get(&start, TIME_UTC);
     Swap(v0, v, (N + 2) * (N + 2));
-    timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nV swap: %f", time_spent);
-
+   
     timespec_get(&start, TIME_UTC);
     FluidGridDiffuse(N, 2, v, v0, visc, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel V diffuse: %f", time_spent);
+    printf("\nVEL V diffuse: %f", time_spent);
+    fprintf(fptr, "\nVel V diffuse: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
     FluidGridProject(N, u, v, u0, v0);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel V diffuse: %f", time_spent);
+    printf("\nVEL Project: %f", time_spent);
+    fprintf(fptr, "\nVel Project: %f", time_spent);
+
 
     //already profiled remober to add  it to the calculation
     Swap(u0, u, (N + 2) * (N + 2));
@@ -550,13 +542,15 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     FluidGridAdvect(N, 1, u, u0, u0, v0, dt); 
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nAdvect U: %f", time_spent);
+    printf("\nVEL Advect U: %f", time_spent);
+    fprintf(fptr, "\nVEL Advect U: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
     FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nAdvect V: %f", time_spent);
+    fprintf(fptr, "\nVEL Advect V: %f", time_spent);
 
     //alreadyt profiled use the *2
     FluidGridProject(N, u, v, u0, v0);
@@ -569,23 +563,20 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
 a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3real diff, a3real dt)
 {
     struct timespec start, end;
-    timespec_get(&start, TIME_UTC);
+   
     FluidGridAddSource(N, x, x0, dt);
-    timespec_get(&end, TIME_UTC);
-    float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nDesnity AddSource: %f", time_spent);
+   
 
-    timespec_get(&start, TIME_UTC);
+   
     Swap(x0, x, (N + 2) * (N + 2));
-    timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nDesnity Swap: %f", time_spent);
+   
 
     timespec_get(&start, TIME_UTC);
     FluidGridDiffuse(N, 0, x, x0, diff, dt);
     timespec_get(&end, TIME_UTC);
-    time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nDesnity Diffuse: %f", time_spent);
+    float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+    printf("\nD Diffuse: %f", time_spent);
+    fprintf(fptr, "\nD Diffuse: %f", time_spent);
 
     //already done
     Swap(x0, x, (N + 2) * (N + 2));
@@ -594,8 +585,10 @@ a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3
     FluidGridAdvect(N, 0, x, x0, u, v, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nDesnity nAdvect: %f", time_spent);
-    printf("\n-------------------------------------------");
+    printf("\nD Advect: %f", time_spent);
+    fprintf(fptr, "\nD Advect: %f", time_spent);
+
+    //printf("\n-------------------------------------------");
 
     return 1;
 }
@@ -619,6 +612,8 @@ a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real vis
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 
 	printf("\nTime to run in milliseconds: %f", time_spent);
+    fprintf(fptr, "\nTime to run in milliseconds: %f", time_spent);
+    fprintf(fptr, "\n_______________________________________");
 	printf("\n");
 
     return 1;
