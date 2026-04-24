@@ -11,70 +11,49 @@ uniform vec4 uAxis;
 uniform float uSize = 2;
 
 
-//layout (triangle_strip, max_vertices = 4) out;
+layout (triangle_strip, max_vertices = 5) out;
 void drawTest()
 {
     // Position: edge minus half pixel, converted to NDC
     // Texcoord: edge minus half pixel, converted to UV
-    vec2 bl = vec2(        10.5,         10.5);
-    vec2 br = vec2(uAxis.x-10.5,         10.5);
-    vec2 tl = vec2(        10.5, uAxis.y-10.5);
-    vec2 tr = vec2(uAxis.x-10.5, uAxis.y-10.5);
-
-    gs_out.gTexcoord_atlas = vec4(0.5, 0.5, 0.0, 1.0);
-    gl_Position = vec4(0.0, 0.0, -1.0, 1.0);
+    vec2 bl = vec2(0.0, 0.0);
+    vec2 br = vec2(uAxis.x, 0.0);
+    vec2 tl = vec2(0.0, uAxis.y);
+    vec2 tr = vec2(uAxis.x, uAxis.y);
 
     gs_out.vColor = vec2(0.0, +1.0);// * 0.4 * uAxis.xy;
 
-    gs_out.gTexcoord_atlas.xy = (bl + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = bl * uAxis.zw * 2.0 - 1.0;
+    gs_out.gTexcoord_atlas.xy = vec2(0.0);
+    gl_Position.xy = vec2(-1.0);
     EmitVertex();
-    
-    gs_out.gTexcoord_atlas.xy = (br + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = br * uAxis.zw * 2.0 - 1.0;
-    EmitVertex();
-    
-    EndPrimitive();
     
     gs_out.vColor = vec2(-1.0, 0.0);// * 0.4 * uAxis.xy;
     
-    gs_out.gTexcoord_atlas.xy = (br + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = br * uAxis.zw * 2.0 - 1.0;
+    gs_out.gTexcoord_atlas.xy = vec2(1.0, 0.0);
+    gl_Position.xy = vec2(1.0, -1.0);
     EmitVertex();
-    
-    gs_out.gTexcoord_atlas.xy = (tr + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = tr * uAxis.zw * 2.0 - 1.0;
-    EmitVertex();
-    
-    EndPrimitive();
 
     gs_out.vColor = vec2(0.0, -1.0);// * 0.4 * uAxis.xy;
     
-    gs_out.gTexcoord_atlas.xy = (tr + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = tr * uAxis.zw * 2.0 - 1.0;
+    gs_out.gTexcoord_atlas.xy = vec2(1.0);
+    gl_Position.xy = vec2(1.0);
     EmitVertex();
-
-    gs_out.gTexcoord_atlas.xy = (tl + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = tl * uAxis.zw * 2.0 - 1.0;
-    EmitVertex();
-    
-    EndPrimitive();
     
     gs_out.vColor = vec2(+1.0, 0.0);// * 0.4 * uAxis.xy;
     
-    gs_out.gTexcoord_atlas.xy = (tl + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = tl * uAxis.zw * 2.0 - 1.0;
+    gs_out.gTexcoord_atlas.xy = vec2(0.0, 1.0);
+    gl_Position.xy = vec2(-1.0, 1.0);
     EmitVertex();
     
-    gs_out.gTexcoord_atlas.xy = (bl + gs_out.vColor) * uAxis.zw;
-    gl_Position.xy = bl * uAxis.zw * 2.0 - 1.0;
+    gs_out.gTexcoord_atlas.xy = vec2(0.0);
+    gl_Position.xy = vec2(-1.0);
     EmitVertex();
 
     EndPrimitive();
 }
 
 
-layout (line_strip, max_vertices = 20) out;
+//layout (line_strip, max_vertices = 20) out;
 void drawBorder() 
 {
 
@@ -178,6 +157,6 @@ void drawBorder()
 
 void main()
 {
-    drawBorder();
-    //drawTest();
+    //drawBorder();
+    drawTest();
 }

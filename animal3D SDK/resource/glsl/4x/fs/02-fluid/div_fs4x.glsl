@@ -5,18 +5,22 @@ in vec4 vTexcoord_atlas;
 const float screenRecip = 0.00125;
 
 uniform sampler2D uImage00; //current velocity
+uniform float uToRangeM;
+uniform float uToRangeS;
+uniform float uToColorM; 
+uniform float uToColorA; 
 
 layout (location = 0) out vec4 current;
 
 void main()
 {
-    float div = -0.5 * screenRecip * 
-                    ((texture(uImage00, vec2(vTexcoord_atlas.x + screenRecip, vTexcoord_atlas.y)).x * 2.0 - 1.0) - 
-                    (texture(uImage00, vec2(vTexcoord_atlas.x - screenRecip, vTexcoord_atlas.y)).x * 2.0 - 1.0) +
-                    (texture(uImage00, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).y * 2.0 - 1.0) - 
-                    (texture(uImage00, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)).y * 2.0 - 1.0));
+    float div = float(-0.5) * screenRecip * 
+                    ((texture(uImage00, vec2(vTexcoord_atlas.x + screenRecip, vTexcoord_atlas.y)).x * uToRangeM - uToRangeS) - 
+                     (texture(uImage00, vec2(vTexcoord_atlas.x - screenRecip, vTexcoord_atlas.y)).x * uToRangeM - uToRangeS) +
+                     (texture(uImage00, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y + screenRecip)).y * uToRangeM - uToRangeS) - 
+                     (texture(uImage00, vec2(vTexcoord_atlas.x, vTexcoord_atlas.y - screenRecip)).y * uToRangeM - uToRangeS));
 
     float p = 0.0;
 
-    current = vec4(div * 0.5 + 0.5, p, 0.0, 1.0);
+    current = vec4(div * uToColorM + uToColorA, p, 0.0, 1.0);
 }

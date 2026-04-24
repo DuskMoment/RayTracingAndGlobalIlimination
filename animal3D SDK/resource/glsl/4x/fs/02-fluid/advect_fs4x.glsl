@@ -2,13 +2,18 @@
 
 in vec4 vTexcoord_atlas;
 
-const float screenRecip = 0.001253133;
+const float screenRecip = 0.00125;
 
 uniform float dt;
 uniform float N;
 
 uniform sampler2D uImage00; //if velocity step prev velocity, if density step prev density
 uniform sampler2D uImage01; //current velocity
+
+uniform float uToRangeM;
+uniform float uToRangeS;
+uniform float uToColorM; 
+uniform float uToColorA; 
 
 uniform bool velocity;
 
@@ -21,8 +26,8 @@ void main ()
 
     dt0 = dt * N;
 
-     x = gl_FragCoord.x - dt0 * texture(uImage01, vTexcoord_atlas.xy).x * 2.0 - 1.0; //horizontal
-     y = gl_FragCoord.y - dt0 * texture(uImage01, vTexcoord_atlas.xy).y * 2.0 - 1.0; //vertical
+     x = gl_FragCoord.x - dt0 * texture(uImage01, vTexcoord_atlas.xy).x * uToRangeM - uToRangeS; //horizontal
+     y = gl_FragCoord.y - dt0 * texture(uImage01, vTexcoord_atlas.xy).y * uToRangeM - uToRangeS; //vertical
 
     //clamps edge cases
     x = clamp(x, 0.5, float(N) + 0.5);
@@ -45,8 +50,8 @@ void main ()
     t1 = y - j0; 
     t0 = 1 - t1;
 
-     vec3 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xyz * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xyz  * 2.0 - 1.0)) +
-                   s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xyz * 2.0 - 1.0) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xyz * 2.0 - 1.0));
+     vec3 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xyz * uToRangeM - uToRangeS)) +
+                s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xyz * uToRangeM - uToRangeS));
 
-    current = vec4(col * 0.5 + 0.5, 1.0);
+    current = vec4(col * uToColorM + uToColorA, 1.0);
 }

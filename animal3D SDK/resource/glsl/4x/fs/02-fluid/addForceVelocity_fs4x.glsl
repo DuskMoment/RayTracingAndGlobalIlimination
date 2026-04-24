@@ -4,8 +4,13 @@ in vec4 vTexcoord_atlas;
 uniform float uTimeStep;
 uniform float uDt;
 
-uniform sampler2D uImage00; //prev velocity(xyz) & density(a)
+uniform sampler2D uImage00; //prev velocity
 uniform sampler2D uImage01; //add force
+
+uniform float uToRangeM;
+uniform float uToRangeS;
+uniform float uToColorM; 
+uniform float uToColorA; 
 
 layout (location = 0) out vec4 current;
 
@@ -20,12 +25,10 @@ vec4 randomVel()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 rand = vec4(vec3(gold_noise(gl_FragCoord.xy, uDt + 0.1), gold_noise(gl_FragCoord.xy, uDt + 0.2), gold_noise(gl_FragCoord.xy, uDt + 0.3)), 1.0); //store velocity in 0-1 range
-//	rand = max(vec4(0.0), min(vec4(1.0), rand));
-//	prevVel += uTimeStep * rand;
-//	prevVel = max(vec4(0.0), min(vec4(1.0), prevVel));
 	return rand;
 }
 
+//not being used rn
 vec2 addSq()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
@@ -37,9 +40,11 @@ vec2 addSq()
 
 void main()
 {
-	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
-	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy) * randomVel();
-	vec4 vel = prevVel + addForce * 10000;
-	current = vec4(vel.xy, 0.0, 1.0);
+	vec2 prevVel = texture(uImage00, vTexcoord_atlas.xy).xy * uToRangeM - uToRangeS;
+	vec2 addForce = (texture(uImage01, vTexcoord_atlas.xy).xy * uToRangeM - uToRangeS) * min(vec2(0.0), randomVel().xy);
+	vec2 vel = prevVel + addForce * uTimeStep * 100;
+	vel = vel * uToColorM + uToColorA;
+	vel = max(vec2(0.0), min(vec2(1.0), vel));
+	current = vec4(vel, 0.0, 1.0);
 }
 	
