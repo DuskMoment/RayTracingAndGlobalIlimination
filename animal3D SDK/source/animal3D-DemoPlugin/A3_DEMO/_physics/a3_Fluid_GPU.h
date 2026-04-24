@@ -4,6 +4,7 @@
 #include "animal3D-A3DG/animal3D-A3DG.h"
 
 #include <gl/glew.h>
+#include <stdio.h>
 #include <animal3D-A3DM/a3math/a3vector.h>
 #include "./A3_DEMO/_a3_scene_utilities/a3_SceneShaderProgram.h"
 
@@ -45,6 +46,7 @@ extern "C"
 			* prog_step_swap_buffers,
 			* prog_step_init_grid,
 			* prog_split_grid;
+		FILE* fptr;
 	}a3_FluidGrid_GPU;
 
 	a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real viscocityK, a3real diffuseK, a3ui32 diffuse_GS_Loops);

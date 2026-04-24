@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <time.h>
 
+
+#define A3_DEMO_RES_DIR	"../../../../resource/"
 #define _POSIX_C_SOURCE 199309L
 
 //-----------------------------------------------------------------------------
@@ -136,6 +138,8 @@ a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real viscocityK, a3real di
 	gridData->prevVelocityBufferUData = NULL;
 	gridData->velocityBufferVData = NULL;
 	gridData->prevVelocityBufferVData = NULL;*/
+
+	gridData->fptr = fopen(A3_DEMO_RES_DIR"/DATA.txt", "w");
 
 	return 1;
 }
@@ -502,6 +506,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->viscocityConstant, 1,dt);
 	timespec_get(&end, TIME_UTC);
 	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nVEL: Diffuse U: %f", (float)time_spent);
 	printf("\nDiffuse U: %f", (float)time_spent);
 
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
@@ -511,6 +516,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridDiffuse_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->viscocityConstant, 2, dt);
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nVEL Diffuse V: %f", (float)time_spent);
 	printf("\nDiffuse V: %f", (float)time_spent);
 
 
@@ -518,6 +524,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridProject_GPU(gridData, gridData->velocityBufferU, gridData->velocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt);
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nVEL Project: %f", (float)time_spent);
 	printf("\nProject: %f", (float)time_spent);
 
 
@@ -528,13 +535,16 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 1);
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nVEL Advect U : % f", (float)time_spent);
 	printf("\nAdvect U: %f", (float)time_spent);
 
 	timespec_get(&start, TIME_UTC);
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nVEL Advect V: %f", (float)time_spent);
 	printf("\nAdvect V: %f", (float)time_spent);
+	
 	printf("\n--------------------------");
 
 
@@ -556,6 +566,7 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	FluidGridDiffuse_GPU(gridData, prevBuff, currBuff, gridData->diffuseConstant, 0, dt);
 	timespec_get(&end, TIME_UTC);
 	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nD Diffuse: %f", (float)time_spent);
 	printf("\nD Diffuse: %f", (float)time_spent);
 	//FluidGridSwap_GPU(gridData, currBuff, prevBuff);
 	//Swap(x0, x, (N + 2) * (N + 2));
@@ -565,8 +576,8 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 		gridData->velocityBufferV, gridData->velocityBufferU, (a3real)0.001, 0);
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	fprintf(gridData->fptr, "\nD Advect: %f", (float)time_spent);
 	printf("\nD Advect: %f", (float)time_spent);
-	printf("\n_______________");
 
 
 	return 1;
@@ -642,7 +653,9 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 
 	float time_spent = (float)sec_diff * (float)1000.0 + (float)nsec_diff / (float)1000000.0;
 
+	fprintf(gridData->fptr, "\nTime to run in milliseconds: %f", (float)time_spent);
 	printf("\nTime to run in milliseconds: %f", (float)time_spent);
+	fprintf(gridData->fptr, "\n_____________________________________________________________________________");
 	printf("\n");
 
 	DecayFluidGrid_GPU(gridData, dt);
