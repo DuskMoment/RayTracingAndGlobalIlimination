@@ -364,7 +364,8 @@ typedef struct a3_DemoState
                 tex_earth_cloud[1],
                 tex_earth_light[1];
 			a3_Texture
-				tex_add[1];
+				tex_add[1],
+				tex_add_density[1];
 		};
 	};
 

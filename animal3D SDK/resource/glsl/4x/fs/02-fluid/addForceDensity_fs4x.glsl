@@ -26,8 +26,8 @@ vec4 randomVel()
 
 void main()
 {
-	vec4 col = (texture(uImage00, vTexcoord_atlas.xy)  * 2.0 - 1.0);
-	col += (texture(uImage01, vTexcoord_atlas.xy)) * max(vec4(0.0), randomVel());
+	vec4 col = (texture(uImage00, vTexcoord_atlas.xy));
+	col += (texture(uImage01, vTexcoord_atlas.xy)) * max(vec4(0.0), randomVel()) * uDt;
 	col = max(vec4(0.0), min(vec4(1.0), col));
 	current =  vec4(col.xyz, 1.0);
 }
