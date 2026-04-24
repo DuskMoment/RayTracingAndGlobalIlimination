@@ -589,7 +589,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	if (demoState->first)
 	{
 		//UNCOMMENT THIS IF TESTING VELOCITY AND NOT DENSITY
-		//demoState->first = false;
+		demoState->first = false;
 		currentDemoProgram = demoState->prog_addForceVelocity;
 		a3shaderProgramActivate(currentDemoProgram->program);
 		a3framebufferActivate(demoState->fbo_prev_velocity_c16);
@@ -716,19 +716,19 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
 		a3vertexDrawableRenderActive();
 
-		bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
+		//bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-		//copy to buffer
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_current_velocity_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		////copy to buffer
+		//currentDemoProgram = demoState->prog_drawTexture;
+		//a3shaderProgramActivate(currentDemoProgram->program);
+		//a3framebufferActivate(demoState->fbo_current_velocity_c16);
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+		//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+		//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+		//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+		//a3vertexDrawableRenderActive();
 
 		//swap prev and current
 		// prev -> temp
@@ -785,19 +785,19 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	//		-set pressure and divergence bounds
 	n = (a3f32)1.0;
-	bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
-	
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_pressure_div_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	//
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_pressure_div_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
 	//		-jacobi x20 
 	for (int i = 0; i < 20; i++)
@@ -830,7 +830,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3vertexDrawableRenderActive();
 
 		//			-set pressure bounds
-		bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
+		/*bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
 		currentDemoProgram = demoState->prog_drawTexture;
 		a3shaderProgramActivate(currentDemoProgram->program);
@@ -841,7 +841,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
 		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+		a3vertexDrawableRenderActive();*/
 	}
 
 	//		-gradient
@@ -874,19 +874,19 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3vertexDrawableRenderActive();
 
 	//		-set velocity bounds
-	bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	//bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_velocity_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_velocity_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
 	//4. swap
 	// prev -> temp
@@ -955,20 +955,20 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
 
-	//		-set bounds
-	bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, (a3f32)-1.0);
+	////		-set bounds
+	//bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, (a3f32)-1.0);
 
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_velocity_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_velocity_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
 	//4. swap
 	// prev -> temp
@@ -1025,19 +1025,19 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	//		-set pressure and divergence bounds
 	n = (a3f32)1.0;
-	bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	//bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_pressure_div_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_pressure_div_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
 
 	//		-jacobi x20 
@@ -1071,7 +1071,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3vertexDrawableRenderActive();
 
 		//			-set pressure bounds
-		bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
+		/*bounds(demoState, targetIndex, demoState->fbo_pressure_div_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
 		currentDemoProgram = demoState->prog_drawTexture;
 		a3shaderProgramActivate(currentDemoProgram->program);
@@ -1082,7 +1082,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
 		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+		a3vertexDrawableRenderActive();*/
 	}
 
 	//		-gradient
@@ -1105,212 +1105,240 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	//		-set velocity bounds
 	n = (a3f32)-1.0;
-	bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	//bounds(demoState, targetIndex, demoState->fbo_current_velocity_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_velocity_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_velocity_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
+
+	////fade
+	////currentDemoProgram = demoState->prog_fade;
+	////a3shaderProgramActivate(currentDemoProgram->program);
+	////a3framebufferActivate(demoState->fbo_double_buffer_c16);
+	////glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	////a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	////a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	////a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &timeStep);
+	////a3f32 f = (a3f32)0.00005;
+	////a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "fade"), 1, &f);
+
+	////a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit00, 0);
+	////a3vertexDrawableRenderActive();
+
+	//////copy to buffer
+	////currentDemoProgram = demoState->prog_drawTexture;
+	////a3shaderProgramActivate(currentDemoProgram->program);
+	////a3framebufferActivate(demoState->fbo_current_velocity_c16);
+	////glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	////a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	////a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+
+	////a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	////a3vertexDrawableRenderActive();
+
 
 	//density
 	//1. add source (from texture)
-	if (demoState->first)
-	{
-		demoState->first = false;
-		currentDemoProgram = demoState->prog_addForceDensity;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_prev_density_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//if (demoState->first)
+	//{
+	//	demoState->first = false;
+	//	currentDemoProgram = demoState->prog_addForceDensity;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_prev_density_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3textureActivate(texture_dm[15], a3tex_unit00);
-		a3textureActivate(texture_dm[15], a3tex_unit01);
+	//	a3textureActivate(texture_dm[15], a3tex_unit00);
+	//	a3textureActivate(texture_dm[15], a3tex_unit01);
 
-		currentDrawable = demoState->draw_unit_plane_z;
-		a3vertexDrawableActivate(currentDrawable);
+	//	currentDrawable = demoState->draw_unit_plane_z;
+	//	a3vertexDrawableActivate(currentDrawable);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
-		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &timeStep);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &timeStep);
 
-		a3vertexDrawableRenderActive();
-	}
+	//	a3vertexDrawableRenderActive();
+	//}
 
-	currentDemoProgram = demoState->prog_addForceDensity;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_density_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//currentDemoProgram = demoState->prog_addForceDensity;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_density_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
-	a3textureActivate(texture_dm[15], a3tex_unit01);
+	//a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
+	//a3textureActivate(texture_dm[15], a3tex_unit01);
 
-	currentDrawable = demoState->draw_unit_plane_z;
-	a3vertexDrawableActivate(currentDrawable);
+	//currentDrawable = demoState->draw_unit_plane_z;
+	//a3vertexDrawableActivate(currentDrawable);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
-	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &timeStep);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uDt"), 1, &timeStep);
 
-	a3vertexDrawableRenderActive();
+	//a3vertexDrawableRenderActive();
 
-	//2. swap
-	// prev -> temp
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_tmp_buffer_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////2. swap
+	//// prev -> temp
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_tmp_buffer_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
-	//current -> prev
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_prev_density_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////current -> prev
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_prev_density_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
-	//temp (prev) -> current
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_density_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////temp (prev) -> current
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_density_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
-	//3. diffuse (jacobi) x20
-	n = (a3f32)1.0;
-	for (int i = 0; i < 20; i++)
-	{
-		currentDemoProgram = demoState->prog_jacobiDiffuse;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_double_buffer_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////3. diffuse (jacobi) x20
+	//n = (a3f32)1.0;
+	//for (int i = 0; i < 20; i++)
+	//{
+	//	currentDemoProgram = demoState->prog_jacobiDiffuse;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_double_buffer_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
-		a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit01, 0);
+	//	a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
+	//	a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit01, 0);
 
-		a3f32 a = (a3f32)(timeStep * 0.2 * 800 * 800);
-		a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
-		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
-		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
+	//	a3f32 a = (a3f32)(timeStep * 0.2 * 800 * 800);
+	//	a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
+	//	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
+	//	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3vertexDrawableRenderActive();
+	//	a3vertexDrawableRenderActive();
 
-		//copy to buffer
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_current_density_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	//copy to buffer
+	//	currentDemoProgram = demoState->prog_drawTexture;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_current_density_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+	//	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//	a3vertexDrawableRenderActive();
 
-		bounds(demoState, targetIndex, demoState->fbo_current_density_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	//	//bounds(demoState, targetIndex, demoState->fbo_current_density_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-		//copy to buffer
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_current_density_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	////copy to buffer
+	//	//currentDemoProgram = demoState->prog_drawTexture;
+	//	//a3shaderProgramActivate(currentDemoProgram->program);
+	//	//a3framebufferActivate(demoState->fbo_current_density_c16);
+	//	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+	//	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//	//a3vertexDrawableRenderActive();
 
-		//// prev -> temp
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_tmp_buffer_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	//// prev -> temp
+	//	currentDemoProgram = demoState->prog_drawTexture;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_tmp_buffer_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+	//	a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
+	//	a3vertexDrawableRenderActive();
 
-		//current -> prev
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_prev_density_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	//current -> prev
+	//	currentDemoProgram = demoState->prog_drawTexture;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_prev_density_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
+	//	a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit00, 0);
+	//	a3vertexDrawableRenderActive();
 
-		//temp (prev) -> current
-		currentDemoProgram = demoState->prog_drawTexture;
-		a3shaderProgramActivate(currentDemoProgram->program);
-		a3framebufferActivate(demoState->fbo_current_density_c16);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	//temp (prev) -> current
+	//	currentDemoProgram = demoState->prog_drawTexture;
+	//	a3shaderProgramActivate(currentDemoProgram->program);
+	//	a3framebufferActivate(demoState->fbo_current_density_c16);
+	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
-		a3vertexDrawableRenderActive();
-	}
+	//	a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
+	//	a3vertexDrawableRenderActive();
+	//}
 
-	//4. advect
-	currentDemoProgram = demoState->prog_advect;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_density_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////4. advect
+	//currentDemoProgram = demoState->prog_advect;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_density_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
-	a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit01, 0);
+	//a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
+	//a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit01, 0);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
-	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &timeStep);
-	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "N"), 1, &y);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &timeStep);
+	//a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "N"), 1, &y);
 
-	a3vertexDrawableRenderActive();
+	//a3vertexDrawableRenderActive();
 
-	//		-bounds
-	bounds(demoState, targetIndex, demoState->fbo_current_density_c16, demoState->fbo_double_buffer_c16, fsq, n);
+	////		-bounds
+	//bounds(demoState, targetIndex, demoState->fbo_current_density_c16, demoState->fbo_double_buffer_c16, fsq, n);
 
-	//copy to buffer
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3framebufferActivate(demoState->fbo_current_density_c16);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	////copy to buffer
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3framebufferActivate(demoState->fbo_current_density_c16);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();
+	//a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 
 	//fade
 	/*currentDemoProgram = demoState->prog_fade;
@@ -1347,13 +1375,13 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
 		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
 	currentDrawable = demoState->draw_unit_plane_z;
-	currentDemoProgram = demoState->prog_drawDensity;
+	currentDemoProgram = demoState->prog_drawTexture;
 	a3vertexDrawableActivate(currentDrawable);
 	a3shaderProgramActivate(currentDemoProgram->program);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 	a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
-	a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit00, 0);
+	a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive(); 
 
 }

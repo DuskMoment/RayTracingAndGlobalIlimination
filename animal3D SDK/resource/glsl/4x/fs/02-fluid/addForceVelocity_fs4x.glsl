@@ -39,7 +39,7 @@ void main()
 {
 	vec4 prevVel = texture(uImage00, vTexcoord_atlas.xy);
 	vec4 addForce = texture(uImage01, vTexcoord_atlas.xy) * randomVel();
-	vec4 vel =  prevVel + addForce * uTimeStep * 100;
-	current = vec4(randomVel().xy, 0.0, 1.0);
+	vec4 vel = prevVel + addForce * 10000;
+	current = vec4(vel.xy, 0.0, 1.0);
 }
 	

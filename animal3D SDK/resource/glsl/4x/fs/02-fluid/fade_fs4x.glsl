@@ -2,8 +2,6 @@
 
 in vec4 vTexcoord_atlas;
 
-const float screenRecip = 0.001253133;
-
 uniform float dt;
 uniform float fade;
 

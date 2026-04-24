@@ -21,8 +21,8 @@ void main ()
 
     dt0 = dt * N;
 
-     x = gl_FragCoord.x - dt0 * texture(uImage01, vTexcoord_atlas.xy).x; //horizontal
-     y = gl_FragCoord.y - dt0 * texture(uImage01, vTexcoord_atlas.xy).y; //vertical
+     x = gl_FragCoord.x - dt0 * texture(uImage01, vTexcoord_atlas.xy).x * 2.0 - 1.0; //horizontal
+     y = gl_FragCoord.y - dt0 * texture(uImage01, vTexcoord_atlas.xy).y * 2.0 - 1.0; //vertical
 
     //clamps edge cases
     x = clamp(x, 0.5, float(N) + 0.5);
