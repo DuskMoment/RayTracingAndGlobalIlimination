@@ -1,1423 +1,4466 @@
 
-VEL: Diffuse U: 10.516600
-VEL Diffuse V: 11.425900
-VEL Project: 6.576300
-VEL Advect U :  2.717700
-VEL Advect V: 1.994000
-D Diffuse: 5.403600
-D Advect: 1.814000
-Time to run in milliseconds: 56.940201
-_____________________________________________________________________________
-VEL: Diffuse U: 3.759200
-VEL Diffuse V: 2.508400
-VEL Project: 2.031600
-VEL Advect U :  1.100200
-VEL Advect V: 4.024100
-D Diffuse: 6.285100
-D Advect: 2.501800
-Time to run in milliseconds: 33.895802
-_____________________________________________________________________________
-VEL: Diffuse U: 5.837800
-VEL Diffuse V: 10.381200
-VEL Project: 6.946300
-VEL Advect U :  1.687200
-VEL Advect V: 0.830100
-D Diffuse: 5.846800
-D Advect: 1.018500
-Time to run in milliseconds: 47.895401
-_____________________________________________________________________________
-VEL: Diffuse U: 1.958300
-VEL Diffuse V: 4.723300
-VEL Project: 5.628800
-VEL Advect U :  0.654600
-VEL Advect V: 0.917100
-D Diffuse: 1.750300
-D Advect: 0.722800
-Time to run in milliseconds: 22.966900
-_____________________________________________________________________________
-VEL: Diffuse U: 3.594600
-VEL Diffuse V: 4.860700
-VEL Project: 6.516900
-VEL Advect U :  0.660700
-VEL Advect V: 0.648600
-D Diffuse: 1.617000
-D Advect: 1.419300
-Time to run in milliseconds: 27.746901
-_____________________________________________________________________________
-VEL: Diffuse U: 1.285700
-VEL Diffuse V: 1.739400
-VEL Project: 3.121500
-VEL Advect U :  0.264800
-VEL Advect V: 0.215300
-D Diffuse: 2.684900
-D Advect: 0.422800
-Time to run in milliseconds: 13.980400
-_____________________________________________________________________________
-VEL: Diffuse U: 1.433400
-VEL Diffuse V: 1.928500
-VEL Project: 4.588500
-VEL Advect U :  0.876600
-VEL Advect V: 0.554300
-D Diffuse: 2.425300
-D Advect: 0.820700
-Time to run in milliseconds: 21.378700
-_____________________________________________________________________________
-VEL: Diffuse U: 1.353000
-VEL Diffuse V: 3.422400
-VEL Project: 7.637200
-VEL Advect U :  1.188500
-VEL Advect V: 0.612100
-D Diffuse: 3.958800
-D Advect: 0.958600
-Time to run in milliseconds: 31.670000
-_____________________________________________________________________________
-VEL: Diffuse U: 4.222900
-VEL Diffuse V: 8.192500
-VEL Project: 4.592400
-VEL Advect U :  0.414900
-VEL Advect V: 0.678800
-D Diffuse: 6.736800
-D Advect: 1.185600
-Time to run in milliseconds: 39.131199
-_____________________________________________________________________________
-VEL: Diffuse U: 2.921300
-VEL Diffuse V: 4.089500
-VEL Project: 3.923700
-VEL Advect U :  1.525300
-VEL Advect V: 0.538600
-D Diffuse: 5.529700
-D Advect: 1.506000
-Time to run in milliseconds: 33.534599
-_____________________________________________________________________________
-VEL: Diffuse U: 3.020000
-VEL Diffuse V: 3.091700
-VEL Project: 6.395300
-VEL Advect U :  0.957600
-VEL Advect V: 0.473000
-D Diffuse: 2.020600
-D Advect: 1.799000
-Time to run in milliseconds: 33.395802
-_____________________________________________________________________________
-VEL: Diffuse U: 4.383700
-VEL Diffuse V: 3.278000
-VEL Project: 4.270500
-VEL Advect U :  0.569600
-VEL Advect V: 0.923700
-D Diffuse: 4.694400
-D Advect: 2.270100
-Time to run in milliseconds: 39.805000
-_____________________________________________________________________________
-VEL: Diffuse U: 4.378500
-VEL Diffuse V: 4.128200
-VEL Project: 5.587700
-VEL Advect U :  0.879500
-VEL Advect V: 0.763600
-D Diffuse: 6.014300
-D Advect: 0.975900
-Time to run in milliseconds: 31.151300
-_____________________________________________________________________________
-VEL: Diffuse U: 5.983000
-VEL Diffuse V: 1.791200
-VEL Project: 2.905100
-VEL Advect U :  0.660000
-VEL Advect V: 0.593900
-D Diffuse: 2.175200
-D Advect: 1.090200
-Time to run in milliseconds: 27.973200
-_____________________________________________________________________________
-VEL: Diffuse U: 2.648700
-VEL Diffuse V: 3.338100
-VEL Project: 2.265200
-VEL Advect U :  0.737100
-VEL Advect V: 0.562600
-D Diffuse: 4.813200
-D Advect: 0.591200
-Time to run in milliseconds: 20.552601
-_____________________________________________________________________________
-VEL: Diffuse U: 4.014800
-VEL Diffuse V: 2.707600
-VEL Project: 5.251800
-VEL Advect U :  0.661600
-VEL Advect V: 1.025200
-D Diffuse: 7.776400
-D Advect: 0.663700
-Time to run in milliseconds: 32.601398
-_____________________________________________________________________________
-VEL: Diffuse U: 7.426600
-VEL Diffuse V: 3.207100
-VEL Project: 2.229700
-VEL Advect U :  0.636800
-VEL Advect V: 0.669000
-D Diffuse: 2.822300
-D Advect: 0.972100
-Time to run in milliseconds: 23.643801
-_____________________________________________________________________________
-VEL: Diffuse U: 1.664400
-VEL Diffuse V: 7.146000
-VEL Project: 3.545400
-VEL Advect U :  0.644400
-VEL Advect V: 0.316900
-D Diffuse: 5.964300
-D Advect: 1.449000
-Time to run in milliseconds: 27.057301
-_____________________________________________________________________________
-VEL: Diffuse U: 3.335500
-VEL Diffuse V: 4.599700
-VEL Project: 4.399200
-VEL Advect U :  1.243000
-VEL Advect V: 0.357100
-D Diffuse: 4.665500
-D Advect: 0.852300
-Time to run in milliseconds: 29.417101
-_____________________________________________________________________________
-VEL: Diffuse U: 3.686900
-VEL Diffuse V: 3.765800
-VEL Project: 6.492600
-VEL Advect U :  1.122800
-VEL Advect V: 1.419600
-D Diffuse: 2.273100
-D Advect: 1.495700
-Time to run in milliseconds: 32.602699
-_____________________________________________________________________________
-VEL: Diffuse U: 3.437000
-VEL Diffuse V: 2.903900
-VEL Project: 4.271200
-VEL Advect U :  1.149600
-VEL Advect V: 3.337900
-D Diffuse: 5.127300
-D Advect: 0.356300
-Time to run in milliseconds: 30.034700
-_____________________________________________________________________________
-VEL: Diffuse U: 1.304300
-VEL Diffuse V: 2.858200
-VEL Project: 6.242100
-VEL Advect U :  1.295200
-VEL Advect V: 0.613000
-D Diffuse: 4.265200
-D Advect: 1.552900
-Time to run in milliseconds: 30.787800
-_____________________________________________________________________________
-VEL: Diffuse U: 2.603500
-VEL Diffuse V: 1.874500
-VEL Project: 3.860800
-VEL Advect U :  1.272900
-VEL Advect V: 1.172800
-D Diffuse: 1.173200
-D Advect: 0.673100
-Time to run in milliseconds: 20.124001
-_____________________________________________________________________________
-VEL: Diffuse U: 5.025100
-VEL Diffuse V: 2.326900
-VEL Project: 4.553200
-VEL Advect U :  1.290600
-VEL Advect V: 0.790200
-D Diffuse: 2.759400
-D Advect: 0.469500
-Time to run in milliseconds: 25.608999
-_____________________________________________________________________________
-VEL: Diffuse U: 2.301000
-VEL Diffuse V: 3.700800
-VEL Project: 2.369400
-VEL Advect U :  0.730900
-VEL Advect V: 0.796100
-D Diffuse: 3.938000
-D Advect: 0.484900
-Time to run in milliseconds: 21.813601
-_____________________________________________________________________________
-VEL: Diffuse U: 3.608600
-VEL Diffuse V: 4.026100
-VEL Project: 5.401000
-VEL Advect U :  0.880300
-VEL Advect V: 0.606700
-D Diffuse: 3.148900
-D Advect: 1.625500
-Time to run in milliseconds: 36.165600
-_____________________________________________________________________________
-VEL: Diffuse U: 5.054200
-VEL Diffuse V: 5.416600
-VEL Project: 5.442700
-VEL Advect U :  0.655500
-VEL Advect V: 1.301900
-D Diffuse: 5.436900
-D Advect: 0.963800
-Time to run in milliseconds: 34.609402
-_____________________________________________________________________________
-VEL: Diffuse U: 4.542600
-VEL Diffuse V: 3.772600
-VEL Project: 3.491700
-VEL Advect U :  0.462300
-VEL Advect V: 4.458500
-D Diffuse: 3.426900
-D Advect: 1.189100
-Time to run in milliseconds: 31.532301
-_____________________________________________________________________________
-VEL: Diffuse U: 5.359000
-VEL Diffuse V: 4.422700
-VEL Project: 3.332500
-VEL Advect U :  0.797700
-VEL Advect V: 2.750700
-D Diffuse: 4.631300
-D Advect: 0.722100
-Time to run in milliseconds: 36.044601
-_____________________________________________________________________________
-VEL: Diffuse U: 4.522200
-VEL Diffuse V: 3.999600
-VEL Project: 2.852500
-VEL Advect U :  0.404800
-VEL Advect V: 0.752700
-D Diffuse: 1.594800
-D Advect: 0.711800
-Time to run in milliseconds: 22.302401
-_____________________________________________________________________________
-VEL: Diffuse U: 5.477800
-VEL Diffuse V: 4.355300
-VEL Project: 4.050900
-VEL Advect U :  0.928500
-VEL Advect V: 0.629400
-D Diffuse: 1.591400
-D Advect: 4.449600
-Time to run in milliseconds: 30.555000
-_____________________________________________________________________________
-VEL: Diffuse U: 3.072100
-VEL Diffuse V: 5.301900
-VEL Project: 8.363400
-VEL Advect U :  0.696600
-VEL Advect V: 0.619100
-D Diffuse: 2.977600
-D Advect: 0.900600
-Time to run in milliseconds: 36.186901
-_____________________________________________________________________________
-VEL: Diffuse U: 3.666100
-VEL Diffuse V: 4.272200
-VEL Project: 6.574600
-VEL Advect U :  0.811800
-VEL Advect V: 0.394200
-D Diffuse: 6.249600
-D Advect: 0.659500
-Time to run in milliseconds: 29.987301
-_____________________________________________________________________________
-VEL: Diffuse U: 3.753600
-VEL Diffuse V: 1.879100
-VEL Project: 5.079300
-VEL Advect U :  1.072900
-VEL Advect V: 0.449300
-D Diffuse: 6.266700
-D Advect: 0.714900
-Time to run in milliseconds: 26.098301
-_____________________________________________________________________________
-VEL: Diffuse U: 4.898400
-VEL Diffuse V: 5.693400
-VEL Project: 4.087000
-VEL Advect U :  0.671700
-VEL Advect V: 0.402100
-D Diffuse: 3.486500
-D Advect: 3.798300
-Time to run in milliseconds: 31.620899
-_____________________________________________________________________________
-VEL: Diffuse U: 5.943700
-VEL Diffuse V: 4.445300
-VEL Project: 2.147800
-VEL Advect U :  1.225900
-VEL Advect V: 0.387100
-D Diffuse: 2.506600
-D Advect: 0.842600
-Time to run in milliseconds: 31.963499
-_____________________________________________________________________________
-VEL: Diffuse U: 1.990600
-VEL Diffuse V: 5.220100
-VEL Project: 5.835300
-VEL Advect U :  0.761500
-VEL Advect V: 0.691300
-D Diffuse: 5.530700
-D Advect: 0.759500
-Time to run in milliseconds: 31.922600
-_____________________________________________________________________________
-VEL: Diffuse U: 2.245400
-VEL Diffuse V: 3.815400
-VEL Project: 5.528000
-VEL Advect U :  0.397500
-VEL Advect V: 0.701100
-D Diffuse: 3.210700
-D Advect: 1.122000
-Time to run in milliseconds: 27.772800
-_____________________________________________________________________________
-VEL: Diffuse U: 5.299500
-VEL Diffuse V: 3.473700
-VEL Project: 4.156900
-VEL Advect U :  1.017100
-VEL Advect V: 0.815900
-D Diffuse: 1.496500
-D Advect: 0.996300
-Time to run in milliseconds: 26.495600
-_____________________________________________________________________________
-VEL: Diffuse U: 2.941200
-VEL Diffuse V: 4.775800
-VEL Project: 4.246500
-VEL Advect U :  1.037300
-VEL Advect V: 0.603200
-D Diffuse: 4.856700
-D Advect: 1.345000
-Time to run in milliseconds: 30.147200
-_____________________________________________________________________________
-VEL: Diffuse U: 5.664900
-VEL Diffuse V: 2.987900
-VEL Project: -996.390747
-VEL Advect U :  1.790700
-VEL Advect V: 1.167200
-D Diffuse: 9.790300
-D Advect: 1.472000
-Time to run in milliseconds: 41.126999
-_____________________________________________________________________________
-VEL: Diffuse U: 7.619300
-VEL Diffuse V: 2.929200
-VEL Project: 5.258900
-VEL Advect U :  0.448300
-VEL Advect V: 1.341700
-D Diffuse: 2.933100
-D Advect: 1.118500
-Time to run in milliseconds: 32.466499
-_____________________________________________________________________________
-VEL: Diffuse U: 3.842200
-VEL Diffuse V: 2.496400
-VEL Project: 3.471000
-VEL Advect U :  0.897700
-VEL Advect V: 0.547400
-D Diffuse: 3.046100
-D Advect: 1.313000
-Time to run in milliseconds: 28.487301
-_____________________________________________________________________________
-VEL: Diffuse U: 2.060400
-VEL Diffuse V: 3.012000
-VEL Project: 4.574900
-VEL Advect U :  0.517100
-VEL Advect V: 4.348000
-D Diffuse: 4.393200
-D Advect: 1.180800
-Time to run in milliseconds: 34.306000
-_____________________________________________________________________________
-VEL: Diffuse U: 3.275900
-VEL Diffuse V: 4.700700
-VEL Project: 3.241200
-VEL Advect U :  1.623500
-VEL Advect V: 0.489400
-D Diffuse: 3.477300
-D Advect: 0.640500
-Time to run in milliseconds: 24.298000
-_____________________________________________________________________________
-VEL: Diffuse U: 2.192800
-VEL Diffuse V: 8.908900
-VEL Project: 2.083900
-VEL Advect U :  1.368000
-VEL Advect V: 2.287400
-D Diffuse: 3.489500
-D Advect: 1.092300
-Time to run in milliseconds: 31.530800
-_____________________________________________________________________________
-VEL: Diffuse U: 4.630500
-VEL Diffuse V: 4.853700
-VEL Project: 4.968400
-VEL Advect U :  0.649400
-VEL Advect V: 0.568800
-D Diffuse: 3.004200
-D Advect: 0.628200
-Time to run in milliseconds: 29.514400
-_____________________________________________________________________________
-VEL: Diffuse U: 3.281000
-VEL Diffuse V: 6.513000
-VEL Project: 3.513400
-VEL Advect U :  0.828400
-VEL Advect V: 0.788100
-D Diffuse: 2.778000
-D Advect: 1.331700
-Time to run in milliseconds: 29.693300
-_____________________________________________________________________________
-VEL: Diffuse U: 4.679500
-VEL Diffuse V: 3.818000
-VEL Project: 5.045800
-VEL Advect U :  0.797900
-VEL Advect V: 1.187200
-D Diffuse: 4.679900
-D Advect: 0.449200
-Time to run in milliseconds: 34.093601
-_____________________________________________________________________________
-VEL: Diffuse U: 2.812400
-VEL Diffuse V: 3.505800
-VEL Project: 4.275100
-VEL Advect U :  1.033200
-VEL Advect V: 0.348200
-D Diffuse: 5.034700
-D Advect: 1.314600
-Time to run in milliseconds: 29.496401
-_____________________________________________________________________________
-VEL: Diffuse U: 6.361300
-VEL Diffuse V: 3.985800
-VEL Project: 2.327500
-VEL Advect U :  1.377300
-VEL Advect V: 0.660600
-D Diffuse: 2.055700
-D Advect: 0.859800
-Time to run in milliseconds: 28.250601
-_____________________________________________________________________________
-VEL: Diffuse U: 1.755300
-VEL Diffuse V: 7.094300
-VEL Project: 4.364000
-VEL Advect U :  1.485000
-VEL Advect V: 0.384600
-D Diffuse: 3.063900
-D Advect: 0.535400
-Time to run in milliseconds: 28.505600
-_____________________________________________________________________________
-VEL: Diffuse U: 3.724500
-VEL Diffuse V: 3.161900
-VEL Project: 8.115400
-VEL Advect U :  0.784800
-VEL Advect V: 0.470200
-D Diffuse: 2.787400
-D Advect: 0.979800
-Time to run in milliseconds: 33.446400
-_____________________________________________________________________________
-VEL: Diffuse U: 3.843500
-VEL Diffuse V: 4.757600
-VEL Project: 5.441500
-VEL Advect U :  1.405900
-VEL Advect V: 1.453200
-D Diffuse: 3.643000
-D Advect: 1.578500
-Time to run in milliseconds: 31.151600
-_____________________________________________________________________________
-VEL: Diffuse U: 5.714100
-VEL Diffuse V: 3.570700
-VEL Project: 2.542300
-VEL Advect U :  1.248800
-VEL Advect V: 0.538300
-D Diffuse: 2.143600
-D Advect: 1.003400
-Time to run in milliseconds: 26.549601
-_____________________________________________________________________________
-VEL: Diffuse U: 4.705800
-VEL Diffuse V: 2.729700
-VEL Project: 3.479900
-VEL Advect U :  0.353200
-VEL Advect V: 0.293300
-D Diffuse: 1.939000
-D Advect: 0.422600
-Time to run in milliseconds: 22.546900
-_____________________________________________________________________________
-VEL: Diffuse U: 3.150600
-VEL Diffuse V: 5.070000
-VEL Project: 2.345000
-VEL Advect U :  1.010600
-VEL Advect V: 0.273600
-D Diffuse: 3.492900
-D Advect: 1.062200
-Time to run in milliseconds: 27.855400
-_____________________________________________________________________________
-VEL: Diffuse U: 3.299000
-VEL Diffuse V: 3.005100
-VEL Project: 4.228900
-VEL Advect U :  0.442900
-VEL Advect V: 0.569800
-D Diffuse: 1.991600
-D Advect: 0.989100
-Time to run in milliseconds: 26.320601
-_____________________________________________________________________________
-VEL: Diffuse U: 2.710100
-VEL Diffuse V: 3.655000
-VEL Project: 2.703400
-VEL Advect U :  0.427000
-VEL Advect V: 0.782000
-D Diffuse: 2.570000
-D Advect: 0.632500
-Time to run in milliseconds: 22.998699
-_____________________________________________________________________________
-VEL: Diffuse U: 2.819600
-VEL Diffuse V: 2.387700
-VEL Project: 3.307900
-VEL Advect U :  0.496000
-VEL Advect V: 0.640900
-D Diffuse: 3.180700
-D Advect: 1.043300
-Time to run in milliseconds: 23.653299
-_____________________________________________________________________________
-VEL: Diffuse U: 1.006700
-VEL Diffuse V: 2.125300
-VEL Project: 2.888500
-VEL Advect U :  0.354400
-VEL Advect V: 0.337400
-D Diffuse: 1.553400
-D Advect: 0.225900
-Time to run in milliseconds: 13.211000
-_____________________________________________________________________________
-VEL: Diffuse U: 1.154600
-VEL Diffuse V: 1.341600
-VEL Project: 1.648100
-VEL Advect U :  0.806800
-VEL Advect V: 0.310700
-D Diffuse: 3.230100
-D Advect: 0.316600
-Time to run in milliseconds: 13.984600
-_____________________________________________________________________________
-VEL: Diffuse U: 0.988500
-VEL Diffuse V: 2.730500
-VEL Project: 2.421900
-VEL Advect U :  0.362400
-VEL Advect V: 0.322200
-D Diffuse: 2.780400
-D Advect: 0.290700
-Time to run in milliseconds: 16.627600
-_____________________________________________________________________________
-VEL: Diffuse U: 1.880400
-VEL Diffuse V: 2.146700
-VEL Project: 2.959800
-VEL Advect U :  0.425800
-VEL Advect V: 0.281300
-D Diffuse: 1.353400
-D Advect: 0.525800
-Time to run in milliseconds: 20.542101
-_____________________________________________________________________________
-VEL: Diffuse U: 1.117700
-VEL Diffuse V: 1.413800
-VEL Project: 2.247000
-VEL Advect U :  0.634400
-VEL Advect V: 0.532800
-D Diffuse: 3.235700
-D Advect: 0.340700
-Time to run in milliseconds: 20.280001
-_____________________________________________________________________________
-VEL: Diffuse U: 1.476100
-VEL Diffuse V: 2.417800
-VEL Project: 3.500200
-VEL Advect U :  0.782300
-VEL Advect V: 0.268400
-D Diffuse: 2.564000
-D Advect: 0.694900
-Time to run in milliseconds: 20.184601
-_____________________________________________________________________________
-VEL: Diffuse U: 3.524700
-VEL Diffuse V: 2.410200
-VEL Project: 2.942500
-VEL Advect U :  0.542200
-VEL Advect V: 0.284900
-D Diffuse: 2.801300
-D Advect: 0.813700
-Time to run in milliseconds: 27.645100
-_____________________________________________________________________________
-VEL: Diffuse U: 3.360700
-VEL Diffuse V: 2.283600
-VEL Project: 2.136600
-VEL Advect U :  0.329600
-VEL Advect V: 0.313400
-D Diffuse: 2.250700
-D Advect: 0.350800
-Time to run in milliseconds: 21.973301
-_____________________________________________________________________________
-VEL: Diffuse U: -997.951782
-VEL Diffuse V: 2.547400
-VEL Project: 3.501500
-VEL Advect U :  0.330400
-VEL Advect V: 0.604700
-D Diffuse: 2.150200
-D Advect: 0.340000
-Time to run in milliseconds: 22.331400
-_____________________________________________________________________________
-VEL: Diffuse U: 2.713500
-VEL Diffuse V: 2.700000
-VEL Project: 3.707900
-VEL Advect U :  0.550600
-VEL Advect V: 0.454600
-D Diffuse: 2.944100
-D Advect: 0.571000
-Time to run in milliseconds: 24.352699
-_____________________________________________________________________________
-VEL: Diffuse U: 1.854400
-VEL Diffuse V: 2.709500
-VEL Project: 2.974800
-VEL Advect U :  0.452400
-VEL Advect V: 0.442600
-D Diffuse: 2.633200
-D Advect: 0.598900
-Time to run in milliseconds: 23.229700
-_____________________________________________________________________________
-VEL: Diffuse U: 2.699900
-VEL Diffuse V: 2.712400
-VEL Project: 2.616500
-VEL Advect U :  0.394200
-VEL Advect V: 0.911500
-D Diffuse: 2.328100
-D Advect: 0.837700
-Time to run in milliseconds: 24.813101
-_____________________________________________________________________________
-VEL: Diffuse U: 2.370100
-VEL Diffuse V: 3.197300
-VEL Project: 2.880400
-VEL Advect U :  0.536900
-VEL Advect V: 0.532700
-D Diffuse: 2.922000
-D Advect: 0.720400
-Time to run in milliseconds: 27.733500
-_____________________________________________________________________________
-VEL: Diffuse U: 3.778500
-VEL Diffuse V: 3.264900
-VEL Project: 3.584500
-VEL Advect U :  0.389100
-VEL Advect V: 0.582300
-D Diffuse: 2.748400
-D Advect: 0.671500
-Time to run in milliseconds: 26.564800
-_____________________________________________________________________________
-VEL: Diffuse U: 2.292200
-VEL Diffuse V: 3.138000
-VEL Project: 3.308400
-VEL Advect U :  0.613400
-VEL Advect V: 0.469100
-D Diffuse: 2.229700
-D Advect: 0.740100
-Time to run in milliseconds: 22.615900
-_____________________________________________________________________________
-VEL: Diffuse U: 2.204200
-VEL Diffuse V: 2.722300
-VEL Project: 3.041100
-VEL Advect U :  0.817000
-VEL Advect V: 0.393300
-D Diffuse: 2.761800
-D Advect: 0.645600
-Time to run in milliseconds: 26.663401
-_____________________________________________________________________________
-VEL: Diffuse U: 1.737700
-VEL Diffuse V: 2.754500
-VEL Project: 3.069200
-VEL Advect U :  0.923000
-VEL Advect V: 0.369200
-D Diffuse: 2.490400
-D Advect: 0.464400
-Time to run in milliseconds: 24.712900
-_____________________________________________________________________________
-VEL: Diffuse U: 3.146400
-VEL Diffuse V: 3.858600
-VEL Project: 3.099800
-VEL Advect U :  0.686800
-VEL Advect V: 0.484900
-D Diffuse: 2.236200
-D Advect: 0.679900
-Time to run in milliseconds: 28.240000
-_____________________________________________________________________________
-VEL: Diffuse U: 3.241900
-VEL Diffuse V: 2.966600
-VEL Project: 3.184700
-VEL Advect U :  0.426100
-VEL Advect V: 0.601100
-D Diffuse: 2.640100
-D Advect: 0.807400
-Time to run in milliseconds: 24.827900
-_____________________________________________________________________________
-VEL: Diffuse U: 2.289700
-VEL Diffuse V: 2.297000
-VEL Project: 3.062400
-VEL Advect U :  0.367800
-VEL Advect V: 0.196500
-D Diffuse: 2.381600
-D Advect: 0.617400
-Time to run in milliseconds: 25.408001
-_____________________________________________________________________________
-VEL: Diffuse U: 3.743400
-VEL Diffuse V: 2.772400
-VEL Project: 4.481900
-VEL Advect U :  0.561400
-VEL Advect V: 0.980600
-D Diffuse: 2.261600
-D Advect: 0.466100
-Time to run in milliseconds: 28.258499
-_____________________________________________________________________________
-VEL: Diffuse U: 2.672600
-VEL Diffuse V: 4.108900
-VEL Project: 3.877100
-VEL Advect U :  0.489300
-VEL Advect V: 0.574900
-D Diffuse: 2.685800
-D Advect: 0.762000
-Time to run in milliseconds: 32.139801
-_____________________________________________________________________________
-VEL: Diffuse U: 2.867400
-VEL Diffuse V: 2.931500
-VEL Project: 3.571000
-VEL Advect U :  0.751200
-VEL Advect V: 0.760800
-D Diffuse: 2.235600
-D Advect: 1.121800
-Time to run in milliseconds: 27.927500
-_____________________________________________________________________________
-VEL: Diffuse U: 3.011800
-VEL Diffuse V: 2.843700
-VEL Project: 4.348100
-VEL Advect U :  1.002800
-VEL Advect V: 0.709900
-D Diffuse: 3.405300
-D Advect: 0.895000
-Time to run in milliseconds: 32.776600
-_____________________________________________________________________________
-VEL: Diffuse U: 3.275400
-VEL Diffuse V: 3.204100
-VEL Project: 4.241600
-VEL Advect U :  0.337200
-VEL Advect V: 0.402400
-D Diffuse: 3.864400
-D Advect: 0.940900
-Time to run in milliseconds: 29.286200
-_____________________________________________________________________________
-VEL: Diffuse U: 3.077800
-VEL Diffuse V: 4.194000
-VEL Project: 3.571300
-VEL Advect U :  0.867200
-VEL Advect V: 0.441600
-D Diffuse: 2.625900
-D Advect: 1.086100
-Time to run in milliseconds: 33.270901
-_____________________________________________________________________________
-VEL: Diffuse U: 3.282000
-VEL Diffuse V: 3.361700
-VEL Project: 4.148300
-VEL Advect U :  0.515100
-VEL Advect V: 0.422400
-D Diffuse: 3.522100
-D Advect: 0.523100
-Time to run in milliseconds: 37.616699
-_____________________________________________________________________________
-VEL: Diffuse U: 3.294200
-VEL Diffuse V: 3.362100
-VEL Project: 3.410300
-VEL Advect U :  0.704200
-VEL Advect V: 0.958400
-D Diffuse: 3.678200
-D Advect: 0.636000
-Time to run in milliseconds: 32.014999
-_____________________________________________________________________________
-VEL: Diffuse U: 3.263300
-VEL Diffuse V: 3.637600
-VEL Project: 2.873700
-VEL Advect U :  0.476100
-VEL Advect V: 1.046200
-D Diffuse: 3.565400
-D Advect: 1.109700
-Time to run in milliseconds: 36.818199
-_____________________________________________________________________________
-VEL: Diffuse U: 3.392800
-VEL Diffuse V: 3.467800
-VEL Project: 4.814600
-VEL Advect U :  0.865600
-VEL Advect V: 0.612700
-D Diffuse: 2.784000
-D Advect: 0.594500
-Time to run in milliseconds: 27.679300
-_____________________________________________________________________________
-VEL: Diffuse U: 3.803100
-VEL Diffuse V: 3.594400
-VEL Project: 3.936100
-VEL Advect U :  0.325300
-VEL Advect V: 0.799100
-D Diffuse: 2.103300
-D Advect: 0.772800
-Time to run in milliseconds: 25.731300
-_____________________________________________________________________________
-VEL: Diffuse U: 3.147900
-VEL Diffuse V: 5.867100
-VEL Project: 3.482100
-VEL Advect U :  0.599300
-VEL Advect V: 0.530700
-D Diffuse: 3.021100
-D Advect: 0.683600
-Time to run in milliseconds: 32.341801
-_____________________________________________________________________________
-VEL: Diffuse U: 2.444900
-VEL Diffuse V: 2.888900
-VEL Project: 4.170100
-VEL Advect U :  0.742800
-VEL Advect V: 0.831200
-D Diffuse: 2.747900
-D Advect: 0.700000
-Time to run in milliseconds: 26.986700
-_____________________________________________________________________________
-VEL: Diffuse U: 3.401300
-VEL Diffuse V: 2.773900
-VEL Project: 8.412100
-VEL Advect U :  0.470800
-VEL Advect V: 0.831400
-D Diffuse: 2.940900
-D Advect: 0.406300
-Time to run in milliseconds: 36.161598
-_____________________________________________________________________________
-VEL: Diffuse U: 3.338500
-VEL Diffuse V: 3.395200
-VEL Project: 3.467300
-VEL Advect U :  0.532100
-VEL Advect V: 0.585100
-D Diffuse: 3.455500
-D Advect: 0.516200
-Time to run in milliseconds: 27.772900
-_____________________________________________________________________________
-VEL: Diffuse U: 2.628100
-VEL Diffuse V: 3.260600
-VEL Project: 2.983500
-VEL Advect U :  0.687600
-VEL Advect V: 0.705400
-D Diffuse: 3.139800
-D Advect: 0.846100
-Time to run in milliseconds: 26.395300
-_____________________________________________________________________________
-VEL: Diffuse U: 3.583400
-VEL Diffuse V: 3.060500
-VEL Project: 3.514200
-VEL Advect U :  0.445800
-VEL Advect V: 0.943100
-D Diffuse: 3.021300
-D Advect: 0.966800
-Time to run in milliseconds: 26.707300
-_____________________________________________________________________________
-VEL: Diffuse U: 2.843500
-VEL Diffuse V: 3.080100
-VEL Project: 3.608600
-VEL Advect U :  0.438900
-VEL Advect V: 0.345800
-D Diffuse: 3.046800
-D Advect: 0.963600
-Time to run in milliseconds: 27.131100
-_____________________________________________________________________________
-VEL: Diffuse U: 1.418000
-VEL Diffuse V: 2.093300
-VEL Project: 2.700200
-VEL Advect U :  0.514800
-VEL Advect V: 0.393100
-D Diffuse: 3.103800
-D Advect: 0.442500
-Time to run in milliseconds: 20.359400
-_____________________________________________________________________________
-VEL: Diffuse U: 2.573400
-VEL Diffuse V: 2.719300
-VEL Project: 7.172500
-VEL Advect U :  0.606000
-VEL Advect V: 0.465200
-D Diffuse: 3.528700
-D Advect: 0.610500
-Time to run in milliseconds: 34.566502
-_____________________________________________________________________________
-VEL: Diffuse U: 3.558300
-VEL Diffuse V: 3.060200
-VEL Project: 3.887000
-VEL Advect U :  1.291100
-VEL Advect V: 0.621400
-D Diffuse: 2.269100
-D Advect: 0.452200
-Time to run in milliseconds: 26.742300
-_____________________________________________________________________________
-VEL: Diffuse U: 3.587300
-VEL Diffuse V: 2.769600
-VEL Project: 3.177800
-VEL Advect U :  0.456500
-VEL Advect V: 0.330500
-D Diffuse: 3.846400
-D Advect: 0.846100
-Time to run in milliseconds: 27.016399
-_____________________________________________________________________________
-VEL: Diffuse U: 3.257500
-VEL Diffuse V: 3.080700
-VEL Project: 3.685300
-VEL Advect U :  0.622500
-VEL Advect V: 0.570100
-D Diffuse: 3.609100
-D Advect: 0.845900
-Time to run in milliseconds: 26.216499
-_____________________________________________________________________________
-VEL: Diffuse U: 3.835600
-VEL Diffuse V: 3.356100
-VEL Project: 3.822500
-VEL Advect U :  0.960900
-VEL Advect V: 0.355300
-D Diffuse: 3.338800
-D Advect: 0.565900
-Time to run in milliseconds: 27.683599
-_____________________________________________________________________________
-VEL: Diffuse U: 3.081800
-VEL Diffuse V: 4.010000
-VEL Project: 4.141800
-VEL Advect U :  0.543300
-VEL Advect V: 4.237400
-D Diffuse: 2.822200
-D Advect: 1.157000
-Time to run in milliseconds: 33.154598
-_____________________________________________________________________________
-VEL: Diffuse U: 2.150900
-VEL Diffuse V: 2.831700
-VEL Project: 3.198300
-VEL Advect U :  0.601200
-VEL Advect V: 0.707700
-D Diffuse: 3.142300
-D Advect: 0.976400
-Time to run in milliseconds: 32.056499
-_____________________________________________________________________________
-VEL: Diffuse U: 3.540900
-VEL Diffuse V: 2.876800
-VEL Project: 4.227400
-VEL Advect U :  0.511700
-VEL Advect V: 0.335300
-D Diffuse: 3.089300
-D Advect: 3.125500
-Time to run in milliseconds: 30.772200
-_____________________________________________________________________________
-VEL: Diffuse U: 3.258500
-VEL Diffuse V: 3.092900
-VEL Project: 3.999600
-VEL Advect U :  0.385000
+VEL: Diffuse U: 3.669200
+VEL Diffuse V: 4.019200
+VEL Project: 3.719000
+VEL Advect U :  0.506400
+VEL Advect V: 0.338800
+D Diffuse: 2.948000
+D Advect: 0.423600
+Time to run in milliseconds: 22.068300
+_____________________________________________________________________________
+ Frame totals 1
+ U Diffuse 3.669200
+ V Diffuse 4.019200
+ U Advect 0.506400
+ V Advect 0.338800
+ Project 3.719000
+ D Diffuse 2.948000
+ D Advect 0.423600
+ TOTAL TIME 22.068300
+_______________________________________
+VEL: Diffuse U: 1.578300
+VEL Diffuse V: 1.318500
+VEL Project: 2.407900
+VEL Advect U :  0.888600
+VEL Advect V: 0.438900
+D Diffuse: 1.420300
+D Advect: 0.229300
+Time to run in milliseconds: 12.435800
+_____________________________________________________________________________
+ Frame totals 2
+ U Diffuse 5.247500
+ V Diffuse 5.337700
+ U Advect 1.395000
+ V Advect 0.777700
+ Project 6.126900
+ D Diffuse 4.368300
+ D Advect 0.652900
+ TOTAL TIME 34.504101
+_______________________________________
+VEL: Diffuse U: 1.365600
+VEL Diffuse V: 1.367500
+VEL Project: 1.940100
+VEL Advect U :  0.304000
+VEL Advect V: 0.155000
+D Diffuse: 1.367100
+D Advect: 0.208900
+Time to run in milliseconds: 9.514700
+_____________________________________________________________________________
+ Frame totals 3
+ U Diffuse 6.613100
+ V Diffuse 6.705200
+ U Advect 1.699000
+ V Advect 0.932700
+ Project 8.067000
+ D Diffuse 5.735400
+ D Advect 0.861800
+ TOTAL TIME 44.018799
+_______________________________________
+VEL: Diffuse U: 1.467600
+VEL Diffuse V: 1.469700
+VEL Project: 2.694400
+VEL Advect U :  0.258800
+VEL Advect V: 0.312700
+D Diffuse: 1.697900
+D Advect: 0.534600
+Time to run in milliseconds: 12.476800
+_____________________________________________________________________________
+ Frame totals 4
+ U Diffuse 8.080700
+ V Diffuse 8.174900
+ U Advect 1.957800
+ V Advect 1.245400
+ Project 10.761400
+ D Diffuse 7.433300
+ D Advect 1.396400
+ TOTAL TIME 56.495598
+_______________________________________
+VEL: Diffuse U: 1.989600
+VEL Diffuse V: 2.103900
+VEL Project: 2.432600
+VEL Advect U :  0.523000
+VEL Advect V: 0.305300
+D Diffuse: 1.356000
+D Advect: 0.653700
+Time to run in milliseconds: 12.297700
+_____________________________________________________________________________
+ Frame totals 5
+ U Diffuse 10.070300
+ V Diffuse 10.278800
+ U Advect 2.480800
+ V Advect 1.550700
+ Project 13.194000
+ D Diffuse 8.789300
+ D Advect 2.050100
+ TOTAL TIME 68.793297
+_______________________________________
+VEL: Diffuse U: 1.051400
+VEL Diffuse V: 1.746200
+VEL Project: 1.399000
+VEL Advect U :  0.227200
+VEL Advect V: 0.165600
+D Diffuse: 1.739600
+D Advect: 0.381100
+Time to run in milliseconds: 9.708100
+_____________________________________________________________________________
+ Frame totals 6
+ U Diffuse 11.121700
+ V Diffuse 12.025000
+ U Advect 2.708000
+ V Advect 1.716300
+ Project 14.593000
+ D Diffuse 10.528900
+ D Advect 2.431200
+ TOTAL TIME 78.501396
+_______________________________________
+VEL: Diffuse U: 1.291400
+VEL Diffuse V: 1.116000
+VEL Project: 1.823200
+VEL Advect U :  0.338700
+VEL Advect V: 0.350600
+D Diffuse: 1.416900
+D Advect: 0.402900
+Time to run in milliseconds: 10.816000
+_____________________________________________________________________________
+ Frame totals 7
+ U Diffuse 12.413100
+ V Diffuse 13.141000
+ U Advect 3.046700
+ V Advect 2.066900
+ Project 16.416201
+ D Diffuse 11.945800
+ D Advect 2.834100
+ TOTAL TIME 89.317398
+_______________________________________
+VEL: Diffuse U: 1.657500
+VEL Diffuse V: 1.221900
+VEL Project: 1.686600
+VEL Advect U :  0.248000
+VEL Advect V: 0.412700
+D Diffuse: 1.210700
+D Advect: 0.324100
+Time to run in milliseconds: 10.276800
+_____________________________________________________________________________
+ Frame totals 8
+ U Diffuse 14.070601
+ V Diffuse 14.362900
+ U Advect 3.294700
+ V Advect 2.479600
+ Project 18.102800
+ D Diffuse 13.156500
+ D Advect 3.158200
+ TOTAL TIME 99.594200
+_______________________________________
+VEL: Diffuse U: 1.495400
+VEL Diffuse V: 1.377900
+VEL Project: 1.762600
+VEL Advect U :  0.300100
+VEL Advect V: 0.181600
+D Diffuse: 1.672500
+D Advect: 0.198200
+Time to run in milliseconds: 9.899300
+_____________________________________________________________________________
+ Frame totals 9
+ U Diffuse 15.566000
+ V Diffuse 15.740800
+ U Advect 3.594800
+ V Advect 2.661200
+ Project 19.865400
+ D Diffuse 14.829000
+ D Advect 3.356400
+ TOTAL TIME 109.493500
+_______________________________________
+VEL: Diffuse U: 1.645100
+VEL Diffuse V: 1.106600
+VEL Project: 1.579000
+VEL Advect U :  0.309300
+VEL Advect V: 0.281100
+D Diffuse: 1.292900
+D Advect: 0.213100
+Time to run in milliseconds: 9.694300
+_____________________________________________________________________________
+ Frame totals 10
+ U Diffuse 17.211100
+ V Diffuse 16.847401
+ U Advect 3.904100
+ V Advect 2.942300
+ Project 21.444401
+ D Diffuse 16.121899
+ D Advect 3.569500
+ TOTAL TIME 119.187798
+_______________________________________
+VEL: Diffuse U: 1.187300
+VEL Diffuse V: 1.386300
+VEL Project: 1.956500
+VEL Advect U :  0.340000
+VEL Advect V: 0.317400
+D Diffuse: 1.202600
+D Advect: 0.246400
+Time to run in milliseconds: 10.216300
+_____________________________________________________________________________
+ Frame totals 11
+ U Diffuse 18.398399
+ V Diffuse 18.233700
+ U Advect 4.244100
+ V Advect 3.259700
+ Project 23.400902
+ D Diffuse 17.324499
+ D Advect 3.815900
+ TOTAL TIME 129.404099
+_______________________________________
+VEL: Diffuse U: 1.661800
+VEL Diffuse V: 1.550100
+VEL Project: 1.785600
+VEL Advect U :  0.235300
 VEL Advect V: 0.338700
-D Diffuse: 3.384400
-D Advect: 0.672600
-Time to run in milliseconds: 27.801201
+D Diffuse: 1.071000
+D Advect: 0.333900
+Time to run in milliseconds: 9.758200
 _____________________________________________________________________________
-VEL: Diffuse U: 2.348300
-VEL Diffuse V: 1.596500
-VEL Project: 2.166400
-VEL Advect U :  0.412200
-VEL Advect V: 0.436100
-D Diffuse: 2.115800
-D Advect: 0.567100
-Time to run in milliseconds: 19.302299
+ Frame totals 12
+ U Diffuse 20.060200
+ V Diffuse 19.783800
+ U Advect 4.479400
+ V Advect 3.598400
+ Project 25.186502
+ D Diffuse 18.395498
+ D Advect 4.149800
+ TOTAL TIME 139.162292
+_______________________________________
+VEL: Diffuse U: 1.374700
+VEL Diffuse V: 1.695600
+VEL Project: 1.967300
+VEL Advect U :  0.591800
+VEL Advect V: 0.359600
+D Diffuse: 1.557200
+D Advect: 0.600100
+Time to run in milliseconds: 13.238000
 _____________________________________________________________________________
-VEL: Diffuse U: 3.259400
-VEL Diffuse V: 2.991300
-VEL Project: 3.104200
-VEL Advect U :  0.710100
-VEL Advect V: 0.501600
-D Diffuse: 2.875300
-D Advect: 0.814800
-Time to run in milliseconds: 31.767799
+ Frame totals 13
+ U Diffuse 21.434900
+ V Diffuse 21.479401
+ U Advect 5.071200
+ V Advect 3.958000
+ Project 27.153803
+ D Diffuse 19.952698
+ D Advect 4.749900
+ TOTAL TIME 152.400299
+_______________________________________
+VEL: Diffuse U: 1.167600
+VEL Diffuse V: 1.113600
+VEL Project: 1.862300
+VEL Advect U :  0.280800
+VEL Advect V: 0.440200
+D Diffuse: 1.291300
+D Advect: 0.601500
+Time to run in milliseconds: 10.484300
 _____________________________________________________________________________
-VEL: Diffuse U: 3.082400
-VEL Diffuse V: 3.845000
-VEL Project: 3.214500
-VEL Advect U :  0.492400
-VEL Advect V: 0.625800
-D Diffuse: 2.897700
-D Advect: 0.641400
-Time to run in milliseconds: 27.941500
+ Frame totals 14
+ U Diffuse 22.602501
+ V Diffuse 22.593000
+ U Advect 5.352000
+ V Advect 4.398200
+ Project 29.016104
+ D Diffuse 21.243998
+ D Advect 5.351400
+ TOTAL TIME 162.884598
+_______________________________________
+VEL: Diffuse U: 1.822900
+VEL Diffuse V: 2.256400
+VEL Project: 2.281300
+VEL Advect U :  0.316000
+VEL Advect V: 0.767500
+D Diffuse: 1.053100
+D Advect: 0.289200
+Time to run in milliseconds: 12.717400
 _____________________________________________________________________________
-VEL: Diffuse U: 4.544200
-VEL Diffuse V: 4.041000
-VEL Project: 5.165200
-VEL Advect U :  0.823300
-VEL Advect V: 1.107900
-D Diffuse: 3.307600
-D Advect: 0.922300
-Time to run in milliseconds: 40.110802
+ Frame totals 15
+ U Diffuse 24.425402
+ V Diffuse 24.849400
+ U Advect 5.668000
+ V Advect 5.165700
+ Project 31.297403
+ D Diffuse 22.297098
+ D Advect 5.640600
+ TOTAL TIME 175.601990
+_______________________________________
+VEL: Diffuse U: 1.534900
+VEL Diffuse V: 1.193700
+VEL Project: 1.668100
+VEL Advect U :  0.247300
+VEL Advect V: 0.392100
+D Diffuse: 1.638600
+D Advect: 0.352500
+Time to run in milliseconds: 10.445500
 _____________________________________________________________________________
-VEL: Diffuse U: 3.327200
-VEL Diffuse V: 3.369000
-VEL Project: 4.367100
-VEL Advect U :  0.686500
-VEL Advect V: 0.474600
-D Diffuse: 2.822200
-D Advect: 0.580500
-Time to run in milliseconds: 32.327301
+ Frame totals 16
+ U Diffuse 25.960302
+ V Diffuse 26.043100
+ U Advect 5.915300
+ V Advect 5.557800
+ Project 32.965504
+ D Diffuse 23.935698
+ D Advect 5.993100
+ TOTAL TIME 186.047485
+_______________________________________
+VEL: Diffuse U: 1.547600
+VEL Diffuse V: 1.188100
+VEL Project: 1.590700
+VEL Advect U :  0.241200
+VEL Advect V: 0.367500
+D Diffuse: 1.028700
+D Advect: 0.207600
+Time to run in milliseconds: 10.257200
 _____________________________________________________________________________
-VEL: Diffuse U: 6.513500
-VEL Diffuse V: 3.921000
-VEL Project: 4.916400
-VEL Advect U :  1.242100
-VEL Advect V: 0.669300
-D Diffuse: 3.908700
-D Advect: 0.690200
-Time to run in milliseconds: 35.199902
+ Frame totals 17
+ U Diffuse 27.507902
+ V Diffuse 27.231201
+ U Advect 6.156500
+ V Advect 5.925300
+ Project 34.556202
+ D Diffuse 24.964397
+ D Advect 6.200700
+ TOTAL TIME 196.304688
+_______________________________________
+VEL: Diffuse U: 2.081600
+VEL Diffuse V: 1.937200
+VEL Project: 1.982800
+VEL Advect U :  0.321300
+VEL Advect V: 0.322600
+D Diffuse: 1.046300
+D Advect: 0.248100
+Time to run in milliseconds: 11.457700
 _____________________________________________________________________________
-VEL: Diffuse U: 3.914800
-VEL Diffuse V: 3.630800
-VEL Project: 4.280400
-VEL Advect U :  0.962700
-VEL Advect V: 3.092800
-D Diffuse: 4.327100
-D Advect: 1.577200
-Time to run in milliseconds: 39.398499
+ Frame totals 18
+ U Diffuse 29.589502
+ V Diffuse 29.168402
+ U Advect 6.477800
+ V Advect 6.247900
+ Project 36.539001
+ D Diffuse 26.010698
+ D Advect 6.448800
+ TOTAL TIME 207.762390
+_______________________________________
+VEL: Diffuse U: 1.243200
+VEL Diffuse V: 1.477800
+VEL Project: 1.612300
+VEL Advect U :  0.301400
+VEL Advect V: 0.220000
+D Diffuse: 1.490300
+D Advect: 0.329000
+Time to run in milliseconds: 10.454200
 _____________________________________________________________________________
-VEL: Diffuse U: 3.922800
-VEL Diffuse V: 3.323700
-VEL Project: 4.136100
-VEL Advect U :  0.746000
-VEL Advect V: 0.571400
-D Diffuse: 2.474000
-D Advect: 1.048200
-Time to run in milliseconds: 30.759199
+ Frame totals 19
+ U Diffuse 30.832703
+ V Diffuse 30.646202
+ U Advect 6.779201
+ V Advect 6.467899
+ Project 38.151302
+ D Diffuse 27.500998
+ D Advect 6.777800
+ TOTAL TIME 218.216583
+_______________________________________
+VEL: Diffuse U: 1.393800
+VEL Diffuse V: 1.534400
+VEL Project: 2.054500
+VEL Advect U :  0.294600
+VEL Advect V: 0.383800
+D Diffuse: 1.398400
+D Advect: 0.578700
+Time to run in milliseconds: 11.806300
 _____________________________________________________________________________
-VEL: Diffuse U: 3.129000
-VEL Diffuse V: 3.317000
-VEL Project: 3.004800
-VEL Advect U :  0.410900
-VEL Advect V: 0.620500
-D Diffuse: 3.433000
-D Advect: 0.881100
-Time to run in milliseconds: 28.739000
+ Frame totals 20
+ U Diffuse 32.226501
+ V Diffuse 32.180603
+ U Advect 7.073801
+ V Advect 6.851699
+ Project 40.205803
+ D Diffuse 28.899397
+ D Advect 7.356500
+ TOTAL TIME 230.022888
+_______________________________________
+VEL: Diffuse U: 1.859000
+VEL Diffuse V: 1.647200
+VEL Project: 1.929400
+VEL Advect U :  0.177900
+VEL Advect V: 0.155400
+D Diffuse: 1.374800
+D Advect: 0.419300
+Time to run in milliseconds: 11.142600
 _____________________________________________________________________________
-VEL: Diffuse U: 2.020200
-VEL Diffuse V: 3.282300
-VEL Project: 2.944000
-VEL Advect U :  0.616100
-VEL Advect V: 0.457900
-D Diffuse: 1.831200
-D Advect: 0.521500
-Time to run in milliseconds: 22.358601
+ Frame totals 21
+ U Diffuse 34.085503
+ V Diffuse 33.827805
+ U Advect 7.251700
+ V Advect 7.007099
+ Project 42.135204
+ D Diffuse 30.274197
+ D Advect 7.775800
+ TOTAL TIME 241.165482
+_______________________________________
+VEL: Diffuse U: 1.435600
+VEL Diffuse V: 1.481100
+VEL Project: 1.732000
+VEL Advect U :  0.486300
+VEL Advect V: 0.360200
+D Diffuse: 1.357500
+D Advect: 0.429500
+Time to run in milliseconds: 11.046900
 _____________________________________________________________________________
-VEL: Diffuse U: 3.005200
-VEL Diffuse V: 2.210600
-VEL Project: 2.486900
-VEL Advect U :  0.335300
-VEL Advect V: 0.323700
-D Diffuse: 2.025000
-D Advect: 0.269600
-Time to run in milliseconds: 17.921400
+ Frame totals 22
+ U Diffuse 35.521103
+ V Diffuse 35.308903
+ U Advect 7.738000
+ V Advect 7.367299
+ Project 43.867203
+ D Diffuse 31.631697
+ D Advect 8.205299
+ TOTAL TIME 252.212387
+_______________________________________
+VEL: Diffuse U: 1.788200
+VEL Diffuse V: 1.333600
+VEL Project: 1.830500
+VEL Advect U :  0.222600
+VEL Advect V: 0.331500
+D Diffuse: 1.073300
+D Advect: 0.276300
+Time to run in milliseconds: 9.631700
 _____________________________________________________________________________
-VEL: Diffuse U: 2.033500
-VEL Diffuse V: 3.291900
-VEL Project: 2.049900
-VEL Advect U :  0.305700
-VEL Advect V: 0.288500
-D Diffuse: 1.746000
-D Advect: 0.460900
-Time to run in milliseconds: 18.183599
+ Frame totals 23
+ U Diffuse 37.309303
+ V Diffuse 36.642502
+ U Advect 7.960600
+ V Advect 7.698799
+ Project 45.697704
+ D Diffuse 32.704998
+ D Advect 8.481600
+ TOTAL TIME 261.844086
+_______________________________________
+VEL: Diffuse U: 1.396500
+VEL Diffuse V: 1.491400
+VEL Project: 2.383500
+VEL Advect U :  0.191400
+VEL Advect V: 0.179900
+D Diffuse: 1.628600
+D Advect: 0.406000
+Time to run in milliseconds: 11.065900
 _____________________________________________________________________________
-VEL: Diffuse U: 1.987400
-VEL Diffuse V: 1.836800
-VEL Project: 2.517200
-VEL Advect U :  0.418800
+ Frame totals 24
+ U Diffuse 38.705803
+ V Diffuse 38.133904
+ U Advect 8.152000
+ V Advect 7.878699
+ Project 48.081203
+ D Diffuse 34.333599
+ D Advect 8.887600
+ TOTAL TIME 272.909973
+_______________________________________
+VEL: Diffuse U: 1.362400
+VEL Diffuse V: 1.408200
+VEL Project: 2.018800
+VEL Advect U :  0.356000
+VEL Advect V: 0.209500
+D Diffuse: 1.062300
+D Advect: 0.251500
+Time to run in milliseconds: 10.559900
+_____________________________________________________________________________
+ Frame totals 25
+ U Diffuse 40.068203
+ V Diffuse 39.542103
+ U Advect 8.508000
+ V Advect 8.088200
+ Project 50.100002
+ D Diffuse 35.395901
+ D Advect 9.139100
+ TOTAL TIME 283.469879
+_______________________________________
+VEL: Diffuse U: 1.474400
+VEL Diffuse V: 1.419300
+VEL Project: 1.959300
+VEL Advect U :  0.288300
+VEL Advect V: 0.245100
+D Diffuse: 1.300300
+D Advect: 0.261800
+Time to run in milliseconds: 10.701000
+_____________________________________________________________________________
+ Frame totals 26
+ U Diffuse 41.542603
+ V Diffuse 40.961403
+ U Advect 8.796300
+ V Advect 8.333300
+ Project 52.059303
+ D Diffuse 36.696201
+ D Advect 9.400900
+ TOTAL TIME 294.170868
+_______________________________________
+VEL: Diffuse U: 0.881500
+VEL Diffuse V: 1.295100
+VEL Project: 1.340700
+VEL Advect U :  0.313000
+VEL Advect V: 0.226400
+D Diffuse: 1.682900
+D Advect: 0.327500
+Time to run in milliseconds: 9.836400
+_____________________________________________________________________________
+ Frame totals 27
+ U Diffuse 42.424103
+ V Diffuse 42.256504
+ U Advect 9.109300
+ V Advect 8.559700
+ Project 53.400002
+ D Diffuse 38.379101
+ D Advect 9.728400
+ TOTAL TIME 304.007263
+_______________________________________
+VEL: Diffuse U: 1.235500
+VEL Diffuse V: 1.255300
+VEL Project: 1.844400
+VEL Advect U :  0.262200
+VEL Advect V: 0.264700
+D Diffuse: 1.735800
+D Advect: 0.438700
+Time to run in milliseconds: 9.961400
+_____________________________________________________________________________
+ Frame totals 28
+ U Diffuse 43.659603
+ V Diffuse 43.511803
+ U Advect 9.371500
+ V Advect 8.824400
+ Project 55.244400
+ D Diffuse 40.114902
+ D Advect 10.167100
+ TOTAL TIME 313.968658
+_______________________________________
+VEL: Diffuse U: 1.529800
+VEL Diffuse V: 1.606400
+VEL Project: 1.360000
+VEL Advect U :  0.256400
+VEL Advect V: 0.338800
+D Diffuse: 1.204900
+D Advect: 0.299300
+Time to run in milliseconds: 9.939500
+_____________________________________________________________________________
+ Frame totals 29
+ U Diffuse 45.189404
+ V Diffuse 45.118202
+ U Advect 9.627900
+ V Advect 9.163200
+ Project 56.604401
+ D Diffuse 41.319801
+ D Advect 10.466400
+ TOTAL TIME 323.908173
+_______________________________________
+VEL: Diffuse U: 1.271700
+VEL Diffuse V: 1.397200
+VEL Project: 1.711000
+VEL Advect U :  0.282400
+VEL Advect V: 0.211500
+D Diffuse: 1.177600
+D Advect: 0.432500
+Time to run in milliseconds: 9.596800
+_____________________________________________________________________________
+ Frame totals 30
+ U Diffuse 46.461105
+ V Diffuse 46.515404
+ U Advect 9.910300
+ V Advect 9.374701
+ Project 58.315399
+ D Diffuse 42.497402
+ D Advect 10.898900
+ TOTAL TIME 333.504974
+_______________________________________
+VEL: Diffuse U: 1.505500
+VEL Diffuse V: 1.684000
+VEL Project: 1.968600
+VEL Advect U :  0.369200
+VEL Advect V: 0.522900
+D Diffuse: 1.450200
+D Advect: 0.244600
+Time to run in milliseconds: 11.950300
+_____________________________________________________________________________
+ Frame totals 31
+ U Diffuse 47.966606
+ V Diffuse 48.199402
+ U Advect 10.279500
+ V Advect 9.897600
+ Project 60.284000
+ D Diffuse 43.947601
+ D Advect 11.143500
+ TOTAL TIME 345.455261
+_______________________________________
+VEL: Diffuse U: 1.691800
+VEL Diffuse V: 1.619400
+VEL Project: 1.569700
+VEL Advect U :  0.348200
+VEL Advect V: 0.340700
+D Diffuse: 1.421700
+D Advect: 0.348600
+Time to run in milliseconds: 11.276900
+_____________________________________________________________________________
+ Frame totals 32
+ U Diffuse 49.658405
+ V Diffuse 49.818802
+ U Advect 10.627700
+ V Advect 10.238300
+ Project 61.853699
+ D Diffuse 45.369301
+ D Advect 11.492101
+ TOTAL TIME 356.732147
+_______________________________________
+VEL: Diffuse U: 1.919400
+VEL Diffuse V: 1.503900
+VEL Project: 1.477000
+VEL Advect U :  0.362700
+VEL Advect V: 0.186100
+D Diffuse: 1.614600
+D Advect: 0.313400
+Time to run in milliseconds: 11.198800
+_____________________________________________________________________________
+ Frame totals 33
+ U Diffuse 51.577805
+ V Diffuse 51.322701
+ U Advect 10.990400
+ V Advect 10.424400
+ Project 63.330700
+ D Diffuse 46.983902
+ D Advect 11.805501
+ TOTAL TIME 367.930939
+_______________________________________
+VEL: Diffuse U: 1.744700
+VEL Diffuse V: 1.443100
+VEL Project: 2.202700
+VEL Advect U :  0.208400
+VEL Advect V: 0.282300
+D Diffuse: 1.958900
+D Advect: 0.396900
+Time to run in milliseconds: 12.784400
+_____________________________________________________________________________
+ Frame totals 34
+ U Diffuse 53.322506
+ V Diffuse 52.765800
+ U Advect 11.198800
+ V Advect 10.706700
+ Project 65.533401
+ D Diffuse 48.942802
+ D Advect 12.202401
+ TOTAL TIME 380.715332
+_______________________________________
+VEL: Diffuse U: 1.975800
+VEL Diffuse V: 1.843800
+VEL Project: 2.041000
+VEL Advect U :  0.216200
+VEL Advect V: 0.368900
+D Diffuse: 1.124200
+D Advect: 0.274100
+Time to run in milliseconds: 12.037200
+_____________________________________________________________________________
+ Frame totals 35
+ U Diffuse 55.298306
+ V Diffuse 54.609600
+ U Advect 11.415000
+ V Advect 11.075601
+ Project 67.574402
+ D Diffuse 50.067001
+ D Advect 12.476501
+ TOTAL TIME 392.752533
+_______________________________________
+VEL: Diffuse U: 1.733500
+VEL Diffuse V: 1.484800
+VEL Project: 1.755200
+VEL Advect U :  0.334100
+VEL Advect V: 0.201400
+D Diffuse: 1.074200
+D Advect: 0.237300
+Time to run in milliseconds: 10.732000
+_____________________________________________________________________________
+ Frame totals 36
+ U Diffuse 57.031807
+ V Diffuse 56.094398
+ U Advect 11.749100
+ V Advect 11.277000
+ Project 69.329605
+ D Diffuse 51.141201
+ D Advect 12.713801
+ TOTAL TIME 403.484528
+_______________________________________
+VEL: Diffuse U: 1.398200
+VEL Diffuse V: 1.233200
+VEL Project: 1.928200
+VEL Advect U :  0.325000
+VEL Advect V: 0.305400
+D Diffuse: 1.587600
+D Advect: 0.650400
+Time to run in milliseconds: 11.622200
+_____________________________________________________________________________
+ Frame totals 37
+ U Diffuse 58.430008
+ V Diffuse 57.327599
+ U Advect 12.074100
+ V Advect 11.582400
+ Project 71.257805
+ D Diffuse 52.728802
+ D Advect 13.364202
+ TOTAL TIME 415.106720
+_______________________________________
+VEL: Diffuse U: 1.288600
+VEL Diffuse V: 1.666600
+VEL Project: 2.022900
+VEL Advect U :  0.265500
+VEL Advect V: 0.249800
+D Diffuse: 1.141800
+D Advect: 0.205900
+Time to run in milliseconds: 10.394700
+_____________________________________________________________________________
+ Frame totals 38
+ U Diffuse 59.718609
+ V Diffuse 58.994198
+ U Advect 12.339600
+ V Advect 11.832200
+ Project 73.280708
+ D Diffuse 53.870602
+ D Advect 13.570102
+ TOTAL TIME 425.501434
+_______________________________________
+VEL: Diffuse U: 1.394700
+VEL Diffuse V: 1.138600
+VEL Project: 1.388600
+VEL Advect U :  0.282000
 VEL Advect V: 0.333500
-D Diffuse: 1.916100
-D Advect: 0.651900
-Time to run in milliseconds: 17.966101
+D Diffuse: 1.083200
+D Advect: 0.222200
+Time to run in milliseconds: 8.802000
 _____________________________________________________________________________
-VEL: Diffuse U: 1.617800
-VEL Diffuse V: 2.146000
-VEL Project: 3.598400
-VEL Advect U :  0.381500
-VEL Advect V: 0.282400
-D Diffuse: 3.445800
-D Advect: 0.544500
-Time to run in milliseconds: 24.181601
+ Frame totals 39
+ U Diffuse 61.113308
+ V Diffuse 60.132797
+ U Advect 12.621599
+ V Advect 12.165700
+ Project 74.669312
+ D Diffuse 54.953800
+ D Advect 13.792302
+ TOTAL TIME 434.303436
+_______________________________________
+VEL: Diffuse U: 1.695900
+VEL Diffuse V: 1.821000
+VEL Project: 2.046600
+VEL Advect U :  0.315000
+VEL Advect V: 0.555400
+D Diffuse: 1.371100
+D Advect: 0.345000
+Time to run in milliseconds: 11.449100
 _____________________________________________________________________________
-VEL: Diffuse U: 2.442200
-VEL Diffuse V: 2.330000
-VEL Project: 3.120300
-VEL Advect U :  0.500500
-VEL Advect V: 0.423100
-D Diffuse: 2.877400
-D Advect: 0.814700
-Time to run in milliseconds: 28.768600
+ Frame totals 40
+ U Diffuse 62.809208
+ V Diffuse 61.953796
+ U Advect 12.936599
+ V Advect 12.721100
+ Project 76.715912
+ D Diffuse 56.324902
+ D Advect 14.137302
+ TOTAL TIME 445.752533
+_______________________________________
+VEL: Diffuse U: 1.417400
+VEL Diffuse V: 1.451300
+VEL Project: 1.756000
+VEL Advect U :  0.416500
+VEL Advect V: 0.211600
+D Diffuse: 0.982600
+D Advect: 0.469600
+Time to run in milliseconds: 10.708800
 _____________________________________________________________________________
-VEL: Diffuse U: 2.272100
-VEL Diffuse V: 2.511100
-VEL Project: 3.323300
-VEL Advect U :  0.463900
-VEL Advect V: 0.575200
-D Diffuse: 2.527100
-D Advect: 0.448100
-Time to run in milliseconds: 19.658400
+ Frame totals 41
+ U Diffuse 64.226608
+ V Diffuse 63.405098
+ U Advect 13.353099
+ V Advect 12.932700
+ Project 78.471909
+ D Diffuse 57.307503
+ D Advect 14.606902
+ TOTAL TIME 456.461334
+_______________________________________
+VEL: Diffuse U: 1.335700
+VEL Diffuse V: 1.456200
+VEL Project: 1.410000
+VEL Advect U :  0.235100
+VEL Advect V: 0.163200
+D Diffuse: 1.570700
+D Advect: 0.301800
+Time to run in milliseconds: 9.690100
 _____________________________________________________________________________
-VEL: Diffuse U: 1.654000
-VEL Diffuse V: 3.325900
-VEL Project: 3.011900
-VEL Advect U :  0.460100
-VEL Advect V: 0.297200
-D Diffuse: 2.593900
-D Advect: 0.376600
-Time to run in milliseconds: 17.825500
+ Frame totals 42
+ U Diffuse 65.562309
+ V Diffuse 64.861298
+ U Advect 13.588199
+ V Advect 13.095901
+ Project 79.881912
+ D Diffuse 58.878204
+ D Advect 14.908702
+ TOTAL TIME 466.151428
+_______________________________________
+VEL: Diffuse U: 1.337300
+VEL Diffuse V: 1.468100
+VEL Project: 2.060600
+VEL Advect U :  0.282000
+VEL Advect V: 0.417600
+D Diffuse: 1.327300
+D Advect: 0.285000
+Time to run in milliseconds: 10.723300
 _____________________________________________________________________________
-VEL: Diffuse U: 2.984800
-VEL Diffuse V: 2.433800
-VEL Project: 4.010700
-VEL Advect U :  0.567700
-VEL Advect V: 0.408800
-D Diffuse: 1.566400
-D Advect: 0.880200
-Time to run in milliseconds: 21.297100
+ Frame totals 43
+ U Diffuse 66.899612
+ V Diffuse 66.329399
+ U Advect 13.870198
+ V Advect 13.513500
+ Project 81.942513
+ D Diffuse 60.205505
+ D Advect 15.193702
+ TOTAL TIME 476.874725
+_______________________________________
+VEL: Diffuse U: 1.274100
+VEL Diffuse V: 1.493000
+VEL Project: 1.256500
+VEL Advect U :  0.255800
+VEL Advect V: 0.149300
+D Diffuse: 1.394600
+D Advect: 0.584200
+Time to run in milliseconds: 9.651800
 _____________________________________________________________________________
-VEL: Diffuse U: 3.132700
-VEL Diffuse V: 2.503800
-VEL Project: 3.363300
-VEL Advect U :  0.534900
-VEL Advect V: 0.433100
-D Diffuse: 2.721500
-D Advect: 0.442400
-Time to run in milliseconds: 23.272600
+ Frame totals 44
+ U Diffuse 68.173714
+ V Diffuse 67.822403
+ U Advect 14.125998
+ V Advect 13.662800
+ Project 83.199013
+ D Diffuse 61.600105
+ D Advect 15.777902
+ TOTAL TIME 486.526520
+_______________________________________
+VEL: Diffuse U: 1.603800
+VEL Diffuse V: 1.719000
+VEL Project: 3.411800
+VEL Advect U :  0.238700
+VEL Advect V: 0.358300
+D Diffuse: 1.095200
+D Advect: 0.237300
+Time to run in milliseconds: 12.427000
 _____________________________________________________________________________
-VEL: Diffuse U: 3.256000
-VEL Diffuse V: 2.868900
-VEL Project: 3.752500
-VEL Advect U :  0.437400
-VEL Advect V: 0.669800
-D Diffuse: 2.185900
-D Advect: 0.472000
-Time to run in milliseconds: 22.816401
+ Frame totals 45
+ U Diffuse 69.777512
+ V Diffuse 69.541405
+ U Advect 14.364698
+ V Advect 14.021100
+ Project 86.610809
+ D Diffuse 62.695305
+ D Advect 16.015202
+ TOTAL TIME 498.953522
+_______________________________________
+VEL: Diffuse U: 1.072400
+VEL Diffuse V: 1.128700
+VEL Project: 1.245600
+VEL Advect U :  0.193500
+VEL Advect V: 0.156400
+D Diffuse: 1.078800
+D Advect: 0.199000
+Time to run in milliseconds: 7.814900
 _____________________________________________________________________________
-VEL: Diffuse U: 2.459200
-VEL Diffuse V: 3.108500
-VEL Project: 3.249500
-VEL Advect U :  0.527600
+ Frame totals 46
+ U Diffuse 70.849915
+ V Diffuse 70.670105
+ U Advect 14.558198
+ V Advect 14.177500
+ Project 87.856407
+ D Diffuse 63.774105
+ D Advect 16.214201
+ TOTAL TIME 506.768433
+_______________________________________
+VEL: Diffuse U: 1.420900
+VEL Diffuse V: 1.535800
+VEL Project: 2.087300
+VEL Advect U :  0.368600
+VEL Advect V: 0.210800
+D Diffuse: 1.533100
+D Advect: 0.367900
+Time to run in milliseconds: 10.444500
+_____________________________________________________________________________
+ Frame totals 47
+ U Diffuse 72.270813
+ V Diffuse 72.205902
+ U Advect 14.926798
+ V Advect 14.388300
+ Project 89.943710
+ D Diffuse 65.307205
+ D Advect 16.582102
+ TOTAL TIME 517.212952
+_______________________________________
+VEL: Diffuse U: 1.440100
+VEL Diffuse V: 1.097600
+VEL Project: 1.766800
+VEL Advect U :  0.231300
+VEL Advect V: 0.184200
+D Diffuse: 1.077800
+D Advect: 0.493700
+Time to run in milliseconds: 9.445100
+_____________________________________________________________________________
+ Frame totals 48
+ U Diffuse 73.710915
+ V Diffuse 73.303505
+ U Advect 15.158098
+ V Advect 14.572500
+ Project 91.710510
+ D Diffuse 66.385002
+ D Advect 17.075802
+ TOTAL TIME 526.658081
+_______________________________________
+VEL: Diffuse U: 1.401400
+VEL Diffuse V: 1.403100
+VEL Project: 1.659600
+VEL Advect U :  0.195200
+VEL Advect V: 0.316700
+D Diffuse: 1.043700
+D Advect: 0.453600
+Time to run in milliseconds: 9.736500
+_____________________________________________________________________________
+ Frame totals 49
+ U Diffuse 75.112312
+ V Diffuse 74.706604
+ U Advect 15.353298
+ V Advect 14.889200
+ Project 93.370110
+ D Diffuse 67.428703
+ D Advect 17.529402
+ TOTAL TIME 536.394592
+_______________________________________
+VEL: Diffuse U: 1.605500
+VEL Diffuse V: 1.363200
+VEL Project: 1.624700
+VEL Advect U :  0.188100
+VEL Advect V: 0.171000
+D Diffuse: 1.626400
+D Advect: 0.248000
+Time to run in milliseconds: 10.389900
+_____________________________________________________________________________
+ Frame totals 50
+ U Diffuse 76.717812
+ V Diffuse 76.069801
+ U Advect 15.541398
+ V Advect 15.060200
+ Project 94.994812
+ D Diffuse 69.055099
+ D Advect 17.777401
+ TOTAL TIME 546.784485
+_______________________________________
+VEL: Diffuse U: 1.458600
+VEL Diffuse V: 1.586600
+VEL Project: 1.554100
+VEL Advect U :  0.277100
+VEL Advect V: 0.321200
+D Diffuse: 1.731100
+D Advect: 0.435400
+Time to run in milliseconds: 11.409300
+_____________________________________________________________________________
+ Frame totals 51
+ U Diffuse 78.176414
+ V Diffuse 77.656403
+ U Advect 15.818498
+ V Advect 15.381400
+ Project 96.548912
+ D Diffuse 70.786201
+ D Advect 18.212801
+ TOTAL TIME 558.193787
+_______________________________________
+VEL: Diffuse U: 1.710200
+VEL Diffuse V: 1.089500
+VEL Project: 1.814500
+VEL Advect U :  0.253700
+VEL Advect V: 0.319700
+D Diffuse: 1.563200
+D Advect: 0.328800
+Time to run in milliseconds: 11.094800
+_____________________________________________________________________________
+ Frame totals 52
+ U Diffuse 79.886612
+ V Diffuse 78.745903
+ U Advect 16.072197
+ V Advect 15.701100
+ Project 98.363411
+ D Diffuse 72.349403
+ D Advect 18.541601
+ TOTAL TIME 569.288574
+_______________________________________
+VEL: Diffuse U: 1.024200
+VEL Diffuse V: 1.275500
+VEL Project: 1.352500
+VEL Advect U :  0.353800
+VEL Advect V: 0.420000
+D Diffuse: 1.158800
+D Advect: 0.285200
+Time to run in milliseconds: 8.877300
+_____________________________________________________________________________
+ Frame totals 53
+ U Diffuse 80.910812
+ V Diffuse 80.021400
+ U Advect 16.425997
+ V Advect 16.121099
+ Project 99.715912
+ D Diffuse 73.508202
+ D Advect 18.826801
+ TOTAL TIME 578.165894
+_______________________________________
+VEL: Diffuse U: 1.581300
+VEL Diffuse V: 1.564300
+VEL Project: 2.281200
+VEL Advect U :  0.247500
+VEL Advect V: 0.310700
+D Diffuse: 1.327400
+D Advect: 0.316800
+Time to run in milliseconds: 11.472700
+_____________________________________________________________________________
+ Frame totals 54
+ U Diffuse 82.492111
+ V Diffuse 81.585701
+ U Advect 16.673496
+ V Advect 16.431799
+ Project 101.997108
+ D Diffuse 74.835602
+ D Advect 19.143600
+ TOTAL TIME 589.638611
+_______________________________________
+VEL: Diffuse U: 2.060300
+VEL Diffuse V: 1.642300
+VEL Project: 2.465700
+VEL Advect U :  0.245500
+VEL Advect V: 0.311500
+D Diffuse: 1.254200
+D Advect: 0.304600
+Time to run in milliseconds: 12.291400
+_____________________________________________________________________________
+ Frame totals 55
+ U Diffuse 84.552414
+ V Diffuse 83.228004
+ U Advect 16.918997
+ V Advect 16.743299
+ Project 104.462807
+ D Diffuse 76.089798
+ D Advect 19.448200
+ TOTAL TIME 601.929993
+_______________________________________
+VEL: Diffuse U: 1.025300
+VEL Diffuse V: 1.181200
+VEL Project: 1.484700
+VEL Advect U :  0.260000
+VEL Advect V: 0.186100
+D Diffuse: 1.271500
+D Advect: 0.211700
+Time to run in milliseconds: 8.331800
+_____________________________________________________________________________
+ Frame totals 56
+ U Diffuse 85.577713
+ V Diffuse 84.409203
+ U Advect 17.178997
+ V Advect 16.929399
+ Project 105.947510
+ D Diffuse 77.361298
+ D Advect 19.659901
+ TOTAL TIME 610.261780
+_______________________________________
+VEL: Diffuse U: 1.085300
+VEL Diffuse V: 1.336900
+VEL Project: 1.267400
+VEL Advect U :  0.196300
+VEL Advect V: 0.373500
+D Diffuse: 1.048300
+D Advect: 0.189700
+Time to run in milliseconds: 8.536900
+_____________________________________________________________________________
+ Frame totals 57
+ U Diffuse 86.663010
+ V Diffuse 85.746101
+ U Advect 17.375298
+ V Advect 17.302900
+ Project 107.214912
+ D Diffuse 78.409599
+ D Advect 19.849600
+ TOTAL TIME 618.798706
+_______________________________________
+VEL: Diffuse U: 1.537000
+VEL Diffuse V: 1.170500
+VEL Project: 1.412900
+VEL Advect U :  0.257700
+VEL Advect V: 0.223400
+D Diffuse: 1.049600
+D Advect: 0.398200
+Time to run in milliseconds: 8.752700
+_____________________________________________________________________________
+ Frame totals 58
+ U Diffuse 88.200012
+ V Diffuse 86.916603
+ U Advect 17.632998
+ V Advect 17.526300
+ Project 108.627815
+ D Diffuse 79.459198
+ D Advect 20.247799
+ TOTAL TIME 627.551392
+_______________________________________
+VEL: Diffuse U: 1.110700
+VEL Diffuse V: 1.367500
+VEL Project: 1.229600
+VEL Advect U :  0.199900
+VEL Advect V: 0.195800
+D Diffuse: 1.030300
+D Advect: 0.195000
+Time to run in milliseconds: 8.006600
+_____________________________________________________________________________
+ Frame totals 59
+ U Diffuse 89.310715
+ V Diffuse 88.284103
+ U Advect 17.832897
+ V Advect 17.722101
+ Project 109.857414
+ D Diffuse 80.489494
+ D Advect 20.442799
+ TOTAL TIME 635.557983
+_______________________________________
+VEL: Diffuse U: 1.070700
+VEL Diffuse V: 1.046000
+VEL Project: 1.303900
+VEL Advect U :  0.191000
+VEL Advect V: 0.167600
+D Diffuse: 1.033800
+D Advect: 0.266300
+Time to run in milliseconds: 9.216000
+_____________________________________________________________________________
+ Frame totals 60
+ U Diffuse 90.381416
+ V Diffuse 89.330101
+ U Advect 18.023897
+ V Advect 17.889702
+ Project 111.161316
+ D Diffuse 81.523293
+ D Advect 20.709099
+ TOTAL TIME 644.773987
+_______________________________________
+VEL: Diffuse U: 1.350700
+VEL Diffuse V: 1.137100
+VEL Project: 1.249200
+VEL Advect U :  0.270300
+VEL Advect V: 0.196500
+D Diffuse: 1.060600
+D Advect: 0.254300
+Time to run in milliseconds: 8.629900
+_____________________________________________________________________________
+ Frame totals 61
+ U Diffuse 91.732117
+ V Diffuse 90.467201
+ U Advect 18.294197
+ V Advect 18.086203
+ Project 112.410515
+ D Diffuse 82.583893
+ D Advect 20.963398
+ TOTAL TIME 653.403870
+_______________________________________
+VEL: Diffuse U: 1.120000
+VEL Diffuse V: 1.392700
+VEL Project: 1.522900
+VEL Advect U :  0.263400
+VEL Advect V: 0.210300
+D Diffuse: 1.053100
+D Advect: 0.211300
+Time to run in milliseconds: 8.698300
+_____________________________________________________________________________
+ Frame totals 62
+ U Diffuse 92.852119
+ V Diffuse 91.859901
+ U Advect 18.557596
+ V Advect 18.296503
+ Project 113.933418
+ D Diffuse 83.636993
+ D Advect 21.174698
+ TOTAL TIME 662.102173
+_______________________________________
+VEL: Diffuse U: 1.039900
+VEL Diffuse V: 1.286500
+VEL Project: 1.695100
+VEL Advect U :  0.208000
+VEL Advect V: 0.178900
+D Diffuse: 1.078500
+D Advect: 0.301100
+Time to run in milliseconds: 8.808400
+_____________________________________________________________________________
+ Frame totals 63
+ U Diffuse 93.892021
+ V Diffuse 93.146400
+ U Advect 18.765596
+ V Advect 18.475403
+ Project 115.628517
+ D Diffuse 84.715492
+ D Advect 21.475798
+ TOTAL TIME 670.910583
+_______________________________________
+VEL: Diffuse U: 1.820800
+VEL Diffuse V: 1.085700
+VEL Project: 1.435400
+VEL Advect U :  0.196700
+VEL Advect V: 0.185900
+D Diffuse: 1.053700
+D Advect: 0.264600
+Time to run in milliseconds: 8.578000
+_____________________________________________________________________________
+ Frame totals 64
+ U Diffuse 95.712822
+ V Diffuse 94.232101
+ U Advect 18.962296
+ V Advect 18.661303
+ Project 117.063919
+ D Diffuse 85.769196
+ D Advect 21.740398
+ TOTAL TIME 679.488586
+_______________________________________
+VEL: Diffuse U: 1.125600
+VEL Diffuse V: 1.285900
+VEL Project: 1.337000
+VEL Advect U :  0.452200
+VEL Advect V: 0.345300
+D Diffuse: 1.248500
+D Advect: 0.376300
+Time to run in milliseconds: 9.525300
+_____________________________________________________________________________
+ Frame totals 65
+ U Diffuse 96.838425
+ V Diffuse 95.517998
+ U Advect 19.414495
+ V Advect 19.006603
+ Project 118.400917
+ D Diffuse 87.017693
+ D Advect 22.116699
+ TOTAL TIME 689.013916
+_______________________________________
+VEL: Diffuse U: 1.121400
+VEL Diffuse V: 1.071400
+VEL Project: 1.219900
+VEL Advect U :  0.209600
+VEL Advect V: 0.227000
+D Diffuse: 1.051600
+D Advect: 0.293100
+Time to run in milliseconds: 8.979800
+_____________________________________________________________________________
+ Frame totals 66
+ U Diffuse 97.959824
+ V Diffuse 96.589401
+ U Advect 19.624096
+ V Advect 19.233603
+ Project 119.620819
+ D Diffuse 88.069290
+ D Advect 22.409800
+ TOTAL TIME 697.993713
+_______________________________________
+VEL: Diffuse U: 1.106000
+VEL Diffuse V: 1.296400
+VEL Project: 1.894400
+VEL Advect U :  0.260300
+VEL Advect V: 0.230200
+D Diffuse: 1.288400
+D Advect: 0.226700
+Time to run in milliseconds: 10.015100
+_____________________________________________________________________________
+ Frame totals 67
+ U Diffuse 99.065826
+ V Diffuse 97.885803
+ U Advect 19.884396
+ V Advect 19.463802
+ Project 121.515221
+ D Diffuse 89.357689
+ D Advect 22.636499
+ TOTAL TIME 708.008789
+_______________________________________
+VEL: Diffuse U: 0.987100
+VEL Diffuse V: 1.084900
+VEL Project: 1.262800
+VEL Advect U :  0.173100
+VEL Advect V: 0.222900
+D Diffuse: 1.355600
+D Advect: 0.340600
+Time to run in milliseconds: 8.601300
+_____________________________________________________________________________
+ Frame totals 68
+ U Diffuse 100.052925
+ V Diffuse 98.970703
+ U Advect 20.057495
+ V Advect 19.686703
+ Project 122.778023
+ D Diffuse 90.713287
+ D Advect 22.977100
+ TOTAL TIME 716.610107
+_______________________________________
+VEL: Diffuse U: 1.260000
+VEL Diffuse V: 1.375500
+VEL Project: 1.543600
+VEL Advect U :  0.209300
+VEL Advect V: 0.150200
+D Diffuse: 1.191100
+D Advect: 0.371100
+Time to run in milliseconds: 9.001700
+_____________________________________________________________________________
+ Frame totals 69
+ U Diffuse 101.312927
+ V Diffuse 100.346207
+ U Advect 20.266794
+ V Advect 19.836903
+ Project 124.321625
+ D Diffuse 91.904388
+ D Advect 23.348200
+ TOTAL TIME 725.611816
+_______________________________________
+VEL: Diffuse U: 1.125300
+VEL Diffuse V: 1.187900
+VEL Project: 1.229700
+VEL Advect U :  0.201000
+VEL Advect V: 0.219800
+D Diffuse: 1.279700
+D Advect: 0.195000
+Time to run in milliseconds: 8.003500
+_____________________________________________________________________________
+ Frame totals 70
+ U Diffuse 102.438225
+ V Diffuse 101.534103
+ U Advect 20.467794
+ V Advect 20.056702
+ Project 125.551323
+ D Diffuse 93.184090
+ D Advect 23.543200
+ TOTAL TIME 733.615295
+_______________________________________
+VEL: Diffuse U: 1.040500
+VEL Diffuse V: 1.047000
+VEL Project: 1.308000
+VEL Advect U :  0.199500
+VEL Advect V: 0.138100
+D Diffuse: 1.246200
+D Advect: 0.305800
+Time to run in milliseconds: 8.461800
+_____________________________________________________________________________
+ Frame totals 71
+ U Diffuse 103.478722
+ V Diffuse 102.581100
+ U Advect 20.667294
+ V Advect 20.194801
+ Project 126.859322
+ D Diffuse 94.430290
+ D Advect 23.848999
+ TOTAL TIME 742.077087
+_______________________________________
+VEL: Diffuse U: 1.003400
+VEL Diffuse V: 1.513700
+VEL Project: 1.541500
+VEL Advect U :  0.242400
+VEL Advect V: 0.353500
+D Diffuse: 1.088200
+D Advect: 0.363100
+Time to run in milliseconds: 10.078000
+_____________________________________________________________________________
+ Frame totals 72
+ U Diffuse 104.482124
+ V Diffuse 104.094803
+ U Advect 20.909693
+ V Advect 20.548302
+ Project 128.400818
+ D Diffuse 95.518494
+ D Advect 24.212099
+ TOTAL TIME 752.155090
+_______________________________________
+VEL: Diffuse U: 1.438700
+VEL Diffuse V: 1.378100
+VEL Project: 1.694400
+VEL Advect U :  0.199200
+VEL Advect V: 0.203400
+D Diffuse: 1.090400
+D Advect: 0.227300
+Time to run in milliseconds: 9.172200
+_____________________________________________________________________________
+ Frame totals 73
+ U Diffuse 105.920822
+ V Diffuse 105.472900
+ U Advect 21.108892
+ V Advect 20.751701
+ Project 130.095215
+ D Diffuse 96.608894
+ D Advect 24.439400
+ TOTAL TIME 761.327271
+_______________________________________
+VEL: Diffuse U: 1.542500
+VEL Diffuse V: 1.264200
+VEL Project: 1.407200
+VEL Advect U :  0.196700
+VEL Advect V: 0.150000
+D Diffuse: 1.062600
+D Advect: 0.264000
+Time to run in milliseconds: 8.849600
+_____________________________________________________________________________
+ Frame totals 74
+ U Diffuse 107.463326
+ V Diffuse 106.737099
+ U Advect 21.305592
+ V Advect 20.901701
+ Project 131.502411
+ D Diffuse 97.671494
+ D Advect 24.703400
+ TOTAL TIME 770.176880
+_______________________________________
+VEL: Diffuse U: 1.082600
+VEL Diffuse V: 1.087600
+VEL Project: 1.309200
+VEL Advect U :  0.191100
+VEL Advect V: 0.118900
+D Diffuse: 1.055100
+D Advect: 0.203500
+Time to run in milliseconds: 7.650000
+_____________________________________________________________________________
+ Frame totals 75
+ U Diffuse 108.545929
+ V Diffuse 107.824699
+ U Advect 21.496691
+ V Advect 21.020601
+ Project 132.811615
+ D Diffuse 98.726593
+ D Advect 24.906900
+ TOTAL TIME 777.826904
+_______________________________________
+VEL: Diffuse U: 1.124300
+VEL Diffuse V: 1.372800
+VEL Project: 1.606300
+VEL Advect U :  0.342500
+VEL Advect V: 0.356600
+D Diffuse: 1.058000
+D Advect: 0.254500
+Time to run in milliseconds: 9.630900
+_____________________________________________________________________________
+ Frame totals 76
+ U Diffuse 109.670227
+ V Diffuse 109.197502
+ U Advect 21.839191
+ V Advect 21.377201
+ Project 134.417908
+ D Diffuse 99.784592
+ D Advect 25.161400
+ TOTAL TIME 787.457825
+_______________________________________
+VEL: Diffuse U: 1.100100
+VEL Diffuse V: 1.105400
+VEL Project: 1.273000
+VEL Advect U :  0.265200
+VEL Advect V: 0.182200
+D Diffuse: 1.104300
+D Advect: 0.348400
+Time to run in milliseconds: 8.182900
+_____________________________________________________________________________
+ Frame totals 77
+ U Diffuse 110.770325
+ V Diffuse 110.302902
+ U Advect 22.104391
+ V Advect 21.559401
+ Project 135.690903
+ D Diffuse 100.888893
+ D Advect 25.509800
+ TOTAL TIME 795.640747
+_______________________________________
+VEL: Diffuse U: 1.110700
+VEL Diffuse V: 1.338400
+VEL Project: 1.385100
+VEL Advect U :  0.266200
+VEL Advect V: 0.285400
+D Diffuse: 1.160800
+D Advect: 0.218800
+Time to run in milliseconds: 8.616100
+_____________________________________________________________________________
+ Frame totals 78
+ U Diffuse 111.881027
+ V Diffuse 111.641304
+ U Advect 22.370590
+ V Advect 21.844801
+ Project 137.076004
+ D Diffuse 102.049690
+ D Advect 25.728600
+ TOTAL TIME 804.256836
+_______________________________________
+VEL: Diffuse U: 1.223300
+VEL Diffuse V: 1.404600
+VEL Project: 1.450000
+VEL Advect U :  0.232700
+VEL Advect V: 0.196600
+D Diffuse: 1.390900
+D Advect: 0.319700
+Time to run in milliseconds: 9.378900
+_____________________________________________________________________________
+ Frame totals 79
+ U Diffuse 113.104324
+ V Diffuse 113.045906
+ U Advect 22.603291
+ V Advect 22.041401
+ Project 138.526001
+ D Diffuse 103.440590
+ D Advect 26.048300
+ TOTAL TIME 813.635742
+_______________________________________
+VEL: Diffuse U: 1.624400
+VEL Diffuse V: 1.478100
+VEL Project: 1.994500
+VEL Advect U :  0.467500
+VEL Advect V: 0.651300
+D Diffuse: 1.508700
+D Advect: 0.239800
+Time to run in milliseconds: 12.054700
+_____________________________________________________________________________
+ Frame totals 80
+ U Diffuse 114.728722
+ V Diffuse 114.524010
+ U Advect 23.070791
+ V Advect 22.692701
+ Project 140.520508
+ D Diffuse 104.949287
+ D Advect 26.288099
+ TOTAL TIME 825.690430
+_______________________________________
+VEL: Diffuse U: 1.176700
+VEL Diffuse V: 1.057900
+VEL Project: 1.345700
+VEL Advect U :  0.259600
+VEL Advect V: 0.153300
+D Diffuse: 1.047800
+D Advect: 0.291800
+Time to run in milliseconds: 8.085100
+_____________________________________________________________________________
+ Frame totals 81
+ U Diffuse 115.905418
+ V Diffuse 115.581909
+ U Advect 23.330391
+ V Advect 22.846001
+ Project 141.866211
+ D Diffuse 105.997086
+ D Advect 26.579899
+ TOTAL TIME 833.775513
+_______________________________________
+VEL: Diffuse U: 1.021500
+VEL Diffuse V: 1.299900
+VEL Project: 1.329200
+VEL Advect U :  0.222100
+VEL Advect V: 0.194700
+D Diffuse: 1.415100
+D Advect: 0.218000
+Time to run in milliseconds: 8.568000
+_____________________________________________________________________________
+ Frame totals 82
+ U Diffuse 116.926918
+ V Diffuse 116.881805
+ U Advect 23.552490
+ V Advect 23.040701
+ Project 143.195404
+ D Diffuse 107.412186
+ D Advect 26.797899
+ TOTAL TIME 842.343506
+_______________________________________
+VEL: Diffuse U: 1.611700
+VEL Diffuse V: 1.499000
+VEL Project: 1.649100
+VEL Advect U :  0.259000
+VEL Advect V: 0.146000
+D Diffuse: 1.132300
+D Advect: 0.255900
+Time to run in milliseconds: 9.706700
+_____________________________________________________________________________
+ Frame totals 83
+ U Diffuse 118.538620
+ V Diffuse 118.380806
+ U Advect 23.811491
+ V Advect 23.186701
+ Project 144.844498
+ D Diffuse 108.544487
+ D Advect 27.053799
+ TOTAL TIME 852.050232
+_______________________________________
+VEL: Diffuse U: 1.287700
+VEL Diffuse V: 1.436200
+VEL Project: 1.300600
+VEL Advect U :  0.193500
+VEL Advect V: 0.193400
+D Diffuse: 1.042000
+D Advect: 0.250000
+Time to run in milliseconds: 8.437500
+_____________________________________________________________________________
+ Frame totals 84
+ U Diffuse 119.826317
+ V Diffuse 119.817009
+ U Advect 24.004992
+ V Advect 23.380100
+ Project 146.145096
+ D Diffuse 109.586487
+ D Advect 27.303799
+ TOTAL TIME 860.487732
+_______________________________________
+VEL: Diffuse U: 1.077800
+VEL Diffuse V: 1.065200
+VEL Project: 1.295800
+VEL Advect U :  0.291900
+VEL Advect V: 0.206400
+D Diffuse: 1.078200
+D Advect: 0.260200
+Time to run in milliseconds: 7.756000
+_____________________________________________________________________________
+ Frame totals 85
+ U Diffuse 120.904114
+ V Diffuse 120.882210
+ U Advect 24.296892
+ V Advect 23.586500
+ Project 147.440903
+ D Diffuse 110.664688
+ D Advect 27.563999
+ TOTAL TIME 868.243713
+_______________________________________
+VEL: Diffuse U: 1.746400
+VEL Diffuse V: 1.620600
+VEL Project: 1.860000
+VEL Advect U :  0.311200
+VEL Advect V: 0.239500
+D Diffuse: 1.538800
+D Advect: 0.278000
+Time to run in milliseconds: 10.803000
+_____________________________________________________________________________
+ Frame totals 86
+ U Diffuse 122.650513
+ V Diffuse 122.502808
+ U Advect 24.608091
+ V Advect 23.826000
+ Project 149.300903
+ D Diffuse 112.203491
+ D Advect 27.841999
+ TOTAL TIME 879.046692
+_______________________________________
+VEL: Diffuse U: 1.751400
+VEL Diffuse V: 1.651300
+VEL Project: 1.826400
+VEL Advect U :  0.270400
+VEL Advect V: 0.243500
+D Diffuse: 1.926600
+D Advect: 0.473400
+Time to run in milliseconds: 12.213000
+_____________________________________________________________________________
+ Frame totals 87
+ U Diffuse 124.401917
+ V Diffuse 124.154106
+ U Advect 24.878490
+ V Advect 24.069500
+ Project 151.127304
+ D Diffuse 114.130089
+ D Advect 28.315399
+ TOTAL TIME 891.259705
+_______________________________________
+VEL: Diffuse U: 1.540400
+VEL Diffuse V: 1.542100
+VEL Project: 2.408800
+VEL Advect U :  0.259700
+VEL Advect V: 0.197300
+D Diffuse: 1.518300
+D Advect: 0.398300
+Time to run in milliseconds: 11.829000
+_____________________________________________________________________________
+ Frame totals 88
+ U Diffuse 125.942314
+ V Diffuse 125.696205
+ U Advect 25.138191
+ V Advect 24.266800
+ Project 153.536102
+ D Diffuse 115.648392
+ D Advect 28.713699
+ TOTAL TIME 903.088684
+_______________________________________
+VEL: Diffuse U: 1.948800
+VEL Diffuse V: 1.679100
+VEL Project: 1.967500
+VEL Advect U :  0.318300
+VEL Advect V: 0.217900
+D Diffuse: 1.614300
+D Advect: 0.404900
+Time to run in milliseconds: 12.053100
+_____________________________________________________________________________
+ Frame totals 89
+ U Diffuse 127.891113
+ V Diffuse 127.375305
+ U Advect 25.456491
+ V Advect 24.484699
+ Project 155.503601
+ D Diffuse 117.262695
+ D Advect 29.118599
+ TOTAL TIME 915.141785
+_______________________________________
+VEL: Diffuse U: 1.726300
+VEL Diffuse V: 1.565500
+VEL Project: 1.963500
+VEL Advect U :  0.299000
+VEL Advect V: 0.211100
+D Diffuse: 1.820500
+D Advect: 0.469900
+Time to run in milliseconds: 11.761400
+_____________________________________________________________________________
+ Frame totals 90
+ U Diffuse 129.617416
+ V Diffuse 128.940811
+ U Advect 25.755491
+ V Advect 24.695799
+ Project 157.467102
+ D Diffuse 119.083199
+ D Advect 29.588499
+ TOTAL TIME 926.903198
+_______________________________________
+VEL: Diffuse U: 2.188600
+VEL Diffuse V: 1.568300
+VEL Project: 1.925800
+VEL Advect U :  0.303000
+VEL Advect V: 0.219100
+D Diffuse: 1.562200
+D Advect: 0.406400
+Time to run in milliseconds: 15.374500
+_____________________________________________________________________________
+ Frame totals 91
+ U Diffuse 131.806015
+ V Diffuse 130.509109
+ U Advect 26.058491
+ V Advect 24.914898
+ Project 159.392899
+ D Diffuse 120.645401
+ D Advect 29.994900
+ TOTAL TIME 942.277710
+_______________________________________
+VEL: Diffuse U: 1.659800
+VEL Diffuse V: 1.528100
+VEL Project: 2.564500
+VEL Advect U :  0.308200
+VEL Advect V: 0.240300
+D Diffuse: 1.691900
+D Advect: 0.269000
+Time to run in milliseconds: 12.040900
+_____________________________________________________________________________
+ Frame totals 92
+ U Diffuse 133.465820
+ V Diffuse 132.037216
+ U Advect 26.366692
+ V Advect 25.155197
+ Project 161.957397
+ D Diffuse 122.337303
+ D Advect 30.263899
+ TOTAL TIME 954.318604
+_______________________________________
+VEL: Diffuse U: 1.424200
+VEL Diffuse V: 1.578500
+VEL Project: 1.567500
+VEL Advect U :  0.280600
+VEL Advect V: 0.353000
+D Diffuse: 1.476600
+D Advect: 0.426500
+Time to run in milliseconds: 10.544400
+_____________________________________________________________________________
+ Frame totals 93
+ U Diffuse 134.890015
+ V Diffuse 133.615723
+ U Advect 26.647291
+ V Advect 25.508198
+ Project 163.524902
+ D Diffuse 123.813904
+ D Advect 30.690399
+ TOTAL TIME 964.862976
+_______________________________________
+VEL: Diffuse U: 1.663700
+VEL Diffuse V: 1.659600
+VEL Project: 2.179600
+VEL Advect U :  0.296800
+VEL Advect V: 0.329900
+D Diffuse: 1.778400
+D Advect: 0.411000
+Time to run in milliseconds: 12.245400
+_____________________________________________________________________________
+ Frame totals 94
+ U Diffuse 136.553711
+ V Diffuse 135.275330
+ U Advect 26.944092
+ V Advect 25.838099
+ Project 165.704498
+ D Diffuse 125.592300
+ D Advect 31.101398
+ TOTAL TIME 977.108398
+_______________________________________
+VEL: Diffuse U: 1.574800
+VEL Diffuse V: 1.577200
+VEL Project: 1.983700
+VEL Advect U :  0.282100
+VEL Advect V: 0.208500
+D Diffuse: 1.660200
+D Advect: 0.395600
+Time to run in milliseconds: 12.001600
+_____________________________________________________________________________
+ Frame totals 95
+ U Diffuse 138.128510
+ V Diffuse 136.852524
+ U Advect 27.226192
+ V Advect 26.046598
+ Project 167.688202
+ D Diffuse 127.252502
+ D Advect 31.496998
+ TOTAL TIME 989.109985
+_______________________________________
+VEL: Diffuse U: 1.324200
+VEL Diffuse V: 1.609900
+VEL Project: 2.658700
+VEL Advect U :  0.265000
+VEL Advect V: 0.378600
+D Diffuse: 1.603800
+D Advect: 0.378100
+Time to run in milliseconds: 13.944300
+_____________________________________________________________________________
+ Frame totals 96
+ U Diffuse 139.452713
+ V Diffuse 138.462418
+ U Advect 27.491192
+ V Advect 26.425198
+ Project 170.346909
+ D Diffuse 128.856308
+ D Advect 31.875097
+ TOTAL TIME 1003.054260
+_______________________________________
+VEL: Diffuse U: 1.685100
+VEL Diffuse V: 1.515800
+VEL Project: 2.159100
+VEL Advect U :  0.318600
+VEL Advect V: 0.370600
+D Diffuse: 1.319700
+D Advect: 0.314300
+Time to run in milliseconds: 11.174200
+_____________________________________________________________________________
+ Frame totals 97
+ U Diffuse 141.137817
+ V Diffuse 139.978210
+ U Advect 27.809792
+ V Advect 26.795797
+ Project 172.506012
+ D Diffuse 130.176010
+ D Advect 32.189396
+ TOTAL TIME 1014.228455
+_______________________________________
+VEL: Diffuse U: 1.576100
+VEL Diffuse V: 1.814200
+VEL Project: 2.288500
+VEL Advect U :  0.322300
+VEL Advect V: 0.205200
+D Diffuse: 1.531100
+D Advect: 0.310000
+Time to run in milliseconds: 10.935200
+_____________________________________________________________________________
+ Frame totals 98
+ U Diffuse 142.713913
+ V Diffuse 141.792404
+ U Advect 28.132092
+ V Advect 27.000998
+ Project 174.794510
+ D Diffuse 131.707108
+ D Advect 32.499397
+ TOTAL TIME 1025.163696
+_______________________________________
+VEL: Diffuse U: 1.617400
+VEL Diffuse V: 1.546800
+VEL Project: 1.603100
+VEL Advect U :  0.296200
+VEL Advect V: 0.208800
+D Diffuse: 1.701900
+D Advect: 0.411100
+Time to run in milliseconds: 10.904900
+_____________________________________________________________________________
+ Frame totals 99
+ U Diffuse 144.331314
+ V Diffuse 143.339203
+ U Advect 28.428291
+ V Advect 27.209797
+ Project 176.397614
+ D Diffuse 133.409012
+ D Advect 32.910496
+ TOTAL TIME 1036.068604
+_______________________________________
+VEL: Diffuse U: 1.572000
+VEL Diffuse V: 1.318500
+VEL Project: 2.474400
+VEL Advect U :  0.298500
+VEL Advect V: 0.232700
+D Diffuse: 1.712600
+D Advect: 0.307700
+Time to run in milliseconds: 12.542300
+_____________________________________________________________________________
+ Frame totals 100
+ U Diffuse 145.903320
+ V Diffuse 144.657700
+ U Advect 28.726791
+ V Advect 27.442497
+ Project 178.872009
+ D Diffuse 135.121613
+ D Advect 33.218197
+ TOTAL TIME 1048.610962
+_______________________________________
+VEL: Diffuse U: 1.931600
+VEL Diffuse V: 1.627400
+VEL Project: 2.192600
+VEL Advect U :  0.295700
+VEL Advect V: 0.182300
+D Diffuse: 1.362300
+D Advect: 0.360300
+Time to run in milliseconds: 11.990900
+_____________________________________________________________________________
+ Frame totals 101
+ U Diffuse 147.834915
+ V Diffuse 146.285095
+ U Advect 29.022491
+ V Advect 27.624798
+ Project 181.064606
+ D Diffuse 136.483917
+ D Advect 33.578495
+ TOTAL TIME 1060.601807
+_______________________________________
+VEL: Diffuse U: 1.802000
+VEL Diffuse V: 1.781200
+VEL Project: 2.404000
+VEL Advect U :  0.277000
+VEL Advect V: 0.250100
+D Diffuse: 1.622300
+D Advect: 0.586000
+Time to run in milliseconds: 12.784000
+_____________________________________________________________________________
+ Frame totals 102
+ U Diffuse 149.636917
+ V Diffuse 148.066299
+ U Advect 29.299492
+ V Advect 27.874897
+ Project 183.468613
+ D Diffuse 138.106216
+ D Advect 34.164494
+ TOTAL TIME 1073.385864
+_______________________________________
+VEL: Diffuse U: 1.739400
+VEL Diffuse V: 1.654200
+VEL Project: 2.080800
+VEL Advect U :  0.252800
+VEL Advect V: 0.220400
+D Diffuse: 1.641300
+D Advect: 0.279700
+Time to run in milliseconds: 12.128000
+_____________________________________________________________________________
+ Frame totals 103
+ U Diffuse 151.376312
+ V Diffuse 149.720505
+ U Advect 29.552292
+ V Advect 28.095297
+ Project 185.549408
+ D Diffuse 139.747513
+ D Advect 34.444195
+ TOTAL TIME 1085.513916
+_______________________________________
+VEL: Diffuse U: 1.884400
+VEL Diffuse V: 2.134600
+VEL Project: 2.446300
+VEL Advect U :  0.305800
+VEL Advect V: 0.297100
+D Diffuse: 2.238000
+D Advect: 0.597100
+Time to run in milliseconds: 14.473600
+_____________________________________________________________________________
+ Frame totals 104
+ U Diffuse 153.260712
+ V Diffuse 151.855103
+ U Advect 29.858091
+ V Advect 28.392397
+ Project 187.995712
+ D Diffuse 141.985519
+ D Advect 35.041294
+ TOTAL TIME 1099.987549
+_______________________________________
+VEL: Diffuse U: 2.115600
+VEL Diffuse V: 2.590200
+VEL Project: 2.774800
+VEL Advect U :  0.326500
+VEL Advect V: 0.299300
+D Diffuse: 1.581400
+D Advect: 0.418800
+Time to run in milliseconds: 14.259000
+_____________________________________________________________________________
+ Frame totals 105
+ U Diffuse 155.376312
+ V Diffuse 154.445297
+ U Advect 30.184591
+ V Advect 28.691696
+ Project 190.770508
+ D Diffuse 143.566925
+ D Advect 35.460094
+ TOTAL TIME 1114.246582
+_______________________________________
+VEL: Diffuse U: 2.120500
+VEL Diffuse V: 1.745400
+VEL Project: 2.098900
+VEL Advect U :  0.303500
+VEL Advect V: 0.373100
+D Diffuse: 2.051800
+D Advect: 0.503900
+Time to run in milliseconds: 13.316500
+_____________________________________________________________________________
+ Frame totals 106
+ U Diffuse 157.496811
+ V Diffuse 156.190704
+ U Advect 30.488091
+ V Advect 29.064796
+ Project 192.869415
+ D Diffuse 145.618729
+ D Advect 35.963993
+ TOTAL TIME 1127.563110
+_______________________________________
+VEL: Diffuse U: 2.121400
+VEL Diffuse V: 1.851300
+VEL Project: 2.942900
+VEL Advect U :  0.289500
+VEL Advect V: 0.249600
+D Diffuse: 2.036900
+D Advect: 0.535100
+Time to run in milliseconds: 14.537300
+_____________________________________________________________________________
+ Frame totals 107
+ U Diffuse 159.618210
+ V Diffuse 158.042007
+ U Advect 30.777590
+ V Advect 29.314396
+ Project 195.812317
+ D Diffuse 147.655624
+ D Advect 36.499092
+ TOTAL TIME 1142.100464
+_______________________________________
+VEL: Diffuse U: 1.531100
+VEL Diffuse V: 2.548200
+VEL Project: 2.776700
+VEL Advect U :  0.424100
+VEL Advect V: 0.247600
+D Diffuse: 2.384500
+D Advect: 0.419800
+Time to run in milliseconds: 15.357200
+_____________________________________________________________________________
+ Frame totals 108
+ U Diffuse 161.149307
+ V Diffuse 160.590210
+ U Advect 31.201691
+ V Advect 29.561996
+ Project 198.589020
+ D Diffuse 150.040131
+ D Advect 36.918892
+ TOTAL TIME 1157.457642
+_______________________________________
+VEL: Diffuse U: 1.968300
+VEL Diffuse V: 1.823700
+VEL Project: 2.667300
+VEL Advect U :  0.335300
+VEL Advect V: 0.315800
+D Diffuse: 1.411600
+D Advect: 0.433600
+Time to run in milliseconds: 12.918700
+_____________________________________________________________________________
+ Frame totals 109
+ U Diffuse 163.117615
+ V Diffuse 162.413910
+ U Advect 31.536991
+ V Advect 29.877796
+ Project 201.256317
+ D Diffuse 151.451736
+ D Advect 37.352493
+ TOTAL TIME 1170.376343
+_______________________________________
+VEL: Diffuse U: 2.692700
+VEL Diffuse V: 2.295600
+VEL Project: 3.295400
+VEL Advect U :  0.451700
+VEL Advect V: 0.393700
+D Diffuse: 2.081100
+D Advect: 0.561800
+Time to run in milliseconds: 16.858000
+_____________________________________________________________________________
+ Frame totals 110
+ U Diffuse 165.810318
+ V Diffuse 164.709503
+ U Advect 31.988691
+ V Advect 30.271496
+ Project 204.551712
+ D Diffuse 153.532837
+ D Advect 37.914291
+ TOTAL TIME 1187.234375
+_______________________________________
+VEL: Diffuse U: 2.437900
+VEL Diffuse V: 2.369500
+VEL Project: 2.996500
+VEL Advect U :  0.274300
+VEL Advect V: 0.347200
+D Diffuse: 1.587200
+D Advect: 0.298100
+Time to run in milliseconds: 15.149000
+_____________________________________________________________________________
+ Frame totals 111
+ U Diffuse 168.248215
+ V Diffuse 167.079010
+ U Advect 32.262993
+ V Advect 30.618696
+ Project 207.548218
+ D Diffuse 155.120041
+ D Advect 38.212391
+ TOTAL TIME 1202.383423
+_______________________________________
+VEL: Diffuse U: 1.603400
+VEL Diffuse V: 1.984900
+VEL Project: 2.939600
+VEL Advect U :  0.378500
+VEL Advect V: 0.309300
+D Diffuse: 1.724100
+D Advect: 0.587800
+Time to run in milliseconds: 14.691200
+_____________________________________________________________________________
+ Frame totals 112
+ U Diffuse 169.851608
+ V Diffuse 169.063904
+ U Advect 32.641495
+ V Advect 30.927996
+ Project 210.487823
+ D Diffuse 156.844147
+ D Advect 38.800190
+ TOTAL TIME 1217.074585
+_______________________________________
+VEL: Diffuse U: 2.055600
+VEL Diffuse V: 2.250100
+VEL Project: 2.733300
+VEL Advect U :  0.283600
+VEL Advect V: 0.504300
+D Diffuse: 1.907800
+D Advect: 0.519700
+Time to run in milliseconds: 15.375000
+_____________________________________________________________________________
+ Frame totals 113
+ U Diffuse 171.907211
+ V Diffuse 171.314011
+ U Advect 32.925095
+ V Advect 31.432295
+ Project 213.221130
+ D Diffuse 158.751953
+ D Advect 39.319889
+ TOTAL TIME 1232.449585
+_______________________________________
+VEL: Diffuse U: 1.487000
+VEL Diffuse V: 2.002400
+VEL Project: 2.602500
+VEL Advect U :  0.367700
+VEL Advect V: 0.296800
+D Diffuse: 1.849300
+D Advect: 0.493000
+Time to run in milliseconds: 14.025600
+_____________________________________________________________________________
+ Frame totals 114
+ U Diffuse 173.394211
+ V Diffuse 173.316406
+ U Advect 33.292793
+ V Advect 31.729095
+ Project 215.823624
+ D Diffuse 160.601257
+ D Advect 39.812889
+ TOTAL TIME 1246.475220
+_______________________________________
+VEL: Diffuse U: 1.994500
+VEL Diffuse V: 1.657800
+VEL Project: 2.874400
+VEL Advect U :  0.366100
+VEL Advect V: 0.334300
+D Diffuse: 1.771800
+D Advect: 0.510000
+Time to run in milliseconds: 14.574400
+_____________________________________________________________________________
+ Frame totals 115
+ U Diffuse 175.388718
+ V Diffuse 174.974213
+ U Advect 33.658894
+ V Advect 32.063396
+ Project 218.698029
+ D Diffuse 162.373062
+ D Advect 40.322887
+ TOTAL TIME 1261.049561
+_______________________________________
+VEL: Diffuse U: 1.658300
+VEL Diffuse V: 2.128000
+VEL Project: 2.705500
+VEL Advect U :  0.411100
+VEL Advect V: 0.345700
+D Diffuse: 2.072400
+D Advect: 0.453100
+Time to run in milliseconds: 14.521800
+_____________________________________________________________________________
+ Frame totals 116
+ U Diffuse 177.047012
+ V Diffuse 177.102219
+ U Advect 34.069992
+ V Advect 32.409096
+ Project 221.403534
+ D Diffuse 164.445465
+ D Advect 40.775986
+ TOTAL TIME 1275.571411
+_______________________________________
+VEL: Diffuse U: 2.928900
+VEL Diffuse V: 2.378700
+VEL Project: 2.357900
+VEL Advect U :  0.410200
+VEL Advect V: 0.566100
+D Diffuse: 2.463600
+D Advect: 0.510500
+Time to run in milliseconds: 17.204399
+_____________________________________________________________________________
+ Frame totals 117
+ U Diffuse 179.975906
+ V Diffuse 179.480911
+ U Advect 34.480190
+ V Advect 32.975197
+ Project 223.761429
+ D Diffuse 166.909058
+ D Advect 41.286488
+ TOTAL TIME 1292.775757
+_______________________________________
+VEL: Diffuse U: 2.109500
+VEL Diffuse V: 2.042700
+VEL Project: 3.042500
+VEL Advect U :  0.272300
+VEL Advect V: 0.296200
+D Diffuse: 1.488700
+D Advect: 0.438300
+Time to run in milliseconds: 13.702800
+_____________________________________________________________________________
+ Frame totals 118
+ U Diffuse 182.085403
+ V Diffuse 181.523605
+ U Advect 34.752491
+ V Advect 33.271397
+ Project 226.803925
+ D Diffuse 168.397751
+ D Advect 41.724789
+ TOTAL TIME 1306.478516
+_______________________________________
+VEL: Diffuse U: 1.569000
+VEL Diffuse V: 1.713800
+VEL Project: 2.913500
+VEL Advect U :  0.403500
+VEL Advect V: 0.525000
+D Diffuse: 2.079200
+D Advect: 0.506200
+Time to run in milliseconds: 14.613200
+_____________________________________________________________________________
+ Frame totals 119
+ U Diffuse 183.654404
+ V Diffuse 183.237411
+ U Advect 35.155991
+ V Advect 33.796398
+ Project 229.717422
+ D Diffuse 170.476944
+ D Advect 42.230988
+ TOTAL TIME 1321.091675
+_______________________________________
+VEL: Diffuse U: 2.018800
+VEL Diffuse V: 1.761800
+VEL Project: 2.663000
+VEL Advect U :  0.329500
+VEL Advect V: 0.313200
+D Diffuse: 1.769300
+D Advect: 0.506400
+Time to run in milliseconds: 14.050300
+_____________________________________________________________________________
+ Frame totals 120
+ U Diffuse 185.673203
+ V Diffuse 184.999207
+ U Advect 35.485489
+ V Advect 34.109596
+ Project 232.380417
+ D Diffuse 172.246246
+ D Advect 42.737389
+ TOTAL TIME 1335.141968
+_______________________________________
+VEL: Diffuse U: 1.643700
+VEL Diffuse V: 1.952600
+VEL Project: 2.612600
+VEL Advect U :  0.279700
+VEL Advect V: 0.447600
+D Diffuse: 1.472000
+D Advect: 0.354700
+Time to run in milliseconds: 12.600900
+_____________________________________________________________________________
+ Frame totals 121
+ U Diffuse 187.316910
+ V Diffuse 186.951813
+ U Advect 35.765190
+ V Advect 34.557198
+ Project 234.993011
+ D Diffuse 173.718246
+ D Advect 43.092087
+ TOTAL TIME 1347.742920
+_______________________________________
+VEL: Diffuse U: 2.352300
+VEL Diffuse V: 2.104400
+VEL Project: 2.267500
+VEL Advect U :  0.418300
+VEL Advect V: 0.378000
+D Diffuse: 2.029600
+D Advect: 0.465200
+Time to run in milliseconds: 14.628400
+_____________________________________________________________________________
+ Frame totals 122
+ U Diffuse 189.669205
+ V Diffuse 189.056213
+ U Advect 36.183491
+ V Advect 34.935196
+ Project 237.260513
+ D Diffuse 175.747849
+ D Advect 43.557285
+ TOTAL TIME 1362.371338
+_______________________________________
+VEL: Diffuse U: 2.360600
+VEL Diffuse V: 1.915700
+VEL Project: 2.628600
+VEL Advect U :  0.320200
+VEL Advect V: 0.295900
+D Diffuse: 1.772400
+D Advect: 0.415000
+Time to run in milliseconds: 14.017200
+_____________________________________________________________________________
+ Frame totals 123
+ U Diffuse 192.029800
+ V Diffuse 190.971909
+ U Advect 36.503693
+ V Advect 35.231094
+ Project 239.889114
+ D Diffuse 177.520248
+ D Advect 43.972286
+ TOTAL TIME 1376.388550
+_______________________________________
+VEL: Diffuse U: 1.867100
+VEL Diffuse V: 1.770200
+VEL Project: 3.131600
+VEL Advect U :  0.481200
+VEL Advect V: 0.445300
+D Diffuse: 1.926900
+D Advect: 0.471100
+Time to run in milliseconds: 15.531300
+_____________________________________________________________________________
+ Frame totals 124
+ U Diffuse 193.896896
+ V Diffuse 192.742111
+ U Advect 36.984894
+ V Advect 35.676395
+ Project 243.020721
+ D Diffuse 179.447144
+ D Advect 44.443386
+ TOTAL TIME 1391.919800
+_______________________________________
+VEL: Diffuse U: 2.739000
+VEL Diffuse V: 3.000100
+VEL Project: 2.794300
+VEL Advect U :  0.390800
+VEL Advect V: 0.414100
+D Diffuse: 1.923200
+D Advect: 0.427700
+Time to run in milliseconds: 16.731899
+_____________________________________________________________________________
+ Frame totals 125
+ U Diffuse 196.635895
+ V Diffuse 195.742218
+ U Advect 37.375694
+ V Advect 36.090496
+ Project 245.815018
+ D Diffuse 181.370346
+ D Advect 44.871086
+ TOTAL TIME 1408.651733
+_______________________________________
+VEL: Diffuse U: 1.746800
+VEL Diffuse V: 2.064800
+VEL Project: 2.751200
+VEL Advect U :  0.427300
+VEL Advect V: 0.351200
+D Diffuse: 2.306300
+D Advect: 0.563400
+Time to run in milliseconds: 15.786700
+_____________________________________________________________________________
+ Frame totals 126
+ U Diffuse 198.382690
+ V Diffuse 197.807022
+ U Advect 37.802994
+ V Advect 36.441696
+ Project 248.566223
+ D Diffuse 183.676651
+ D Advect 45.434486
+ TOTAL TIME 1424.438477
+_______________________________________
+VEL: Diffuse U: 1.915200
+VEL Diffuse V: 1.453100
+VEL Project: 2.556000
+VEL Advect U :  0.275300
+VEL Advect V: 0.233200
+D Diffuse: 1.712900
+D Advect: 0.503800
+Time to run in milliseconds: 12.994900
+_____________________________________________________________________________
+ Frame totals 127
+ U Diffuse 200.297897
+ V Diffuse 199.260117
+ U Advect 38.078293
+ V Advect 36.674896
+ Project 251.122223
+ D Diffuse 185.389557
+ D Advect 45.938286
+ TOTAL TIME 1437.433350
+_______________________________________
+VEL: Diffuse U: 1.920400
+VEL Diffuse V: 2.299500
+VEL Project: 2.850100
+VEL Advect U :  0.375900
+VEL Advect V: 0.392000
+D Diffuse: 2.004300
+D Advect: 0.315200
+Time to run in milliseconds: 14.918300
+_____________________________________________________________________________
+ Frame totals 128
+ U Diffuse 202.218292
+ V Diffuse 201.559616
+ U Advect 38.454193
+ V Advect 37.066895
+ Project 253.972321
+ D Diffuse 187.393860
+ D Advect 46.253487
+ TOTAL TIME 1452.351685
+_______________________________________
+VEL: Diffuse U: 1.631900
+VEL Diffuse V: 2.057300
+VEL Project: 2.661700
+VEL Advect U :  0.437000
+VEL Advect V: 0.384000
+D Diffuse: 1.760900
+D Advect: 0.388600
+Time to run in milliseconds: 13.915000
+_____________________________________________________________________________
+ Frame totals 129
+ U Diffuse 203.850189
+ V Diffuse 203.616913
+ U Advect 38.891193
+ V Advect 37.450893
+ Project 256.634033
+ D Diffuse 189.154755
+ D Advect 46.642086
+ TOTAL TIME 1466.266724
+_______________________________________
+VEL: Diffuse U: 1.595700
+VEL Diffuse V: 2.290100
+VEL Project: 2.524600
+VEL Advect U :  0.364600
+VEL Advect V: 0.269300
+D Diffuse: 1.537700
+D Advect: 0.421900
+Time to run in milliseconds: 12.971600
+_____________________________________________________________________________
+ Frame totals 130
+ U Diffuse 205.445892
+ V Diffuse 205.907013
+ U Advect 39.255795
+ V Advect 37.720192
+ Project 259.158630
+ D Diffuse 190.692459
+ D Advect 47.063988
+ TOTAL TIME 1479.238281
+_______________________________________
+VEL: Diffuse U: 1.553300
+VEL Diffuse V: 2.335700
+VEL Project: 2.289000
+VEL Advect U :  0.328300
+VEL Advect V: 0.261600
+D Diffuse: 1.563900
+D Advect: 0.415400
+Time to run in milliseconds: 13.187000
+_____________________________________________________________________________
+ Frame totals 131
+ U Diffuse 206.999191
+ V Diffuse 208.242706
+ U Advect 39.584095
+ V Advect 37.981792
+ Project 261.447632
+ D Diffuse 192.256363
+ D Advect 47.479389
+ TOTAL TIME 1492.425293
+_______________________________________
+VEL: Diffuse U: 1.817600
+VEL Diffuse V: 1.555800
+VEL Project: 2.715100
+VEL Advect U :  0.258200
+VEL Advect V: 0.245700
+D Diffuse: 1.781900
+D Advect: 0.525600
+Time to run in milliseconds: 13.108000
+_____________________________________________________________________________
+ Frame totals 132
+ U Diffuse 208.816788
+ V Diffuse 209.798508
+ U Advect 39.842297
+ V Advect 38.227493
+ Project 264.162720
+ D Diffuse 194.038269
+ D Advect 48.004990
+ TOTAL TIME 1505.533325
+_______________________________________
+VEL: Diffuse U: 2.522700
+VEL Diffuse V: 2.295200
+VEL Project: 2.780200
+VEL Advect U :  0.492200
+VEL Advect V: 0.345400
+D Diffuse: 2.204400
+D Advect: 0.465600
+Time to run in milliseconds: 17.241100
+_____________________________________________________________________________
+ Frame totals 133
+ U Diffuse 211.339493
+ V Diffuse 212.093704
+ U Advect 40.334496
+ V Advect 38.572895
+ Project 266.942932
+ D Diffuse 196.242676
+ D Advect 48.470589
+ TOTAL TIME 1522.774414
+_______________________________________
+VEL: Diffuse U: 2.244400
+VEL Diffuse V: 2.118900
+VEL Project: 2.623200
+VEL Advect U :  0.373500
+VEL Advect V: 0.563400
+D Diffuse: 2.104000
+D Advect: 0.552700
+Time to run in milliseconds: 15.379300
+_____________________________________________________________________________
+ Frame totals 134
+ U Diffuse 213.583893
+ V Diffuse 214.212601
+ U Advect 40.707996
+ V Advect 39.136295
+ Project 269.566132
+ D Diffuse 198.346680
+ D Advect 49.023289
+ TOTAL TIME 1538.153687
+_______________________________________
+VEL: Diffuse U: 1.492500
+VEL Diffuse V: 2.420900
+VEL Project: 2.811200
+VEL Advect U :  0.391400
+VEL Advect V: 0.198600
+D Diffuse: 1.726500
+D Advect: 0.391200
+Time to run in milliseconds: 13.946900
+_____________________________________________________________________________
+ Frame totals 135
+ U Diffuse 215.076385
+ V Diffuse 216.633499
+ U Advect 41.099396
+ V Advect 39.334896
+ Project 272.377319
+ D Diffuse 200.073181
+ D Advect 49.414490
+ TOTAL TIME 1552.100586
+_______________________________________
+VEL: Diffuse U: 1.468600
+VEL Diffuse V: 1.572800
+VEL Project: 2.657900
+VEL Advect U :  0.320900
+VEL Advect V: 0.360200
+D Diffuse: 2.329000
+D Advect: 0.762300
+Time to run in milliseconds: 14.600400
+_____________________________________________________________________________
+ Frame totals 136
+ U Diffuse 216.544983
+ V Diffuse 218.206299
+ U Advect 41.420296
+ V Advect 39.695095
+ Project 275.035217
+ D Diffuse 202.402176
+ D Advect 50.176788
+ TOTAL TIME 1566.700928
+_______________________________________
+VEL: Diffuse U: 1.930500
+VEL Diffuse V: 2.391900
+VEL Project: 2.674900
+VEL Advect U :  0.338300
+VEL Advect V: 0.343100
+D Diffuse: 1.728600
+D Advect: 0.431300
+Time to run in milliseconds: 13.851500
+_____________________________________________________________________________
+ Frame totals 137
+ U Diffuse 218.475479
+ V Diffuse 220.598206
+ U Advect 41.758595
+ V Advect 40.038197
+ Project 277.710114
+ D Diffuse 204.130783
+ D Advect 50.608089
+ TOTAL TIME 1580.552368
+_______________________________________
+VEL: Diffuse U: 1.489300
+VEL Diffuse V: 1.761700
+VEL Project: 2.225500
+VEL Advect U :  0.370500
+VEL Advect V: 0.383000
+D Diffuse: 1.503900
+D Advect: 0.346300
+Time to run in milliseconds: 12.289300
+_____________________________________________________________________________
+ Frame totals 138
+ U Diffuse 219.964783
+ V Diffuse 222.359909
+ U Advect 42.129093
+ V Advect 40.421196
+ Project 279.935608
+ D Diffuse 205.634689
+ D Advect 50.954388
+ TOTAL TIME 1592.841675
+_______________________________________
+VEL: Diffuse U: 1.469600
+VEL Diffuse V: 1.676600
+VEL Project: 2.011600
+VEL Advect U :  0.444500
+VEL Advect V: 0.573300
+D Diffuse: 1.750200
+D Advect: 0.405000
+Time to run in milliseconds: 12.587500
+_____________________________________________________________________________
+ Frame totals 139
+ U Diffuse 221.434387
+ V Diffuse 224.036514
+ U Advect 42.573593
+ V Advect 40.994495
+ Project 281.947205
+ D Diffuse 207.384888
+ D Advect 51.359386
+ TOTAL TIME 1605.429199
+_______________________________________
+VEL: Diffuse U: 1.481900
+VEL Diffuse V: 2.572800
+VEL Project: 2.568900
+VEL Advect U :  0.318900
+VEL Advect V: 0.395000
+D Diffuse: 1.800700
+D Advect: 0.469200
+Time to run in milliseconds: 14.473800
+_____________________________________________________________________________
+ Frame totals 140
+ U Diffuse 222.916290
+ V Diffuse 226.609314
+ U Advect 42.892494
+ V Advect 41.389496
+ Project 284.516113
+ D Diffuse 209.185593
+ D Advect 51.828587
+ TOTAL TIME 1619.902954
+_______________________________________
+VEL: Diffuse U: 1.493700
+VEL Diffuse V: 2.161200
+VEL Project: 2.686100
+VEL Advect U :  0.280300
+VEL Advect V: 0.204500
+D Diffuse: 1.705700
+D Advect: 0.297200
+Time to run in milliseconds: 13.257200
+_____________________________________________________________________________
+ Frame totals 141
+ U Diffuse 224.409988
+ V Diffuse 228.770508
+ U Advect 43.172794
+ V Advect 41.593994
+ Project 287.202209
+ D Diffuse 210.891296
+ D Advect 52.125786
+ TOTAL TIME 1633.160156
+_______________________________________
+VEL: Diffuse U: 2.238300
+VEL Diffuse V: 2.384700
+VEL Project: 2.756300
+VEL Advect U :  0.333400
+VEL Advect V: 0.244600
+D Diffuse: 1.877100
+D Advect: 0.463400
+Time to run in milliseconds: 15.135200
+_____________________________________________________________________________
+ Frame totals 142
+ U Diffuse 226.648285
+ V Diffuse 231.155212
+ U Advect 43.506195
+ V Advect 41.838593
+ Project 289.958496
+ D Diffuse 212.768402
+ D Advect 52.589188
+ TOTAL TIME 1648.295410
+_______________________________________
+VEL: Diffuse U: 1.859400
+VEL Diffuse V: 1.898000
+VEL Project: 2.936500
+VEL Advect U :  0.359300
+VEL Advect V: 0.463900
+D Diffuse: 2.046100
+D Advect: 0.475300
+Time to run in milliseconds: 14.777500
+_____________________________________________________________________________
+ Frame totals 143
+ U Diffuse 228.507690
+ V Diffuse 233.053207
+ U Advect 43.865494
+ V Advect 42.302494
+ Project 292.894989
+ D Diffuse 214.814499
+ D Advect 53.064487
+ TOTAL TIME 1663.072876
+_______________________________________
+VEL: Diffuse U: 1.993200
+VEL Diffuse V: 2.078500
+VEL Project: 2.632900
+VEL Advect U :  0.279900
+VEL Advect V: 0.218300
+D Diffuse: 1.527200
+D Advect: 0.450500
+Time to run in milliseconds: 13.886700
+_____________________________________________________________________________
+ Frame totals 144
+ U Diffuse 230.500885
+ V Diffuse 235.131714
+ U Advect 44.145393
+ V Advect 42.520794
+ Project 295.527893
+ D Diffuse 216.341705
+ D Advect 53.514988
+ TOTAL TIME 1676.959595
+_______________________________________
+VEL: Diffuse U: 1.476900
+VEL Diffuse V: 2.162400
+VEL Project: 2.780700
+VEL Advect U :  0.324500
+VEL Advect V: 0.317900
+D Diffuse: 1.719300
+D Advect: 0.394700
+Time to run in milliseconds: 13.852500
+_____________________________________________________________________________
+ Frame totals 145
+ U Diffuse 231.977783
+ V Diffuse 237.294113
+ U Advect 44.469894
+ V Advect 42.838696
+ Project 298.308594
+ D Diffuse 218.061005
+ D Advect 53.909687
+ TOTAL TIME 1690.812134
+_______________________________________
+VEL: Diffuse U: 1.833600
+VEL Diffuse V: 1.797600
+VEL Project: 2.375500
+VEL Advect U :  0.279700
+VEL Advect V: 0.291000
+D Diffuse: 1.570900
+D Advect: 0.267700
+Time to run in milliseconds: 12.380700
+_____________________________________________________________________________
+ Frame totals 146
+ U Diffuse 233.811386
+ V Diffuse 239.091721
+ U Advect 44.749596
+ V Advect 43.129696
+ Project 300.684082
+ D Diffuse 219.631897
+ D Advect 54.177387
+ TOTAL TIME 1703.192871
+_______________________________________
+VEL: Diffuse U: 1.760600
+VEL Diffuse V: 2.873000
+VEL Project: 2.986600
+VEL Advect U :  0.330400
+VEL Advect V: 0.297100
+D Diffuse: 2.086500
+D Advect: 0.581900
+Time to run in milliseconds: 14.942600
+_____________________________________________________________________________
+ Frame totals 147
+ U Diffuse 235.571991
+ V Diffuse 241.964722
+ U Advect 45.079994
+ V Advect 43.426796
+ Project 303.670685
+ D Diffuse 221.718399
+ D Advect 54.759289
+ TOTAL TIME 1718.135498
+_______________________________________
+VEL: Diffuse U: 1.776400
+VEL Diffuse V: 2.286600
+VEL Project: 2.685300
+VEL Advect U :  0.333600
+VEL Advect V: 0.247700
+D Diffuse: 2.113300
+D Advect: 0.419200
+Time to run in milliseconds: 14.222400
+_____________________________________________________________________________
+ Frame totals 148
+ U Diffuse 237.348389
+ V Diffuse 244.251328
+ U Advect 45.413593
+ V Advect 43.674496
+ Project 306.355988
+ D Diffuse 223.831696
+ D Advect 55.178490
+ TOTAL TIME 1732.357910
+_______________________________________
+VEL: Diffuse U: 1.970300
+VEL Diffuse V: 2.173900
+VEL Project: 3.265900
+VEL Advect U :  0.277600
+VEL Advect V: 0.301100
+D Diffuse: 1.803500
+D Advect: 0.596400
+Time to run in milliseconds: 15.083500
+_____________________________________________________________________________
+ Frame totals 149
+ U Diffuse 239.318695
+ V Diffuse 246.425232
+ U Advect 45.691193
+ V Advect 43.975597
+ Project 309.621887
+ D Diffuse 225.635193
+ D Advect 55.774891
+ TOTAL TIME 1747.441406
+_______________________________________
+VEL: Diffuse U: 1.937500
+VEL Diffuse V: 1.675100
+VEL Project: 2.179400
+VEL Advect U :  0.243600
+VEL Advect V: 0.292100
+D Diffuse: 1.455000
+D Advect: 0.306600
+Time to run in milliseconds: 12.571000
+_____________________________________________________________________________
+ Frame totals 150
+ U Diffuse 241.256195
+ V Diffuse 248.100327
+ U Advect 45.934792
+ V Advect 44.267696
+ Project 311.801300
+ D Diffuse 227.090195
+ D Advect 56.081490
+ TOTAL TIME 1760.012451
+_______________________________________
+VEL: Diffuse U: 2.385900
+VEL Diffuse V: 2.366500
+VEL Project: 2.987900
+VEL Advect U :  0.476500
+VEL Advect V: 0.369000
+D Diffuse: 1.657600
+D Advect: 0.532300
+Time to run in milliseconds: 16.071899
+_____________________________________________________________________________
+ Frame totals 151
+ U Diffuse 243.642090
+ V Diffuse 250.466827
+ U Advect 46.411293
+ V Advect 44.636696
+ Project 314.789215
+ D Diffuse 228.747787
+ D Advect 56.613789
+ TOTAL TIME 1776.084351
+_______________________________________
+VEL: Diffuse U: 2.731100
+VEL Diffuse V: 3.014700
+VEL Project: 3.416300
+VEL Advect U :  0.421000
+VEL Advect V: 0.423600
+D Diffuse: 2.447700
+D Advect: 0.618200
+Time to run in milliseconds: 18.065500
+_____________________________________________________________________________
+ Frame totals 152
+ U Diffuse 246.373184
+ V Diffuse 253.481522
+ U Advect 46.832294
+ V Advect 45.060295
+ Project 318.205505
+ D Diffuse 231.195480
+ D Advect 57.231987
+ TOTAL TIME 1794.149902
+_______________________________________
+VEL: Diffuse U: 2.794600
+VEL Diffuse V: 2.612400
+VEL Project: 2.931800
+VEL Advect U :  0.470100
+VEL Advect V: 0.355000
+D Diffuse: 2.385700
+D Advect: 0.425800
+Time to run in milliseconds: 17.697500
+_____________________________________________________________________________
+ Frame totals 153
+ U Diffuse 249.167786
+ V Diffuse 256.093933
+ U Advect 47.302395
+ V Advect 45.415295
+ Project 321.137299
+ D Diffuse 233.581177
+ D Advect 57.657787
+ TOTAL TIME 1811.847412
+_______________________________________
+VEL: Diffuse U: 2.622800
+VEL Diffuse V: 2.350200
+VEL Project: 2.681800
+VEL Advect U :  0.423800
+VEL Advect V: 0.359300
+D Diffuse: 1.675300
+D Advect: 0.520300
+Time to run in milliseconds: 16.453501
+_____________________________________________________________________________
+ Frame totals 154
+ U Diffuse 251.790588
+ V Diffuse 258.444122
+ U Advect 47.726196
+ V Advect 45.774593
+ Project 323.819092
+ D Diffuse 235.256470
+ D Advect 58.178089
+ TOTAL TIME 1828.300903
+_______________________________________
+VEL: Diffuse U: 2.932800
+VEL Diffuse V: 2.152000
+VEL Project: 2.599700
+VEL Advect U :  0.323200
+VEL Advect V: 0.339600
+D Diffuse: 2.494300
+D Advect: 0.444800
+Time to run in milliseconds: 16.280500
+_____________________________________________________________________________
+ Frame totals 155
+ U Diffuse 254.723389
+ V Diffuse 260.596130
+ U Advect 48.049397
+ V Advect 46.114193
+ Project 326.418793
+ D Diffuse 237.750763
+ D Advect 58.622890
+ TOTAL TIME 1844.581421
+_______________________________________
+VEL: Diffuse U: 2.016200
+VEL Diffuse V: 1.822300
+VEL Project: 2.247100
+VEL Advect U :  0.274000
+VEL Advect V: 0.250800
+D Diffuse: 1.777600
+D Advect: 0.307200
+Time to run in milliseconds: 13.356200
+_____________________________________________________________________________
+ Frame totals 156
+ U Diffuse 256.739594
+ V Diffuse 262.418427
+ U Advect 48.323395
+ V Advect 46.364994
+ Project 328.665894
+ D Diffuse 239.528366
+ D Advect 58.930092
+ TOTAL TIME 1857.937622
+_______________________________________
+VEL: Diffuse U: 1.817300
+VEL Diffuse V: 1.878500
+VEL Project: 2.797100
+VEL Advect U :  0.528300
+VEL Advect V: 0.263300
+D Diffuse: 2.676100
+D Advect: 0.415500
+Time to run in milliseconds: 15.892700
+_____________________________________________________________________________
+ Frame totals 157
+ U Diffuse 258.556885
+ V Diffuse 264.296936
+ U Advect 48.851696
+ V Advect 46.628296
+ Project 331.462982
+ D Diffuse 242.204468
+ D Advect 59.345592
+ TOTAL TIME 1873.830322
+_______________________________________
+VEL: Diffuse U: 1.888300
+VEL Diffuse V: 2.038400
+VEL Project: 2.665400
+VEL Advect U :  0.352600
+VEL Advect V: 0.426200
+D Diffuse: 1.715300
+D Advect: 0.482200
+Time to run in milliseconds: 14.402600
+_____________________________________________________________________________
+ Frame totals 158
+ U Diffuse 260.445190
+ V Diffuse 266.335327
+ U Advect 49.204296
+ V Advect 47.054497
+ Project 334.128387
+ D Diffuse 243.919769
+ D Advect 59.827793
+ TOTAL TIME 1888.232910
+_______________________________________
+VEL: Diffuse U: 2.634400
+VEL Diffuse V: 1.717700
+VEL Project: 2.551100
+VEL Advect U :  0.282200
+VEL Advect V: 0.395100
+D Diffuse: 1.935300
+D Advect: 0.559200
+Time to run in milliseconds: 14.461700
+_____________________________________________________________________________
+ Frame totals 159
+ U Diffuse 263.079590
+ V Diffuse 268.053040
+ U Advect 49.486496
+ V Advect 47.449596
+ Project 336.679474
+ D Diffuse 245.855072
+ D Advect 60.386993
+ TOTAL TIME 1902.694580
+_______________________________________
+VEL: Diffuse U: 2.800000
+VEL Diffuse V: 1.821900
+VEL Project: 2.826300
+VEL Advect U :  0.322100
+VEL Advect V: 0.284100
+D Diffuse: 1.984500
+D Advect: 0.388500
+Time to run in milliseconds: 15.203800
+_____________________________________________________________________________
+ Frame totals 160
+ U Diffuse 265.879578
+ V Diffuse 269.874939
+ U Advect 49.808598
+ V Advect 47.733696
+ Project 339.505768
+ D Diffuse 247.839569
+ D Advect 60.775494
+ TOTAL TIME 1917.898438
+_______________________________________
+VEL: Diffuse U: 2.134600
+VEL Diffuse V: 2.015300
+VEL Project: 2.752500
+VEL Advect U :  0.426900
+VEL Advect V: 0.305300
+D Diffuse: 1.803600
+D Advect: 0.487200
+Time to run in milliseconds: 14.731500
+_____________________________________________________________________________
+ Frame totals 161
+ U Diffuse 268.014191
+ V Diffuse 271.890228
+ U Advect 50.235497
+ V Advect 48.038998
+ Project 342.258270
+ D Diffuse 249.643173
+ D Advect 61.262695
+ TOTAL TIME 1932.629883
+_______________________________________
+VEL: Diffuse U: 1.808300
+VEL Diffuse V: 1.860700
+VEL Project: 2.210700
+VEL Advect U :  0.303500
+VEL Advect V: 0.443300
+D Diffuse: 1.864700
+D Advect: 0.556700
+Time to run in milliseconds: 13.934400
+_____________________________________________________________________________
+ Frame totals 162
+ U Diffuse 269.822479
+ V Diffuse 273.750916
+ U Advect 50.538998
+ V Advect 48.482296
+ Project 344.468964
+ D Diffuse 251.507874
+ D Advect 61.819397
+ TOTAL TIME 1946.564331
+_______________________________________
+VEL: Diffuse U: 1.835100
+VEL Diffuse V: 1.575800
+VEL Project: 2.320700
+VEL Advect U :  0.279400
+VEL Advect V: 0.415200
+D Diffuse: 1.970000
+D Advect: 0.398900
+Time to run in milliseconds: 13.401000
+_____________________________________________________________________________
+ Frame totals 163
+ U Diffuse 271.657593
+ V Diffuse 275.326721
+ U Advect 50.818398
+ V Advect 48.897495
+ Project 346.789673
+ D Diffuse 253.477875
+ D Advect 62.218296
+ TOTAL TIME 1959.965332
+_______________________________________
+VEL: Diffuse U: 2.655300
+VEL Diffuse V: 2.285300
+VEL Project: 2.640200
+VEL Advect U :  0.528100
+VEL Advect V: 0.392200
+D Diffuse: 1.850400
+D Advect: 0.451700
+Time to run in milliseconds: 15.448100
+_____________________________________________________________________________
+ Frame totals 164
+ U Diffuse 274.312897
+ V Diffuse 277.612030
+ U Advect 51.346497
+ V Advect 49.289696
+ Project 349.429871
+ D Diffuse 255.328278
+ D Advect 62.669994
+ TOTAL TIME 1975.413452
+_______________________________________
+VEL: Diffuse U: 3.078300
+VEL Diffuse V: 1.963500
+VEL Project: 2.447900
+VEL Advect U :  0.272600
+VEL Advect V: 0.358000
+D Diffuse: 1.921200
+D Advect: 0.422600
+Time to run in milliseconds: 15.339700
+_____________________________________________________________________________
+ Frame totals 165
+ U Diffuse 277.391205
+ V Diffuse 279.575531
+ U Advect 51.619095
+ V Advect 49.647697
+ Project 351.877777
+ D Diffuse 257.249481
+ D Advect 63.092594
+ TOTAL TIME 1990.753174
+_______________________________________
+VEL: Diffuse U: 2.963900
+VEL Diffuse V: 2.201800
+VEL Project: 2.818500
+VEL Advect U :  0.314300
+VEL Advect V: 0.192600
+D Diffuse: 2.475400
+D Advect: 0.581800
+Time to run in milliseconds: 15.446100
+_____________________________________________________________________________
+ Frame totals 166
+ U Diffuse 280.355103
+ V Diffuse 281.777344
+ U Advect 51.933395
+ V Advect 49.840298
+ Project 354.696289
+ D Diffuse 259.724884
+ D Advect 63.674393
+ TOTAL TIME 2006.199219
+_______________________________________
+VEL: Diffuse U: 2.144900
+VEL Diffuse V: 1.737900
+VEL Project: 2.834700
+VEL Advect U :  0.521300
+VEL Advect V: 0.313400
+D Diffuse: 1.846900
+D Advect: 0.359600
+Time to run in milliseconds: 14.907400
+_____________________________________________________________________________
+ Frame totals 167
+ U Diffuse 282.500000
+ V Diffuse 283.515259
+ U Advect 52.454697
+ V Advect 50.153698
+ Project 357.530975
+ D Diffuse 261.571777
+ D Advect 64.033989
+ TOTAL TIME 2021.106567
+_______________________________________
+VEL: Diffuse U: 1.838800
+VEL Diffuse V: 1.984800
+VEL Project: 2.915400
+VEL Advect U :  0.628900
+VEL Advect V: 0.334200
+D Diffuse: 2.959900
+D Advect: 0.767800
+Time to run in milliseconds: 16.691299
+_____________________________________________________________________________
+ Frame totals 168
+ U Diffuse 284.338806
+ V Diffuse 285.500061
+ U Advect 53.083595
+ V Advect 50.487900
+ Project 360.446381
+ D Diffuse 264.531677
+ D Advect 64.801788
+ TOTAL TIME 2037.797852
+_______________________________________
+VEL: Diffuse U: 2.060800
+VEL Diffuse V: 2.235900
+VEL Project: 3.133300
+VEL Advect U :  0.272000
+VEL Advect V: 0.245400
+D Diffuse: 2.226100
+D Advect: 0.461100
+Time to run in milliseconds: 14.852700
+_____________________________________________________________________________
+ Frame totals 169
+ U Diffuse 286.399597
+ V Diffuse 287.735962
+ U Advect 53.355595
+ V Advect 50.733299
+ Project 363.579681
+ D Diffuse 266.757782
+ D Advect 65.262886
+ TOTAL TIME 2052.650635
+_______________________________________
+VEL: Diffuse U: 2.730800
+VEL Diffuse V: 2.467100
+VEL Project: 3.453100
+VEL Advect U :  0.475200
+VEL Advect V: 0.447500
+D Diffuse: 2.481400
+D Advect: 0.453900
+Time to run in milliseconds: 18.027901
+_____________________________________________________________________________
+ Frame totals 170
+ U Diffuse 289.130402
+ V Diffuse 290.203064
+ U Advect 53.830795
+ V Advect 51.180798
+ Project 367.032776
+ D Diffuse 269.239197
+ D Advect 65.716789
+ TOTAL TIME 2070.678467
+_______________________________________
+VEL: Diffuse U: 2.587100
+VEL Diffuse V: 2.673100
+VEL Project: 3.129800
+VEL Advect U :  0.384000
+VEL Advect V: 0.272200
+D Diffuse: 2.458900
+D Advect: 0.491700
+Time to run in milliseconds: 17.576300
+_____________________________________________________________________________
+ Frame totals 171
+ U Diffuse 291.717499
+ V Diffuse 292.876160
+ U Advect 54.214794
+ V Advect 51.452999
+ Project 370.162567
+ D Diffuse 271.698090
+ D Advect 66.208488
+ TOTAL TIME 2088.254883
+_______________________________________
+VEL: Diffuse U: 2.763300
+VEL Diffuse V: 2.457400
+VEL Project: 2.504400
+VEL Advect U :  0.271000
+VEL Advect V: 0.241500
+D Diffuse: 2.953100
+D Advect: 0.441400
+Time to run in milliseconds: 15.674700
+_____________________________________________________________________________
+ Frame totals 172
+ U Diffuse 294.480804
+ V Diffuse 295.333557
+ U Advect 54.485794
+ V Advect 51.694500
+ Project 372.666962
+ D Diffuse 274.651184
+ D Advect 66.649887
+ TOTAL TIME 2103.929688
+_______________________________________
+VEL: Diffuse U: 1.812700
+VEL Diffuse V: 1.991700
+VEL Project: 2.630200
+VEL Advect U :  0.451900
+VEL Advect V: 0.403100
+D Diffuse: 1.831800
+D Advect: 0.524800
+Time to run in milliseconds: 14.969100
+_____________________________________________________________________________
+ Frame totals 173
+ U Diffuse 296.293518
+ V Diffuse 297.325256
+ U Advect 54.937695
+ V Advect 52.097599
+ Project 375.297150
+ D Diffuse 276.482971
+ D Advect 67.174690
+ TOTAL TIME 2118.898682
+_______________________________________
+VEL: Diffuse U: 2.360900
+VEL Diffuse V: 2.075500
+VEL Project: 3.048700
+VEL Advect U :  0.277500
+VEL Advect V: 0.334600
+D Diffuse: 1.951600
+D Advect: 0.599900
+Time to run in milliseconds: 14.858400
+_____________________________________________________________________________
+ Frame totals 174
+ U Diffuse 298.654419
+ V Diffuse 299.400757
+ U Advect 55.215195
+ V Advect 52.432198
+ Project 378.345856
+ D Diffuse 278.434570
+ D Advect 67.774590
+ TOTAL TIME 2133.757080
+_______________________________________
+VEL: Diffuse U: 2.804000
+VEL Diffuse V: 2.851900
+VEL Project: 2.992900
+VEL Advect U :  0.500800
+VEL Advect V: 0.368600
+D Diffuse: 2.018700
+D Advect: 0.560300
+Time to run in milliseconds: 17.433500
+_____________________________________________________________________________
+ Frame totals 175
+ U Diffuse 301.458405
+ V Diffuse 302.252655
+ U Advect 55.715996
+ V Advect 52.800797
+ Project 381.338745
+ D Diffuse 280.453278
+ D Advect 68.334892
+ TOTAL TIME 2151.190674
+_______________________________________
+VEL: Diffuse U: 2.428600
+VEL Diffuse V: 1.844800
+VEL Project: 2.643200
+VEL Advect U :  0.337400
+VEL Advect V: 0.419000
+D Diffuse: 1.829500
+D Advect: 0.437600
+Time to run in milliseconds: 14.353000
+_____________________________________________________________________________
+ Frame totals 176
+ U Diffuse 303.886993
+ V Diffuse 304.097443
+ U Advect 56.053394
+ V Advect 53.219795
+ Project 383.981934
+ D Diffuse 282.282776
+ D Advect 68.772491
+ TOTAL TIME 2165.543701
+_______________________________________
+VEL: Diffuse U: 1.879200
+VEL Diffuse V: 2.047000
+VEL Project: 2.943900
+VEL Advect U :  0.461800
+VEL Advect V: 0.409900
+D Diffuse: 2.079200
+D Advect: 0.439600
+Time to run in milliseconds: 14.999000
+_____________________________________________________________________________
+ Frame totals 177
+ U Diffuse 305.766205
+ V Diffuse 306.144440
+ U Advect 56.515194
+ V Advect 53.629696
+ Project 386.925842
+ D Diffuse 284.361969
+ D Advect 69.212090
+ TOTAL TIME 2180.542725
+_______________________________________
+VEL: Diffuse U: 2.752500
+VEL Diffuse V: 2.377400
+VEL Project: 2.374600
+VEL Advect U :  0.357600
+VEL Advect V: 0.497900
+D Diffuse: 2.206800
+D Advect: 0.257100
+Time to run in milliseconds: 14.971600
+_____________________________________________________________________________
+ Frame totals 178
+ U Diffuse 308.518707
+ V Diffuse 308.521851
+ U Advect 56.872795
+ V Advect 54.127594
+ Project 389.300446
+ D Diffuse 286.568756
+ D Advect 69.469193
+ TOTAL TIME 2195.514404
+_______________________________________
+VEL: Diffuse U: 2.026400
+VEL Diffuse V: 1.903000
+VEL Project: 2.603500
+VEL Advect U :  0.365900
+VEL Advect V: 0.585500
+D Diffuse: 2.840000
+D Advect: 0.402300
+Time to run in milliseconds: 15.956400
+_____________________________________________________________________________
+ Frame totals 179
+ U Diffuse 310.545105
+ V Diffuse 310.424866
+ U Advect 57.238693
+ V Advect 54.713093
+ Project 391.903931
+ D Diffuse 289.408752
+ D Advect 69.871490
+ TOTAL TIME 2211.470703
+_______________________________________
+VEL: Diffuse U: 1.699500
+VEL Diffuse V: 1.840700
+VEL Project: 3.199200
+VEL Advect U :  0.499900
+VEL Advect V: 0.455900
+D Diffuse: 1.931400
+D Advect: 0.508800
+Time to run in milliseconds: 15.397600
+_____________________________________________________________________________
+ Frame totals 180
+ U Diffuse 312.244598
+ V Diffuse 312.265564
+ U Advect 57.738594
+ V Advect 55.168991
+ Project 395.103119
+ D Diffuse 291.340149
+ D Advect 70.380287
+ TOTAL TIME 2226.868408
+_______________________________________
+VEL: Diffuse U: 1.851200
+VEL Diffuse V: 2.034700
+VEL Project: 2.352200
+VEL Advect U :  0.275700
+VEL Advect V: 0.260100
+D Diffuse: 1.819500
+D Advect: 0.482500
+Time to run in milliseconds: 12.742800
+_____________________________________________________________________________
+ Frame totals 181
+ U Diffuse 314.095795
+ V Diffuse 314.300262
+ U Advect 58.014294
+ V Advect 55.429092
+ Project 397.455322
+ D Diffuse 293.159637
+ D Advect 70.862785
+ TOTAL TIME 2239.611328
+_______________________________________
+VEL: Diffuse U: 2.185500
+VEL Diffuse V: 1.800100
+VEL Project: 2.380900
+VEL Advect U :  0.373000
+VEL Advect V: 0.292200
+D Diffuse: 2.301700
+D Advect: 0.385400
+Time to run in milliseconds: 13.496700
+_____________________________________________________________________________
+ Frame totals 182
+ U Diffuse 316.281281
+ V Diffuse 316.100372
+ U Advect 58.387295
+ V Advect 55.721291
+ Project 399.836212
+ D Diffuse 295.461334
+ D Advect 71.248184
+ TOTAL TIME 2253.107910
+_______________________________________
+VEL: Diffuse U: 1.501300
+VEL Diffuse V: 1.633900
+VEL Project: 2.402200
+VEL Advect U :  0.280000
+VEL Advect V: 0.193500
+D Diffuse: 1.470800
+D Advect: 0.299700
+Time to run in milliseconds: 11.255400
+_____________________________________________________________________________
+ Frame totals 183
+ U Diffuse 317.782593
+ V Diffuse 317.734283
+ U Advect 58.667294
+ V Advect 55.914791
+ Project 402.238403
+ D Diffuse 296.932129
+ D Advect 71.547882
+ TOTAL TIME 2264.363281
+_______________________________________
+VEL: Diffuse U: 2.249200
+VEL Diffuse V: 2.308100
+VEL Project: 2.860600
+VEL Advect U :  0.440900
+VEL Advect V: 0.528700
+D Diffuse: 1.661600
+D Advect: 0.447200
+Time to run in milliseconds: 15.364600
+_____________________________________________________________________________
+ Frame totals 184
+ U Diffuse 320.031799
+ V Diffuse 320.042389
+ U Advect 59.108192
+ V Advect 56.443493
+ Project 405.098999
+ D Diffuse 298.593719
+ D Advect 71.995079
+ TOTAL TIME 2279.727783
+_______________________________________
+VEL: Diffuse U: 1.863300
+VEL Diffuse V: 2.359100
+VEL Project: 3.338700
+VEL Advect U :  0.452900
 VEL Advect V: 0.305600
-D Diffuse: 3.176400
-D Advect: 0.778800
-Time to run in milliseconds: 24.097601
+D Diffuse: 1.637800
+D Advect: 0.627600
+Time to run in milliseconds: 15.399800
 _____________________________________________________________________________
-VEL: Diffuse U: 3.077100
-VEL Diffuse V: 4.158600
-VEL Project: 3.414800
-VEL Advect U :  0.432300
-VEL Advect V: 0.597400
-D Diffuse: 3.011900
-D Advect: 0.489700
-Time to run in milliseconds: 25.995701
+ Frame totals 185
+ U Diffuse 321.895111
+ V Diffuse 322.401489
+ U Advect 59.561092
+ V Advect 56.749092
+ Project 408.437714
+ D Diffuse 300.231506
+ D Advect 72.622681
+ TOTAL TIME 2295.127686
+_______________________________________
+VEL: Diffuse U: 2.032300
+VEL Diffuse V: 1.678000
+VEL Project: 2.443800
+VEL Advect U :  0.324700
+VEL Advect V: 0.253600
+D Diffuse: 1.506200
+D Advect: 0.418800
+Time to run in milliseconds: 12.818200
 _____________________________________________________________________________
-VEL: Diffuse U: 1.298500
-VEL Diffuse V: 2.500600
-VEL Project: 3.775400
-VEL Advect U :  0.794800
-VEL Advect V: 0.434400
-D Diffuse: 2.030000
-D Advect: 0.379700
-Time to run in milliseconds: 18.137600
+ Frame totals 186
+ U Diffuse 323.927399
+ V Diffuse 324.079498
+ U Advect 59.885792
+ V Advect 57.002693
+ Project 410.881500
+ D Diffuse 301.737701
+ D Advect 73.041481
+ TOTAL TIME 2307.945801
+_______________________________________
+VEL: Diffuse U: 2.302000
+VEL Diffuse V: 2.760600
+VEL Project: 3.125600
+VEL Advect U :  0.425000
+VEL Advect V: 0.303200
+D Diffuse: 2.247300
+D Advect: 0.554800
+Time to run in milliseconds: 16.591600
 _____________________________________________________________________________
-VEL: Diffuse U: 2.061700
-VEL Diffuse V: 2.198500
-VEL Project: 2.371600
-VEL Advect U :  0.403600
-VEL Advect V: 0.640200
-D Diffuse: 3.464800
-D Advect: 0.372100
-Time to run in milliseconds: 21.361900
+ Frame totals 187
+ U Diffuse 326.229401
+ V Diffuse 326.840088
+ U Advect 60.310791
+ V Advect 57.305893
+ Project 414.007111
+ D Diffuse 303.985016
+ D Advect 73.596283
+ TOTAL TIME 2324.537354
+_______________________________________
+VEL: Diffuse U: 2.250400
+VEL Diffuse V: 2.384900
+VEL Project: 2.835500
+VEL Advect U :  0.390200
+VEL Advect V: 0.679300
+D Diffuse: 1.585900
+D Advect: 0.297900
+Time to run in milliseconds: 15.610900
 _____________________________________________________________________________
-VEL: Diffuse U: 2.445700
-VEL Diffuse V: 2.232700
-VEL Project: 2.993200
-VEL Advect U :  0.388700
-VEL Advect V: 0.271400
-D Diffuse: 2.064500
-D Advect: 1.235800
-Time to run in milliseconds: 22.562700
+ Frame totals 188
+ U Diffuse 328.479797
+ V Diffuse 329.224976
+ U Advect 60.700993
+ V Advect 57.985191
+ Project 416.842621
+ D Diffuse 305.570923
+ D Advect 73.894180
+ TOTAL TIME 2340.148193
+_______________________________________
+VEL: Diffuse U: 1.485300
+VEL Diffuse V: 1.612800
+VEL Project: 2.311500
+VEL Advect U :  0.318900
+VEL Advect V: 0.332900
+D Diffuse: 2.698800
+D Advect: 0.461500
+Time to run in milliseconds: 15.878500
 _____________________________________________________________________________
-VEL: Diffuse U: 3.903800
-VEL Diffuse V: 3.175400
-VEL Project: 4.328300
-VEL Advect U :  0.769800
-VEL Advect V: 0.553800
-D Diffuse: 3.031000
-D Advect: 0.805200
-Time to run in milliseconds: 25.560900
+ Frame totals 189
+ U Diffuse 329.965088
+ V Diffuse 330.837769
+ U Advect 61.019894
+ V Advect 58.318092
+ Project 419.154114
+ D Diffuse 308.269714
+ D Advect 74.355682
+ TOTAL TIME 2356.026611
+_______________________________________
+VEL: Diffuse U: 1.560800
+VEL Diffuse V: 2.035600
+VEL Project: 2.428300
+VEL Advect U :  0.426700
+VEL Advect V: 0.280400
+D Diffuse: 1.644600
+D Advect: 0.491600
+Time to run in milliseconds: 13.167400
 _____________________________________________________________________________
-VEL: Diffuse U: 4.421300
-VEL Diffuse V: 2.799200
-VEL Project: 3.197200
-VEL Advect U :  0.304800
-VEL Advect V: 0.433500
-D Diffuse: 2.598700
-D Advect: 0.512800
-Time to run in milliseconds: 21.078100
+ Frame totals 190
+ U Diffuse 331.525879
+ V Diffuse 332.873383
+ U Advect 61.446594
+ V Advect 58.598492
+ Project 421.582428
+ D Diffuse 309.914307
+ D Advect 74.847282
+ TOTAL TIME 2369.194092
+_______________________________________
+VEL: Diffuse U: 1.500900
+VEL Diffuse V: 2.583600
+VEL Project: 2.398500
+VEL Advect U :  0.322400
+VEL Advect V: 0.357400
+D Diffuse: 1.763300
+D Advect: 0.319900
+Time to run in milliseconds: 13.916000
 _____________________________________________________________________________
-VEL: Diffuse U: 2.545800
-VEL Diffuse V: 3.384800
-VEL Project: 4.565800
-VEL Advect U :  0.528800
-VEL Advect V: 0.806400
-D Diffuse: 3.010800
-D Advect: 1.545700
-Time to run in milliseconds: 25.819401
+ Frame totals 191
+ U Diffuse 333.026764
+ V Diffuse 335.456970
+ U Advect 61.768993
+ V Advect 58.955891
+ Project 423.980927
+ D Diffuse 311.677612
+ D Advect 75.167183
+ TOTAL TIME 2383.110107
+_______________________________________
+VEL: Diffuse U: 1.535700
+VEL Diffuse V: 1.968900
+VEL Project: 2.201600
+VEL Advect U :  0.274300
+VEL Advect V: 0.192300
+D Diffuse: 1.401800
+D Advect: 0.296800
+Time to run in milliseconds: 12.026200
 _____________________________________________________________________________
-VEL: Diffuse U: 3.530500
-VEL Diffuse V: 3.426900
-VEL Project: 3.029900
-VEL Advect U :  0.435900
-VEL Advect V: 0.823400
-D Diffuse: 3.459400
-D Advect: 0.712400
-Time to run in milliseconds: 26.418699
+ Frame totals 192
+ U Diffuse 334.562469
+ V Diffuse 337.425873
+ U Advect 62.043293
+ V Advect 59.148190
+ Project 426.182526
+ D Diffuse 313.079407
+ D Advect 75.463982
+ TOTAL TIME 2395.136230
+_______________________________________
+VEL: Diffuse U: 1.517900
+VEL Diffuse V: 2.126400
+VEL Project: 2.259400
+VEL Advect U :  0.326700
+VEL Advect V: 0.236700
+D Diffuse: 1.476300
+D Advect: 0.499400
+Time to run in milliseconds: 12.163300
 _____________________________________________________________________________
-VEL: Diffuse U: 3.449000
-VEL Diffuse V: 2.608600
-VEL Project: 4.105700
-VEL Advect U :  0.515500
-VEL Advect V: 0.427400
-D Diffuse: 4.491700
-D Advect: 0.704900
-Time to run in milliseconds: 23.625401
+ Frame totals 193
+ U Diffuse 336.080383
+ V Diffuse 339.552277
+ U Advect 62.369991
+ V Advect 59.384888
+ Project 428.441925
+ D Diffuse 314.555695
+ D Advect 75.963379
+ TOTAL TIME 2407.299561
+_______________________________________
+VEL: Diffuse U: 2.060500
+VEL Diffuse V: 2.326900
+VEL Project: 2.831200
+VEL Advect U :  0.386400
+VEL Advect V: 0.318100
+D Diffuse: 2.202600
+D Advect: 0.494500
+Time to run in milliseconds: 15.698500
 _____________________________________________________________________________
-VEL: Diffuse U: 2.682500
-VEL Diffuse V: 3.288500
-VEL Project: 2.340800
-VEL Advect U :  0.590100
-VEL Advect V: 0.607600
-D Diffuse: 2.274900
+ Frame totals 194
+ U Diffuse 338.140869
+ V Diffuse 341.879181
+ U Advect 62.756390
+ V Advect 59.702988
+ Project 431.273132
+ D Diffuse 316.758301
+ D Advect 76.457878
+ TOTAL TIME 2422.998047
+_______________________________________
+VEL: Diffuse U: 1.523300
+VEL Diffuse V: 2.605600
+VEL Project: 2.858800
+VEL Advect U :  0.410200
+VEL Advect V: 0.319200
+D Diffuse: 1.882800
 D Advect: 0.492900
-Time to run in milliseconds: 17.370600
+Time to run in milliseconds: 15.167200
 _____________________________________________________________________________
-VEL: Diffuse U: 2.981700
-VEL Diffuse V: 2.534700
-VEL Project: 4.568000
-VEL Advect U :  0.417100
-VEL Advect V: 0.664300
-D Diffuse: 2.379900
-D Advect: 0.767100
-Time to run in milliseconds: 23.309099
+ Frame totals 195
+ U Diffuse 339.664154
+ V Diffuse 344.484772
+ U Advect 63.166588
+ V Advect 60.022186
+ Project 434.131927
+ D Diffuse 318.641113
+ D Advect 76.950775
+ TOTAL TIME 2438.165283
+_______________________________________
+VEL: Diffuse U: 2.242400
+VEL Diffuse V: 2.474300
+VEL Project: 3.278900
+VEL Advect U :  0.437900
+VEL Advect V: 0.441100
+D Diffuse: 2.464400
+D Advect: 0.622800
+Time to run in milliseconds: 17.632299
 _____________________________________________________________________________
-VEL: Diffuse U: 3.335500
-VEL Diffuse V: 4.416500
-VEL Project: 4.705400
-VEL Advect U :  0.491300
-VEL Advect V: 0.849000
-D Diffuse: 3.447600
+ Frame totals 196
+ U Diffuse 341.906555
+ V Diffuse 346.959076
+ U Advect 63.604488
+ V Advect 60.463287
+ Project 437.410828
+ D Diffuse 321.105499
+ D Advect 77.573578
+ TOTAL TIME 2455.797607
+_______________________________________
+VEL: Diffuse U: 2.194300
+VEL Diffuse V: 1.677900
+VEL Project: 2.478000
+VEL Advect U :  0.409000
+VEL Advect V: 0.252900
+D Diffuse: 1.654500
+D Advect: 0.472300
+Time to run in milliseconds: 12.948900
+_____________________________________________________________________________
+ Frame totals 197
+ U Diffuse 344.100861
+ V Diffuse 348.636963
+ U Advect 64.013489
+ V Advect 60.716187
+ Project 439.888824
+ D Diffuse 322.760010
+ D Advect 78.045876
+ TOTAL TIME 2468.746582
+_______________________________________
+VEL: Diffuse U: 1.773300
+VEL Diffuse V: 2.243700
+VEL Project: 2.929400
+VEL Advect U :  0.398300
+VEL Advect V: 0.292700
+D Diffuse: 2.317400
+D Advect: 0.307200
+Time to run in milliseconds: 14.411600
+_____________________________________________________________________________
+ Frame totals 198
+ U Diffuse 345.874146
+ V Diffuse 350.880676
+ U Advect 64.411789
+ V Advect 61.008888
+ Project 442.818237
+ D Diffuse 325.077423
+ D Advect 78.353073
+ TOTAL TIME 2483.158203
+_______________________________________
+VEL: Diffuse U: 1.560700
+VEL Diffuse V: 2.304200
+VEL Project: 2.981000
+VEL Advect U :  0.328400
+VEL Advect V: 0.313800
+D Diffuse: 1.866000
+D Advect: 0.311400
+Time to run in milliseconds: 14.099300
+_____________________________________________________________________________
+ Frame totals 199
+ U Diffuse 347.434845
+ V Diffuse 353.184875
+ U Advect 64.740189
+ V Advect 61.322689
+ Project 445.799225
+ D Diffuse 326.943420
+ D Advect 78.664474
+ TOTAL TIME 2497.257568
+_______________________________________
+VEL: Diffuse U: 2.210800
+VEL Diffuse V: 1.659500
+VEL Project: 2.255900
+VEL Advect U :  0.335200
+VEL Advect V: 0.659700
+D Diffuse: 1.825500
+D Advect: 0.501700
+Time to run in milliseconds: 14.788200
+_____________________________________________________________________________
+ Frame totals 200
+ U Diffuse 349.645630
+ V Diffuse 354.844360
+ U Advect 65.075386
+ V Advect 61.982388
+ Project 448.055115
+ D Diffuse 328.768921
+ D Advect 79.166176
+ TOTAL TIME 2512.045654
+_______________________________________
+VEL: Diffuse U: 1.565000
+VEL Diffuse V: 1.830900
+VEL Project: 2.269000
+VEL Advect U :  0.373400
+VEL Advect V: 0.386700
+D Diffuse: 2.191700
+D Advect: 0.424400
+Time to run in milliseconds: 12.897100
+_____________________________________________________________________________
+ Frame totals 201
+ U Diffuse 351.210632
+ V Diffuse 356.675262
+ U Advect 65.448784
+ V Advect 62.369087
+ Project 450.324127
+ D Diffuse 330.960632
+ D Advect 79.590576
+ TOTAL TIME 2524.942871
+_______________________________________
+VEL: Diffuse U: 2.053900
+VEL Diffuse V: 2.592700
+VEL Project: 2.751400
+VEL Advect U :  0.536700
+VEL Advect V: 0.436900
+D Diffuse: 1.908600
+D Advect: 0.494700
+Time to run in milliseconds: 14.946200
+_____________________________________________________________________________
+ Frame totals 202
+ U Diffuse 353.264526
+ V Diffuse 359.267975
+ U Advect 65.985481
+ V Advect 62.805988
+ Project 453.075531
+ D Diffuse 332.869232
+ D Advect 80.085274
+ TOTAL TIME 2539.889160
+_______________________________________
+VEL: Diffuse U: 1.755000
+VEL Diffuse V: 1.848300
+VEL Project: 2.994000
+VEL Advect U :  0.399900
+VEL Advect V: 0.500300
+D Diffuse: 2.076200
+D Advect: 0.296700
+Time to run in milliseconds: 14.728500
+_____________________________________________________________________________
+ Frame totals 203
+ U Diffuse 355.019531
+ V Diffuse 361.116272
+ U Advect 66.385384
+ V Advect 63.306290
+ Project 456.069519
+ D Diffuse 334.945435
+ D Advect 80.381973
+ TOTAL TIME 2554.617676
+_______________________________________
+VEL: Diffuse U: 1.856400
+VEL Diffuse V: 2.155400
+VEL Project: 2.314800
+VEL Advect U :  0.317200
+VEL Advect V: 0.367100
+D Diffuse: 2.760300
+D Advect: 0.314500
+Time to run in milliseconds: 14.670500
+_____________________________________________________________________________
+ Frame totals 204
+ U Diffuse 356.875946
+ V Diffuse 363.271667
+ U Advect 66.702583
+ V Advect 63.673389
+ Project 458.384308
+ D Diffuse 337.705750
+ D Advect 80.696472
+ TOTAL TIME 2569.288086
+_______________________________________
+VEL: Diffuse U: 1.765100
+VEL Diffuse V: 1.716800
+VEL Project: 2.617200
+VEL Advect U :  0.392200
+VEL Advect V: 0.436500
+D Diffuse: 1.676200
+D Advect: 0.476300
+Time to run in milliseconds: 13.498300
+_____________________________________________________________________________
+ Frame totals 205
+ U Diffuse 358.641052
+ V Diffuse 364.988464
+ U Advect 67.094780
+ V Advect 64.109886
+ Project 461.001495
+ D Diffuse 339.381958
+ D Advect 81.172775
+ TOTAL TIME 2582.786377
+_______________________________________
+VEL: Diffuse U: 1.802300
+VEL Diffuse V: 1.560000
+VEL Project: 2.280100
+VEL Advect U :  0.363000
+VEL Advect V: 0.436100
+D Diffuse: 1.676600
+D Advect: 0.502700
+Time to run in milliseconds: 13.363300
+_____________________________________________________________________________
+ Frame totals 206
+ U Diffuse 360.443359
+ V Diffuse 366.548462
+ U Advect 67.457779
+ V Advect 64.545990
+ Project 463.281586
+ D Diffuse 341.058563
+ D Advect 81.675476
+ TOTAL TIME 2596.149658
+_______________________________________
+VEL: Diffuse U: 1.941500
+VEL Diffuse V: 1.798000
+VEL Project: 1.983200
+VEL Advect U :  0.376900
+VEL Advect V: 0.242300
+D Diffuse: 1.491900
+D Advect: 0.387300
+Time to run in milliseconds: 12.183000
+_____________________________________________________________________________
+ Frame totals 207
+ U Diffuse 362.384857
+ V Diffuse 368.346466
+ U Advect 67.834679
+ V Advect 64.788292
+ Project 465.264771
+ D Diffuse 342.550476
+ D Advect 82.062775
+ TOTAL TIME 2608.332764
+_______________________________________
+VEL: Diffuse U: 1.641200
+VEL Diffuse V: 1.804200
+VEL Project: 2.685300
+VEL Advect U :  0.335300
+VEL Advect V: 0.247700
+D Diffuse: 2.028600
+D Advect: 0.609500
+Time to run in milliseconds: 13.735300
+_____________________________________________________________________________
+ Frame totals 208
+ U Diffuse 364.026062
+ V Diffuse 370.150665
+ U Advect 68.169975
+ V Advect 65.035995
+ Project 467.950073
+ D Diffuse 344.579071
+ D Advect 82.672272
+ TOTAL TIME 2622.068115
+_______________________________________
+VEL: Diffuse U: 1.641800
+VEL Diffuse V: 1.913100
+VEL Project: 2.185400
+VEL Advect U :  0.476700
+VEL Advect V: 0.345700
+D Diffuse: 1.411200
+D Advect: 0.351300
+Time to run in milliseconds: 11.867100
+_____________________________________________________________________________
+ Frame totals 209
+ U Diffuse 365.667877
+ V Diffuse 372.063751
+ U Advect 68.646675
+ V Advect 65.381699
+ Project 470.135468
+ D Diffuse 345.990265
+ D Advect 83.023575
+ TOTAL TIME 2633.935303
+_______________________________________
+VEL: Diffuse U: 2.262000
+VEL Diffuse V: 1.972700
+VEL Project: 2.265400
+VEL Advect U :  0.421700
+VEL Advect V: 0.317900
+D Diffuse: 2.456200
+D Advect: 0.390300
+Time to run in milliseconds: 14.175900
+_____________________________________________________________________________
+ Frame totals 210
+ U Diffuse 367.929871
+ V Diffuse 374.036438
+ U Advect 69.068375
+ V Advect 65.699600
+ Project 472.400879
+ D Diffuse 348.446472
+ D Advect 83.413872
+ TOTAL TIME 2648.111084
+_______________________________________
+VEL: Diffuse U: 2.227200
+VEL Diffuse V: 2.178900
+VEL Project: 2.045900
+VEL Advect U :  0.447200
+VEL Advect V: 0.408000
+D Diffuse: 1.872900
+D Advect: 0.297100
+Time to run in milliseconds: 14.312300
+_____________________________________________________________________________
+ Frame totals 211
+ U Diffuse 370.157074
+ V Diffuse 376.215332
+ U Advect 69.515572
+ V Advect 66.107597
+ Project 474.446777
+ D Diffuse 350.319366
+ D Advect 83.710968
+ TOTAL TIME 2662.423340
+_______________________________________
+VEL: Diffuse U: 1.575700
+VEL Diffuse V: 2.846400
+VEL Project: 2.080500
+VEL Advect U :  0.377600
+VEL Advect V: 0.441600
+D Diffuse: 1.708400
+D Advect: 0.348700
+Time to run in milliseconds: 13.859700
+_____________________________________________________________________________
+ Frame totals 212
+ U Diffuse 371.732788
+ V Diffuse 379.061737
+ U Advect 69.893173
+ V Advect 66.549194
+ Project 476.527283
+ D Diffuse 352.027771
+ D Advect 84.059669
+ TOTAL TIME 2676.282959
+_______________________________________
+VEL: Diffuse U: 1.499900
+VEL Diffuse V: 2.331000
+VEL Project: 2.267800
+VEL Advect U :  0.337200
+VEL Advect V: 0.409400
+D Diffuse: 1.397900
+D Advect: 0.845500
+Time to run in milliseconds: 13.017100
+_____________________________________________________________________________
+ Frame totals 213
+ U Diffuse 373.232697
+ V Diffuse 381.392731
+ U Advect 70.230370
+ V Advect 66.958595
+ Project 478.795074
+ D Diffuse 353.425659
+ D Advect 84.905167
+ TOTAL TIME 2689.300049
+_______________________________________
+VEL: Diffuse U: 2.044500
+VEL Diffuse V: 2.555400
+VEL Project: 2.626500
+VEL Advect U :  0.435300
+VEL Advect V: 0.347500
+D Diffuse: 1.956300
+D Advect: 0.473200
+Time to run in milliseconds: 15.258100
+_____________________________________________________________________________
+ Frame totals 214
+ U Diffuse 375.277191
+ V Diffuse 383.948120
+ U Advect 70.665672
+ V Advect 67.306099
+ Project 481.421570
+ D Diffuse 355.381958
+ D Advect 85.378365
+ TOTAL TIME 2704.558105
+_______________________________________
+VEL: Diffuse U: 1.854400
+VEL Diffuse V: 2.168100
+VEL Project: 2.013300
+VEL Advect U :  0.371800
+VEL Advect V: 0.285300
+D Diffuse: 1.616500
 D Advect: 0.532500
-Time to run in milliseconds: 34.220100
+Time to run in milliseconds: 14.048200
 _____________________________________________________________________________
-VEL: Diffuse U: 3.992800
-VEL Diffuse V: 3.031300
-VEL Project: 4.027900
-VEL Advect U :  0.917900
-VEL Advect V: 1.056600
-D Diffuse: 4.218800
-D Advect: 0.985000
-Time to run in milliseconds: 37.329498
+ Frame totals 215
+ U Diffuse 377.131592
+ V Diffuse 386.116211
+ U Advect 71.037476
+ V Advect 67.591400
+ Project 483.434875
+ D Diffuse 356.998444
+ D Advect 85.910866
+ TOTAL TIME 2718.606201
+_______________________________________
+VEL: Diffuse U: 1.843100
+VEL Diffuse V: 1.729000
+VEL Project: 2.971300
+VEL Advect U :  0.380400
+VEL Advect V: 0.243100
+D Diffuse: 2.141800
+D Advect: 0.406900
+Time to run in milliseconds: 14.707400
 _____________________________________________________________________________
-VEL: Diffuse U: 3.362200
-VEL Diffuse V: 4.234100
-VEL Project: 5.542900
-VEL Advect U :  0.691800
-VEL Advect V: 0.708000
-D Diffuse: 5.079900
-D Advect: 0.444700
-Time to run in milliseconds: 32.651699
+ Frame totals 216
+ U Diffuse 378.974701
+ V Diffuse 387.845215
+ U Advect 71.417877
+ V Advect 67.834503
+ Project 486.406189
+ D Diffuse 359.140259
+ D Advect 86.317764
+ TOTAL TIME 2733.313721
+_______________________________________
+VEL: Diffuse U: 2.334800
+VEL Diffuse V: 2.577500
+VEL Project: 2.856100
+VEL Advect U :  0.313100
+VEL Advect V: 0.244000
+D Diffuse: 1.808700
+D Advect: 0.563400
+Time to run in milliseconds: 15.139900
 _____________________________________________________________________________
-VEL: Diffuse U: 4.247300
-VEL Diffuse V: 2.360900
-VEL Project: 2.469300
-VEL Advect U :  0.662000
-VEL Advect V: 0.922300
-D Diffuse: 3.564300
-D Advect: 0.677000
-Time to run in milliseconds: 27.760401
+ Frame totals 217
+ U Diffuse 381.309509
+ V Diffuse 390.422729
+ U Advect 71.730980
+ V Advect 68.078506
+ Project 489.262299
+ D Diffuse 360.948944
+ D Advect 86.881165
+ TOTAL TIME 2748.453613
+_______________________________________
+VEL: Diffuse U: 1.652300
+VEL Diffuse V: 2.000800
+VEL Project: 2.068200
+VEL Advect U :  0.243100
+VEL Advect V: 0.301100
+D Diffuse: 1.740100
+D Advect: 0.364900
+Time to run in milliseconds: 12.808400
 _____________________________________________________________________________
-VEL: Diffuse U: 4.622800
-VEL Diffuse V: 2.561000
-VEL Project: 3.854900
-VEL Advect U :  0.501000
-VEL Advect V: 0.684200
-D Diffuse: 3.227400
-D Advect: 0.488600
-Time to run in milliseconds: 28.431999
+ Frame totals 218
+ U Diffuse 382.961823
+ V Diffuse 392.423523
+ U Advect 71.974083
+ V Advect 68.379608
+ Project 491.330505
+ D Diffuse 362.689056
+ D Advect 87.246063
+ TOTAL TIME 2761.261963
+_______________________________________
+VEL: Diffuse U: 2.169300
+VEL Diffuse V: 2.075700
+VEL Project: 2.561700
+VEL Advect U :  0.445800
+VEL Advect V: 0.346200
+D Diffuse: 1.718100
+D Advect: 0.470900
+Time to run in milliseconds: 13.676800
 _____________________________________________________________________________
-VEL: Diffuse U: 3.964500
-VEL Diffuse V: 4.535800
-VEL Project: 3.559100
-VEL Advect U :  1.155700
-VEL Advect V: 0.942800
-D Diffuse: 3.705200
-D Advect: 0.539100
-Time to run in milliseconds: 31.831400
+ Frame totals 219
+ U Diffuse 385.131134
+ V Diffuse 394.499237
+ U Advect 72.419884
+ V Advect 68.725807
+ Project 493.892212
+ D Diffuse 364.407166
+ D Advect 87.716965
+ TOTAL TIME 2774.938721
+_______________________________________
+VEL: Diffuse U: 1.888600
+VEL Diffuse V: 1.703400
+VEL Project: 2.538200
+VEL Advect U :  0.286300
+VEL Advect V: 0.306800
+D Diffuse: 2.141600
+D Advect: 0.467400
+Time to run in milliseconds: 13.982400
 _____________________________________________________________________________
-VEL: Diffuse U: 4.800000
-VEL Diffuse V: 3.606200
-VEL Project: 4.845000
-VEL Advect U :  0.522700
-VEL Advect V: 0.889100
-D Diffuse: 3.396400
-D Advect: 0.616200
-Time to run in milliseconds: 30.510500
+ Frame totals 220
+ U Diffuse 387.019745
+ V Diffuse 396.202637
+ U Advect 72.706184
+ V Advect 69.032608
+ Project 496.430420
+ D Diffuse 366.548767
+ D Advect 88.184364
+ TOTAL TIME 2788.921143
+_______________________________________
+VEL: Diffuse U: 1.880400
+VEL Diffuse V: 1.980600
+VEL Project: 2.779400
+VEL Advect U :  0.364900
+VEL Advect V: 0.311900
+D Diffuse: 1.806300
+D Advect: 0.502400
+Time to run in milliseconds: 14.003700
 _____________________________________________________________________________
-VEL: Diffuse U: 4.171700
-VEL Diffuse V: 2.506400
-VEL Project: 4.844700
-VEL Advect U :  0.555200
-VEL Advect V: 0.360500
-D Diffuse: 3.518700
-D Advect: 0.503500
-Time to run in milliseconds: 24.633400
+ Frame totals 221
+ U Diffuse 388.900146
+ V Diffuse 398.183228
+ U Advect 73.071083
+ V Advect 69.344505
+ Project 499.209808
+ D Diffuse 368.355072
+ D Advect 88.686768
+ TOTAL TIME 2802.924805
+_______________________________________
+VEL: Diffuse U: 2.030300
+VEL Diffuse V: 2.395800
+VEL Project: 2.936700
+VEL Advect U :  0.369600
+VEL Advect V: 0.411700
+D Diffuse: 2.226800
+D Advect: 0.256200
+Time to run in milliseconds: 16.015900
 _____________________________________________________________________________
-VEL: Diffuse U: 3.284800
-VEL Diffuse V: 3.850700
-VEL Project: 4.220000
-VEL Advect U :  1.003000
-VEL Advect V: 1.024700
-D Diffuse: 5.022000
-D Advect: 0.900100
-Time to run in milliseconds: 33.896400
+ Frame totals 222
+ U Diffuse 390.930450
+ V Diffuse 400.579041
+ U Advect 73.440681
+ V Advect 69.756203
+ Project 502.146515
+ D Diffuse 370.581879
+ D Advect 88.942970
+ TOTAL TIME 2818.940674
+_______________________________________
+VEL: Diffuse U: 1.807100
+VEL Diffuse V: 1.949000
+VEL Project: 2.371100
+VEL Advect U :  0.358200
+VEL Advect V: 0.666100
+D Diffuse: 2.003000
+D Advect: 0.517300
+Time to run in milliseconds: 14.222100
 _____________________________________________________________________________
-VEL: Diffuse U: 4.040400
-VEL Diffuse V: 3.302200
-VEL Project: 7.163800
-VEL Advect U :  0.510000
-VEL Advect V: 0.837300
-D Diffuse: 3.995100
-D Advect: 0.462900
-Time to run in milliseconds: 32.760101
+ Frame totals 223
+ U Diffuse 392.737549
+ V Diffuse 402.528046
+ U Advect 73.798882
+ V Advect 70.422302
+ Project 504.517609
+ D Diffuse 372.584869
+ D Advect 89.460274
+ TOTAL TIME 2833.162842
+_______________________________________
+VEL: Diffuse U: 2.170700
+VEL Diffuse V: 2.108600
+VEL Project: 2.320400
+VEL Advect U :  0.534200
+VEL Advect V: 0.515000
+D Diffuse: 1.795400
+D Advect: 0.518000
+Time to run in milliseconds: 14.717900
 _____________________________________________________________________________
-VEL: Diffuse U: 3.209600
-VEL Diffuse V: 3.376100
-VEL Project: 3.534000
-VEL Advect U :  0.726900
-VEL Advect V: 0.769600
-D Diffuse: 3.107800
-D Advect: 0.851700
-Time to run in milliseconds: 33.034302
+ Frame totals 224
+ U Diffuse 394.908264
+ V Diffuse 404.636658
+ U Advect 74.333084
+ V Advect 70.937302
+ Project 506.838013
+ D Diffuse 374.380280
+ D Advect 89.978271
+ TOTAL TIME 2847.880859
+_______________________________________
+VEL: Diffuse U: 2.127700
+VEL Diffuse V: 1.807100
+VEL Project: 2.622300
+VEL Advect U :  0.379100
+VEL Advect V: 0.238800
+D Diffuse: 1.526800
+D Advect: 0.358600
+Time to run in milliseconds: 13.374800
 _____________________________________________________________________________
-VEL: Diffuse U: 2.823100
-VEL Diffuse V: 3.509500
-VEL Project: 4.592800
-VEL Advect U :  0.583100
-VEL Advect V: 0.446800
-D Diffuse: 3.399700
-D Advect: 0.690500
-Time to run in milliseconds: 24.913200
+ Frame totals 225
+ U Diffuse 397.035950
+ V Diffuse 406.443756
+ U Advect 74.712181
+ V Advect 71.176102
+ Project 509.460327
+ D Diffuse 375.907074
+ D Advect 90.336868
+ TOTAL TIME 2861.255615
+_______________________________________
+VEL: Diffuse U: 1.796800
+VEL Diffuse V: 1.740400
+VEL Project: 2.423500
+VEL Advect U :  0.366800
+VEL Advect V: 0.289100
+D Diffuse: 1.441900
+D Advect: 0.341300
+Time to run in milliseconds: 12.551600
 _____________________________________________________________________________
-VEL: Diffuse U: 2.856900
-VEL Diffuse V: 3.456700
-VEL Project: 4.184900
-VEL Advect U :  0.494700
-VEL Advect V: 0.448400
-D Diffuse: 3.076000
-D Advect: 0.884000
-Time to run in milliseconds: 25.181400
+ Frame totals 226
+ U Diffuse 398.832764
+ V Diffuse 408.184143
+ U Advect 75.078979
+ V Advect 71.465202
+ Project 511.883820
+ D Diffuse 377.348969
+ D Advect 90.678169
+ TOTAL TIME 2873.807129
+_______________________________________
+VEL: Diffuse U: 1.588500
+VEL Diffuse V: 2.173100
+VEL Project: 2.602200
+VEL Advect U :  0.418600
+VEL Advect V: 0.445200
+D Diffuse: 2.629300
+D Advect: 0.445200
+Time to run in milliseconds: 15.251900
 _____________________________________________________________________________
-VEL: Diffuse U: 3.238000
-VEL Diffuse V: 3.840400
-VEL Project: 3.375200
-VEL Advect U :  0.468100
-VEL Advect V: 0.875400
-D Diffuse: 3.495200
-D Advect: 0.933700
-Time to run in milliseconds: 31.035500
+ Frame totals 227
+ U Diffuse 400.421265
+ V Diffuse 410.357239
+ U Advect 75.497581
+ V Advect 71.910400
+ Project 514.486023
+ D Diffuse 379.978271
+ D Advect 91.123367
+ TOTAL TIME 2889.059082
+_______________________________________
+VEL: Diffuse U: 1.794200
+VEL Diffuse V: 1.949800
+VEL Project: 2.554900
+VEL Advect U :  0.240200
+VEL Advect V: 0.311800
+D Diffuse: 2.433700
+D Advect: 0.574600
+Time to run in milliseconds: 14.364200
 _____________________________________________________________________________
-VEL: Diffuse U: 3.649300
-VEL Diffuse V: 4.118000
-VEL Project: 3.692100
-VEL Advect U :  0.657800
-VEL Advect V: 0.666700
-D Diffuse: 4.178000
-D Advect: 0.711500
-Time to run in milliseconds: 27.120701
+ Frame totals 228
+ U Diffuse 402.215454
+ V Diffuse 412.307037
+ U Advect 75.737778
+ V Advect 72.222198
+ Project 517.040894
+ D Diffuse 382.411957
+ D Advect 91.697968
+ TOTAL TIME 2903.423340
+_______________________________________
+VEL: Diffuse U: 2.214300
+VEL Diffuse V: 1.724800
+VEL Project: 2.704300
+VEL Advect U :  0.274600
+VEL Advect V: 0.540900
+D Diffuse: 1.729000
+D Advect: 0.410200
+Time to run in milliseconds: 14.066600
 _____________________________________________________________________________
-VEL: Diffuse U: 3.767900
-VEL Diffuse V: 3.396700
-VEL Project: 4.332100
-VEL Advect U :  0.742700
-VEL Advect V: 0.538400
-D Diffuse: 4.128300
-D Advect: 0.896200
-Time to run in milliseconds: 31.079399
+ Frame totals 229
+ U Diffuse 404.429749
+ V Diffuse 414.031830
+ U Advect 76.012375
+ V Advect 72.763100
+ Project 519.745178
+ D Diffuse 384.140961
+ D Advect 92.108170
+ TOTAL TIME 2917.489990
+_______________________________________
+VEL: Diffuse U: 1.846300
+VEL Diffuse V: 1.839800
+VEL Project: 2.292300
+VEL Advect U :  0.325300
+VEL Advect V: 0.305700
+D Diffuse: 1.412300
+D Advect: 0.520400
+Time to run in milliseconds: 12.880100
 _____________________________________________________________________________
-VEL: Diffuse U: 3.829800
-VEL Diffuse V: 4.265700
-VEL Project: 3.927600
-VEL Advect U :  0.695300
-VEL Advect V: 1.012200
-D Diffuse: 4.959500
-D Advect: 0.813600
-Time to run in milliseconds: 29.854799
+ Frame totals 230
+ U Diffuse 406.276062
+ V Diffuse 415.871643
+ U Advect 76.337677
+ V Advect 73.068802
+ Project 522.037476
+ D Diffuse 385.553253
+ D Advect 92.628571
+ TOTAL TIME 2930.370117
+_______________________________________
+VEL: Diffuse U: 2.275800
+VEL Diffuse V: 2.251100
+VEL Project: 2.669600
+VEL Advect U :  0.392100
+VEL Advect V: 0.244400
+D Diffuse: 2.113400
+D Advect: 0.359000
+Time to run in milliseconds: 14.237300
 _____________________________________________________________________________
-VEL: Diffuse U: 4.910900
-VEL Diffuse V: 3.797800
-VEL Project: 4.479200
-VEL Advect U :  0.921100
-VEL Advect V: 0.836900
-D Diffuse: 3.512700
-D Advect: 0.512600
-Time to run in milliseconds: 38.070400
+ Frame totals 231
+ U Diffuse 408.551849
+ V Diffuse 418.122742
+ U Advect 76.729774
+ V Advect 73.313202
+ Project 524.707092
+ D Diffuse 387.666656
+ D Advect 92.987572
+ TOTAL TIME 2944.607422
+_______________________________________
+VEL: Diffuse U: 2.445900
+VEL Diffuse V: 2.047800
+VEL Project: 2.778800
+VEL Advect U :  0.662400
+VEL Advect V: 0.377200
+D Diffuse: 1.726500
+D Advect: 0.316000
+Time to run in milliseconds: 14.718500
 _____________________________________________________________________________
+ Frame totals 232
+ U Diffuse 410.997742
+ V Diffuse 420.170532
+ U Advect 77.392174
+ V Advect 73.690399
+ Project 527.485901
+ D Diffuse 389.393158
+ D Advect 93.303574
+ TOTAL TIME 2959.325928
+_______________________________________
+VEL: Diffuse U: 1.679500
+VEL Diffuse V: 1.635900
+VEL Project: 2.034300
+VEL Advect U :  0.279900
+VEL Advect V: 0.294500
+D Diffuse: 1.620900
+D Advect: 0.488400
+Time to run in milliseconds: 13.060300
+_____________________________________________________________________________
+ Frame totals 233
+ U Diffuse 412.677246
+ V Diffuse 421.806427
+ U Advect 77.672073
+ V Advect 73.984901
+ Project 529.520203
+ D Diffuse 391.014069
+ D Advect 93.791977
+ TOTAL TIME 2972.386230
+_______________________________________
+VEL: Diffuse U: 1.894900
+VEL Diffuse V: 2.335800
+VEL Project: 2.753000
+VEL Advect U :  0.321200
+VEL Advect V: 0.409100
+D Diffuse: 1.800100
+D Advect: 0.408000
+Time to run in milliseconds: 14.469500
+_____________________________________________________________________________
+ Frame totals 234
+ U Diffuse 414.572144
+ V Diffuse 424.142212
+ U Advect 77.993271
+ V Advect 74.394005
+ Project 532.273193
+ D Diffuse 392.814178
+ D Advect 94.199974
+ TOTAL TIME 2986.855713
+_______________________________________
+VEL: Diffuse U: 1.570300
+VEL Diffuse V: 1.727400
+VEL Project: 2.832000
+VEL Advect U :  0.388500
+VEL Advect V: 0.322700
+D Diffuse: 1.650100
+D Advect: 0.506400
+Time to run in milliseconds: 14.064300
+_____________________________________________________________________________
+ Frame totals 235
+ U Diffuse 416.142456
+ V Diffuse 425.869598
+ U Advect 78.381767
+ V Advect 74.716705
+ Project 535.105164
+ D Diffuse 394.464264
+ D Advect 94.706375
+ TOTAL TIME 3000.919922
+_______________________________________

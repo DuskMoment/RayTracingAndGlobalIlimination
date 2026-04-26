@@ -8,6 +8,17 @@
 #define A3_DEMO_RES_DIR	"../../../../resource/"
 #define _POSIX_C_SOURCE 199309L
 
+
+a3real VdiffuseTotalTime = 0;
+a3real UdiffuseTotalTime = 0;
+a3real VAdvectTotalTime = 0;
+a3real UAdvectTotalTime = 0;
+a3real projectTotalTime = 0;
+a3real DdiffuseTotalTime = 0;
+a3real DadvectTotalTime = 0;
+a3real totalTime = 0;
+a3i32 frameCount = 0;
+
 //-----------------------------------------------------------------------------
 
 a3ret InitFluidGrid_GPU(a3_FluidGrid_GPU* gridData, a3real viscocityK, a3real diffuseK, a3ui32 diffuse_GS_Loops)
@@ -507,6 +518,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	timespec_get(&end, TIME_UTC);
 	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nVEL: Diffuse U: %f", (float)time_spent);
+	UdiffuseTotalTime += time_spent;
 	printf("\nDiffuse U: %f", (float)time_spent);
 
 	FluidGridSwap_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV);
@@ -517,6 +529,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nVEL Diffuse V: %f", (float)time_spent);
+	VdiffuseTotalTime += time_spent;
 	printf("\nDiffuse V: %f", (float)time_spent);
 
 
@@ -525,6 +538,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nVEL Project: %f", (float)time_spent);
+	projectTotalTime += time_spent;
 	printf("\nProject: %f", (float)time_spent);
 
 
@@ -536,6 +550,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nVEL Advect U : % f", (float)time_spent);
+	UAdvectTotalTime += time_spent;
 	printf("\nAdvect U: %f", (float)time_spent);
 
 	timespec_get(&start, TIME_UTC);
@@ -543,6 +558,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nVEL Advect V: %f", (float)time_spent);
+	VAdvectTotalTime += time_spent;
 	printf("\nAdvect V: %f", (float)time_spent);
 	
 	printf("\n--------------------------");
@@ -567,6 +583,7 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	timespec_get(&end, TIME_UTC);
 	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nD Diffuse: %f", (float)time_spent);
+	DdiffuseTotalTime += time_spent;
 	printf("\nD Diffuse: %f", (float)time_spent);
 	//FluidGridSwap_GPU(gridData, currBuff, prevBuff);
 	//Swap(x0, x, (N + 2) * (N + 2));
@@ -577,6 +594,7 @@ a3ret FluidDensityStep_GPU(a3_FluidGrid_GPU* gridData, a3_UniformBuffer* currBuf
 	timespec_get(&end, TIME_UTC);
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	fprintf(gridData->fptr, "\nD Advect: %f", (float)time_spent);
+	DadvectTotalTime += time_spent;
 	printf("\nD Advect: %f", (float)time_spent);
 
 
@@ -652,10 +670,22 @@ a3ret RunFluidSim_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	}
 
 	float time_spent = (float)sec_diff * (float)1000.0 + (float)nsec_diff / (float)1000000.0;
+	totalTime += time_spent;
 
 	fprintf(gridData->fptr, "\nTime to run in milliseconds: %f", (float)time_spent);
+	frameCount += 1;
 	printf("\nTime to run in milliseconds: %f", (float)time_spent);
 	fprintf(gridData->fptr, "\n_____________________________________________________________________________");
+	fprintf(gridData->fptr, "\n Frame totals %i", frameCount);
+	fprintf(gridData->fptr, "\n U Diffuse %f", UdiffuseTotalTime);
+	fprintf(gridData->fptr, "\n V Diffuse %f", VdiffuseTotalTime);
+	fprintf(gridData->fptr, "\n U Advect %f", UAdvectTotalTime);
+	fprintf(gridData->fptr, "\n V Advect %f", VAdvectTotalTime);
+	fprintf(gridData->fptr, "\n Project %f", projectTotalTime);
+	fprintf(gridData->fptr, "\n D Diffuse %f", DdiffuseTotalTime);
+	fprintf(gridData->fptr, "\n D Advect %f", DadvectTotalTime);
+	fprintf(gridData->fptr, "\n TOTAL TIME %f", totalTime);
+	fprintf(gridData->fptr, "\n_______________________________________");
 	printf("\n");
 
 	DecayFluidGrid_GPU(gridData, dt);
