@@ -484,7 +484,7 @@ a3ret FluidGridVelStep_GPU(a3_FluidGrid_GPU* gridData, a3real dt)
 	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
 	//fprintf(gridData->fptr, "\nVEL Advect U : % f", (float)time_spent);
 	UAdvectTotalTime += time_spent;
-	printf("\nAdvect U: %f", (float)time_spent);
+	//printf("\nAdvect U: %f", (float)time_spent);
 
 	timespec_get(&start, TIME_UTC);
 	FluidGridAdvect_GPU(gridData, gridData->velocityBufferV, gridData->prevVelocityBufferV, gridData->prevVelocityBufferU, gridData->prevVelocityBufferV, dt, 2);
