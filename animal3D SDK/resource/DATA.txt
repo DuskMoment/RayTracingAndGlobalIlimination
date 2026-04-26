@@ -1,1 +1,1273 @@
-TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
+
+Total Frames 1
+V&U Diffuse 1.549300
+V&U Advect 0.177300
+V&U Project 1.165700
+D Diffuse 1.537300
+D Advect 0.062800
+Total Time 5.331600 
+__________________________________________
+Total Frames 2
+V&U Diffuse 2.690700
+V&U Advect 0.263200
+V&U Project 1.862100
+D Diffuse 2.854100
+D Advect 0.098800
+Total Time 9.393801 
+__________________________________________
+Total Frames 3
+V&U Diffuse 3.977400
+V&U Advect 0.314400
+V&U Project 2.456800
+D Diffuse 3.879100
+D Advect 0.133200
+Total Time 13.026501 
+__________________________________________
+Total Frames 4
+V&U Diffuse 4.869200
+V&U Advect 0.380300
+V&U Project 3.565700
+D Diffuse 4.666000
+D Advect 0.165800
+Total Time 16.565102 
+__________________________________________
+Total Frames 5
+V&U Diffuse 6.596700
+V&U Advect 0.451200
+V&U Project 4.315500
+D Diffuse 5.489900
+D Advect 0.198800
+Total Time 20.637901 
+__________________________________________
+Total Frames 6
+V&U Diffuse 7.551400
+V&U Advect 0.506900
+V&U Project 4.951800
+D Diffuse 6.436000
+D Advect 0.385200
+Total Time 24.364401 
+__________________________________________
+Total Frames 7
+V&U Diffuse 8.499900
+V&U Advect 0.595300
+V&U Project 6.082500
+D Diffuse 7.321200
+D Advect 0.465000
+Total Time 28.201500 
+__________________________________________
+Total Frames 8
+V&U Diffuse 9.445200
+V&U Advect 0.642000
+V&U Project 6.974900
+D Diffuse 8.161500
+D Advect 0.497800
+Total Time 31.899200 
+__________________________________________
+Total Frames 9
+V&U Diffuse 11.209800
+V&U Advect 0.716100
+V&U Project 7.847900
+D Diffuse 8.931200
+D Advect 0.531300
+Total Time 36.138500 
+__________________________________________
+Total Frames 10
+V&U Diffuse 12.523700
+V&U Advect 0.763500
+V&U Project 8.543100
+D Diffuse 9.854400
+D Advect 0.597400
+Total Time 40.009899 
+__________________________________________
+Total Frames 11
+V&U Diffuse 13.676700
+V&U Advect 0.848700
+V&U Project 9.455501
+D Diffuse 10.728700
+D Advect 0.629700
+Total Time 43.584198 
+__________________________________________
+Total Frames 12
+V&U Diffuse 14.787800
+V&U Advect 0.896900
+V&U Project 10.329401
+D Diffuse 11.634600
+D Advect 0.667400
+Total Time 47.087597 
+__________________________________________
+Total Frames 13
+V&U Diffuse 15.826000
+V&U Advect 0.947000
+V&U Project 11.118401
+D Diffuse 12.665000
+D Advect 0.712400
+Total Time 50.873798 
+__________________________________________
+Total Frames 14
+V&U Diffuse 16.762400
+V&U Advect 1.095500
+V&U Project 12.107500
+D Diffuse 13.588500
+D Advect 0.744400
+Total Time 54.436497 
+__________________________________________
+Total Frames 15
+V&U Diffuse 18.429300
+V&U Advect 1.148000
+V&U Project 12.881001
+D Diffuse 14.411700
+D Advect 0.777500
+Total Time 58.530598 
+__________________________________________
+Total Frames 16
+V&U Diffuse 19.592501
+V&U Advect 1.189500
+V&U Project 13.504300
+D Diffuse 15.397301
+D Advect 0.814800
+Total Time 62.057697 
+__________________________________________
+Total Frames 17
+V&U Diffuse 20.762901
+V&U Advect 1.232700
+V&U Project 14.205500
+D Diffuse 16.213902
+D Advect 0.899700
+Total Time 65.833595 
+__________________________________________
+Total Frames 18
+V&U Diffuse 21.638901
+V&U Advect 1.279700
+V&U Project 14.936100
+D Diffuse 17.109802
+D Advect 0.938700
+Total Time 69.131996 
+__________________________________________
+Total Frames 19
+V&U Diffuse 22.468500
+V&U Advect 1.330600
+V&U Project 15.996800
+D Diffuse 18.052103
+D Advect 1.036900
+Total Time 72.813599 
+__________________________________________
+Total Frames 20
+V&U Diffuse 23.449200
+V&U Advect 1.429100
+V&U Project 16.897501
+D Diffuse 18.929104
+D Advect 1.073500
+Total Time 76.470901 
+__________________________________________
+Total Frames 21
+V&U Diffuse 24.448500
+V&U Advect 1.475800
+V&U Project 17.758701
+D Diffuse 20.833204
+D Advect 1.124600
+Total Time 81.106102 
+__________________________________________
+Total Frames 22
+V&U Diffuse 25.647400
+V&U Advect 1.530000
+V&U Project 18.628401
+D Diffuse 21.739704
+D Advect 1.162900
+Total Time 84.721703 
+__________________________________________
+Total Frames 23
+V&U Diffuse 26.904400
+V&U Advect 1.576700
+V&U Project 19.591101
+D Diffuse 22.696505
+D Advect 1.202600
+Total Time 88.561005 
+__________________________________________
+Total Frames 24
+V&U Diffuse 27.667099
+V&U Advect 1.670700
+V&U Project 20.381802
+D Diffuse 23.590904
+D Advect 1.249400
+Total Time 91.875504 
+__________________________________________
+Total Frames 25
+V&U Diffuse 28.462799
+V&U Advect 1.721000
+V&U Project 21.065102
+D Diffuse 24.611404
+D Advect 1.321400
+Total Time 95.247902 
+__________________________________________
+Total Frames 26
+V&U Diffuse 29.242800
+V&U Advect 1.795100
+V&U Project 22.217901
+D Diffuse 25.756104
+D Advect 1.358400
+Total Time 99.119904 
+__________________________________________
+Total Frames 27
+V&U Diffuse 30.057100
+V&U Advect 1.844800
+V&U Project 22.978701
+D Diffuse 26.963404
+D Advect 1.398700
+Total Time 102.838806 
+__________________________________________
+Total Frames 28
+V&U Diffuse 31.067801
+V&U Advect 1.890100
+V&U Project 23.960501
+D Diffuse 27.871504
+D Advect 1.438700
+Total Time 106.377304 
+__________________________________________
+Total Frames 29
+V&U Diffuse 32.440399
+V&U Advect 1.936900
+V&U Project 24.918400
+D Diffuse 28.610804
+D Advect 1.470600
+Total Time 110.166000 
+__________________________________________
+Total Frames 30
+V&U Diffuse 33.218201
+V&U Advect 2.119400
+V&U Project 25.975300
+D Diffuse 29.782303
+D Advect 1.509100
+Total Time 113.969200 
+__________________________________________
+Total Frames 31
+V&U Diffuse 34.048203
+V&U Advect 2.203200
+V&U Project 26.644100
+D Diffuse 30.834602
+D Advect 1.545500
+Total Time 117.307800 
+__________________________________________
+Total Frames 32
+V&U Diffuse 35.263504
+V&U Advect 2.240700
+V&U Project 27.163799
+D Diffuse 31.762802
+D Advect 1.586400
+Total Time 120.861900 
+__________________________________________
+Total Frames 33
+V&U Diffuse 36.900803
+V&U Advect 2.289600
+V&U Project 28.551800
+D Diffuse 32.639900
+D Advect 1.639800
+Total Time 125.811897 
+__________________________________________
+Total Frames 34
+V&U Diffuse 38.294804
+V&U Advect 2.337900
+V&U Project 29.716801
+D Diffuse 33.439098
+D Advect 1.673000
+Total Time 130.009903 
+__________________________________________
+Total Frames 35
+V&U Diffuse 41.145203
+V&U Advect 2.461600
+V&U Project 31.911201
+D Diffuse 34.595200
+D Advect 1.716800
+Total Time 137.010910 
+__________________________________________
+Total Frames 36
+V&U Diffuse 42.336903
+V&U Advect 2.514500
+V&U Project 33.771801
+D Diffuse 35.579300
+D Advect 1.761600
+Total Time 141.708405 
+__________________________________________
+Total Frames 37
+V&U Diffuse 43.680401
+V&U Advect 2.557200
+V&U Project 34.819202
+D Diffuse 36.326199
+D Advect 1.794000
+Total Time 145.976608 
+__________________________________________
+Total Frames 38
+V&U Diffuse 44.461800
+V&U Advect 2.605500
+V&U Project 35.991604
+D Diffuse 37.070297
+D Advect 1.825900
+Total Time 150.038010 
+__________________________________________
+Total Frames 39
+V&U Diffuse 46.279198
+V&U Advect 2.691000
+V&U Project 36.954304
+D Diffuse 38.323597
+D Advect 1.898100
+Total Time 155.345612 
+__________________________________________
+Total Frames 40
+V&U Diffuse 47.204296
+V&U Advect 2.730800
+V&U Project 37.442905
+D Diffuse 39.127296
+D Advect 1.930200
+Total Time 158.399612 
+__________________________________________
+Total Frames 41
+V&U Diffuse 48.543594
+V&U Advect 2.771800
+V&U Project 37.952106
+D Diffuse 40.120598
+D Advect 1.963900
+Total Time 162.033905 
+__________________________________________
+Total Frames 42
+V&U Diffuse 49.370193
+V&U Advect 2.817800
+V&U Project 38.602005
+D Diffuse 41.152996
+D Advect 2.003500
+Total Time 165.883011 
+__________________________________________
+Total Frames 43
+V&U Diffuse 50.240795
+V&U Advect 2.864400
+V&U Project 39.288204
+D Diffuse 42.051895
+D Advect 2.036200
+Total Time 169.087708 
+__________________________________________
+Total Frames 44
+V&U Diffuse 51.464195
+V&U Advect 2.915000
+V&U Project 39.967304
+D Diffuse 42.847794
+D Advect 2.179000
+Total Time 172.772400 
+__________________________________________
+Total Frames 45
+V&U Diffuse 52.265297
+V&U Advect 3.100700
+V&U Project 40.718506
+D Diffuse 43.691193
+D Advect 2.212500
+Total Time 176.034302 
+__________________________________________
+Total Frames 46
+V&U Diffuse 53.203598
+V&U Advect 3.144700
+V&U Project 41.257904
+D Diffuse 44.584793
+D Advect 2.248100
+Total Time 179.350006 
+__________________________________________
+Total Frames 47
+V&U Diffuse 54.559498
+V&U Advect 3.378600
+V&U Project 42.278503
+D Diffuse 45.333195
+D Advect 2.281600
+Total Time 183.371201 
+__________________________________________
+Total Frames 48
+V&U Diffuse 56.002197
+V&U Advect 3.420100
+V&U Project 42.798702
+D Diffuse 46.101696
+D Advect 2.315700
+Total Time 186.826508 
+__________________________________________
+Total Frames 49
+V&U Diffuse 56.795898
+V&U Advect 3.460400
+V&U Project 43.289902
+D Diffuse 47.185394
+D Advect 2.383700
+Total Time 190.190704 
+__________________________________________
+Total Frames 50
+V&U Diffuse 57.831799
+V&U Advect 3.500500
+V&U Project 43.856300
+D Diffuse 47.968693
+D Advect 2.416000
+Total Time 193.277802 
+__________________________________________
+Total Frames 51
+V&U Diffuse 58.672100
+V&U Advect 3.541900
+V&U Project 44.793301
+D Diffuse 48.758991
+D Advect 2.589600
+Total Time 196.818207 
+__________________________________________
+Total Frames 52
+V&U Diffuse 59.615002
+V&U Advect 3.582000
+V&U Project 45.286301
+D Diffuse 50.071793
+D Advect 2.629200
+Total Time 200.501114 
+__________________________________________
+Total Frames 53
+V&U Diffuse 60.610401
+V&U Advect 3.709200
+V&U Project 46.111801
+D Diffuse 50.858994
+D Advect 2.661500
+Total Time 204.200821 
+__________________________________________
+Total Frames 54
+V&U Diffuse 61.834202
+V&U Advect 3.752200
+V&U Project 46.906200
+D Diffuse 51.656593
+D Advect 2.693800
+Total Time 208.089218 
+__________________________________________
+Total Frames 55
+V&U Diffuse 62.613003
+V&U Advect 3.853500
+V&U Project 47.735001
+D Diffuse 52.499695
+D Advect 2.754700
+Total Time 211.377716 
+__________________________________________
+Total Frames 56
+V&U Diffuse 63.848003
+V&U Advect 3.891700
+V&U Project 48.229401
+D Diffuse 53.356194
+D Advect 2.793700
+Total Time 215.156418 
+__________________________________________
+Total Frames 57
+V&U Diffuse 65.692200
+V&U Advect 3.968400
+V&U Project 49.177700
+D Diffuse 54.149094
+D Advect 2.838000
+Total Time 219.689621 
+__________________________________________
+Total Frames 58
+V&U Diffuse 66.909103
+V&U Advect 4.007700
+V&U Project 49.677399
+D Diffuse 55.174995
+D Advect 2.879000
+Total Time 223.123917 
+__________________________________________
+Total Frames 59
+V&U Diffuse 68.169403
+V&U Advect 4.068200
+V&U Project 50.455200
+D Diffuse 56.460495
+D Advect 2.930000
+Total Time 227.384109 
+__________________________________________
+Total Frames 60
+V&U Diffuse 69.754402
+V&U Advect 4.117300
+V&U Project 51.332298
+D Diffuse 57.442196
+D Advect 2.974200
+Total Time 231.697708 
+__________________________________________
+Total Frames 61
+V&U Diffuse 70.662605
+V&U Advect 4.157100
+V&U Project 51.955597
+D Diffuse 58.389595
+D Advect 3.042700
+Total Time 235.132309 
+__________________________________________
+Total Frames 62
+V&U Diffuse 71.585007
+V&U Advect 4.200500
+V&U Project 52.817398
+D Diffuse 59.132294
+D Advect 3.075400
+Total Time 238.565414 
+__________________________________________
+Total Frames 63
+V&U Diffuse 72.370705
+V&U Advect 4.251100
+V&U Project 53.707798
+D Diffuse 59.876995
+D Advect 3.108300
+Total Time 242.218216 
+__________________________________________
+Total Frames 64
+V&U Diffuse 73.811005
+V&U Advect 4.291600
+V&U Project 54.209099
+D Diffuse 60.755196
+D Advect 3.146800
+Total Time 246.170212 
+__________________________________________
+Total Frames 65
+V&U Diffuse 75.176804
+V&U Advect 4.392500
+V&U Project 54.710899
+D Diffuse 61.955696
+D Advect 3.217600
+Total Time 250.286011 
+__________________________________________
+Total Frames 66
+V&U Diffuse 76.082001
+V&U Advect 4.485900
+V&U Project 55.468700
+D Diffuse 62.691395
+D Advect 3.249900
+Total Time 253.509216 
+__________________________________________
+Total Frames 67
+V&U Diffuse 76.873497
+V&U Advect 4.547000
+V&U Project 56.081600
+D Diffuse 63.739994
+D Advect 3.289200
+Total Time 256.989227 
+__________________________________________
+Total Frames 68
+V&U Diffuse 77.960594
+V&U Advect 4.593501
+V&U Project 57.002602
+D Diffuse 64.597595
+D Advect 3.320800
+Total Time 260.542419 
+__________________________________________
+Total Frames 69
+V&U Diffuse 79.086693
+V&U Advect 4.641800
+V&U Project 57.797203
+D Diffuse 65.497093
+D Advect 3.359600
+Total Time 264.006622 
+__________________________________________
+Total Frames 70
+V&U Diffuse 79.887291
+V&U Advect 4.692700
+V&U Project 59.318005
+D Diffuse 66.410995
+D Advect 3.400300
+Total Time 267.975311 
+__________________________________________
+Total Frames 71
+V&U Diffuse 80.681091
+V&U Advect 4.942501
+V&U Project 60.052303
+D Diffuse 67.203796
+D Advect 3.432900
+Total Time 271.350311 
+__________________________________________
+Total Frames 72
+V&U Diffuse 81.748390
+V&U Advect 5.003500
+V&U Project 60.922703
+D Diffuse 68.017700
+D Advect 3.465000
+Total Time 275.010712 
+__________________________________________
+Total Frames 73
+V&U Diffuse 82.967888
+V&U Advect 5.129500
+V&U Project 62.391304
+D Diffuse 68.925903
+D Advect 3.497500
+Total Time 279.862000 
+__________________________________________
+Total Frames 74
+V&U Diffuse 83.822090
+V&U Advect 5.168800
+V&U Project 62.887604
+D Diffuse 69.672600
+D Advect 3.530500
+Total Time 282.992310 
+__________________________________________
+Total Frames 75
+V&U Diffuse 84.596992
+V&U Advect 5.220500
+V&U Project 63.436905
+D Diffuse 70.754097
+D Advect 3.607200
+Total Time 286.114502 
+__________________________________________
+Total Frames 76
+V&U Diffuse 85.561790
+V&U Advect 5.260100
+V&U Project 64.007202
+D Diffuse 71.496300
+D Advect 3.640000
+Total Time 289.110596 
+__________________________________________
+Total Frames 77
+V&U Diffuse 86.516891
+V&U Advect 5.468600
+V&U Project 64.551704
+D Diffuse 72.623901
+D Advect 3.725200
+Total Time 292.933594 
+__________________________________________
+Total Frames 78
+V&U Diffuse 87.553291
+V&U Advect 5.519800
+V&U Project 65.234802
+D Diffuse 73.670998
+D Advect 3.769400
+Total Time 296.656982 
+__________________________________________
+Total Frames 79
+V&U Diffuse 89.303391
+V&U Advect 5.570000
+V&U Project 65.814804
+D Diffuse 74.461197
+D Advect 3.801400
+Total Time 300.968597 
+__________________________________________
+Total Frames 80
+V&U Diffuse 90.491890
+V&U Advect 5.610600
+V&U Project 66.363007
+D Diffuse 75.305695
+D Advect 3.841500
+Total Time 304.553589 
+__________________________________________
+Total Frames 81
+V&U Diffuse 91.518593
+V&U Advect 5.769300
+V&U Project 66.856506
+D Diffuse 76.473793
+D Advect 3.936500
+Total Time 308.446075 
+__________________________________________
+Total Frames 82
+V&U Diffuse 92.589096
+V&U Advect 5.863600
+V&U Project 67.671906
+D Diffuse 77.400993
+D Advect 3.976900
+Total Time 313.054474 
+__________________________________________
+Total Frames 83
+V&U Diffuse 93.589294
+V&U Advect 5.976400
+V&U Project 68.713402
+D Diffuse 78.509094
+D Advect 4.017100
+Total Time 317.101685 
+__________________________________________
+Total Frames 84
+V&U Diffuse 94.972298
+V&U Advect 6.022000
+V&U Project 69.415901
+D Diffuse 79.390892
+D Advect 4.050300
+Total Time 320.768890 
+__________________________________________
+Total Frames 85
+V&U Diffuse 95.848495
+V&U Advect 6.060900
+V&U Project 69.901604
+D Diffuse 81.002594
+D Advect 4.091800
+Total Time 324.843994 
+__________________________________________
+Total Frames 86
+V&U Diffuse 97.018997
+V&U Advect 6.197600
+V&U Project 70.542305
+D Diffuse 81.742393
+D Advect 4.124400
+Total Time 328.841095 
+__________________________________________
+Total Frames 87
+V&U Diffuse 98.074997
+V&U Advect 6.269000
+V&U Project 71.608406
+D Diffuse 82.613091
+D Advect 4.156900
+Total Time 332.620392 
+__________________________________________
+Total Frames 88
+V&U Diffuse 99.070900
+V&U Advect 6.323500
+V&U Project 72.339607
+D Diffuse 84.756889
+D Advect 4.263100
+Total Time 338.222595 
+__________________________________________
+Total Frames 89
+V&U Diffuse 99.916298
+V&U Advect 6.364200
+V&U Project 72.832008
+D Diffuse 85.827888
+D Advect 4.307400
+Total Time 341.637085 
+__________________________________________
+Total Frames 90
+V&U Diffuse 100.852097
+V&U Advect 6.407100
+V&U Project 73.610809
+D Diffuse 86.756691
+D Advect 4.344100
+Total Time 344.988373 
+__________________________________________
+Total Frames 91
+V&U Diffuse 101.619797
+V&U Advect 6.453000
+V&U Project 74.345512
+D Diffuse 87.692093
+D Advect 4.381100
+Total Time 348.628265 
+__________________________________________
+Total Frames 92
+V&U Diffuse 102.422897
+V&U Advect 6.496500
+V&U Project 75.083809
+D Diffuse 88.721992
+D Advect 4.438500
+Total Time 352.143280 
+__________________________________________
+Total Frames 93
+V&U Diffuse 103.457298
+V&U Advect 6.775100
+V&U Project 75.579712
+D Diffuse 89.530594
+D Advect 4.470400
+Total Time 355.660492 
+__________________________________________
+Total Frames 94
+V&U Diffuse 105.072395
+V&U Advect 6.831100
+V&U Project 76.694115
+D Diffuse 90.390297
+D Advect 4.505700
+Total Time 360.250702 
+__________________________________________
+Total Frames 95
+V&U Diffuse 106.774292
+V&U Advect 6.997800
+V&U Project 77.686615
+D Diffuse 91.346298
+D Advect 4.628900
+Total Time 365.081696 
+__________________________________________
+Total Frames 96
+V&U Diffuse 107.587891
+V&U Advect 7.048000
+V&U Project 78.620811
+D Diffuse 92.079102
+D Advect 4.661600
+Total Time 368.440308 
+__________________________________________
+Total Frames 97
+V&U Diffuse 108.363892
+V&U Advect 7.147501
+V&U Project 79.217911
+D Diffuse 92.943504
+D Advect 4.700700
+Total Time 371.618317 
+__________________________________________
+Total Frames 98
+V&U Diffuse 109.339088
+V&U Advect 7.186700
+V&U Project 79.958611
+D Diffuse 93.838806
+D Advect 4.741800
+Total Time 375.299927 
+__________________________________________
+Total Frames 99
+V&U Diffuse 110.444786
+V&U Advect 7.226600
+V&U Project 80.455208
+D Diffuse 94.653206
+D Advect 4.789800
+Total Time 378.754822 
+__________________________________________
+Total Frames 100
+V&U Diffuse 111.349190
+V&U Advect 7.279800
+V&U Project 81.210007
+D Diffuse 95.721107
+D Advect 4.830700
+Total Time 382.614807 
+__________________________________________
+Total Frames 101
+V&U Diffuse 112.266586
+V&U Advect 7.326200
+V&U Project 81.961510
+D Diffuse 96.526909
+D Advect 4.868701
+Total Time 385.861420 
+__________________________________________
+Total Frames 102
+V&U Diffuse 113.059784
+V&U Advect 7.365600
+V&U Project 82.447510
+D Diffuse 97.635910
+D Advect 4.946900
+Total Time 389.720215 
+__________________________________________
+Total Frames 103
+V&U Diffuse 113.843285
+V&U Advect 7.405900
+V&U Project 82.943306
+D Diffuse 98.954514
+D Advect 4.986200
+Total Time 393.725006 
+__________________________________________
+Total Frames 104
+V&U Diffuse 114.948883
+V&U Advect 7.444400
+V&U Project 83.439308
+D Diffuse 99.917412
+D Advect 5.065701
+Total Time 397.253998 
+__________________________________________
+Total Frames 105
+V&U Diffuse 115.731186
+V&U Advect 7.538000
+V&U Project 84.224411
+D Diffuse 101.067612
+D Advect 5.103401
+Total Time 400.876007 
+__________________________________________
+Total Frames 106
+V&U Diffuse 116.810387
+V&U Advect 7.581700
+V&U Project 84.765511
+D Diffuse 102.215309
+D Advect 5.173800
+Total Time 404.664398 
+__________________________________________
+Total Frames 107
+V&U Diffuse 117.884186
+V&U Advect 7.621700
+V&U Project 85.261208
+D Diffuse 103.158211
+D Advect 5.264901
+Total Time 408.037384 
+__________________________________________
+Total Frames 108
+V&U Diffuse 118.817688
+V&U Advect 7.660400
+V&U Project 85.835709
+D Diffuse 103.973213
+D Advect 5.297201
+Total Time 411.210297 
+__________________________________________
+Total Frames 109
+V&U Diffuse 119.823990
+V&U Advect 8.048800
+V&U Project 86.529312
+D Diffuse 105.066216
+D Advect 5.336801
+Total Time 415.143494 
+__________________________________________
+Total Frames 110
+V&U Diffuse 120.847092
+V&U Advect 8.089100
+V&U Project 87.031311
+D Diffuse 105.978912
+D Advect 5.373801
+Total Time 419.058807 
+__________________________________________
+Total Frames 111
+V&U Diffuse 122.249290
+V&U Advect 8.146200
+V&U Project 87.745110
+D Diffuse 106.818016
+D Advect 5.405301
+Total Time 422.912109 
+__________________________________________
+Total Frames 112
+V&U Diffuse 123.081894
+V&U Advect 8.194600
+V&U Project 88.319412
+D Diffuse 107.885513
+D Advect 5.451401
+Total Time 427.107605 
+__________________________________________
+Total Frames 113
+V&U Diffuse 124.111397
+V&U Advect 8.358400
+V&U Project 88.814613
+D Diffuse 108.808510
+D Advect 5.490401
+Total Time 430.714203 
+__________________________________________
+Total Frames 114
+V&U Diffuse 125.156898
+V&U Advect 8.399301
+V&U Project 89.396317
+D Diffuse 109.955811
+D Advect 5.653501
+Total Time 434.568115 
+__________________________________________
+Total Frames 115
+V&U Diffuse 126.398598
+V&U Advect 8.442401
+V&U Project 90.184418
+D Diffuse 111.232010
+D Advect 5.689801
+Total Time 438.816803 
+__________________________________________
+Total Frames 116
+V&U Diffuse 127.264496
+V&U Advect 8.505601
+V&U Project 90.776115
+D Diffuse 111.971710
+D Advect 5.721701
+Total Time 441.755005 
+__________________________________________
+Total Frames 117
+V&U Diffuse 128.070389
+V&U Advect 8.551401
+V&U Project 91.370712
+D Diffuse 113.103111
+D Advect 5.760801
+Total Time 445.361908 
+__________________________________________
+Total Frames 118
+V&U Diffuse 129.086090
+V&U Advect 8.597301
+V&U Project 91.945709
+D Diffuse 114.297508
+D Advect 5.801601
+Total Time 449.365601 
+__________________________________________
+Total Frames 119
+V&U Diffuse 129.940598
+V&U Advect 8.645302
+V&U Project 92.448807
+D Diffuse 115.157005
+D Advect 5.842101
+Total Time 452.300415 
+__________________________________________
+Total Frames 120
+V&U Diffuse 130.742599
+V&U Advect 8.685202
+V&U Project 92.936409
+D Diffuse 116.282402
+D Advect 5.889301
+Total Time 455.574005 
+__________________________________________
+Total Frames 121
+V&U Diffuse 131.517303
+V&U Advect 8.724802
+V&U Project 93.429008
+D Diffuse 117.342003
+D Advect 5.926201
+Total Time 458.666199 
+__________________________________________
+Total Frames 122
+V&U Diffuse 132.291000
+V&U Advect 8.764802
+V&U Project 93.948807
+D Diffuse 118.362701
+D Advect 5.966501
+Total Time 461.725708 
+__________________________________________
+Total Frames 123
+V&U Diffuse 133.093597
+V&U Advect 8.805402
+V&U Project 94.451805
+D Diffuse 119.294701
+D Advect 6.005901
+Total Time 464.731995 
+__________________________________________
+Total Frames 124
+V&U Diffuse 133.869202
+V&U Advect 8.844902
+V&U Project 94.944206
+D Diffuse 120.595604
+D Advect 6.080001
+Total Time 468.464600 
+__________________________________________
+Total Frames 125
+V&U Diffuse 134.632706
+V&U Advect 8.884202
+V&U Project 95.480705
+D Diffuse 121.405106
+D Advect 6.112802
+Total Time 471.297791 
+__________________________________________
+Total Frames 126
+V&U Diffuse 135.479507
+V&U Advect 8.923802
+V&U Project 95.974007
+D Diffuse 122.333008
+D Advect 6.152701
+Total Time 474.652985 
+__________________________________________
+Total Frames 127
+V&U Diffuse 136.409409
+V&U Advect 8.963802
+V&U Project 96.494110
+D Diffuse 123.258911
+D Advect 6.201302
+Total Time 477.843079 
+__________________________________________
+Total Frames 128
+V&U Diffuse 137.306915
+V&U Advect 9.005302
+V&U Project 97.043213
+D Diffuse 124.072311
+D Advect 6.234302
+Total Time 481.076385 
+__________________________________________
+Total Frames 129
+V&U Diffuse 138.177811
+V&U Advect 9.045403
+V&U Project 97.555511
+D Diffuse 124.918312
+D Advect 6.279302
+Total Time 484.329193 
+__________________________________________
+Total Frames 130
+V&U Diffuse 138.950317
+V&U Advect 9.083503
+V&U Project 98.043114
+D Diffuse 126.137009
+D Advect 6.319602
+Total Time 488.070892 
+__________________________________________
+Total Frames 131
+V&U Diffuse 139.717621
+V&U Advect 9.123503
+V&U Project 98.536316
+D Diffuse 127.124306
+D Advect 6.361601
+Total Time 491.434387 
+__________________________________________
+Total Frames 132
+V&U Diffuse 140.789322
+V&U Advect 9.165003
+V&U Project 99.036217
+D Diffuse 127.962509
+D Advect 6.405302
+Total Time 494.829285 
+__________________________________________
+Total Frames 133
+V&U Diffuse 141.542114
+V&U Advect 9.204002
+V&U Project 99.523514
+D Diffuse 129.413712
+D Advect 6.535302
+Total Time 498.416473 
+__________________________________________
+Total Frames 134
+V&U Diffuse 142.794312
+V&U Advect 9.249002
+V&U Project 100.077011
+D Diffuse 130.286407
+D Advect 6.570402
+Total Time 501.811981 
+__________________________________________
+Total Frames 135
+V&U Diffuse 143.739014
+V&U Advect 9.295202
+V&U Project 100.933311
+D Diffuse 131.108612
+D Advect 6.637102
+Total Time 505.550385 
+__________________________________________
+Total Frames 136
+V&U Diffuse 144.552414
+V&U Advect 9.389102
+V&U Project 101.439110
+D Diffuse 131.927307
+D Advect 6.673602
+Total Time 508.944397 
+__________________________________________
+Total Frames 137
+V&U Diffuse 145.307220
+V&U Advect 9.433302
+V&U Project 101.988510
+D Diffuse 132.729813
+D Advect 6.705602
+Total Time 511.746796 
+__________________________________________
+Total Frames 138
+V&U Diffuse 146.079025
+V&U Advect 9.502602
+V&U Project 102.612709
+D Diffuse 133.673309
+D Advect 6.744402
+Total Time 514.844482 
+__________________________________________
+Total Frames 139
+V&U Diffuse 146.986328
+V&U Advect 9.552102
+V&U Project 103.266106
+D Diffuse 134.500214
+D Advect 6.776602
+Total Time 518.192810 
+__________________________________________
+Total Frames 140
+V&U Diffuse 147.778030
+V&U Advect 9.607702
+V&U Project 103.974007
+D Diffuse 135.680817
+D Advect 6.819802
+Total Time 522.026733 
+__________________________________________
+Total Frames 141
+V&U Diffuse 149.837524
+V&U Advect 9.798702
+V&U Project 104.891907
+D Diffuse 136.533417
+D Advect 6.852602
+Total Time 526.889221 
+__________________________________________
+Total Frames 142
+V&U Diffuse 150.794128
+V&U Advect 9.848002
+V&U Project 105.493507
+D Diffuse 137.556610
+D Advect 6.938802
+Total Time 530.238525 
+__________________________________________
+Total Frames 143
+V&U Diffuse 151.862335
+V&U Advect 9.916602
+V&U Project 106.184410
+D Diffuse 138.435013
+D Advect 7.015802
+Total Time 533.683899 
+__________________________________________
+Total Frames 144
+V&U Diffuse 152.674438
+V&U Advect 9.972002
+V&U Project 106.741814
+D Diffuse 139.245209
+D Advect 7.048202
+Total Time 536.594727 
+__________________________________________
+Total Frames 145
+V&U Diffuse 153.439636
+V&U Advect 10.021202
+V&U Project 107.368813
+D Diffuse 140.079712
+D Advect 7.094302
+Total Time 539.779724 
+__________________________________________
+Total Frames 146
+V&U Diffuse 154.669434
+V&U Advect 10.083902
+V&U Project 108.400116
+D Diffuse 141.100815
+D Advect 7.134402
+Total Time 543.919006 
+__________________________________________
+Total Frames 147
+V&U Diffuse 155.495239
+V&U Advect 10.130302
+V&U Project 109.077118
+D Diffuse 142.000717
+D Advect 7.166502
+Total Time 547.217590 
+__________________________________________
+Total Frames 148
+V&U Diffuse 156.476334
+V&U Advect 10.182902
+V&U Project 109.832420
+D Diffuse 143.008118
+D Advect 7.206402
+Total Time 551.031982 
+__________________________________________
+Total Frames 149
+V&U Diffuse 157.455841
+V&U Advect 10.297503
+V&U Project 110.347023
+D Diffuse 143.875015
+D Advect 7.258902
+Total Time 554.436279 
+__________________________________________
+Total Frames 150
+V&U Diffuse 158.504745
+V&U Advect 10.346803
+V&U Project 110.874825
+D Diffuse 144.978317
+D Advect 7.295702
+Total Time 558.116577 
+__________________________________________
+Total Frames 151
+V&U Diffuse 159.832550
+V&U Advect 10.396303
+V&U Project 111.601021
+D Diffuse 146.000214
+D Advect 7.332902
+Total Time 561.927979 
+__________________________________________
+Total Frames 152
+V&U Diffuse 160.744156
+V&U Advect 10.447603
+V&U Project 112.118019
+D Diffuse 146.946518
+D Advect 7.369902
+Total Time 565.085876 
+__________________________________________
+Total Frames 153
+V&U Diffuse 161.535553
+V&U Advect 10.495503
+V&U Project 112.802620
+D Diffuse 148.376312
+D Advect 7.411602
+Total Time 568.969604 
+__________________________________________
+Total Frames 154
+V&U Diffuse 162.346649
+V&U Advect 10.543504
+V&U Project 113.687019
+D Diffuse 149.335907
+D Advect 7.456902
+Total Time 572.397034 
+__________________________________________
+Total Frames 155
+V&U Diffuse 163.143448
+V&U Advect 10.600204
+V&U Project 114.387222
+D Diffuse 150.495010
+D Advect 7.496902
+Total Time 576.060608 
+__________________________________________
+Total Frames 156
+V&U Diffuse 164.188644
+V&U Advect 10.669804
+V&U Project 115.175224
+D Diffuse 151.462616
+D Advect 7.545902
+Total Time 579.648987 
+__________________________________________
+Total Frames 157
+V&U Diffuse 165.275742
+V&U Advect 10.715203
+V&U Project 116.148026
+D Diffuse 152.388611
+D Advect 7.578202
+Total Time 583.352783 
+__________________________________________
+Total Frames 158
+V&U Diffuse 166.177444
+V&U Advect 10.795703
+V&U Project 116.729523
+D Diffuse 153.257416
+D Advect 7.617602
+Total Time 586.906189 
+__________________________________________
+Total Frames 159
+V&U Diffuse 168.351944
+V&U Advect 10.841503
+V&U Project 117.236725
+D Diffuse 154.510513
+D Advect 7.682302
+Total Time 592.093872 
+__________________________________________

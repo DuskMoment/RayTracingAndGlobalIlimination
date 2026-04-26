@@ -44,7 +44,16 @@
 #include <OpenGL/gl3.h>
 #endif	// _WIN32
 
+a3real VdiffuseTotalTime = 0;
+a3real UVdiffuseTotalTime = 0;
+a3real VAdvectTotalTime = 0;
+a3real UVAdvectTotalTime = 0;
+a3real projectTotalTime = 0;
+a3real DdiffuseTotalTime = 0;
+a3real DadvectTotalTime = 0;
+a3real totalTime = 0;
 
+a3i32 frameCount = 0;
 //-----------------------------------------------------------------------------
 																	//velocity						//doublebuffer
 static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffer const* fsqBuffer, a3_Framebuffer const* drawToBuffer, const a3mat4 fsq, a3f32 n,
@@ -697,9 +706,16 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
 
-	fprintf(fptr, "TEST");
+	
+
 	//2. diffuse (jacobi) x20
 	//		-set bounds
+
+	struct timespec start, end;
+	struct timespec totalStart, totalEnd;
+	frameCount += 1;
+	timespec_get(&totalStart, TIME_UTC);
+	timespec_get(&start, TIME_UTC);
 	for (int i = 0; i < 20; i++)
 	{
 		currentDemoProgram = demoState->prog_jacobiDiffuse;
@@ -791,10 +807,14 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3vertexDrawableRenderActive();
 	}
 
+	timespec_get(&end, TIME_UTC);
+	float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	UVdiffuseTotalTime += time_spent;
 
 
 	//3. project
 			//-divergence
+	timespec_get(&start, TIME_UTC);
 	currentDemoProgram = demoState->prog_div;
 	a3shaderProgramActivate(currentDemoProgram->program);
 	a3framebufferActivate(demoState->fbo_pressure_div_c16);
@@ -923,6 +943,9 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	projectTotalTime += time_spent;
 
 	//4. swap
 	// prev -> temp
@@ -964,6 +987,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 
 	//5. advect
+	timespec_get(&start, TIME_UTC);
 	currentDemoProgram = demoState->prog_advect;
 	a3shaderProgramActivate(currentDemoProgram->program);
 	a3framebufferActivate(demoState->fbo_double_buffer_c16);
@@ -1012,6 +1036,10 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	a3framebufferBindColorTexture(demoState->fbo_double_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	UVAdvectTotalTime += time_spent;
+
 
 	//4. swap
 	// prev -> temp
@@ -1286,7 +1314,9 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
 
+
 	//3. diffuse (jacobi) x20
+	timespec_get(&start, TIME_UTC);
 	n = (a3f32)1.0;
 	for (int i = 0; i < 20; i++)
 	{
@@ -1377,7 +1407,12 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3vertexDrawableRenderActive();
 	}
 
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	DdiffuseTotalTime += time_spent;
+
 	//4. advect
+	timespec_get(&start, TIME_UTC);
 	currentDemoProgram = demoState->prog_advect;
 	a3shaderProgramActivate(currentDemoProgram->program);
 	a3framebufferActivate(demoState->fbo_current_density_c16);
@@ -1401,6 +1436,9 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	//		-bounds
 	bounds(demoState, targetIndex, demoState->fbo_current_density_c16, demoState->fbo_double_buffer_c16, fsq, n, z, x, c, v);
 
+	timespec_get(&end, TIME_UTC);
+	time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+	DadvectTotalTime += time_spent;
 	//copy to buffer
 	currentDemoProgram = demoState->prog_drawTexture;
 	a3shaderProgramActivate(currentDemoProgram->program);
@@ -1444,6 +1482,19 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 	// final display: activate desired final program and draw FSQ
 
+
+	timespec_get(&totalEnd, TIME_UTC);
+	time_spent = (float)(totalEnd.tv_nsec - totalStart.tv_nsec) / 1000000;
+	totalTime += time_spent;
+	fprintf(fptr, "\nTotal Frames %i", frameCount);
+	fprintf(fptr, "\nV&U Diffuse %f", UVdiffuseTotalTime);
+	fprintf(fptr, "\nV&U Advect %f", UVAdvectTotalTime);
+	fprintf(fptr, "\nV&U Project %f", projectTotalTime);
+	fprintf(fptr, "\nD Diffuse %f", DdiffuseTotalTime);
+	fprintf(fptr, "\nD Advect %f", DadvectTotalTime);
+	fprintf(fptr, "\nTotal Time %f ", totalTime);
+
+	fprintf(fptr, "\n__________________________________________");
 	////---------------------------FINAL DRAW---------------------------
 	a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
 		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
