@@ -524,9 +524,9 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     FluidGridDiffuse(N, 1, u, u0, visc, dt);
     timespec_get(&end, TIME_UTC);
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVel U Diffuse: %f", time_spent);
+    //printf("\nVel U Diffuse: %f", time_spent);
     UdiffuseTotalTime += time_spent;
-    fprintf(fptr, "\nVEL U Diffuse: %f", time_spent);
+    //fprintf(fptr, "\nVEL U Diffuse: %f", time_spent);
 
     Swap(v0, v, (N + 2) * (N + 2));
    
@@ -534,17 +534,17 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     FluidGridDiffuse(N, 2, v, v0, visc, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVEL V diffuse: %f", time_spent);
+    //printf("\nVEL V diffuse: %f", time_spent);
     VdiffuseTotalTime += time_spent;
-    fprintf(fptr, "\nVel V diffuse: %f", time_spent);
+    //fprintf(fptr, "\nVel V diffuse: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
     FluidGridProject(N, u, v, u0, v0);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVEL Project: %f", time_spent);
+    //printf("\nVEL Project: %f", time_spent);
     projectTotalTime += time_spent;
-    fprintf(fptr, "\nVel Project: %f", time_spent);
+    //fprintf(fptr, "\nVel Project: %f", time_spent);
 
 
     //already profiled remober to add  it to the calculation
@@ -555,17 +555,17 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     FluidGridAdvect(N, 1, u, u0, u0, v0, dt); 
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nVEL Advect U: %f", time_spent);
+    //printf("\nVEL Advect U: %f", time_spent);
     UAdvectTotalTime += time_spent;
-    fprintf(fptr, "\nVEL Advect U: %f", time_spent);
+    //fprintf(fptr, "\nVEL Advect U: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
     FluidGridAdvect(N, 2, v, v0, u0, v0, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nAdvect V: %f", time_spent);
+    //printf("\nAdvect V: %f", time_spent);
     VAdvectTotalTime += time_spent;
-    fprintf(fptr, "\nVEL Advect V: %f", time_spent);
+    //fprintf(fptr, "\nVEL Advect V: %f", time_spent);
 
     //alreadyt profiled use the *2
     FluidGridProject(N, u, v, u0, v0);
@@ -590,9 +590,9 @@ a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3
     FluidGridDiffuse(N, 0, x, x0, diff, dt);
     timespec_get(&end, TIME_UTC);
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nD Diffuse: %f", time_spent);
+    //printf("\nD Diffuse: %f", time_spent);
     DdiffuseTotalTime += time_spent;
-    fprintf(fptr, "\nD Diffuse: %f", time_spent);
+    //fprintf(fptr, "\nD Diffuse: %f", time_spent);
 
     //already done
     Swap(x0, x, (N + 2) * (N + 2));
@@ -601,9 +601,9 @@ a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3
     FluidGridAdvect(N, 0, x, x0, u, v, dt);
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
-    printf("\nD Advect: %f", time_spent);
+    //printf("\nD Advect: %f", time_spent);
     DadvectTotalTime += time_spent;
-    fprintf(fptr, "\nD Advect: %f", time_spent);
+    //fprintf(fptr, "\nD Advect: %f", time_spent);
 
     
     //printf("\n-------------------------------------------");
@@ -632,7 +632,7 @@ a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real vis
     frameCount += 1;
 
 	printf("\nTime to run in milliseconds: %f", time_spent);
-    fprintf(fptr, "\nTime to run in milliseconds: %f", time_spent);
+    //fprintf(fptr, "\nTime to run in milliseconds: %f", time_spent);
     fprintf(fptr, "\n_______________________________________");
     fprintf(fptr, "\n Frame totals %i", frameCount);
     fprintf(fptr, "\n U Diffuse %f", UdiffuseTotalTime);
