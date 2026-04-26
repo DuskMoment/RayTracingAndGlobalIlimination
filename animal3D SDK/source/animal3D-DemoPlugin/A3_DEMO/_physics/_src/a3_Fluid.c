@@ -11,6 +11,16 @@
 
 //-----------------------------------------------------------------------------
 FILE* fptr;
+a3real VdiffuseTotalTime = 0;
+a3real UdiffuseTotalTime = 0;
+a3real VAdvectTotalTime = 0;
+a3real UAdvectTotalTime = 0;
+a3real projectTotalTime = 0;
+a3real DdiffuseTotalTime = 0;
+a3real DadvectTotalTime = 0;
+a3real totalTime = 0;
+
+a3i32 frameCount = 0;
 
 //-----------------------------------------------------------------------------
 
@@ -515,6 +525,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     timespec_get(&end, TIME_UTC);
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nVel U Diffuse: %f", time_spent);
+    UdiffuseTotalTime += time_spent;
     fprintf(fptr, "\nVEL U Diffuse: %f", time_spent);
 
     Swap(v0, v, (N + 2) * (N + 2));
@@ -524,6 +535,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nVEL V diffuse: %f", time_spent);
+    VdiffuseTotalTime += time_spent;
     fprintf(fptr, "\nVel V diffuse: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
@@ -531,6 +543,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nVEL Project: %f", time_spent);
+    projectTotalTime += time_spent;
     fprintf(fptr, "\nVel Project: %f", time_spent);
 
 
@@ -543,6 +556,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nVEL Advect U: %f", time_spent);
+    UAdvectTotalTime += time_spent;
     fprintf(fptr, "\nVEL Advect U: %f", time_spent);
 
     timespec_get(&start, TIME_UTC);
@@ -550,6 +564,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nAdvect V: %f", time_spent);
+    VAdvectTotalTime += time_spent;
     fprintf(fptr, "\nVEL Advect V: %f", time_spent);
 
     //alreadyt profiled use the *2
@@ -576,6 +591,7 @@ a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3
     timespec_get(&end, TIME_UTC);
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nD Diffuse: %f", time_spent);
+    DdiffuseTotalTime += time_spent;
     fprintf(fptr, "\nD Diffuse: %f", time_spent);
 
     //already done
@@ -586,8 +602,10 @@ a3ret FluidGridDensStep(a3i32 N, a3real* x, a3real* x0, a3real* u, a3real* v, a3
     timespec_get(&end, TIME_UTC);
     time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
     printf("\nD Advect: %f", time_spent);
+    DadvectTotalTime += time_spent;
     fprintf(fptr, "\nD Advect: %f", time_spent);
 
+    
     //printf("\n-------------------------------------------");
 
     return 1;
@@ -610,10 +628,29 @@ a3ret FluidGridSim(a3_FluidGrid* grid, a3i32 N, a3real* u, a3real* v, a3real vis
 
     timespec_get(&end, TIME_UTC);
     float time_spent = (float)(end.tv_nsec - start.tv_nsec) / 1000000;
+    totalTime += time_spent;
+    frameCount += 1;
 
 	printf("\nTime to run in milliseconds: %f", time_spent);
     fprintf(fptr, "\nTime to run in milliseconds: %f", time_spent);
     fprintf(fptr, "\n_______________________________________");
+    fprintf(fptr, "\n Frame totals %i", frameCount);
+    fprintf(fptr, "\n U Diffuse %f", UdiffuseTotalTime);
+    fprintf(fptr, "\n V Diffuse %f", VdiffuseTotalTime);
+    fprintf(fptr, "\n U Advect %f", UAdvectTotalTime);
+    fprintf(fptr, "\n V Advect %f", VAdvectTotalTime);
+    fprintf(fptr, "\n Project %f", projectTotalTime);
+    fprintf(fptr, "\n D Diffuse %f", DdiffuseTotalTime);
+    fprintf(fptr, "\n D Advect %f", DadvectTotalTime);
+    fprintf(fptr, "\n TOTAL TIME %f", totalTime);
+    fprintf(fptr, "\n_______________________________________");
+
+
+
+
+
+
+
 	printf("\n");
 
     return 1;
