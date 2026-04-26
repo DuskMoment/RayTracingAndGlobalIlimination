@@ -35,6 +35,7 @@
 #include <GL/glew.h>
 
 #include <time.h>
+#define A3_DEMO_RES_DIR	"../../../../resource/"
 
 
 //-----------------------------------------------------------------------------
@@ -201,7 +202,8 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
 
     //CopyCurrToPrevGrids(scene->fluidGrid);
 
-    fptr = fopen("DATA.txt", "w");
+
+    fptr = fopen(A3_DEMO_RES_DIR"/DATA.txt", "w");
 
 }
 
