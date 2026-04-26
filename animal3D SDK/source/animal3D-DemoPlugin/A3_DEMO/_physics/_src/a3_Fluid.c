@@ -570,7 +570,7 @@ a3ret FluidGridVelStep(a3i32 N, a3real* u, a3real* v, a3real* u0, a3real* v0, a3
     //alreadyt profiled use the *2
     FluidGridProject(N, u, v, u0, v0);
 
-    printf("\n-------------------------------------------");
+   // printf("\n-------------------------------------------");
 
     return 1;
 }
