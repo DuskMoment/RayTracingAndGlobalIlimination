@@ -6,8 +6,6 @@ in GS_OUT
 	vec2 vColor;
 } fs_in;
 
-const float screenRecip = 0.00125;
-
 uniform sampler2D uImage00;
 uniform vec4 uAxis;
 uniform float uNegate;

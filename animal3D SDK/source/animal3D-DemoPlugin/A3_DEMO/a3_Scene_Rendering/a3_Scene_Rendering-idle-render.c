@@ -596,6 +596,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3f32 x = (a3f32)50.0;
 	a3f32 c = (a3f32)0.01;
 	a3f32 v = (a3f32)0.5;
+	a3f32 screenRecip = (a3f32)1.0 / demoState->fbo_double_buffer_c16->frameHeight;
 
 	//if no previous frame set up prev velocity
 	if (demoState->first)
@@ -712,10 +713,11 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
 
-		a3f32 a = (a3f32)(timeStep * 0.2 * 800 * 800);
+		a3f32 a = (a3f32)(timeStep * 0.2 * demoState->fbo_double_buffer_c16->frameWidth * demoState->fbo_double_buffer_c16->frameHeight);
 		a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 		
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeM"), 1, &z);
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
@@ -804,6 +806,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 	a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit00, 0);
 
@@ -840,6 +843,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 		a3vertexDrawableRenderActive();
 		
@@ -882,6 +886,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 
 	currentDrawable = demoState->draw_unit_plane_z;
@@ -968,12 +973,13 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferBindColorTexture(demoState->fbo_current_velocity_c16, a3tex_unit01, 0);
 
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "dt"), 1, &timeStep);
-	a3f32 y = (a3f32)800;
+	a3f32 y = demoState->fbo_double_buffer_c16->frameWidth;
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "N"), 1, &y);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeM"), 1, &z);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
@@ -1057,6 +1063,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 	currentDrawable = demoState->draw_unit_plane_z;
 	a3vertexDrawableActivate(currentDrawable);
@@ -1097,6 +1104,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 		a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 		a3vertexDrawableRenderActive();
 
@@ -1139,6 +1147,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 	currentDrawable = demoState->draw_unit_plane_z;
 	a3vertexDrawableActivate(currentDrawable);
@@ -1289,10 +1298,11 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 		a3framebufferBindColorTexture(demoState->fbo_prev_density_c16, a3tex_unit00, 0);
 		a3framebufferBindColorTexture(demoState->fbo_current_density_c16, a3tex_unit01, 0);
 
-		a3f32 a = (a3f32)(timeStep * 0.2 * 800 * 800);
+		a3f32 a = (a3f32)(timeStep * 0.2 * demoState->fbo_double_buffer_c16->frameHeight * demoState->fbo_double_buffer_c16->frameWidth);
 		a3f32 diffuseDenom = (a3f32)(1.0 / (4.0 * a + 1.0));
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "a"), 1, &a);
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "diffuseDenom"), 1, &diffuseDenom);
+		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeM"), 1, &z);
 		a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
@@ -1379,6 +1389,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToRangeS"), 1, &x);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorM"), 1, &c);
 	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uToColorA"), 1, &v);
+	a3shaderUniformSendFloat(a3unif_single, a3shaderUniformGetLocation(currentDemoProgram->program, "uScreenRecip"), 1, &screenRecip);
 
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
 	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);

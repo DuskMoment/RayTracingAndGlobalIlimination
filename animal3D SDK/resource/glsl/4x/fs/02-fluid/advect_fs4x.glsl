@@ -2,7 +2,7 @@
 
 in vec4 vTexcoord_atlas;
 
-const float screenRecip = 0.00125;
+uniform float uScreenRecip;
 
 uniform float dt;
 uniform float N;
@@ -50,8 +50,8 @@ void main ()
     t1 = y - j0; 
     t0 = 1 - t1;
 
-     vec3 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * screenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i0, j1) * screenRecip).xyz * uToRangeM - uToRangeS)) +
-                s1 * (t0 * (texture(uImage00, vec2(i1, j0) * screenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i1, j1) * screenRecip).xyz * uToRangeM - uToRangeS));
+     vec3 col = s0 * (t0 * (texture(uImage00, vec2(i0, j0) * uScreenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i0, j1) * uScreenRecip).xyz * uToRangeM - uToRangeS)) +
+                s1 * (t0 * (texture(uImage00, vec2(i1, j0) * uScreenRecip).xyz * uToRangeM - uToRangeS) + t1 * (texture(uImage00, vec2(i1, j1) * uScreenRecip).xyz * uToRangeM - uToRangeS));
 
     current = vec4(col * uToColorM + uToColorA, 1.0);
 }
