@@ -200,7 +200,13 @@ void a3rendering_init_scene(a3_DemoState const* demoState, a3_Scene_Rendering* s
     //}
 
     //CopyCurrToPrevGrids(scene->fluidGrid);
+
+    fptr = fopen("DATA.txt", "w");
+
 }
+
+
+
 
 
 //-----------------------------------------------------------------------------

@@ -42,6 +42,9 @@
 
 #include "_physics/a3_fluid.h"
 
+#include <stdio.h>
+#include <time.h>
+FILE* fptr;
 
 //-----------------------------------------------------------------------------
 

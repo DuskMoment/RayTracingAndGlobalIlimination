@@ -696,6 +696,7 @@ void a3rendering_render(a3_DemoState* demoState, a3_Scene_Rendering const* scene
 	a3framebufferBindColorTexture(demoState->fbo_tmp_buffer_c16, a3tex_unit00, 0);
 	a3vertexDrawableRenderActive();
 
+	fprintf(fptr, "TEST");
 	//2. diffuse (jacobi) x20
 	//		-set bounds
 	for (int i = 0; i < 20; i++)
