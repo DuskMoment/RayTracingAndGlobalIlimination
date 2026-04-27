@@ -1,7 +1,7 @@
 #version 450
 
 //CHANGE THE GRIDSIZE HERE 
-const int GRID_LENGHT = 38;
+const int GRID_LENGHT = 798;
 const int GRID_SIZE = (GRID_LENGHT + 2) * (GRID_LENGHT + 2);
 
 

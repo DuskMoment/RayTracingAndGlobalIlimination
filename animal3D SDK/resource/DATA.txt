@@ -1,1825 +1,2497 @@
 
 _____________________________________________________________________________
  Frame totals 1
- U Diffuse 0.333900
- V Diffuse 0.107800
- U Advect 0.045400
- V Advect 0.004100
- Project 0.243300
- D Diffuse 0.094500
- D Advect 0.004100
- TOTAL TIME 1.388100
+ U Diffuse 0.321200
+ V Diffuse 0.103900
+ U Advect 0.033200
+ V Advect 0.004000
+ Project 0.177400
+ D Diffuse 0.071200
+ D Advect 0.003600
+ TOTAL TIME 1.360400
 _______________________________________
-Time to run in milliseconds: 1.388100
+Time to run in milliseconds: 1.360400
 _____________________________________________________________________________
  Frame totals 2
- U Diffuse 0.459500
- V Diffuse 0.222200
- U Advect 0.060600
- V Advect 0.008100
- Project 0.396900
- D Diffuse 0.209300
- D Advect 0.016900
- TOTAL TIME 2.201800
+ U Diffuse 0.444000
+ V Diffuse 0.216800
+ U Advect 0.040500
+ V Advect 0.007900
+ Project 0.328600
+ D Diffuse 0.155000
+ D Advect 0.007800
+ TOTAL TIME 2.113500
 _______________________________________
-Time to run in milliseconds: 0.813700
+Time to run in milliseconds: 0.753100
 _____________________________________________________________________________
  Frame totals 3
- U Diffuse 0.693500
- V Diffuse 0.443400
- U Advect 0.067100
- V Advect 0.011800
- Project 0.546100
- D Diffuse 0.293300
- D Advect 0.020700
- TOTAL TIME 3.182500
+ U Diffuse 0.558600
+ V Diffuse 0.379000
+ U Advect 0.054900
+ V Advect 0.011900
+ Project 0.606500
+ D Diffuse 0.258900
+ D Advect 0.011800
+ TOTAL TIME 2.983700
 _______________________________________
-Time to run in milliseconds: 0.980700
+Time to run in milliseconds: 0.870200
 _____________________________________________________________________________
  Frame totals 4
- U Diffuse 0.816300
- V Diffuse 0.524900
- U Advect 0.072900
- V Advect 0.015400
- Project 0.631300
- D Diffuse 0.372600
- D Advect 0.024300
- TOTAL TIME 3.740400
+ U Diffuse 0.672600
+ V Diffuse 0.476900
+ U Advect 0.061000
+ V Advect 0.015500
+ Project 0.694800
+ D Diffuse 0.332400
+ D Advect 0.015200
+ TOTAL TIME 3.645300
 _______________________________________
-Time to run in milliseconds: 0.557900
+Time to run in milliseconds: 0.661600
 _____________________________________________________________________________
  Frame totals 5
- U Diffuse 0.922700
- V Diffuse 0.762000
- U Advect 0.079400
- V Advect 0.018800
- Project 0.749100
- D Diffuse 0.454600
- D Advect 0.028000
- TOTAL TIME 4.499900
+ U Diffuse 0.788800
+ V Diffuse 0.559400
+ U Advect 0.067200
+ V Advect 0.019100
+ Project 0.793200
+ D Diffuse 0.406000
+ D Advect 0.018900
+ TOTAL TIME 4.420400
 _______________________________________
-Time to run in milliseconds: 0.759500
+Time to run in milliseconds: 0.775100
 _____________________________________________________________________________
  Frame totals 6
- U Diffuse 1.032100
- V Diffuse 0.842500
- U Advect 0.085700
- V Advect 0.022400
- Project 0.856500
- D Diffuse 0.544800
- D Advect 0.035900
- TOTAL TIME 5.107100
+ U Diffuse 0.894200
+ V Diffuse 0.686700
+ U Advect 0.073600
+ V Advect 0.022500
+ Project 0.921100
+ D Diffuse 0.510300
+ D Advect 0.022900
+ TOTAL TIME 5.145200
 _______________________________________
-Time to run in milliseconds: 0.607200
+Time to run in milliseconds: 0.724800
 _____________________________________________________________________________
  Frame totals 7
- U Diffuse 1.162600
- V Diffuse 0.929200
- U Advect 0.091900
+ U Diffuse 1.023900
+ V Diffuse 0.777900
+ U Advect 0.079500
  V Advect 0.025900
- Project 0.944100
- D Diffuse 0.656600
- D Advect 0.039700
- TOTAL TIME 5.765700
+ Project 1.004600
+ D Diffuse 0.583300
+ D Advect 0.027100
+ TOTAL TIME 5.837000
 _______________________________________
-Time to run in milliseconds: 0.658600
+Time to run in milliseconds: 0.691800
 _____________________________________________________________________________
  Frame totals 8
- U Diffuse 1.261000
- V Diffuse 1.022900
- U Advect 0.098600
- V Advect 0.029400
- Project 1.041500
- D Diffuse 0.729900
- D Advect 0.043300
- TOTAL TIME 6.333600
+ U Diffuse 1.136000
+ V Diffuse 0.878200
+ U Advect 0.085000
+ V Advect 0.029300
+ Project 1.097400
+ D Diffuse 0.818200
+ D Advect 0.032100
+ TOTAL TIME 6.552300
 _______________________________________
-Time to run in milliseconds: 0.567900
+Time to run in milliseconds: 0.715300
 _____________________________________________________________________________
  Frame totals 9
- U Diffuse 1.839600
- V Diffuse 1.487700
- U Advect 0.109900
- V Advect 0.033000
- Project 1.474700
- D Diffuse 0.823200
- D Advect 0.075700
- TOTAL TIME 8.152300
+ U Diffuse 1.256600
+ V Diffuse 0.965100
+ U Advect 0.091400
+ V Advect 0.032700
+ Project 1.210500
+ D Diffuse 0.895700
+ D Advect 0.040100
+ TOTAL TIME 7.213100
 _______________________________________
-Time to run in milliseconds: 1.818700
+Time to run in milliseconds: 0.660800
 _____________________________________________________________________________
  Frame totals 10
- U Diffuse 1.942100
- V Diffuse 1.560200
- U Advect 0.116200
- V Advect 0.041400
- Project 1.590400
- D Diffuse 0.892800
- D Advect 0.079200
- TOTAL TIME 8.728800
+ U Diffuse 1.412600
+ V Diffuse 1.047800
+ U Advect 0.097700
+ V Advect 0.036300
+ Project 1.293000
+ D Diffuse 0.965600
+ D Advect 0.043600
+ TOTAL TIME 7.808300
 _______________________________________
-Time to run in milliseconds: 0.576500
+Time to run in milliseconds: 0.595200
 _____________________________________________________________________________
  Frame totals 11
- U Diffuse 2.022900
- V Diffuse 1.656400
- U Advect 0.122000
- V Advect 0.045000
- Project 1.690900
- D Diffuse 0.959000
- D Advect 0.082600
- TOTAL TIME 9.236199
+ U Diffuse 1.485400
+ V Diffuse 1.138900
+ U Advect 0.103600
+ V Advect 0.039600
+ Project 1.395900
+ D Diffuse 1.045200
+ D Advect 0.047500
+ TOTAL TIME 8.358000
 _______________________________________
-Time to run in milliseconds: 0.507400
+Time to run in milliseconds: 0.549700
 _____________________________________________________________________________
  Frame totals 12
- U Diffuse 2.102100
- V Diffuse 1.755400
- U Advect 0.128300
- V Advect 0.048600
- Project 1.776800
- D Diffuse 1.028700
- D Advect 0.086400
- TOTAL TIME 9.776600
+ U Diffuse 1.558400
+ V Diffuse 1.243800
+ U Advect 0.117500
+ V Advect 0.043100
+ Project 1.488300
+ D Diffuse 1.111100
+ D Advect 0.050900
+ TOTAL TIME 8.915999
 _______________________________________
-Time to run in milliseconds: 0.540400
+Time to run in milliseconds: 0.558000
 _____________________________________________________________________________
  Frame totals 13
- U Diffuse 2.185000
- V Diffuse 1.847000
- U Advect 0.134500
- V Advect 0.052000
- Project 1.884900
- D Diffuse 1.099200
- D Advect 0.090300
- TOTAL TIME 10.316299
+ U Diffuse 1.642800
+ V Diffuse 1.366300
+ U Advect 0.124100
+ V Advect 0.046600
+ Project 1.583000
+ D Diffuse 1.232900
+ D Advect 0.180500
+ TOTAL TIME 9.914299
 _______________________________________
-Time to run in milliseconds: 0.539700
+Time to run in milliseconds: 0.998300
 _____________________________________________________________________________
  Frame totals 14
- U Diffuse 2.259600
- V Diffuse 1.942400
- U Advect 0.141100
- V Advect 0.055600
- Project 2.026600
- D Diffuse 1.167600
- D Advect 0.093900
- TOTAL TIME 10.960699
+ U Diffuse 1.744900
+ V Diffuse 1.480300
+ U Advect 0.130900
+ V Advect 0.050200
+ Project 1.784800
+ D Diffuse 1.337900
+ D Advect 0.184700
+ TOTAL TIME 10.778299
 _______________________________________
-Time to run in milliseconds: 0.644400
+Time to run in milliseconds: 0.864000
 _____________________________________________________________________________
  Frame totals 15
- U Diffuse 2.482900
- V Diffuse 2.154800
- U Advect 0.149300
- V Advect 0.060800
- Project 2.198600
- D Diffuse 1.285200
- D Advect 0.098100
- TOTAL TIME 12.051600
+ U Diffuse 1.822700
+ V Diffuse 1.583400
+ U Advect 0.136900
+ V Advect 0.053700
+ Project 1.910000
+ D Diffuse 1.409700
+ D Advect 0.188400
+ TOTAL TIME 11.364100
 _______________________________________
-Time to run in milliseconds: 1.090900
+Time to run in milliseconds: 0.585800
 _____________________________________________________________________________
  Frame totals 16
- U Diffuse 2.571500
- V Diffuse 2.252100
- U Advect 0.155700
- V Advect 0.064400
- Project 2.289500
- D Diffuse 1.352600
- D Advect 0.101700
- TOTAL TIME 12.606099
+ U Diffuse 1.902700
+ V Diffuse 1.695400
+ U Advect 0.144000
+ V Advect 0.057100
+ Project 2.023300
+ D Diffuse 1.477900
+ D Advect 0.192000
+ TOTAL TIME 11.951799
 _______________________________________
-Time to run in milliseconds: 0.554500
+Time to run in milliseconds: 0.587700
 _____________________________________________________________________________
  Frame totals 17
- U Diffuse 2.860000
- V Diffuse 2.677700
- U Advect 0.163500
- V Advect 0.068200
- Project 2.597700
- D Diffuse 1.541800
- D Advect 0.110900
- TOTAL TIME 14.069599
+ U Diffuse 2.010700
+ V Diffuse 1.837300
+ U Advect 0.156500
+ V Advect 0.060800
+ Project 2.139800
+ D Diffuse 1.547500
+ D Advect 0.195500
+ TOTAL TIME 12.642799
 _______________________________________
-Time to run in milliseconds: 1.463500
+Time to run in milliseconds: 0.691000
 _____________________________________________________________________________
  Frame totals 18
- U Diffuse 2.941500
- V Diffuse 2.840600
- U Advect 0.173600
- V Advect 0.090400
- Project 2.782300
- D Diffuse 1.612000
- D Advect 0.115300
- TOTAL TIME 15.206200
+ U Diffuse 2.084300
+ V Diffuse 1.941400
+ U Advect 0.162600
+ V Advect 0.064300
+ Project 2.248300
+ D Diffuse 1.613100
+ D Advect 0.199000
+ TOTAL TIME 13.228899
 _______________________________________
-Time to run in milliseconds: 1.136600
+Time to run in milliseconds: 0.586100
 _____________________________________________________________________________
  Frame totals 19
- U Diffuse 3.058200
- V Diffuse 2.975100
- U Advect 0.180600
- V Advect 0.115900
- Project 2.865999
- D Diffuse 1.687000
- D Advect 0.119100
- TOTAL TIME 16.147699
+ U Diffuse 2.169400
+ V Diffuse 2.066300
+ U Advect 0.169000
+ V Advect 0.087500
+ Project 2.332300
+ D Diffuse 1.687400
+ D Advect 0.203100
+ TOTAL TIME 13.838099
 _______________________________________
-Time to run in milliseconds: 0.941500
+Time to run in milliseconds: 0.609200
 _____________________________________________________________________________
  Frame totals 20
- U Diffuse 3.160700
- V Diffuse 3.040600
- U Advect 0.193000
- V Advect 0.120800
- Project 2.954999
- D Diffuse 1.752600
- D Advect 0.122500
- TOTAL TIME 16.676699
+ U Diffuse 2.280500
+ V Diffuse 2.154000
+ U Advect 0.175400
+ V Advect 0.091200
+ Project 2.426500
+ D Diffuse 1.831900
+ D Advect 0.207800
+ TOTAL TIME 14.674699
 _______________________________________
-Time to run in milliseconds: 0.529000
+Time to run in milliseconds: 0.836600
 _____________________________________________________________________________
  Frame totals 21
- U Diffuse 3.234700
- V Diffuse 3.150600
- U Advect 0.198900
- V Advect 0.134200
- Project 3.036999
- D Diffuse 1.827600
- D Advect 0.126300
- TOTAL TIME 17.238798
+ U Diffuse 2.352500
+ V Diffuse 2.254000
+ U Advect 0.181500
+ V Advect 0.104800
+ Project 2.504200
+ D Diffuse 1.898900
+ D Advect 0.211100
+ TOTAL TIME 15.199899
 _______________________________________
-Time to run in milliseconds: 0.562100
+Time to run in milliseconds: 0.525200
 _____________________________________________________________________________
  Frame totals 22
- U Diffuse 3.338100
- V Diffuse 3.217800
- U Advect 0.204700
- V Advect 0.137700
- Project 3.128200
- D Diffuse 1.900000
- D Advect 0.130000
- TOTAL TIME 17.831999
+ U Diffuse 2.458200
+ V Diffuse 2.329000
+ U Advect 0.187900
+ V Advect 0.108500
+ Project 2.592400
+ D Diffuse 1.972000
+ D Advect 0.214500
+ TOTAL TIME 15.741098
 _______________________________________
-Time to run in milliseconds: 0.593200
+Time to run in milliseconds: 0.541200
 _____________________________________________________________________________
  Frame totals 23
- U Diffuse 3.421100
- V Diffuse 3.282300
- U Advect 0.210800
- V Advect 0.141200
- Project 3.230600
- D Diffuse 1.965800
- D Advect 0.133500
- TOTAL TIME 18.339499
+ U Diffuse 2.534900
+ V Diffuse 2.395600
+ U Advect 0.194300
+ V Advect 0.112100
+ Project 2.704200
+ D Diffuse 2.057700
+ D Advect 0.218900
+ TOTAL TIME 16.295198
 _______________________________________
-Time to run in milliseconds: 0.507500
+Time to run in milliseconds: 0.554100
 _____________________________________________________________________________
  Frame totals 24
- U Diffuse 3.499500
- V Diffuse 3.545500
- U Advect 0.297700
- V Advect 0.151200
- Project 3.396800
- D Diffuse 2.057900
- D Advect 0.137800
- TOTAL TIME 19.397598
+ U Diffuse 2.614100
+ V Diffuse 2.494700
+ U Advect 0.200800
+ V Advect 0.115700
+ Project 2.790500
+ D Diffuse 2.128100
+ D Advect 0.227000
+ TOTAL TIME 16.847898
 _______________________________________
-Time to run in milliseconds: 1.058100
+Time to run in milliseconds: 0.552700
 _____________________________________________________________________________
  Frame totals 25
- U Diffuse 3.586400
- V Diffuse 3.641200
- U Advect 0.304000
- V Advect 0.154800
- Project 3.476400
- D Diffuse 2.123200
- D Advect 0.141400
- TOTAL TIME 19.926699
+ U Diffuse 2.689300
+ V Diffuse 2.596300
+ U Advect 0.207000
+ V Advect 0.119100
+ Project 2.870700
+ D Diffuse 2.192600
+ D Advect 0.230700
+ TOTAL TIME 17.372299
 _______________________________________
-Time to run in milliseconds: 0.529100
+Time to run in milliseconds: 0.524400
 _____________________________________________________________________________
  Frame totals 26
- U Diffuse 3.658300
- V Diffuse 3.703200
- U Advect 0.309700
- V Advect 0.158400
- Project 3.576700
- D Diffuse 2.191600
- D Advect 0.144900
- TOTAL TIME 20.429899
+ U Diffuse 2.767800
+ V Diffuse 2.661000
+ U Advect 0.213400
+ V Advect 0.122600
+ Project 2.978500
+ D Diffuse 2.266900
+ D Advect 0.234700
+ TOTAL TIME 17.916599
 _______________________________________
-Time to run in milliseconds: 0.503200
+Time to run in milliseconds: 0.544300
 _____________________________________________________________________________
  Frame totals 27
- U Diffuse 3.736700
- V Diffuse 3.768700
- U Advect 0.316800
- V Advect 0.161700
- Project 3.688300
- D Diffuse 2.258700
- D Advect 0.148500
- TOTAL TIME 20.947100
+ U Diffuse 2.842100
+ V Diffuse 2.734800
+ U Advect 0.219900
+ V Advect 0.126400
+ Project 3.089500
+ D Diffuse 2.332600
+ D Advect 0.238400
+ TOTAL TIME 18.448500
 _______________________________________
-Time to run in milliseconds: 0.517200
+Time to run in milliseconds: 0.531900
 _____________________________________________________________________________
  Frame totals 28
- U Diffuse 3.809300
- V Diffuse 3.831100
- U Advect 0.322500
- V Advect 0.165100
- Project 3.789600
- D Diffuse 2.328300
- D Advect 0.151800
- TOTAL TIME 21.653599
+ U Diffuse 2.918200
+ V Diffuse 2.802100
+ U Advect 0.226100
+ V Advect 0.130100
+ Project 3.212400
+ D Diffuse 2.416700
+ D Advect 0.242500
+ TOTAL TIME 19.181999
 _______________________________________
-Time to run in milliseconds: 0.706500
+Time to run in milliseconds: 0.733500
 _____________________________________________________________________________
  Frame totals 29
- U Diffuse 3.883600
- V Diffuse 3.950701
- U Advect 0.328100
- V Advect 0.168600
- Project 3.868700
- D Diffuse 2.393600
- D Advect 0.155600
- TOTAL TIME 22.386898
+ U Diffuse 2.993500
+ V Diffuse 2.897100
+ U Advect 0.232700
+ V Advect 0.133900
+ Project 3.292300
+ D Diffuse 2.484000
+ D Advect 0.246000
+ TOTAL TIME 19.705999
 _______________________________________
-Time to run in milliseconds: 0.733300
+Time to run in milliseconds: 0.524000
 _____________________________________________________________________________
  Frame totals 30
- U Diffuse 3.959900
- V Diffuse 4.019200
- U Advect 0.334600
- V Advect 0.175500
- Project 3.985399
- D Diffuse 2.552200
- D Advect 0.159700
- TOTAL TIME 23.073399
-_______________________________________
-Time to run in milliseconds: 0.686500
-_____________________________________________________________________________
- Frame totals 31
- U Diffuse 4.036600
- V Diffuse 4.130700
- U Advect 0.341200
- V Advect 0.179400
- Project 4.064799
- D Diffuse 2.617700
- D Advect 0.163500
- TOTAL TIME 23.619499
-_______________________________________
-Time to run in milliseconds: 0.546100
-_____________________________________________________________________________
- Frame totals 32
- U Diffuse 4.116400
- V Diffuse 4.194800
- U Advect 0.347400
- V Advect 0.182800
- Project 4.185099
- D Diffuse 2.888200
- D Advect 0.168000
- TOTAL TIME 24.430799
-_______________________________________
-Time to run in milliseconds: 0.811300
-_____________________________________________________________________________
- Frame totals 33
- U Diffuse 4.191600
- V Diffuse 4.292000
- U Advect 0.353900
- V Advect 0.186400
- Project 4.282799
- D Diffuse 2.953700
- D Advect 0.171400
- TOTAL TIME 24.986599
-_______________________________________
-Time to run in milliseconds: 0.555800
-_____________________________________________________________________________
- Frame totals 34
- U Diffuse 4.264300
- V Diffuse 4.359000
- U Advect 0.360100
- V Advect 0.189700
- Project 4.386399
- D Diffuse 3.025200
- D Advect 0.174600
- TOTAL TIME 25.515598
-_______________________________________
-Time to run in milliseconds: 0.529000
-_____________________________________________________________________________
- Frame totals 35
- U Diffuse 4.342200
- V Diffuse 4.431900
- U Advect 0.366300
- V Advect 0.193200
- Project 4.489599
- D Diffuse 3.105400
- D Advect 0.178100
- TOTAL TIME 26.045998
-_______________________________________
-Time to run in milliseconds: 0.530400
-_____________________________________________________________________________
- Frame totals 36
- U Diffuse 4.508600
- V Diffuse 4.495299
- U Advect 0.373800
- V Advect 0.196900
- Project 4.674999
- D Diffuse 3.193600
- D Advect 0.182300
- TOTAL TIME 26.826998
-_______________________________________
-Time to run in milliseconds: 0.781000
-_____________________________________________________________________________
- Frame totals 37
- U Diffuse 4.601900
- V Diffuse 4.589699
- U Advect 0.384200
- V Advect 0.200200
- Project 4.764399
- D Diffuse 3.265900
- D Advect 0.185800
- TOTAL TIME 27.473997
-_______________________________________
-Time to run in milliseconds: 0.647000
-_____________________________________________________________________________
- Frame totals 38
- U Diffuse 4.680600
- V Diffuse 4.653399
- U Advect 0.394200
- V Advect 0.204100
- Project 4.889199
- D Diffuse 3.347000
- D Advect 0.189600
- TOTAL TIME 28.099197
-_______________________________________
-Time to run in milliseconds: 0.625200
-_____________________________________________________________________________
- Frame totals 39
- U Diffuse 4.745600
- V Diffuse 4.724699
- U Advect 0.399700
- V Advect 0.207400
- Project 4.987399
- D Diffuse 3.417600
- D Advect 0.192900
- TOTAL TIME 28.586597
-_______________________________________
-Time to run in milliseconds: 0.487400
-_____________________________________________________________________________
- Frame totals 40
- U Diffuse 4.823400
- V Diffuse 4.786900
- U Advect 0.429000
- V Advect 0.212100
- Project 5.136199
- D Diffuse 3.566900
- D Advect 0.197200
- TOTAL TIME 29.241997
-_______________________________________
-Time to run in milliseconds: 0.655400
-_____________________________________________________________________________
- Frame totals 41
- U Diffuse 4.896600
- V Diffuse 4.848899
- U Advect 0.434900
- V Advect 0.218300
- Project 5.246699
- D Diffuse 3.630900
- D Advect 0.200700
- TOTAL TIME 29.745398
-_______________________________________
-Time to run in milliseconds: 0.503400
-_____________________________________________________________________________
- Frame totals 42
- U Diffuse 4.967200
- V Diffuse 4.911399
- U Advect 0.442100
- V Advect 0.221700
- Project 5.383199
- D Diffuse 3.700700
- D Advect 0.204100
- TOTAL TIME 30.280397
-_______________________________________
-Time to run in milliseconds: 0.535000
-_____________________________________________________________________________
- Frame totals 43
- U Diffuse 5.048500
- V Diffuse 4.976199
- U Advect 0.448300
- V Advect 0.297400
- Project 5.457899
- D Diffuse 3.767400
- D Advect 0.208100
- TOTAL TIME 30.994198
-_______________________________________
-Time to run in milliseconds: 0.713800
-_____________________________________________________________________________
- Frame totals 44
- U Diffuse 5.127200
- V Diffuse 5.044099
- U Advect 0.454700
- V Advect 0.340600
- Project 5.536299
- D Diffuse 3.833000
- D Advect 0.212000
- TOTAL TIME 31.542297
-_______________________________________
-Time to run in milliseconds: 0.548100
-_____________________________________________________________________________
- Frame totals 45
- U Diffuse 5.198299
- V Diffuse 5.105599
- U Advect 0.460000
- V Advect 0.372000
- Project 5.608899
- D Diffuse 3.899000
- D Advect 0.215600
- TOTAL TIME 32.035797
-_______________________________________
-Time to run in milliseconds: 0.493500
-_____________________________________________________________________________
- Frame totals 46
- U Diffuse 5.279500
- V Diffuse 5.171000
- U Advect 0.465700
- V Advect 0.401000
- Project 5.684699
- D Diffuse 3.969500
- D Advect 0.219100
- TOTAL TIME 32.550098
-_______________________________________
-Time to run in milliseconds: 0.514300
-_____________________________________________________________________________
- Frame totals 47
- U Diffuse 5.354800
- V Diffuse 5.244699
- U Advect 0.471300
- V Advect 0.430300
- Project 5.759499
- D Diffuse 4.038400
- D Advect 0.222800
- TOTAL TIME 33.050697
-_______________________________________
-Time to run in milliseconds: 0.500600
-_____________________________________________________________________________
- Frame totals 48
- U Diffuse 5.428800
- V Diffuse 5.317800
- U Advect 0.477800
- V Advect 0.462400
- Project 5.834999
- D Diffuse 4.113400
- D Advect 0.226200
- TOTAL TIME 33.563396
-_______________________________________
-Time to run in milliseconds: 0.512700
-_____________________________________________________________________________
- Frame totals 49
- U Diffuse 5.754700
- V Diffuse 5.424200
- U Advect 0.488400
- V Advect 0.510900
- Project 6.022899
- D Diffuse 4.274900
- D Advect 0.248100
- TOTAL TIME 34.748795
-_______________________________________
-Time to run in milliseconds: 1.185400
-_____________________________________________________________________________
- Frame totals 50
- U Diffuse 5.826900
- V Diffuse 5.567200
- U Advect 0.494300
- V Advect 0.541500
- Project 6.101599
- D Diffuse 4.341200
- D Advect 0.251700
- TOTAL TIME 35.323593
-_______________________________________
-Time to run in milliseconds: 0.574800
-_____________________________________________________________________________
- Frame totals 51
- U Diffuse 5.897600
- V Diffuse 5.639000
- U Advect 0.525500
- V Advect 0.634700
- Project 6.189299
- D Diffuse 4.407700
- D Advect 0.255400
- TOTAL TIME 35.981693
-_______________________________________
-Time to run in milliseconds: 0.658100
-_____________________________________________________________________________
- Frame totals 52
- U Diffuse 5.980299
- V Diffuse 5.708000
- U Advect 0.531900
- V Advect 0.694700
- Project 6.372098
- D Diffuse 4.478200
- D Advect 0.259400
- TOTAL TIME 36.749893
-_______________________________________
-Time to run in milliseconds: 0.768200
-_____________________________________________________________________________
- Frame totals 53
- U Diffuse 6.050699
- V Diffuse 5.770900
- U Advect 0.537900
- V Advect 0.742600
- Project 6.445299
- D Diffuse 4.554700
- D Advect 0.268300
- TOTAL TIME 37.272892
-_______________________________________
-Time to run in milliseconds: 0.523000
-_____________________________________________________________________________
- Frame totals 54
- U Diffuse 6.124599
- V Diffuse 5.837200
- U Advect 0.544000
- V Advect 0.774400
- Project 6.521299
- D Diffuse 4.621500
- D Advect 0.271900
- TOTAL TIME 37.849693
-_______________________________________
-Time to run in milliseconds: 0.576800
-_____________________________________________________________________________
- Frame totals 55
- U Diffuse 6.197999
- V Diffuse 5.905300
- U Advect 0.550200
- V Advect 0.808700
- Project 6.597199
- D Diffuse 4.699600
- D Advect 0.275800
- TOTAL TIME 38.475395
-_______________________________________
-Time to run in milliseconds: 0.625700
-_____________________________________________________________________________
- Frame totals 56
- U Diffuse 6.279399
- V Diffuse 5.970099
- U Advect 0.556100
- V Advect 0.836700
- Project 6.676699
- D Diffuse 4.767100
- D Advect 0.279500
- TOTAL TIME 38.987896
-_______________________________________
-Time to run in milliseconds: 0.512500
-_____________________________________________________________________________
- Frame totals 57
- U Diffuse 6.384099
- V Diffuse 6.044499
- U Advect 0.562500
- V Advect 0.873900
- Project 6.756999
- D Diffuse 4.833300
- D Advect 0.283200
- TOTAL TIME 39.575294
-_______________________________________
-Time to run in milliseconds: 0.587400
-_____________________________________________________________________________
- Frame totals 58
- U Diffuse 6.471300
- V Diffuse 6.108500
- U Advect 0.568100
- V Advect 0.903300
- Project 6.831199
- D Diffuse 4.899200
- D Advect 0.286700
- TOTAL TIME 40.081696
-_______________________________________
-Time to run in milliseconds: 0.506400
-_____________________________________________________________________________
- Frame totals 59
- U Diffuse 6.668300
- V Diffuse 6.351600
- U Advect 0.574100
- V Advect 0.954100
- Project 6.949299
- D Diffuse 4.965200
- D Advect 0.290200
- TOTAL TIME 41.073097
-_______________________________________
-Time to run in milliseconds: 0.991400
-_____________________________________________________________________________
- Frame totals 60
- U Diffuse 6.746000
- V Diffuse 6.419300
- U Advect 0.580100
- V Advect 0.995600
- Project 7.031099
- D Diffuse 5.034000
- D Advect 0.294400
- TOTAL TIME 41.711399
-_______________________________________
-Time to run in milliseconds: 0.638300
-_____________________________________________________________________________
- Frame totals 61
- U Diffuse 6.823300
- V Diffuse 6.486199
- U Advect 0.586200
- V Advect 1.034900
- Project 7.109200
- D Diffuse 5.138000
- D Advect 0.303800
- TOTAL TIME 42.283798
-_______________________________________
-Time to run in milliseconds: 0.572400
-_____________________________________________________________________________
- Frame totals 62
- U Diffuse 6.904500
- V Diffuse 6.549099
- U Advect 0.592000
- V Advect 1.067300
- Project 7.183499
- D Diffuse 5.206600
- D Advect 0.307600
- TOTAL TIME 42.800697
-_______________________________________
-Time to run in milliseconds: 0.516900
-_____________________________________________________________________________
- Frame totals 63
- U Diffuse 7.004600
- V Diffuse 6.617700
- U Advect 0.598200
- V Advect 1.105200
- Project 7.264099
- D Diffuse 5.273400
- D Advect 0.311600
- TOTAL TIME 43.404198
-_______________________________________
-Time to run in milliseconds: 0.603500
-_____________________________________________________________________________
- Frame totals 64
- U Diffuse 7.082100
- V Diffuse 6.682300
- U Advect 0.616700
- V Advect 1.146000
- Project 7.374799
- D Diffuse 5.350101
- D Advect 0.315400
- TOTAL TIME 43.960999
-_______________________________________
-Time to run in milliseconds: 0.556800
-_____________________________________________________________________________
- Frame totals 65
- U Diffuse 7.155200
- V Diffuse 6.743900
- U Advect 0.634600
- V Advect 1.191000
- Project 7.492899
- D Diffuse 5.415300
- D Advect 0.318900
- TOTAL TIME 44.609200
-_______________________________________
-Time to run in milliseconds: 0.648200
-_____________________________________________________________________________
- Frame totals 66
- U Diffuse 7.248500
- V Diffuse 6.805800
- U Advect 0.640400
- V Advect 1.231100
- Project 7.574299
- D Diffuse 5.490601
- D Advect 0.322400
- TOTAL TIME 45.409599
-_______________________________________
-Time to run in milliseconds: 0.800400
-_____________________________________________________________________________
- Frame totals 67
- U Diffuse 7.331200
- V Diffuse 6.868100
- U Advect 0.646100
- V Advect 1.272600
- Project 7.648499
- D Diffuse 5.557301
- D Advect 0.326000
- TOTAL TIME 45.993401
-_______________________________________
-Time to run in milliseconds: 0.583800
-_____________________________________________________________________________
- Frame totals 68
- U Diffuse 7.407700
- V Diffuse 6.940400
- U Advect 0.652300
- V Advect 1.316800
- Project 7.723599
- D Diffuse 5.619700
- D Advect 0.330000
- TOTAL TIME 46.664700
-_______________________________________
-Time to run in milliseconds: 0.671300
-_____________________________________________________________________________
- Frame totals 69
- U Diffuse 7.592500
- V Diffuse 7.007600
- U Advect 0.658600
- V Advect 1.361500
- Project 7.801499
- D Diffuse 5.685300
- D Advect 0.333700
- TOTAL TIME 47.453800
-_______________________________________
-Time to run in milliseconds: 0.789100
-_____________________________________________________________________________
- Frame totals 70
- U Diffuse 7.688800
- V Diffuse 7.080500
- U Advect 0.664100
- V Advect 1.397700
- Project 7.875099
- D Diffuse 5.769300
- D Advect 0.337900
- TOTAL TIME 48.120899
-_______________________________________
-Time to run in milliseconds: 0.667100
-_____________________________________________________________________________
- Frame totals 71
- U Diffuse 7.767800
- V Diffuse 7.146800
- U Advect 0.670400
- V Advect 1.433300
- Project 7.953599
- D Diffuse 5.834301
- D Advect 0.341600
- TOTAL TIME 48.710400
-_______________________________________
-Time to run in milliseconds: 0.589500
-_____________________________________________________________________________
- Frame totals 72
- U Diffuse 7.848100
- V Diffuse 7.213600
- U Advect 0.677000
- V Advect 1.482200
- Project 8.032099
- D Diffuse 5.903201
- D Advect 0.345800
- TOTAL TIME 49.346798
-_______________________________________
-Time to run in milliseconds: 0.636400
-_____________________________________________________________________________
- Frame totals 73
- U Diffuse 7.931700
- V Diffuse 7.279300
- U Advect 0.682900
- V Advect 1.517000
- Project 8.111299
- D Diffuse 5.968700
- D Advect 0.349400
- TOTAL TIME 49.874599
-_______________________________________
-Time to run in milliseconds: 0.527800
-_____________________________________________________________________________
- Frame totals 74
- U Diffuse 8.033400
- V Diffuse 7.351900
- U Advect 0.689300
- V Advect 1.556900
- Project 8.221998
- D Diffuse 6.038100
- D Advect 0.353300
- TOTAL TIME 50.568901
-_______________________________________
-Time to run in milliseconds: 0.694300
-_____________________________________________________________________________
- Frame totals 75
- U Diffuse 8.107400
- V Diffuse 7.416600
- U Advect 0.695100
- V Advect 1.597500
- Project 8.297998
- D Diffuse 6.105700
- D Advect 0.356900
- TOTAL TIME 51.105701
-_______________________________________
-Time to run in milliseconds: 0.536800
-_____________________________________________________________________________
- Frame totals 76
- U Diffuse 8.179900
- V Diffuse 7.481100
- U Advect 0.701000
- V Advect 1.636200
- Project 8.373399
- D Diffuse 6.172200
- D Advect 0.360700
- TOTAL TIME 51.614502
-_______________________________________
-Time to run in milliseconds: 0.508800
-_____________________________________________________________________________
- Frame totals 77
- U Diffuse 8.267400
- V Diffuse 7.548700
- U Advect 0.706800
- V Advect 1.676000
- Project 8.452199
- D Diffuse 6.238400
- D Advect 0.364300
- TOTAL TIME 52.189800
-_______________________________________
-Time to run in milliseconds: 0.575300
-_____________________________________________________________________________
- Frame totals 78
- U Diffuse 8.341100
- V Diffuse 7.615300
- U Advect 0.712400
- V Advect 1.714600
- Project 8.528499
- D Diffuse 6.310500
- D Advect 0.367700
- TOTAL TIME 52.721199
-_______________________________________
-Time to run in milliseconds: 0.531400
-_____________________________________________________________________________
- Frame totals 79
- U Diffuse 8.414100
- V Diffuse 7.679600
- U Advect 0.718200
- V Advect 1.757200
- Project 8.612699
- D Diffuse 6.376100
- D Advect 0.371300
- TOTAL TIME 53.243000
-_______________________________________
-Time to run in milliseconds: 0.521800
-_____________________________________________________________________________
- Frame totals 80
- U Diffuse 8.499100
- V Diffuse 7.830400
- U Advect 0.724800
- V Advect 1.801800
- Project 8.704999
- D Diffuse 6.443400
- D Advect 0.375000
- TOTAL TIME 53.990799
-_______________________________________
-Time to run in milliseconds: 0.747800
-_____________________________________________________________________________
- Frame totals 81
- U Diffuse 8.573500
- V Diffuse 7.896000
- U Advect 0.730900
- V Advect 1.842300
- Project 8.780699
- D Diffuse 6.517700
- D Advect 0.378600
- TOTAL TIME 54.537498
-_______________________________________
-Time to run in milliseconds: 0.546700
-_____________________________________________________________________________
- Frame totals 82
- U Diffuse 8.647500
- V Diffuse 7.959800
- U Advect 0.736800
- V Advect 1.882300
- Project 8.855999
- D Diffuse 6.582000
- D Advect 0.382200
- TOTAL TIME 55.072697
-_______________________________________
-Time to run in milliseconds: 0.535200
-_____________________________________________________________________________
- Frame totals 83
- U Diffuse 8.726400
- V Diffuse 8.023399
- U Advect 0.743000
- V Advect 1.923000
- Project 8.930799
- D Diffuse 6.647100
- D Advect 0.385600
- TOTAL TIME 55.651695
-_______________________________________
-Time to run in milliseconds: 0.579000
-_____________________________________________________________________________
- Frame totals 84
- U Diffuse 8.799500
- V Diffuse 8.088699
- U Advect 0.752800
- V Advect 1.962700
- Project 9.006799
- D Diffuse 6.717500
- D Advect 0.388900
- TOTAL TIME 56.186295
-_______________________________________
-Time to run in milliseconds: 0.534600
-_____________________________________________________________________________
- Frame totals 85
- U Diffuse 9.012401
- V Diffuse 8.155799
- U Advect 0.759000
- V Advect 2.004200
- Project 9.085499
- D Diffuse 6.789800
- D Advect 0.392500
- TOTAL TIME 56.996696
-_______________________________________
-Time to run in milliseconds: 0.810400
-_____________________________________________________________________________
- Frame totals 86
- U Diffuse 9.093000
- V Diffuse 8.220199
- U Advect 0.764900
- V Advect 2.051000
- Project 9.161098
- D Diffuse 6.857100
- D Advect 0.396300
- TOTAL TIME 57.612495
-_______________________________________
-Time to run in milliseconds: 0.615800
-_____________________________________________________________________________
- Frame totals 87
- U Diffuse 9.171301
- V Diffuse 8.283599
- U Advect 0.770900
- V Advect 2.093900
- Project 9.235298
- D Diffuse 6.926800
- D Advect 0.399800
- TOTAL TIME 58.230095
-_______________________________________
-Time to run in milliseconds: 0.617600
-_____________________________________________________________________________
- Frame totals 88
- U Diffuse 9.283501
- V Diffuse 8.371399
- U Advect 0.777300
- V Advect 2.163800
- Project 9.319698
- D Diffuse 6.999900
- D Advect 0.403500
- TOTAL TIME 59.063396
-_______________________________________
-Time to run in milliseconds: 0.833300
-_____________________________________________________________________________
- Frame totals 89
- U Diffuse 9.401001
- V Diffuse 8.439198
- U Advect 0.783500
- V Advect 2.186100
- Project 9.398298
- D Diffuse 7.068000
- D Advect 0.407200
- TOTAL TIME 59.774296
-_______________________________________
-Time to run in milliseconds: 0.710900
-_____________________________________________________________________________
- Frame totals 90
- U Diffuse 9.478301
- V Diffuse 8.507399
- U Advect 0.789700
- V Advect 2.227400
- Project 9.476098
- D Diffuse 7.146100
- D Advect 0.411300
- TOTAL TIME 60.355797
-_______________________________________
-Time to run in milliseconds: 0.581500
-_____________________________________________________________________________
- Frame totals 91
- U Diffuse 9.558901
- V Diffuse 8.574698
- U Advect 0.795900
- V Advect 2.268300
- Project 9.552698
- D Diffuse 7.211300
- D Advect 0.414800
- TOTAL TIME 60.933895
-_______________________________________
-Time to run in milliseconds: 0.578100
-_____________________________________________________________________________
- Frame totals 92
- U Diffuse 9.634301
- V Diffuse 8.641098
- U Advect 0.801700
- V Advect 2.305800
- Project 9.628298
- D Diffuse 7.276700
- D Advect 0.418700
- TOTAL TIME 61.472496
-_______________________________________
-Time to run in milliseconds: 0.538600
-_____________________________________________________________________________
- Frame totals 93
- U Diffuse 9.712601
- V Diffuse 8.704698
- U Advect 0.807600
- V Advect 2.347100
- Project 9.703698
- D Diffuse 7.345300
- D Advect 0.422400
- TOTAL TIME 62.097095
-_______________________________________
-Time to run in milliseconds: 0.624600
-_____________________________________________________________________________
- Frame totals 94
- U Diffuse 9.790601
- V Diffuse 8.768497
- U Advect 0.813600
- V Advect 2.377700
- Project 9.778898
- D Diffuse 7.409900
- D Advect 0.425900
- TOTAL TIME 62.659595
-_______________________________________
-Time to run in milliseconds: 0.562500
-_____________________________________________________________________________
- Frame totals 95
- U Diffuse 9.875901
- V Diffuse 8.830197
- U Advect 0.819100
- V Advect 2.408000
- Project 9.851098
- D Diffuse 7.500900
- D Advect 0.432400
- TOTAL TIME 63.188095
-_______________________________________
-Time to run in milliseconds: 0.528500
-_____________________________________________________________________________
- Frame totals 96
- U Diffuse 9.948601
- V Diffuse 8.893598
- U Advect 0.824900
- V Advect 2.444200
- Project 9.928798
- D Diffuse 7.585200
- D Advect 0.436200
- TOTAL TIME 63.781593
-_______________________________________
-Time to run in milliseconds: 0.593500
-_____________________________________________________________________________
- Frame totals 97
- U Diffuse 10.020301
- V Diffuse 8.965898
- U Advect 0.830400
- V Advect 2.471400
- Project 10.002798
- D Diffuse 7.659101
- D Advect 0.439900
- TOTAL TIME 64.260994
-_______________________________________
-Time to run in milliseconds: 0.479400
-_____________________________________________________________________________
- Frame totals 98
- U Diffuse 10.097701
- V Diffuse 9.030197
- U Advect 0.840500
- V Advect 2.500800
- Project 10.079498
- D Diffuse 7.723900
- D Advect 0.443400
- TOTAL TIME 64.806496
-_______________________________________
-Time to run in milliseconds: 0.545500
-_____________________________________________________________________________
- Frame totals 99
- U Diffuse 10.189701
- V Diffuse 9.094797
- U Advect 0.847200
- V Advect 2.542300
- Project 10.221498
- D Diffuse 7.789001
- D Advect 0.447100
- TOTAL TIME 65.471596
-_______________________________________
-Time to run in milliseconds: 0.665100
-_____________________________________________________________________________
- Frame totals 100
- U Diffuse 10.279301
- V Diffuse 9.157697
- U Advect 0.855600
- V Advect 2.581200
- Project 10.349998
- D Diffuse 7.854401
- D Advect 0.450900
- TOTAL TIME 66.131599
-_______________________________________
-Time to run in milliseconds: 0.660000
-_____________________________________________________________________________
- Frame totals 101
- U Diffuse 10.344801
- V Diffuse 9.221097
- U Advect 0.860900
- V Advect 2.625100
- Project 10.424198
- D Diffuse 7.921901
- D Advect 0.454400
- TOTAL TIME 66.620697
-_______________________________________
-Time to run in milliseconds: 0.489100
-_____________________________________________________________________________
- Frame totals 102
- U Diffuse 10.419301
- V Diffuse 9.287097
- U Advect 0.867300
- V Advect 2.663300
- Project 10.512999
- D Diffuse 7.984801
- D Advect 0.457600
- TOTAL TIME 67.165298
-_______________________________________
-Time to run in milliseconds: 0.544600
-_____________________________________________________________________________
- Frame totals 103
- U Diffuse 10.493401
- V Diffuse 9.357597
- U Advect 0.873400
- V Advect 2.692400
- Project 10.596298
- D Diffuse 8.054400
- D Advect 0.461100
- TOTAL TIME 67.664001
-_______________________________________
-Time to run in milliseconds: 0.498700
-_____________________________________________________________________________
- Frame totals 104
- U Diffuse 10.572600
- V Diffuse 9.420398
- U Advect 0.879400
- V Advect 2.842800
- Project 10.669698
- D Diffuse 8.151501
- D Advect 0.468000
- TOTAL TIME 68.605301
-_______________________________________
-Time to run in milliseconds: 0.941300
-_____________________________________________________________________________
- Frame totals 105
- U Diffuse 10.653200
- V Diffuse 9.487398
- U Advect 0.891800
- V Advect 2.880300
- Project 10.780898
- D Diffuse 8.222001
- D Advect 0.471600
- TOTAL TIME 69.288101
-_______________________________________
-Time to run in milliseconds: 0.682800
-_____________________________________________________________________________
- Frame totals 106
- U Diffuse 10.720600
- V Diffuse 9.557098
- U Advect 0.897300
- V Advect 2.908400
- Project 10.856598
- D Diffuse 8.289401
- D Advect 0.475100
- TOTAL TIME 69.762001
-_______________________________________
-Time to run in milliseconds: 0.473900
-_____________________________________________________________________________
- Frame totals 107
- U Diffuse 10.797600
- V Diffuse 9.619899
- U Advect 0.902900
- V Advect 2.941800
- Project 10.930398
- D Diffuse 8.353301
- D Advect 0.478400
- TOTAL TIME 70.257103
-_______________________________________
-Time to run in milliseconds: 0.495100
-_____________________________________________________________________________
- Frame totals 108
- U Diffuse 10.872000
- V Diffuse 9.683699
- U Advect 0.908900
- V Advect 2.976400
- Project 11.005198
- D Diffuse 8.424401
- D Advect 0.482100
- TOTAL TIME 70.786705
-_______________________________________
-Time to run in milliseconds: 0.529600
-_____________________________________________________________________________
- Frame totals 109
- U Diffuse 10.949300
- V Diffuse 9.751299
- U Advect 0.915200
- V Advect 3.031600
- Project 11.084898
- D Diffuse 8.492501
- D Advect 0.486300
- TOTAL TIME 71.355003
-_______________________________________
-Time to run in milliseconds: 0.568300
-_____________________________________________________________________________
- Frame totals 110
- U Diffuse 11.025400
- V Diffuse 9.858499
- U Advect 0.928400
- V Advect 3.181700
- Project 11.240198
- D Diffuse 8.565301
- D Advect 0.490400
- TOTAL TIME 72.157600
-_______________________________________
-Time to run in milliseconds: 0.802600
-_____________________________________________________________________________
- Frame totals 111
- U Diffuse 11.099200
- V Diffuse 9.921799
- U Advect 0.934100
- V Advect 3.220200
- Project 11.314598
- D Diffuse 8.631101
- D Advect 0.493900
- TOTAL TIME 72.666000
-_______________________________________
-Time to run in milliseconds: 0.508400
-_____________________________________________________________________________
- Frame totals 112
- U Diffuse 11.174900
- V Diffuse 9.993798
- U Advect 0.940600
- V Advect 3.282600
- Project 11.399398
- D Diffuse 8.718401
- D Advect 0.500700
- TOTAL TIME 73.359802
-_______________________________________
-Time to run in milliseconds: 0.693800
-_____________________________________________________________________________
- Frame totals 113
- U Diffuse 11.256400
- V Diffuse 10.088899
- U Advect 0.947300
- V Advect 3.346300
- Project 11.483198
- D Diffuse 8.789001
- D Advect 0.504900
- TOTAL TIME 73.964401
-_______________________________________
-Time to run in milliseconds: 0.604600
-_____________________________________________________________________________
- Frame totals 114
- U Diffuse 11.403501
- V Diffuse 10.162498
- U Advect 0.969300
- V Advect 3.383700
- Project 11.702498
- D Diffuse 8.867801
- D Advect 0.509400
- TOTAL TIME 74.801300
-_______________________________________
-Time to run in milliseconds: 0.836900
-_____________________________________________________________________________
- Frame totals 115
- U Diffuse 11.480901
- V Diffuse 10.234598
- U Advect 0.975300
- V Advect 3.426500
- Project 11.782598
- D Diffuse 8.935901
- D Advect 0.513300
- TOTAL TIME 75.341003
-_______________________________________
-Time to run in milliseconds: 0.539700
-_____________________________________________________________________________
- Frame totals 116
- U Diffuse 11.554701
- V Diffuse 10.298998
- U Advect 0.981200
- V Advect 3.462900
- Project 11.858599
- D Diffuse 8.999701
- D Advect 0.516800
- TOTAL TIME 75.851501
-_______________________________________
-Time to run in milliseconds: 0.510500
-_____________________________________________________________________________
- Frame totals 117
- U Diffuse 11.646801
- V Diffuse 10.367698
- U Advect 0.987400
- V Advect 3.503400
- Project 11.952199
- D Diffuse 9.064800
- D Advect 0.520300
- TOTAL TIME 76.409302
-_______________________________________
-Time to run in milliseconds: 0.557800
-_____________________________________________________________________________
- Frame totals 118
- U Diffuse 11.721601
- V Diffuse 10.434197
- U Advect 0.993200
- V Advect 3.542700
- Project 12.028999
- D Diffuse 9.136900
- D Advect 0.524000
- TOTAL TIME 76.947502
-_______________________________________
-Time to run in milliseconds: 0.538200
-_____________________________________________________________________________
- Frame totals 119
- U Diffuse 11.802501
- V Diffuse 10.504797
- U Advect 0.999600
- V Advect 3.584400
- Project 12.113500
- D Diffuse 9.208899
- D Advect 0.527900
- TOTAL TIME 77.538506
-_______________________________________
-Time to run in milliseconds: 0.591000
-_____________________________________________________________________________
- Frame totals 120
- U Diffuse 11.876101
- V Diffuse 10.569797
- U Advect 1.323100
- V Advect 3.659900
- Project 12.367399
- D Diffuse 9.300500
- D Advect 0.532400
- TOTAL TIME 78.736107
-_______________________________________
-Time to run in milliseconds: 1.197600
-_____________________________________________________________________________
- Frame totals 121
- U Diffuse 11.950801
- V Diffuse 10.635797
- U Advect 1.329100
- V Advect 3.700000
- Project 12.444399
- D Diffuse 9.400800
- D Advect 0.537100
- TOTAL TIME 79.299309
-_______________________________________
-Time to run in milliseconds: 0.563200
-_____________________________________________________________________________
- Frame totals 122
- U Diffuse 12.021301
- V Diffuse 10.699097
- U Advect 1.334700
- V Advect 3.728900
- Project 12.519399
- D Diffuse 9.465500
- D Advect 0.541700
- TOTAL TIME 79.783607
-_______________________________________
-Time to run in milliseconds: 0.484300
-_____________________________________________________________________________
- Frame totals 123
- U Diffuse 12.133101
- V Diffuse 10.781197
- U Advect 1.341500
- V Advect 3.768900
- Project 12.606898
- D Diffuse 9.569700
- D Advect 0.546600
- TOTAL TIME 80.519409
-_______________________________________
-Time to run in milliseconds: 0.735800
-_____________________________________________________________________________
- Frame totals 124
- U Diffuse 12.205801
- V Diffuse 10.845696
- U Advect 1.347400
- V Advect 3.804200
- Project 12.681398
- D Diffuse 9.640800
- D Advect 0.549900
- TOTAL TIME 81.039612
-_______________________________________
-Time to run in milliseconds: 0.520200
-_____________________________________________________________________________
- Frame totals 125
- U Diffuse 12.278701
- V Diffuse 10.910896
- U Advect 1.353300
- V Advect 3.840000
- Project 12.758698
- D Diffuse 9.705501
- D Advect 0.553400
- TOTAL TIME 81.548111
+ U Diffuse 3.065300
+ V Diffuse 2.961100
+ U Advect 0.239000
+ V Advect 0.137600
+ Project 3.397600
+ D Diffuse 2.559800
+ D Advect 0.249600
+ TOTAL TIME 20.214499
 _______________________________________
 Time to run in milliseconds: 0.508500
 _____________________________________________________________________________
- Frame totals 126
- U Diffuse 12.351101
- V Diffuse 10.975496
- U Advect 1.359100
- V Advect 3.873200
- Project 12.833698
- D Diffuse 9.771501
- D Advect 0.556700
- TOTAL TIME 82.062912
+ Frame totals 31
+ U Diffuse 3.142300
+ V Diffuse 3.068600
+ U Advect 0.255900
+ V Advect 0.141400
+ Project 3.474600
+ D Diffuse 2.625100
+ D Advect 0.253100
+ TOTAL TIME 20.780598
 _______________________________________
-Time to run in milliseconds: 0.514800
+Time to run in milliseconds: 0.566100
 _____________________________________________________________________________
- Frame totals 127
- U Diffuse 12.424201
- V Diffuse 11.039296
- U Advect 1.365200
- V Advect 3.905100
- Project 12.909099
- D Diffuse 9.837900
- D Advect 0.560300
- TOTAL TIME 82.556412
+ Frame totals 32
+ U Diffuse 3.223500
+ V Diffuse 3.136000
+ U Advect 0.268800
+ V Advect 0.146500
+ Project 3.687800
+ D Diffuse 2.855800
+ D Advect 0.257100
+ TOTAL TIME 21.636297
 _______________________________________
-Time to run in milliseconds: 0.493500
+Time to run in milliseconds: 0.855700
 _____________________________________________________________________________
- Frame totals 128
- U Diffuse 12.495901
- V Diffuse 11.105096
- U Advect 1.371100
- V Advect 3.934600
- Project 12.986499
- D Diffuse 9.906900
- D Advect 0.564000
- TOTAL TIME 83.067909
+ Frame totals 33
+ U Diffuse 3.700100
+ V Diffuse 3.238000
+ U Advect 0.274900
+ V Advect 0.150200
+ Project 3.768900
+ D Diffuse 2.934100
+ D Advect 0.261400
+ TOTAL TIME 22.814398
 _______________________________________
-Time to run in milliseconds: 0.511500
+Time to run in milliseconds: 1.178100
 _____________________________________________________________________________
- Frame totals 129
- U Diffuse 12.614401
- V Diffuse 11.173296
- U Advect 1.385300
- V Advect 3.980000
- Project 13.123399
- D Diffuse 9.973201
- D Advect 0.568200
- TOTAL TIME 83.927406
+ Frame totals 34
+ U Diffuse 3.776800
+ V Diffuse 3.304300
+ U Advect 0.281200
+ V Advect 0.153700
+ Project 3.899500
+ D Diffuse 3.011200
+ D Advect 0.264800
+ TOTAL TIME 23.389097
 _______________________________________
-Time to run in milliseconds: 0.859500
+Time to run in milliseconds: 0.574700
 _____________________________________________________________________________
- Frame totals 130
- U Diffuse 12.688701
- V Diffuse 11.238896
- U Advect 1.391100
- V Advect 4.016200
- Project 13.198898
- D Diffuse 10.044401
- D Advect 0.571600
- TOTAL TIME 84.459709
+ Frame totals 35
+ U Diffuse 3.853300
+ V Diffuse 3.383000
+ U Advect 0.287300
+ V Advect 0.157400
+ Project 4.008200
+ D Diffuse 3.110500
+ D Advect 0.299000
+ TOTAL TIME 23.983597
 _______________________________________
-Time to run in milliseconds: 0.532300
+Time to run in milliseconds: 0.594500
 _____________________________________________________________________________
- Frame totals 131
- U Diffuse 12.762300
- V Diffuse 11.303296
- U Advect 1.397000
- V Advect 4.049500
- Project 13.275298
- D Diffuse 10.116801
- D Advect 0.575300
- TOTAL TIME 84.969009
+ Frame totals 36
+ U Diffuse 3.932200
+ V Diffuse 3.449200
+ U Advect 0.293400
+ V Advect 0.160900
+ Project 4.114200
+ D Diffuse 3.192800
+ D Advect 0.302800
+ TOTAL TIME 24.509497
+_______________________________________
+Time to run in milliseconds: 0.525900
+_____________________________________________________________________________
+ Frame totals 37
+ U Diffuse 4.008600
+ V Diffuse 3.557900
+ U Advect 0.300000
+ V Advect 0.164600
+ Project 4.193399
+ D Diffuse 3.269400
+ D Advect 0.306400
+ TOTAL TIME 25.068197
+_______________________________________
+Time to run in milliseconds: 0.558700
+_____________________________________________________________________________
+ Frame totals 38
+ U Diffuse 4.089500
+ V Diffuse 3.623600
+ U Advect 0.309100
+ V Advect 0.168200
+ Project 4.325699
+ D Diffuse 3.438900
+ D Advect 0.310300
+ TOTAL TIME 25.712896
+_______________________________________
+Time to run in milliseconds: 0.644700
+_____________________________________________________________________________
+ Frame totals 39
+ U Diffuse 4.160800
+ V Diffuse 3.687200
+ U Advect 0.315100
+ V Advect 0.171600
+ Project 4.442599
+ D Diffuse 3.513000
+ D Advect 0.314000
+ TOTAL TIME 26.232296
+_______________________________________
+Time to run in milliseconds: 0.519400
+_____________________________________________________________________________
+ Frame totals 40
+ U Diffuse 4.269801
+ V Diffuse 3.754700
+ U Advect 0.322200
+ V Advect 0.179800
+ Project 4.578199
+ D Diffuse 3.598300
+ D Advect 0.318000
+ TOTAL TIME 26.940697
+_______________________________________
+Time to run in milliseconds: 0.708400
+_____________________________________________________________________________
+ Frame totals 41
+ U Diffuse 4.347101
+ V Diffuse 3.821700
+ U Advect 0.328800
+ V Advect 0.183300
+ Project 4.690799
+ D Diffuse 3.709100
+ D Advect 0.324800
+ TOTAL TIME 27.530096
+_______________________________________
+Time to run in milliseconds: 0.589400
+_____________________________________________________________________________
+ Frame totals 42
+ U Diffuse 4.436501
+ V Diffuse 3.884500
+ U Advect 0.335200
+ V Advect 0.187000
+ Project 4.798499
+ D Diffuse 3.774400
+ D Advect 0.328300
+ TOTAL TIME 28.045296
+_______________________________________
+Time to run in milliseconds: 0.515200
+_____________________________________________________________________________
+ Frame totals 43
+ U Diffuse 4.517200
+ V Diffuse 4.004700
+ U Advect 0.341800
+ V Advect 0.223300
+ Project 4.877299
+ D Diffuse 3.842100
+ D Advect 0.331900
+ TOTAL TIME 28.693096
+_______________________________________
+Time to run in milliseconds: 0.647800
+_____________________________________________________________________________
+ Frame totals 44
+ U Diffuse 4.597200
+ V Diffuse 4.068900
+ U Advect 0.348000
+ V Advect 0.264900
+ Project 4.954199
+ D Diffuse 3.974800
+ D Advect 0.336500
+ TOTAL TIME 29.391796
+_______________________________________
+Time to run in milliseconds: 0.698700
+_____________________________________________________________________________
+ Frame totals 45
+ U Diffuse 4.669900
+ V Diffuse 4.134000
+ U Advect 0.359700
+ V Advect 0.303300
+ Project 5.031399
+ D Diffuse 4.041800
+ D Advect 0.340200
+ TOTAL TIME 29.940197
+_______________________________________
+Time to run in milliseconds: 0.548400
+_____________________________________________________________________________
+ Frame totals 46
+ U Diffuse 4.752201
+ V Diffuse 4.200600
+ U Advect 0.365800
+ V Advect 0.337700
+ Project 5.111899
+ D Diffuse 4.107600
+ D Advect 0.343700
+ TOTAL TIME 30.469696
+_______________________________________
+Time to run in milliseconds: 0.529500
+_____________________________________________________________________________
+ Frame totals 47
+ U Diffuse 4.826500
+ V Diffuse 4.266600
+ U Advect 0.371700
+ V Advect 0.372400
+ Project 5.192400
+ D Diffuse 4.172000
+ D Advect 0.347300
+ TOTAL TIME 30.978996
 _______________________________________
 Time to run in milliseconds: 0.509300
 _____________________________________________________________________________
- Frame totals 132
- U Diffuse 12.844501
- V Diffuse 11.380696
- U Advect 1.403800
- V Advect 4.107200
- Project 13.358398
- D Diffuse 10.187501
- D Advect 0.580000
- TOTAL TIME 85.574409
+ Frame totals 48
+ U Diffuse 4.898601
+ V Diffuse 4.329300
+ U Advect 0.377800
+ V Advect 0.403600
+ Project 5.276199
+ D Diffuse 4.241601
+ D Advect 0.350700
+ TOTAL TIME 31.480696
 _______________________________________
-Time to run in milliseconds: 0.605400
+Time to run in milliseconds: 0.501700
 _____________________________________________________________________________
- Frame totals 133
- U Diffuse 12.921801
- V Diffuse 11.448596
- U Advect 1.410000
- V Advect 4.173200
- Project 13.439698
- D Diffuse 10.257901
- D Advect 0.584700
- TOTAL TIME 86.148811
+ Frame totals 49
+ U Diffuse 4.974601
+ V Diffuse 4.394900
+ U Advect 0.383800
+ V Advect 0.435600
+ Project 5.352900
+ D Diffuse 4.306701
+ D Advect 0.354100
+ TOTAL TIME 31.991796
 _______________________________________
-Time to run in milliseconds: 0.574400
+Time to run in milliseconds: 0.511100
 _____________________________________________________________________________
- Frame totals 134
- U Diffuse 12.996700
- V Diffuse 11.514096
- U Advect 1.416300
- V Advect 4.225200
- Project 13.517199
- D Diffuse 10.332602
- D Advect 0.588600
- TOTAL TIME 86.717911
+ Frame totals 50
+ U Diffuse 5.057701
+ V Diffuse 4.460700
+ U Advect 0.389900
+ V Advect 0.469600
+ Project 5.434000
+ D Diffuse 4.375801
+ D Advect 0.357700
+ TOTAL TIME 32.516598
 _______________________________________
-Time to run in milliseconds: 0.569100
+Time to run in milliseconds: 0.524800
 _____________________________________________________________________________
- Frame totals 135
- U Diffuse 13.078700
- V Diffuse 11.587096
- U Advect 1.423500
- V Advect 4.279500
- Project 13.603199
- D Diffuse 10.407701
- D Advect 0.592900
- TOTAL TIME 87.356514
+ Frame totals 51
+ U Diffuse 5.142601
+ V Diffuse 4.523600
+ U Advect 0.395900
+ V Advect 0.499500
+ Project 5.507999
+ D Diffuse 4.441801
+ D Advect 0.361600
+ TOTAL TIME 33.036598
 _______________________________________
-Time to run in milliseconds: 0.638600
+Time to run in milliseconds: 0.520000
 _____________________________________________________________________________
- Frame totals 136
- U Diffuse 13.153400
- V Diffuse 11.649996
- U Advect 1.429900
- V Advect 4.317999
- Project 13.678699
- D Diffuse 10.473202
- D Advect 0.596300
- TOTAL TIME 87.868011
+ Frame totals 52
+ U Diffuse 5.228001
+ V Diffuse 4.619700
+ U Advect 0.402000
+ V Advect 0.540900
+ Project 5.591399
+ D Diffuse 4.509001
+ D Advect 0.365300
+ TOTAL TIME 33.631298
 _______________________________________
-Time to run in milliseconds: 0.511500
+Time to run in milliseconds: 0.594700
 _____________________________________________________________________________
- Frame totals 137
- U Diffuse 13.228701
- V Diffuse 11.717196
- U Advect 1.435800
- V Advect 4.356899
- Project 13.757599
- D Diffuse 10.542401
- D Advect 0.600300
- TOTAL TIME 88.402115
+ Frame totals 53
+ U Diffuse 5.306901
+ V Diffuse 4.686000
+ U Advect 0.408200
+ V Advect 0.575500
+ Project 5.668599
+ D Diffuse 4.577601
+ D Advect 0.368700
+ TOTAL TIME 34.155598
 _______________________________________
-Time to run in milliseconds: 0.534100
+Time to run in milliseconds: 0.524300
 _____________________________________________________________________________
- Frame totals 138
- U Diffuse 13.302501
- V Diffuse 11.782096
- U Advect 1.441900
- V Advect 4.395399
- Project 13.833098
- D Diffuse 10.608002
- D Advect 0.603700
- TOTAL TIME 88.912315
+ Frame totals 54
+ U Diffuse 5.416101
+ V Diffuse 4.759200
+ U Advect 0.414700
+ V Advect 0.606700
+ Project 5.780999
+ D Diffuse 4.642801
+ D Advect 0.372100
+ TOTAL TIME 34.749897
+_______________________________________
+Time to run in milliseconds: 0.594300
+_____________________________________________________________________________
+ Frame totals 55
+ U Diffuse 5.493900
+ V Diffuse 4.825500
+ U Advect 0.420900
+ V Advect 0.639900
+ Project 5.857999
+ D Diffuse 4.707901
+ D Advect 0.375500
+ TOTAL TIME 35.269299
+_______________________________________
+Time to run in milliseconds: 0.519400
+_____________________________________________________________________________
+ Frame totals 56
+ U Diffuse 5.577500
+ V Diffuse 4.891300
+ U Advect 0.426800
+ V Advect 0.672100
+ Project 5.936899
+ D Diffuse 4.772201
+ D Advect 0.379100
+ TOTAL TIME 35.798397
+_______________________________________
+Time to run in milliseconds: 0.529100
+_____________________________________________________________________________
+ Frame totals 57
+ U Diffuse 5.652801
+ V Diffuse 4.956800
+ U Advect 0.432800
+ V Advect 0.715900
+ Project 6.013699
+ D Diffuse 4.841601
+ D Advect 0.383100
+ TOTAL TIME 36.324097
+_______________________________________
+Time to run in milliseconds: 0.525700
+_____________________________________________________________________________
+ Frame totals 58
+ U Diffuse 5.808900
+ V Diffuse 5.163100
+ U Advect 0.443100
+ V Advect 0.762700
+ Project 6.200999
+ D Diffuse 5.257701
+ D Advect 0.402000
+ TOTAL TIME 37.599998
+_______________________________________
+Time to run in milliseconds: 1.275900
+_____________________________________________________________________________
+ Frame totals 59
+ U Diffuse 5.882401
+ V Diffuse 5.236400
+ U Advect 0.449200
+ V Advect 0.817500
+ Project 6.274899
+ D Diffuse 5.382001
+ D Advect 0.406200
+ TOTAL TIME 38.234100
+_______________________________________
+Time to run in milliseconds: 0.634100
+_____________________________________________________________________________
+ Frame totals 60
+ U Diffuse 5.954000
+ V Diffuse 5.299799
+ U Advect 0.454900
+ V Advect 0.850300
+ Project 6.347799
+ D Diffuse 5.459301
+ D Advect 0.410300
+ TOTAL TIME 38.756500
+_______________________________________
+Time to run in milliseconds: 0.522400
+_____________________________________________________________________________
+ Frame totals 61
+ U Diffuse 6.029901
+ V Diffuse 5.366399
+ U Advect 0.461600
+ V Advect 0.905500
+ Project 6.442999
+ D Diffuse 5.525101
+ D Advect 0.414300
+ TOTAL TIME 39.320900
+_______________________________________
+Time to run in milliseconds: 0.564400
+_____________________________________________________________________________
+ Frame totals 62
+ U Diffuse 6.105901
+ V Diffuse 5.435399
+ U Advect 0.468100
+ V Advect 0.951300
+ Project 6.520799
+ D Diffuse 5.590801
+ D Advect 0.418500
+ TOTAL TIME 39.905201
+_______________________________________
+Time to run in milliseconds: 0.584300
+_____________________________________________________________________________
+ Frame totals 63
+ U Diffuse 6.191801
+ V Diffuse 5.502699
+ U Advect 0.474100
+ V Advect 0.992400
+ Project 6.598699
+ D Diffuse 5.656001
+ D Advect 0.422000
+ TOTAL TIME 40.435101
+_______________________________________
+Time to run in milliseconds: 0.529900
+_____________________________________________________________________________
+ Frame totals 64
+ U Diffuse 6.505600
+ V Diffuse 5.677999
+ U Advect 0.480700
+ V Advect 1.033400
+ Project 6.677099
+ D Diffuse 5.779601
+ D Advect 0.438400
+ TOTAL TIME 41.388901
+_______________________________________
+Time to run in milliseconds: 0.953800
+_____________________________________________________________________________
+ Frame totals 65
+ U Diffuse 6.582301
+ V Diffuse 5.743799
+ U Advect 0.486300
+ V Advect 1.071000
+ Project 6.756299
+ D Diffuse 5.859201
+ D Advect 0.442800
+ TOTAL TIME 41.955902
+_______________________________________
+Time to run in milliseconds: 0.567000
+_____________________________________________________________________________
+ Frame totals 66
+ U Diffuse 6.658000
+ V Diffuse 5.808499
+ U Advect 0.492200
+ V Advect 1.115100
+ Project 6.830999
+ D Diffuse 5.924901
+ D Advect 0.446400
+ TOTAL TIME 42.472401
+_______________________________________
+Time to run in milliseconds: 0.516500
+_____________________________________________________________________________
+ Frame totals 67
+ U Diffuse 6.752400
+ V Diffuse 5.879499
+ U Advect 0.505600
+ V Advect 1.160900
+ Project 6.968399
+ D Diffuse 6.011501
+ D Advect 0.450600
+ TOTAL TIME 43.226501
+_______________________________________
+Time to run in milliseconds: 0.754100
+_____________________________________________________________________________
+ Frame totals 68
+ U Diffuse 6.830101
+ V Diffuse 5.943999
+ U Advect 0.511500
+ V Advect 1.194300
+ Project 7.044299
+ D Diffuse 6.080601
+ D Advect 0.454200
+ TOTAL TIME 43.801502
+_______________________________________
+Time to run in milliseconds: 0.575000
+_____________________________________________________________________________
+ Frame totals 69
+ U Diffuse 6.901901
+ V Diffuse 6.007399
+ U Advect 0.517100
+ V Advect 1.235300
+ Project 7.119099
+ D Diffuse 6.145601
+ D Advect 0.458000
+ TOTAL TIME 44.314903
+_______________________________________
+Time to run in milliseconds: 0.513400
+_____________________________________________________________________________
+ Frame totals 70
+ U Diffuse 7.010701
+ V Diffuse 6.086399
+ U Advect 0.523500
+ V Advect 1.296500
+ Project 7.207499
+ D Diffuse 6.211601
+ D Advect 0.462400
+ TOTAL TIME 44.964405
+_______________________________________
+Time to run in milliseconds: 0.649500
+_____________________________________________________________________________
+ Frame totals 71
+ U Diffuse 7.110001
+ V Diffuse 6.177199
+ U Advect 0.531100
+ V Advect 1.339300
+ Project 7.289299
+ D Diffuse 6.284201
+ D Advect 0.466400
+ TOTAL TIME 45.613106
+_______________________________________
+Time to run in milliseconds: 0.648700
+_____________________________________________________________________________
+ Frame totals 72
+ U Diffuse 7.185400
+ V Diffuse 6.240999
+ U Advect 0.536700
+ V Advect 1.372000
+ Project 7.362399
+ D Diffuse 6.349700
+ D Advect 0.469900
+ TOTAL TIME 46.106205
+_______________________________________
+Time to run in milliseconds: 0.493100
+_____________________________________________________________________________
+ Frame totals 73
+ U Diffuse 7.261600
+ V Diffuse 6.307799
+ U Advect 0.542800
+ V Advect 1.413600
+ Project 7.439499
+ D Diffuse 6.422201
+ D Advect 0.473700
+ TOTAL TIME 46.639206
+_______________________________________
+Time to run in milliseconds: 0.533000
+_____________________________________________________________________________
+ Frame totals 74
+ U Diffuse 7.334701
+ V Diffuse 6.371299
+ U Advect 0.548600
+ V Advect 1.446700
+ Project 7.514399
+ D Diffuse 6.487301
+ D Advect 0.477600
+ TOTAL TIME 47.149406
 _______________________________________
 Time to run in milliseconds: 0.510200
 _____________________________________________________________________________
- Frame totals 139
- U Diffuse 13.380800
- V Diffuse 11.849696
- U Advect 1.448100
- V Advect 4.435199
- Project 13.911999
- D Diffuse 10.676102
- D Advect 0.607300
- TOTAL TIME 89.450119
+ Frame totals 75
+ U Diffuse 7.414801
+ V Diffuse 6.435199
+ U Advect 0.554600
+ V Advect 1.478900
+ Project 7.597199
+ D Diffuse 6.556101
+ D Advect 0.481700
+ TOTAL TIME 47.681206
 _______________________________________
-Time to run in milliseconds: 0.537800
+Time to run in milliseconds: 0.531800
+_____________________________________________________________________________
+ Frame totals 76
+ U Diffuse 7.488301
+ V Diffuse 6.501899
+ U Advect 0.560600
+ V Advect 1.508300
+ Project 7.674499
+ D Diffuse 6.634801
+ D Advect 0.485600
+ TOTAL TIME 48.197506
+_______________________________________
+Time to run in milliseconds: 0.516300
+_____________________________________________________________________________
+ Frame totals 77
+ U Diffuse 7.565701
+ V Diffuse 6.624099
+ U Advect 0.568300
+ V Advect 1.571100
+ Project 7.811199
+ D Diffuse 6.701901
+ D Advect 0.489500
+ TOTAL TIME 48.925205
+_______________________________________
+Time to run in milliseconds: 0.727700
+_____________________________________________________________________________
+ Frame totals 78
+ U Diffuse 7.637501
+ V Diffuse 6.687999
+ U Advect 0.574100
+ V Advect 1.601100
+ Project 7.884499
+ D Diffuse 6.772601
+ D Advect 0.492900
+ TOTAL TIME 49.427105
+_______________________________________
+Time to run in milliseconds: 0.501900
+_____________________________________________________________________________
+ Frame totals 79
+ U Diffuse 7.710401
+ V Diffuse 6.751299
+ U Advect 0.579800
+ V Advect 1.639800
+ Project 7.963499
+ D Diffuse 6.847701
+ D Advect 0.496900
+ TOTAL TIME 49.980305
+_______________________________________
+Time to run in milliseconds: 0.553200
+_____________________________________________________________________________
+ Frame totals 80
+ U Diffuse 7.783801
+ V Diffuse 6.822699
+ U Advect 0.585600
+ V Advect 1.671700
+ Project 8.037999
+ D Diffuse 6.916801
+ D Advect 0.500500
+ TOTAL TIME 50.496204
+_______________________________________
+Time to run in milliseconds: 0.515900
+_____________________________________________________________________________
+ Frame totals 81
+ U Diffuse 7.854801
+ V Diffuse 6.888099
+ U Advect 0.591700
+ V Advect 1.704200
+ Project 8.128499
+ D Diffuse 6.996201
+ D Advect 0.504700
+ TOTAL TIME 51.086205
+_______________________________________
+Time to run in milliseconds: 0.590000
+_____________________________________________________________________________
+ Frame totals 82
+ U Diffuse 7.931701
+ V Diffuse 6.952699
+ U Advect 0.597700
+ V Advect 1.748800
+ Project 8.202499
+ D Diffuse 7.080001
+ D Advect 0.508500
+ TOTAL TIME 51.622704
+_______________________________________
+Time to run in milliseconds: 0.536500
+_____________________________________________________________________________
+ Frame totals 83
+ U Diffuse 8.015401
+ V Diffuse 7.017099
+ U Advect 0.604100
+ V Advect 1.797200
+ Project 8.343499
+ D Diffuse 7.147801
+ D Advect 0.512500
+ TOTAL TIME 52.246304
+_______________________________________
+Time to run in milliseconds: 0.623600
+_____________________________________________________________________________
+ Frame totals 84
+ U Diffuse 8.090001
+ V Diffuse 7.090600
+ U Advect 0.609900
+ V Advect 1.829600
+ Project 8.421999
+ D Diffuse 7.217201
+ D Advect 0.516600
+ TOTAL TIME 52.775402
+_______________________________________
+Time to run in milliseconds: 0.529100
+_____________________________________________________________________________
+ Frame totals 85
+ U Diffuse 8.161701
+ V Diffuse 7.164000
+ U Advect 0.616200
+ V Advect 1.884200
+ Project 8.524299
+ D Diffuse 7.285701
+ D Advect 0.520600
+ TOTAL TIME 53.369904
+_______________________________________
+Time to run in milliseconds: 0.594500
+_____________________________________________________________________________
+ Frame totals 86
+ U Diffuse 8.236801
+ V Diffuse 7.228199
+ U Advect 0.622300
+ V Advect 1.916500
+ Project 8.601099
+ D Diffuse 7.354801
+ D Advect 0.524600
+ TOTAL TIME 53.934902
+_______________________________________
+Time to run in milliseconds: 0.565000
+_____________________________________________________________________________
+ Frame totals 87
+ U Diffuse 8.312601
+ V Diffuse 7.291399
+ U Advect 0.628200
+ V Advect 1.949700
+ Project 8.675299
+ D Diffuse 7.431601
+ D Advect 0.528500
+ TOTAL TIME 54.538200
+_______________________________________
+Time to run in milliseconds: 0.603300
+_____________________________________________________________________________
+ Frame totals 88
+ U Diffuse 8.423301
+ V Diffuse 7.362700
+ U Advect 0.634100
+ V Advect 2.007900
+ Project 8.781999
+ D Diffuse 7.498900
+ D Advect 0.532500
+ TOTAL TIME 55.162601
+_______________________________________
+Time to run in milliseconds: 0.624400
+_____________________________________________________________________________
+ Frame totals 89
+ U Diffuse 8.553101
+ V Diffuse 7.448800
+ U Advect 0.640100
+ V Advect 2.025100
+ Project 8.866999
+ D Diffuse 7.562201
+ D Advect 0.536000
+ TOTAL TIME 55.895000
+_______________________________________
+Time to run in milliseconds: 0.732400
+_____________________________________________________________________________
+ Frame totals 90
+ U Diffuse 8.681400
+ V Diffuse 7.516000
+ U Advect 0.646400
+ V Advect 2.061800
+ Project 8.947999
+ D Diffuse 7.628400
+ D Advect 0.539600
+ TOTAL TIME 56.475101
+_______________________________________
+Time to run in milliseconds: 0.580100
+_____________________________________________________________________________
+ Frame totals 91
+ U Diffuse 8.753000
+ V Diffuse 7.587200
+ U Advect 0.652200
+ V Advect 2.112900
+ Project 9.023699
+ D Diffuse 7.694600
+ D Advect 0.543400
+ TOTAL TIME 57.020203
+_______________________________________
+Time to run in milliseconds: 0.545100
+_____________________________________________________________________________
+ Frame totals 92
+ U Diffuse 8.824901
+ V Diffuse 7.650300
+ U Advect 0.657700
+ V Advect 2.142000
+ Project 9.097898
+ D Diffuse 7.762100
+ D Advect 0.546800
+ TOTAL TIME 57.505104
+_______________________________________
+Time to run in milliseconds: 0.484900
+_____________________________________________________________________________
+ Frame totals 93
+ U Diffuse 8.900701
+ V Diffuse 7.717100
+ U Advect 0.663700
+ V Advect 2.174800
+ Project 9.175098
+ D Diffuse 7.827300
+ D Advect 0.550500
+ TOTAL TIME 58.025303
+_______________________________________
+Time to run in milliseconds: 0.520200
+_____________________________________________________________________________
+ Frame totals 94
+ U Diffuse 8.982100
+ V Diffuse 7.784200
+ U Advect 0.669400
+ V Advect 2.210700
+ Project 9.250098
+ D Diffuse 7.930100
+ D Advect 0.573600
+ TOTAL TIME 58.592705
+_______________________________________
+Time to run in milliseconds: 0.567400
+_____________________________________________________________________________
+ Frame totals 95
+ U Diffuse 9.064700
+ V Diffuse 7.847900
+ U Advect 0.675300
+ V Advect 2.242700
+ Project 9.324799
+ D Diffuse 8.006800
+ D Advect 0.576900
+ TOTAL TIME 59.109604
+_______________________________________
+Time to run in milliseconds: 0.516900
+_____________________________________________________________________________
+ Frame totals 96
+ U Diffuse 9.141300
+ V Diffuse 7.913900
+ U Advect 0.681100
+ V Advect 2.279600
+ Project 9.402299
+ D Diffuse 8.072400
+ D Advect 0.580700
+ TOTAL TIME 59.637302
+_______________________________________
+Time to run in milliseconds: 0.527700
+_____________________________________________________________________________
+ Frame totals 97
+ U Diffuse 9.222401
+ V Diffuse 8.033700
+ U Advect 0.687300
+ V Advect 2.317900
+ Project 9.480899
+ D Diffuse 8.138600
+ D Advect 0.584600
+ TOTAL TIME 60.333603
+_______________________________________
+Time to run in milliseconds: 0.696300
+_____________________________________________________________________________
+ Frame totals 98
+ U Diffuse 9.299701
+ V Diffuse 8.109800
+ U Advect 0.693500
+ V Advect 2.353400
+ Project 9.559599
+ D Diffuse 8.207800
+ D Advect 0.588100
+ TOTAL TIME 60.884102
+_______________________________________
+Time to run in milliseconds: 0.550500
+_____________________________________________________________________________
+ Frame totals 99
+ U Diffuse 9.374600
+ V Diffuse 8.200200
+ U Advect 0.699400
+ V Advect 2.395200
+ Project 9.639899
+ D Diffuse 8.276800
+ D Advect 0.591800
+ TOTAL TIME 61.485703
+_______________________________________
+Time to run in milliseconds: 0.601600
+_____________________________________________________________________________
+ Frame totals 100
+ U Diffuse 9.450001
+ V Diffuse 8.263400
+ U Advect 0.705200
+ V Advect 2.440201
+ Project 9.716199
+ D Diffuse 8.347200
+ D Advect 0.595700
+ TOTAL TIME 62.090401
+_______________________________________
+Time to run in milliseconds: 0.604700
+_____________________________________________________________________________
+ Frame totals 101
+ U Diffuse 9.527000
+ V Diffuse 8.327400
+ U Advect 0.711300
+ V Advect 2.474900
+ Project 9.808699
+ D Diffuse 8.414901
+ D Advect 0.599200
+ TOTAL TIME 62.689400
+_______________________________________
+Time to run in milliseconds: 0.599000
+_____________________________________________________________________________
+ Frame totals 102
+ U Diffuse 9.610101
+ V Diffuse 8.394800
+ U Advect 0.717800
+ V Advect 2.518900
+ Project 9.953999
+ D Diffuse 8.491601
+ D Advect 0.603000
+ TOTAL TIME 63.371201
+_______________________________________
+Time to run in milliseconds: 0.681800
+_____________________________________________________________________________
+ Frame totals 103
+ U Diffuse 9.682701
+ V Diffuse 8.457800
+ U Advect 0.723600
+ V Advect 2.552000
+ Project 10.038999
+ D Diffuse 8.568601
+ D Advect 0.606600
+ TOTAL TIME 63.909401
+_______________________________________
+Time to run in milliseconds: 0.538200
+_____________________________________________________________________________
+ Frame totals 104
+ U Diffuse 9.766401
+ V Diffuse 8.523499
+ U Advect 0.729300
+ V Advect 2.602300
+ Project 10.113798
+ D Diffuse 8.633901
+ D Advect 0.610200
+ TOTAL TIME 64.436897
+_______________________________________
+Time to run in milliseconds: 0.527500
+_____________________________________________________________________________
+ Frame totals 105
+ U Diffuse 9.842101
+ V Diffuse 8.587000
+ U Advect 0.735200
+ V Advect 2.645800
+ Project 10.201498
+ D Diffuse 8.767301
+ D Advect 0.614400
+ TOTAL TIME 65.115898
+_______________________________________
+Time to run in milliseconds: 0.679000
+_____________________________________________________________________________
+ Frame totals 106
+ U Diffuse 9.909001
+ V Diffuse 8.650200
+ U Advect 0.740600
+ V Advect 2.687300
+ Project 10.275298
+ D Diffuse 8.836101
+ D Advect 0.618000
+ TOTAL TIME 65.620796
+_______________________________________
+Time to run in milliseconds: 0.504900
+_____________________________________________________________________________
+ Frame totals 107
+ U Diffuse 9.989101
+ V Diffuse 8.713400
+ U Advect 0.746900
+ V Advect 2.734300
+ Project 10.350998
+ D Diffuse 8.902801
+ D Advect 0.621900
+ TOTAL TIME 66.233093
+_______________________________________
+Time to run in milliseconds: 0.612300
+_____________________________________________________________________________
+ Frame totals 108
+ U Diffuse 10.156101
+ V Diffuse 8.803200
+ U Advect 0.753200
+ V Advect 2.791800
+ Project 10.430898
+ D Diffuse 9.017800
+ D Advect 0.626300
+ TOTAL TIME 67.078590
+_______________________________________
+Time to run in milliseconds: 0.845500
+_____________________________________________________________________________
+ Frame totals 109
+ U Diffuse 10.542801
+ V Diffuse 8.879100
+ U Advect 0.759500
+ V Advect 2.826400
+ Project 10.507598
+ D Diffuse 9.084400
+ D Advect 0.629800
+ TOTAL TIME 67.926987
+_______________________________________
+Time to run in milliseconds: 0.848400
+_____________________________________________________________________________
+ Frame totals 110
+ U Diffuse 10.617301
+ V Diffuse 8.952400
+ U Advect 0.765600
+ V Advect 2.873500
+ Project 10.584398
+ D Diffuse 9.212300
+ D Advect 0.633600
+ TOTAL TIME 68.641983
+_______________________________________
+Time to run in milliseconds: 0.715000
+_____________________________________________________________________________
+ Frame totals 111
+ U Diffuse 10.698901
+ V Diffuse 9.016800
+ U Advect 0.771500
+ V Advect 2.903200
+ Project 10.657998
+ D Diffuse 9.284300
+ D Advect 0.637200
+ TOTAL TIME 69.132286
+_______________________________________
+Time to run in milliseconds: 0.490300
+_____________________________________________________________________________
+ Frame totals 112
+ U Diffuse 10.788001
+ V Diffuse 9.086800
+ U Advect 0.790000
+ V Advect 2.941900
+ Project 10.740598
+ D Diffuse 9.355800
+ D Advect 0.640900
+ TOTAL TIME 69.753288
+_______________________________________
+Time to run in milliseconds: 0.621000
+_____________________________________________________________________________
+ Frame totals 113
+ U Diffuse 10.872801
+ V Diffuse 9.150499
+ U Advect 0.796100
+ V Advect 2.979900
+ Project 10.814498
+ D Diffuse 9.422299
+ D Advect 0.644400
+ TOTAL TIME 70.268692
+_______________________________________
+Time to run in milliseconds: 0.515400
+_____________________________________________________________________________
+ Frame totals 114
+ U Diffuse 10.949401
+ V Diffuse 9.214700
+ U Advect 0.801700
+ V Advect 3.021400
+ Project 10.890098
+ D Diffuse 9.489799
+ D Advect 0.648600
+ TOTAL TIME 70.812195
+_______________________________________
+Time to run in milliseconds: 0.543500
+_____________________________________________________________________________
+ Frame totals 115
+ U Diffuse 11.027201
+ V Diffuse 9.277200
+ U Advect 0.807600
+ V Advect 3.061700
+ Project 10.964598
+ D Diffuse 9.563899
+ D Advect 0.652900
+ TOTAL TIME 71.353897
+_______________________________________
+Time to run in milliseconds: 0.541700
+_____________________________________________________________________________
+ Frame totals 116
+ U Diffuse 11.111300
+ V Diffuse 9.342199
+ U Advect 0.813400
+ V Advect 3.093800
+ Project 11.045398
+ D Diffuse 9.632799
+ D Advect 0.656700
+ TOTAL TIME 71.874397
+_______________________________________
+Time to run in milliseconds: 0.520500
+_____________________________________________________________________________
+ Frame totals 117
+ U Diffuse 11.183201
+ V Diffuse 9.406499
+ U Advect 0.819400
+ V Advect 3.141900
+ Project 11.120197
+ D Diffuse 9.701900
+ D Advect 0.660200
+ TOTAL TIME 72.389000
+_______________________________________
+Time to run in milliseconds: 0.514600
+_____________________________________________________________________________
+ Frame totals 118
+ U Diffuse 11.259400
+ V Diffuse 9.469999
+ U Advect 0.825300
+ V Advect 3.178100
+ Project 11.202997
+ D Diffuse 9.773399
+ D Advect 0.663800
+ TOTAL TIME 73.257797
+_______________________________________
+Time to run in milliseconds: 0.868800
+_____________________________________________________________________________
+ Frame totals 119
+ U Diffuse 11.330100
+ V Diffuse 9.533400
+ U Advect 0.831000
+ V Advect 3.214400
+ Project 11.286798
+ D Diffuse 9.878300
+ D Advect 0.670600
+ TOTAL TIME 73.808800
+_______________________________________
+Time to run in milliseconds: 0.551000
+_____________________________________________________________________________
+ Frame totals 120
+ U Diffuse 11.402600
+ V Diffuse 9.604600
+ U Advect 0.837000
+ V Advect 3.251600
+ Project 11.361097
+ D Diffuse 9.950000
+ D Advect 0.674300
+ TOTAL TIME 74.357399
+_______________________________________
+Time to run in milliseconds: 0.548600
+_____________________________________________________________________________
+ Frame totals 121
+ U Diffuse 11.474700
+ V Diffuse 9.668500
+ U Advect 0.843300
+ V Advect 3.286800
+ Project 11.434797
+ D Diffuse 10.032500
+ D Advect 0.677800
+ TOTAL TIME 74.896896
+_______________________________________
+Time to run in milliseconds: 0.539500
+_____________________________________________________________________________
+ Frame totals 122
+ U Diffuse 11.551900
+ V Diffuse 9.740100
+ U Advect 0.863200
+ V Advect 3.345500
+ Project 11.544397
+ D Diffuse 10.098101
+ D Advect 0.681800
+ TOTAL TIME 75.515594
+_______________________________________
+Time to run in milliseconds: 0.618700
+_____________________________________________________________________________
+ Frame totals 123
+ U Diffuse 11.626300
+ V Diffuse 11.179900
+ U Advect 0.873600
+ V Advect 3.422900
+ Project 11.704497
+ D Diffuse 10.173301
+ D Advect 0.685600
+ TOTAL TIME 77.584297
+_______________________________________
+Time to run in milliseconds: 2.068700
+_____________________________________________________________________________
+ Frame totals 124
+ U Diffuse 11.703100
+ V Diffuse 11.243600
+ U Advect 0.880000
+ V Advect 3.456800
+ Project 11.779198
+ D Diffuse 10.244501
+ D Advect 0.688900
+ TOTAL TIME 78.099800
+_______________________________________
+Time to run in milliseconds: 0.515500
+_____________________________________________________________________________
+ Frame totals 125
+ U Diffuse 11.776000
+ V Diffuse 11.307000
+ U Advect 0.886400
+ V Advect 3.500601
+ Project 11.852597
+ D Diffuse 10.311101
+ D Advect 0.692400
+ TOTAL TIME 78.625397
+_______________________________________
+Time to run in milliseconds: 0.525600
+_____________________________________________________________________________
+ Frame totals 126
+ U Diffuse 11.848800
+ V Diffuse 11.370400
+ U Advect 0.892100
+ V Advect 3.534701
+ Project 11.927298
+ D Diffuse 10.407001
+ D Advect 0.709600
+ TOTAL TIME 79.168594
+_______________________________________
+Time to run in milliseconds: 0.543200
+_____________________________________________________________________________
+ Frame totals 127
+ U Diffuse 11.927299
+ V Diffuse 11.438101
+ U Advect 0.898400
+ V Advect 3.576701
+ Project 12.006198
+ D Diffuse 10.473001
+ D Advect 0.713700
+ TOTAL TIME 79.935196
+_______________________________________
+Time to run in milliseconds: 0.766600
+_____________________________________________________________________________
+ Frame totals 128
+ U Diffuse 12.013300
+ V Diffuse 11.555100
+ U Advect 0.904700
+ V Advect 3.616601
+ Project 12.085298
+ D Diffuse 10.587400
+ D Advect 0.717800
+ TOTAL TIME 80.579094
+_______________________________________
+Time to run in milliseconds: 0.643900
+_____________________________________________________________________________
+ Frame totals 129
+ U Diffuse 12.088400
+ V Diffuse 11.620701
+ U Advect 0.910500
+ V Advect 3.649801
+ Project 12.169397
+ D Diffuse 10.673800
+ D Advect 0.722400
+ TOTAL TIME 81.129692
+_______________________________________
+Time to run in milliseconds: 0.550600
+_____________________________________________________________________________
+ Frame totals 130
+ U Diffuse 12.166300
+ V Diffuse 11.686101
+ U Advect 0.916500
+ V Advect 3.682401
+ Project 12.276197
+ D Diffuse 10.743401
+ D Advect 0.725800
+ TOTAL TIME 81.729095
+_______________________________________
+Time to run in milliseconds: 0.599400
+_____________________________________________________________________________
+ Frame totals 131
+ U Diffuse 12.246799
+ V Diffuse 11.754001
+ U Advect 0.922500
+ V Advect 3.716001
+ Project 12.353297
+ D Diffuse 10.813901
+ D Advect 0.729500
+ TOTAL TIME 82.251099
+_______________________________________
+Time to run in milliseconds: 0.522000
+_____________________________________________________________________________
+ Frame totals 132
+ U Diffuse 12.324100
+ V Diffuse 11.818400
+ U Advect 0.928100
+ V Advect 3.749401
+ Project 12.429398
+ D Diffuse 10.883701
+ D Advect 0.733100
+ TOTAL TIME 82.805199
+_______________________________________
+Time to run in milliseconds: 0.554100
+_____________________________________________________________________________
+ Frame totals 133
+ U Diffuse 12.405700
+ V Diffuse 11.882501
+ U Advect 0.933900
+ V Advect 3.784201
+ Project 12.637398
+ D Diffuse 10.951402
+ D Advect 0.737000
+ TOTAL TIME 83.456001
+_______________________________________
+Time to run in milliseconds: 0.650800
+_____________________________________________________________________________
+ Frame totals 134
+ U Diffuse 12.481800
+ V Diffuse 11.947401
+ U Advect 0.940600
+ V Advect 3.822801
+ Project 12.714198
+ D Diffuse 11.020402
+ D Advect 0.740700
+ TOTAL TIME 83.988098
+_______________________________________
+Time to run in milliseconds: 0.532100
+_____________________________________________________________________________
+ Frame totals 135
+ U Diffuse 12.746901
+ V Diffuse 12.091901
+ U Advect 0.950900
+ V Advect 3.886001
+ Project 12.851698
+ D Diffuse 11.088902
+ D Advect 0.744500
+ TOTAL TIME 84.896996
+_______________________________________
+Time to run in milliseconds: 0.908900
+_____________________________________________________________________________
+ Frame totals 136
+ U Diffuse 12.823701
+ V Diffuse 12.155701
+ U Advect 0.956800
+ V Advect 3.915301
+ Project 12.935298
+ D Diffuse 11.156602
+ D Advect 0.751700
+ TOTAL TIME 85.398094
+_______________________________________
+Time to run in milliseconds: 0.501100
+_____________________________________________________________________________
+ Frame totals 137
+ U Diffuse 12.912501
+ V Diffuse 12.221101
+ U Advect 0.962700
+ V Advect 3.951601
+ Project 13.016698
+ D Diffuse 11.222602
+ D Advect 0.755300
+ TOTAL TIME 85.951492
+_______________________________________
+Time to run in milliseconds: 0.553400
+_____________________________________________________________________________
+ Frame totals 138
+ U Diffuse 12.992601
+ V Diffuse 12.283901
+ U Advect 0.968200
+ V Advect 3.984001
+ Project 13.093198
+ D Diffuse 11.287302
+ D Advect 0.759100
+ TOTAL TIME 86.451096
+_______________________________________
+Time to run in milliseconds: 0.499600
+_____________________________________________________________________________
+ Frame totals 139
+ U Diffuse 13.068002
+ V Diffuse 12.351901
+ U Advect 0.974200
+ V Advect 4.016401
+ Project 13.166698
+ D Diffuse 11.352502
+ D Advect 0.762600
+ TOTAL TIME 86.952995
+_______________________________________
+Time to run in milliseconds: 0.501900
 _____________________________________________________________________________
  Frame totals 140
- U Diffuse 13.459400
- V Diffuse 11.918696
- U Advect 1.454900
- V Advect 4.505999
- Project 13.993399
- D Diffuse 10.748402
- D Advect 0.612100
- TOTAL TIME 90.065720
+ U Diffuse 13.140101
+ V Diffuse 12.414601
+ U Advect 0.980200
+ V Advect 4.055401
+ Project 13.244198
+ D Diffuse 11.427102
+ D Advect 0.766200
+ TOTAL TIME 87.492493
 _______________________________________
-Time to run in milliseconds: 0.615600
+Time to run in milliseconds: 0.539500
 _____________________________________________________________________________
  Frame totals 141
- U Diffuse 13.539701
- V Diffuse 11.988196
- U Advect 1.461100
- V Advect 4.546399
- Project 14.074999
- D Diffuse 10.817502
- D Advect 0.615900
- TOTAL TIME 90.608223
+ U Diffuse 13.210701
+ V Diffuse 12.478201
+ U Advect 0.986200
+ V Advect 4.082401
+ Project 13.327098
+ D Diffuse 11.501802
+ D Advect 0.769500
+ TOTAL TIME 88.016495
 _______________________________________
-Time to run in milliseconds: 0.542500
+Time to run in milliseconds: 0.524000
 _____________________________________________________________________________
  Frame totals 142
- U Diffuse 13.640201
- V Diffuse 12.057197
- U Advect 1.467500
- V Advect 4.590899
- Project 14.155399
- D Diffuse 10.885902
- D Advect 0.619700
- TOTAL TIME 91.203819
+ U Diffuse 13.286401
+ V Diffuse 12.543501
+ U Advect 0.992400
+ V Advect 4.115801
+ Project 13.415498
+ D Diffuse 11.571202
+ D Advect 0.772900
+ TOTAL TIME 88.536293
 _______________________________________
-Time to run in milliseconds: 0.595600
+Time to run in milliseconds: 0.519800
 _____________________________________________________________________________
  Frame totals 143
- U Diffuse 13.712701
- V Diffuse 12.120697
- U Advect 1.473400
- V Advect 4.631199
- Project 14.230800
- D Diffuse 10.952703
- D Advect 0.623400
- TOTAL TIME 91.715118
+ U Diffuse 13.360901
+ V Diffuse 12.607701
+ U Advect 0.998400
+ V Advect 4.149101
+ Project 13.491097
+ D Diffuse 11.640502
+ D Advect 0.776300
+ TOTAL TIME 89.056190
 _______________________________________
-Time to run in milliseconds: 0.511300
+Time to run in milliseconds: 0.519900
 _____________________________________________________________________________
  Frame totals 144
- U Diffuse 13.801101
- V Diffuse 12.189797
- U Advect 1.479800
- V Advect 4.690499
- Project 14.311700
- D Diffuse 11.024702
- D Advect 0.627700
- TOTAL TIME 92.315819
+ U Diffuse 13.436501
+ V Diffuse 12.673601
+ U Advect 1.004600
+ V Advect 4.179901
+ Project 13.567898
+ D Diffuse 11.705202
+ D Advect 0.779900
+ TOTAL TIME 89.552589
 _______________________________________
-Time to run in milliseconds: 0.600700
+Time to run in milliseconds: 0.496400
 _____________________________________________________________________________
  Frame totals 145
- U Diffuse 13.876301
- V Diffuse 12.256197
- U Advect 1.485800
- V Advect 4.733199
- Project 14.388800
- D Diffuse 11.100402
- D Advect 0.632000
- TOTAL TIME 92.894218
+ U Diffuse 13.519900
+ V Diffuse 12.738601
+ U Advect 1.010400
+ V Advect 4.215301
+ Project 13.644298
+ D Diffuse 11.770202
+ D Advect 0.783400
+ TOTAL TIME 90.060692
 _______________________________________
-Time to run in milliseconds: 0.578400
+Time to run in milliseconds: 0.508100
 _____________________________________________________________________________
  Frame totals 146
- U Diffuse 13.954000
- V Diffuse 12.326797
- U Advect 1.492000
- V Advect 4.798398
- Project 14.467999
- D Diffuse 11.169502
- D Advect 0.636200
- TOTAL TIME 93.498817
+ U Diffuse 13.598400
+ V Diffuse 12.804501
+ U Advect 1.016600
+ V Advect 4.254200
+ Project 13.728698
+ D Diffuse 11.840801
+ D Advect 0.786900
+ TOTAL TIME 90.696793
 _______________________________________
-Time to run in milliseconds: 0.604600
+Time to run in milliseconds: 0.636100
 _____________________________________________________________________________
  Frame totals 147
- U Diffuse 14.059100
- V Diffuse 12.400996
- U Advect 1.497900
- V Advect 4.844099
- Project 14.545899
- D Diffuse 11.239303
- D Advect 0.640200
- TOTAL TIME 94.171417
+ U Diffuse 13.720100
+ V Diffuse 12.869401
+ U Advect 1.022700
+ V Advect 4.296200
+ Project 13.804798
+ D Diffuse 11.906801
+ D Advect 0.801000
+ TOTAL TIME 91.291893
 _______________________________________
-Time to run in milliseconds: 0.672600
+Time to run in milliseconds: 0.595100
 _____________________________________________________________________________
  Frame totals 148
- U Diffuse 14.142301
- V Diffuse 12.472197
- U Advect 1.504300
- V Advect 4.895898
- Project 14.628200
- D Diffuse 11.308803
- D Advect 0.644000
- TOTAL TIME 94.734314
+ U Diffuse 13.791500
+ V Diffuse 12.932601
+ U Advect 1.028400
+ V Advect 4.328900
+ Project 13.886498
+ D Diffuse 11.981301
+ D Advect 0.805000
+ TOTAL TIME 91.787590
 _______________________________________
-Time to run in milliseconds: 0.562900
+Time to run in milliseconds: 0.495700
 _____________________________________________________________________________
  Frame totals 149
- U Diffuse 14.236601
- V Diffuse 12.540397
- U Advect 1.510900
- V Advect 4.940198
- Project 14.708699
- D Diffuse 11.378503
- D Advect 0.648000
- TOTAL TIME 95.297112
+ U Diffuse 14.030800
+ V Diffuse 13.001101
+ U Advect 1.037000
+ V Advect 4.386600
+ Project 13.966199
+ D Diffuse 12.056602
+ D Advect 0.808800
+ TOTAL TIME 92.515991
+_______________________________________
+Time to run in milliseconds: 0.728400
+_____________________________________________________________________________
+ Frame totals 150
+ U Diffuse 14.121600
+ V Diffuse 13.070101
+ U Advect 1.042700
+ V Advect 4.414300
+ Project 14.040899
+ D Diffuse 12.122702
+ D Advect 0.812200
+ TOTAL TIME 93.047791
+_______________________________________
+Time to run in milliseconds: 0.531800
+_____________________________________________________________________________
+ Frame totals 151
+ U Diffuse 14.202600
+ V Diffuse 13.133601
+ U Advect 1.048700
+ V Advect 4.446100
+ Project 14.116300
+ D Diffuse 12.191002
+ D Advect 0.819400
+ TOTAL TIME 93.614594
+_______________________________________
+Time to run in milliseconds: 0.566800
+_____________________________________________________________________________
+ Frame totals 152
+ U Diffuse 14.514900
+ V Diffuse 13.222701
+ U Advect 1.055100
+ V Advect 4.486300
+ Project 14.198299
+ D Diffuse 12.300702
+ D Advect 0.834100
+ TOTAL TIME 94.660492
+_______________________________________
+Time to run in milliseconds: 1.045900
+_____________________________________________________________________________
+ Frame totals 153
+ U Diffuse 14.671400
+ V Diffuse 13.290201
+ U Advect 1.061200
+ V Advect 4.601800
+ Project 14.282100
+ D Diffuse 12.387702
+ D Advect 0.838100
+ TOTAL TIME 95.450592
+_______________________________________
+Time to run in milliseconds: 0.790100
+_____________________________________________________________________________
+ Frame totals 154
+ U Diffuse 14.745400
+ V Diffuse 13.354501
+ U Advect 1.067200
+ V Advect 4.641700
+ Project 14.357699
+ D Diffuse 12.457802
+ D Advect 0.841900
+ TOTAL TIME 95.982391
+_______________________________________
+Time to run in milliseconds: 0.531800
+_____________________________________________________________________________
+ Frame totals 155
+ U Diffuse 14.817301
+ V Diffuse 13.427401
+ U Advect 1.073100
+ V Advect 4.673000
+ Project 14.432199
+ D Diffuse 12.523602
+ D Advect 0.845500
+ TOTAL TIME 96.486191
+_______________________________________
+Time to run in milliseconds: 0.503800
+_____________________________________________________________________________
+ Frame totals 156
+ U Diffuse 14.889201
+ V Diffuse 13.491000
+ U Advect 1.079500
+ V Advect 4.715301
+ Project 14.506700
+ D Diffuse 12.589401
+ D Advect 0.849000
+ TOTAL TIME 96.997292
+_______________________________________
+Time to run in milliseconds: 0.511100
+_____________________________________________________________________________
+ Frame totals 157
+ U Diffuse 14.976001
+ V Diffuse 13.554800
+ U Advect 1.085500
+ V Advect 4.753001
+ Project 14.580799
+ D Diffuse 12.673801
+ D Advect 0.853000
+ TOTAL TIME 97.632095
+_______________________________________
+Time to run in milliseconds: 0.634800
+_____________________________________________________________________________
+ Frame totals 158
+ U Diffuse 15.308801
+ V Diffuse 13.857400
+ U Advect 1.097300
+ V Advect 4.963401
+ Project 15.023699
+ D Diffuse 12.807801
+ D Advect 0.878300
+ TOTAL TIME 99.751198
+_______________________________________
+Time to run in milliseconds: 2.119100
+_____________________________________________________________________________
+ Frame totals 159
+ U Diffuse 15.404301
+ V Diffuse 13.922700
+ U Advect 1.103200
+ V Advect 4.995201
+ Project 15.100299
+ D Diffuse 12.907301
+ D Advect 0.883100
+ TOTAL TIME 100.313194
+_______________________________________
+Time to run in milliseconds: 0.562000
+_____________________________________________________________________________
+ Frame totals 160
+ U Diffuse 15.478701
+ V Diffuse 13.995600
+ U Advect 1.109100
+ V Advect 5.025600
+ Project 15.173799
+ D Diffuse 12.975201
+ D Advect 0.886500
+ TOTAL TIME 100.825493
+_______________________________________
+Time to run in milliseconds: 0.512300
+_____________________________________________________________________________
+ Frame totals 161
+ U Diffuse 15.552601
+ V Diffuse 14.070399
+ U Advect 1.114700
+ V Advect 5.055100
+ Project 15.249199
+ D Diffuse 13.045701
+ D Advect 0.889800
+ TOTAL TIME 101.343391
+_______________________________________
+Time to run in milliseconds: 0.517900
+_____________________________________________________________________________
+ Frame totals 162
+ U Diffuse 15.627801
+ V Diffuse 14.137499
+ U Advect 1.120600
+ V Advect 5.087801
+ Project 15.327499
+ D Diffuse 13.111701
+ D Advect 0.893200
+ TOTAL TIME 101.850990
+_______________________________________
+Time to run in milliseconds: 0.507600
+_____________________________________________________________________________
+ Frame totals 163
+ U Diffuse 15.704201
+ V Diffuse 14.203898
+ U Advect 1.126700
+ V Advect 5.158401
+ Project 15.405000
+ D Diffuse 13.192201
+ D Advect 0.897400
+ TOTAL TIME 102.471191
+_______________________________________
+Time to run in milliseconds: 0.620200
+_____________________________________________________________________________
+ Frame totals 164
+ U Diffuse 15.783201
+ V Diffuse 14.270998
+ U Advect 1.133200
+ V Advect 5.193800
+ Project 15.482200
+ D Diffuse 13.258600
+ D Advect 0.901100
+ TOTAL TIME 103.009995
+_______________________________________
+Time to run in milliseconds: 0.538800
+_____________________________________________________________________________
+ Frame totals 165
+ U Diffuse 15.870301
+ V Diffuse 14.339798
+ U Advect 1.138900
+ V Advect 5.232400
+ Project 15.556600
+ D Diffuse 13.328600
+ D Advect 0.904600
+ TOTAL TIME 103.567795
+_______________________________________
+Time to run in milliseconds: 0.557800
+_____________________________________________________________________________
+ Frame totals 166
+ U Diffuse 15.987401
+ V Diffuse 14.440698
+ U Advect 1.145600
+ V Advect 5.266901
+ Project 15.687300
+ D Diffuse 13.399300
+ D Advect 0.908400
+ TOTAL TIME 104.308891
+_______________________________________
+Time to run in milliseconds: 0.741100
+_____________________________________________________________________________
+ Frame totals 167
+ U Diffuse 16.069901
+ V Diffuse 14.505298
+ U Advect 1.151800
+ V Advect 5.304101
+ Project 15.763300
+ D Diffuse 13.464900
+ D Advect 0.912000
+ TOTAL TIME 104.828995
+_______________________________________
+Time to run in milliseconds: 0.520100
+_____________________________________________________________________________
+ Frame totals 168
+ U Diffuse 16.186300
+ V Diffuse 14.575598
+ U Advect 1.158400
+ V Advect 5.339301
+ Project 15.842400
+ D Diffuse 13.531300
+ D Advect 0.915500
+ TOTAL TIME 105.445396
+_______________________________________
+Time to run in milliseconds: 0.616400
+_____________________________________________________________________________
+ Frame totals 169
+ U Diffuse 16.272400
+ V Diffuse 14.640198
+ U Advect 1.164500
+ V Advect 5.372401
+ Project 15.917600
+ D Diffuse 13.596600
+ D Advect 0.919200
+ TOTAL TIME 105.952293
+_______________________________________
+Time to run in milliseconds: 0.506900
+_____________________________________________________________________________
+ Frame totals 170
+ U Diffuse 16.351601
+ V Diffuse 14.714798
+ U Advect 1.170700
+ V Advect 5.404501
+ Project 15.999400
+ D Diffuse 13.661200
+ D Advect 0.922600
+ TOTAL TIME 106.478294
+_______________________________________
+Time to run in milliseconds: 0.526000
+_____________________________________________________________________________
+ Frame totals 171
+ U Diffuse 16.450901
+ V Diffuse 14.787098
+ U Advect 1.177000
+ V Advect 5.441701
+ Project 16.080500
+ D Diffuse 13.729400
+ D Advect 0.926200
+ TOTAL TIME 107.065994
+_______________________________________
+Time to run in milliseconds: 0.587700
+_____________________________________________________________________________
+ Frame totals 172
+ U Diffuse 16.526701
+ V Diffuse 14.859498
+ U Advect 1.183000
+ V Advect 5.472901
+ Project 16.154800
+ D Diffuse 13.817800
+ D Advect 0.930400
+ TOTAL TIME 107.618294
+_______________________________________
+Time to run in milliseconds: 0.552300
+_____________________________________________________________________________
+ Frame totals 173
+ U Diffuse 16.608101
+ V Diffuse 14.927198
+ U Advect 1.189100
+ V Advect 5.507401
+ Project 16.258001
+ D Diffuse 13.905499
+ D Advect 0.934700
+ TOTAL TIME 108.212692
+_______________________________________
+Time to run in milliseconds: 0.594400
+_____________________________________________________________________________
+ Frame totals 174
+ U Diffuse 16.690102
+ V Diffuse 14.994598
+ U Advect 1.195600
+ V Advect 5.542901
+ Project 16.347101
+ D Diffuse 13.970799
+ D Advect 0.938200
+ TOTAL TIME 108.806595
+_______________________________________
+Time to run in milliseconds: 0.593900
+_____________________________________________________________________________
+ Frame totals 175
+ U Diffuse 16.782301
+ V Diffuse 15.062299
+ U Advect 1.201900
+ V Advect 5.584201
+ Project 16.428902
+ D Diffuse 14.115000
+ D Advect 0.942700
+ TOTAL TIME 109.558098
+_______________________________________
+Time to run in milliseconds: 0.751500
+_____________________________________________________________________________
+ Frame totals 176
+ U Diffuse 16.860901
+ V Diffuse 15.126799
+ U Advect 1.208100
+ V Advect 5.617301
+ Project 16.515602
+ D Diffuse 14.185200
+ D Advect 0.946600
+ TOTAL TIME 110.170998
+_______________________________________
+Time to run in milliseconds: 0.612900
+_____________________________________________________________________________
+ Frame totals 177
+ U Diffuse 16.941101
+ V Diffuse 15.189898
+ U Advect 1.214000
+ V Advect 5.656501
+ Project 16.593801
+ D Diffuse 14.250199
+ D Advect 0.950000
+ TOTAL TIME 110.689301
+_______________________________________
+Time to run in milliseconds: 0.518300
+_____________________________________________________________________________
+ Frame totals 178
+ U Diffuse 17.016401
+ V Diffuse 15.325998
+ U Advect 1.219900
+ V Advect 5.701201
+ Project 16.671701
+ D Diffuse 14.318099
+ D Advect 0.953600
+ TOTAL TIME 111.286400
+_______________________________________
+Time to run in milliseconds: 0.597100
+_____________________________________________________________________________
+ Frame totals 179
+ U Diffuse 17.092402
+ V Diffuse 15.417998
+ U Advect 1.226200
+ V Advect 5.736901
+ Project 16.786102
+ D Diffuse 14.397499
+ D Advect 0.957500
+ TOTAL TIME 111.924797
+_______________________________________
+Time to run in milliseconds: 0.638400
+_____________________________________________________________________________
+ Frame totals 180
+ U Diffuse 17.174301
+ V Diffuse 15.485298
+ U Advect 1.232400
+ V Advect 5.793701
+ Project 16.865902
+ D Diffuse 14.463499
+ D Advect 0.961600
+ TOTAL TIME 112.546196
+_______________________________________
+Time to run in milliseconds: 0.621400
+_____________________________________________________________________________
+ Frame totals 181
+ U Diffuse 17.246801
+ V Diffuse 15.548998
+ U Advect 1.238300
+ V Advect 5.842201
+ Project 16.949102
+ D Diffuse 14.536699
+ D Advect 0.964900
+ TOTAL TIME 113.079292
+_______________________________________
+Time to run in milliseconds: 0.533100
+_____________________________________________________________________________
+ Frame totals 182
+ U Diffuse 17.321402
+ V Diffuse 15.614198
+ U Advect 1.244600
+ V Advect 5.874901
+ Project 17.025902
+ D Diffuse 14.601399
+ D Advect 0.968400
+ TOTAL TIME 113.581490
+_______________________________________
+Time to run in milliseconds: 0.502200
+_____________________________________________________________________________
+ Frame totals 183
+ U Diffuse 17.401802
+ V Diffuse 15.692098
+ U Advect 1.250800
+ V Advect 5.915801
+ Project 17.107903
+ D Diffuse 14.668400
+ D Advect 0.972500
+ TOTAL TIME 114.144287
 _______________________________________
 Time to run in milliseconds: 0.562800
 _____________________________________________________________________________
- Frame totals 150
- U Diffuse 14.324901
- V Diffuse 12.661397
- U Advect 1.517700
- V Advect 4.984899
- Project 14.791699
- D Diffuse 11.448003
- D Advect 0.651700
- TOTAL TIME 95.908913
+ Frame totals 184
+ U Diffuse 17.480402
+ V Diffuse 15.755998
+ U Advect 1.256900
+ V Advect 5.950101
+ Project 17.182003
+ D Diffuse 14.739400
+ D Advect 0.976100
+ TOTAL TIME 114.696289
 _______________________________________
-Time to run in milliseconds: 0.611800
+Time to run in milliseconds: 0.552000
 _____________________________________________________________________________
- Frame totals 151
- U Diffuse 14.401900
- V Diffuse 12.729297
- U Advect 1.524300
- V Advect 5.026598
- Project 14.872000
- D Diffuse 11.516703
- D Advect 0.655500
- TOTAL TIME 96.493713
+ Frame totals 185
+ U Diffuse 17.556602
+ V Diffuse 15.900998
+ U Advect 1.263300
+ V Advect 6.010001
+ Project 17.266403
+ D Diffuse 14.838600
+ D Advect 0.980200
+ TOTAL TIME 115.377792
 _______________________________________
-Time to run in milliseconds: 0.584800
+Time to run in milliseconds: 0.681500
 _____________________________________________________________________________
- Frame totals 152
- U Diffuse 14.480200
- V Diffuse 12.798797
- U Advect 1.530600
- V Advect 5.086298
- Project 14.952400
- D Diffuse 11.586503
- D Advect 0.659900
- TOTAL TIME 97.062210
+ Frame totals 186
+ U Diffuse 17.719103
+ V Diffuse 15.979698
+ U Advect 1.269000
+ V Advect 6.046000
+ Project 17.345203
+ D Diffuse 14.905100
+ D Advect 0.984000
+ TOTAL TIME 115.988693
 _______________________________________
-Time to run in milliseconds: 0.568500
+Time to run in milliseconds: 0.610900
+_____________________________________________________________________________
+ Frame totals 187
+ U Diffuse 17.790302
+ V Diffuse 16.042297
+ U Advect 1.274700
+ V Advect 6.093000
+ Project 17.418604
+ D Diffuse 14.972700
+ D Advect 0.988100
+ TOTAL TIME 116.523491
+_______________________________________
+Time to run in milliseconds: 0.534800
+_____________________________________________________________________________
+ Frame totals 188
+ U Diffuse 17.866302
+ V Diffuse 16.117397
+ U Advect 1.281100
+ V Advect 6.126501
+ Project 17.498703
+ D Diffuse 15.038500
+ D Advect 0.991500
+ TOTAL TIME 117.074394
+_______________________________________
+Time to run in milliseconds: 0.550900
+_____________________________________________________________________________
+ Frame totals 189
+ U Diffuse 18.073402
+ V Diffuse 16.184097
+ U Advect 1.287200
+ V Advect 6.169900
+ Project 17.576202
+ D Diffuse 15.208099
+ D Advect 1.001100
+ TOTAL TIME 118.042992
+_______________________________________
+Time to run in milliseconds: 0.968600
+_____________________________________________________________________________
+ Frame totals 190
+ U Diffuse 18.155802
+ V Diffuse 16.247597
+ U Advect 1.293300
+ V Advect 6.200901
+ Project 17.649902
+ D Diffuse 15.272599
+ D Advect 1.004500
+ TOTAL TIME 118.542091
+_______________________________________
+Time to run in milliseconds: 0.499100
+_____________________________________________________________________________
+ Frame totals 191
+ U Diffuse 18.228201
+ V Diffuse 16.310698
+ U Advect 1.299500
+ V Advect 6.247100
+ Project 17.781603
+ D Diffuse 15.337799
+ D Advect 1.008400
+ TOTAL TIME 119.113388
+_______________________________________
+Time to run in milliseconds: 0.571300
+_____________________________________________________________________________
+ Frame totals 192
+ U Diffuse 18.307600
+ V Diffuse 16.374397
+ U Advect 1.305400
+ V Advect 6.284500
+ Project 17.856503
+ D Diffuse 15.408299
+ D Advect 1.012200
+ TOTAL TIME 119.714188
+_______________________________________
+Time to run in milliseconds: 0.600800
+_____________________________________________________________________________
+ Frame totals 193
+ U Diffuse 18.384399
+ V Diffuse 16.438698
+ U Advect 1.311600
+ V Advect 6.316400
+ Project 17.932302
+ D Diffuse 15.480700
+ D Advect 1.015600
+ TOTAL TIME 120.281784
+_______________________________________
+Time to run in milliseconds: 0.567600
+_____________________________________________________________________________
+ Frame totals 194
+ U Diffuse 18.460499
+ V Diffuse 16.504797
+ U Advect 1.317400
+ V Advect 6.362200
+ Project 18.011702
+ D Diffuse 15.545899
+ D Advect 1.019000
+ TOTAL TIME 120.822983
+_______________________________________
+Time to run in milliseconds: 0.541200
+_____________________________________________________________________________
+ Frame totals 195
+ U Diffuse 18.625299
+ V Diffuse 16.691896
+ U Advect 1.323900
+ V Advect 6.445400
+ Project 18.091602
+ D Diffuse 15.613099
+ D Advect 1.022900
+ TOTAL TIME 121.623680
+_______________________________________
+Time to run in milliseconds: 0.800700
+_____________________________________________________________________________
+ Frame totals 196
+ U Diffuse 18.700899
+ V Diffuse 16.755796
+ U Advect 1.330100
+ V Advect 6.484900
+ Project 18.167501
+ D Diffuse 15.685299
+ D Advect 1.030500
+ TOTAL TIME 122.171082
+_______________________________________
+Time to run in milliseconds: 0.547400
+_____________________________________________________________________________
+ Frame totals 197
+ U Diffuse 18.789499
+ V Diffuse 16.829596
+ U Advect 1.336500
+ V Advect 6.537701
+ Project 18.253002
+ D Diffuse 15.758399
+ D Advect 1.034500
+ TOTAL TIME 122.745079
+_______________________________________
+Time to run in milliseconds: 0.574000
+_____________________________________________________________________________
+ Frame totals 198
+ U Diffuse 18.871599
+ V Diffuse 16.895395
+ U Advect 1.342700
+ V Advect 6.571901
+ Project 18.330202
+ D Diffuse 15.826899
+ D Advect 1.038300
+ TOTAL TIME 123.284477
+_______________________________________
+Time to run in milliseconds: 0.539400
+_____________________________________________________________________________
+ Frame totals 199
+ U Diffuse 18.955898
+ V Diffuse 16.963396
+ U Advect 1.348700
+ V Advect 6.603401
+ Project 18.409203
+ D Diffuse 15.892798
+ D Advect 1.041700
+ TOTAL TIME 123.801880
+_______________________________________
+Time to run in milliseconds: 0.517400
+_____________________________________________________________________________
+ Frame totals 200
+ U Diffuse 19.041597
+ V Diffuse 17.026997
+ U Advect 1.355200
+ V Advect 6.641701
+ Project 18.490002
+ D Diffuse 15.957898
+ D Advect 1.045300
+ TOTAL TIME 124.403976
+_______________________________________
+Time to run in milliseconds: 0.602100
+_____________________________________________________________________________
+ Frame totals 201
+ U Diffuse 19.125397
+ V Diffuse 17.091196
+ U Advect 1.361000
+ V Advect 6.670101
+ Project 18.564402
+ D Diffuse 16.026598
+ D Advect 1.048700
+ TOTAL TIME 124.960274
+_______________________________________
+Time to run in milliseconds: 0.556300
+_____________________________________________________________________________
+ Frame totals 202
+ U Diffuse 19.197197
+ V Diffuse 17.154696
+ U Advect 1.366800
+ V Advect 6.704101
+ Project 18.639801
+ D Diffuse 16.131199
+ D Advect 1.055200
+ TOTAL TIME 125.512077
+_______________________________________
+Time to run in milliseconds: 0.551800
+_____________________________________________________________________________
+ Frame totals 203
+ U Diffuse 19.282396
+ V Diffuse 17.221596
+ U Advect 1.373000
+ V Advect 6.747900
+ Project 18.716801
+ D Diffuse 16.209398
+ D Advect 1.059700
+ TOTAL TIME 126.089378
+_______________________________________
+Time to run in milliseconds: 0.577300
+_____________________________________________________________________________
+ Frame totals 204
+ U Diffuse 19.366997
+ V Diffuse 17.285795
+ U Advect 1.378600
+ V Advect 6.779800
+ Project 18.791201
+ D Diffuse 16.276598
+ D Advect 1.063600
+ TOTAL TIME 126.647675
+_______________________________________
+Time to run in milliseconds: 0.558300
+_____________________________________________________________________________
+ Frame totals 205
+ U Diffuse 19.442196
+ V Diffuse 17.349695
+ U Advect 1.384700
+ V Advect 6.837700
+ Project 18.866301
+ D Diffuse 16.347597
+ D Advect 1.067800
+ TOTAL TIME 127.303978
+_______________________________________
+Time to run in milliseconds: 0.656300
+_____________________________________________________________________________
+ Frame totals 206
+ U Diffuse 19.520395
+ V Diffuse 17.421495
+ U Advect 1.390900
+ V Advect 6.873400
+ Project 18.944000
+ D Diffuse 16.412697
+ D Advect 1.071800
+ TOTAL TIME 127.827278
+_______________________________________
+Time to run in milliseconds: 0.523300
+_____________________________________________________________________________
+ Frame totals 207
+ U Diffuse 19.623695
+ V Diffuse 17.565296
+ U Advect 1.400800
+ V Advect 6.942500
+ Project 19.080200
+ D Diffuse 16.672596
+ D Advect 1.085000
+ TOTAL TIME 128.915176
+_______________________________________
+Time to run in milliseconds: 1.087900
+_____________________________________________________________________________
+ Frame totals 208
+ U Diffuse 19.710495
+ V Diffuse 17.631897
+ U Advect 1.407700
+ V Advect 6.982200
+ Project 19.159401
+ D Diffuse 16.797895
+ D Advect 1.090300
+ TOTAL TIME 129.525375
+_______________________________________
+Time to run in milliseconds: 0.610200
