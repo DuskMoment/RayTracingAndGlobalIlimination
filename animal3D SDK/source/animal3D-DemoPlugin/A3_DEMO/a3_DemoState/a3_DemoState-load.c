@@ -1115,7 +1115,7 @@ void a3demo_loadFramebuffers(a3_DemoState* demoState)
 
 	// frame sizes
 	const a3ui16 frameWidth1 = demoState->frameWidth, frameHeight1 = demoState->frameHeight;
-	const a3ui16 frameWidth2 = 40, frameHeight2 = 40;
+	const a3ui16 frameWidth2 = 800, frameHeight2 = 800;
 
 	// storage precision and targets
 	const a3_FramebufferColorType colorType_scene = a3fbo_colorRGBA16;

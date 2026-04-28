@@ -73,7 +73,7 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 
 	// draw fsq with active texture
 	const a3_SceneShaderProgram* currentDemoProgram = demoState->prog_drawTexture;
-	a3shaderProgramActivate(currentDemoProgram->program);
+	//a3shaderProgramActivate(currentDemoProgram->program);
 
 	const a3_VertexDrawable* currentDrawable = demoState->draw_unit_plane_z;
 	a3vertexDrawableActivate(currentDrawable);
@@ -110,17 +110,17 @@ static void bounds(a3_DemoState const* demoState, int targetIndex, a3_Framebuffe
 	a3vertexDrawableActivate(currentDrawable);
 
 	// COMPOSITE for display only
-	/*a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
-		-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
-	currentDrawable = demoState->draw_unit_plane_z;
-	currentDemoProgram = demoState->prog_drawTexture;
-	a3vertexDrawableActivate(currentDrawable);
-	a3shaderProgramActivate(currentDemoProgram->program);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
-	a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
-	a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
-	a3framebufferBindColorTexture(drawToBuffer, a3tex_unit00, 0);
-	a3vertexDrawableRenderActive();*/
+	//a3framebufferDeactivateSetViewport(a3fbo_depthDisable,
+	//	-demoState->frameBorder, -demoState->frameBorder, demoState->frameWidth, demoState->frameHeight);
+	//currentDrawable = demoState->draw_unit_plane_z;
+	//currentDemoProgram = demoState->prog_drawTexture;
+	//a3vertexDrawableActivate(currentDrawable);
+	//a3shaderProgramActivate(currentDemoProgram->program);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uMVP, 1, fsq.mm);
+	//a3shaderUniformSendFloatMat(a3unif_mat4, 0, currentDemoProgram->uAtlas, 1, a3mat4_identity.mm);
+	//a3shaderUniformSendFloat(a3unif_vec4, currentDemoProgram->uColor, 1, a3vec4_one.v);
+	//a3framebufferBindColorTexture(drawToBuffer, a3tex_unit00, 0);
+	//a3vertexDrawableRenderActive();
 }
 
 // controls for pipelines mode
